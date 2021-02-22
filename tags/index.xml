@@ -2,70 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mi blog estático</title>
-    <link>http://daniel-zamo.github.io/tags/</link>
+    <link>https://daniel-zamo.github.io/tags/</link>
     <description>Recent content in Tags on Mi blog estático</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 22 Feb 2021 02:13:50 +0000</lastBuildDate><atom:link href="http://daniel-zamo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 Feb 2021 02:13:50 +0000</lastBuildDate><atom:link href="https://daniel-zamo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Containers</title>
-      <link>http://daniel-zamo.github.io/tags/containers/</link>
+      <link>https://daniel-zamo.github.io/tags/containers/</link>
       <pubDate>Mon, 22 Feb 2021 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/containers/</guid>
+      <guid>https://daniel-zamo.github.io/tags/containers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>http://daniel-zamo.github.io/tags/docker/</link>
+      <link>https://daniel-zamo.github.io/tags/docker/</link>
       <pubDate>Mon, 22 Feb 2021 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/docker/</guid>
+      <guid>https://daniel-zamo.github.io/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>http://daniel-zamo.github.io/tags/development/</link>
+      <link>https://daniel-zamo.github.io/tags/development/</link>
       <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/development/</guid>
+      <guid>https://daniel-zamo.github.io/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>go</title>
-      <link>http://daniel-zamo.github.io/tags/go/</link>
+      <link>https://daniel-zamo.github.io/tags/go/</link>
       <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/go/</guid>
+      <guid>https://daniel-zamo.github.io/tags/go/</guid>
       <description></description>
     </item>
     
     <item>
       <title>golang</title>
-      <link>http://daniel-zamo.github.io/tags/golang/</link>
+      <link>https://daniel-zamo.github.io/tags/golang/</link>
       <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/golang/</guid>
+      <guid>https://daniel-zamo.github.io/tags/golang/</guid>
       <description></description>
     </item>
     
     <item>
       <title>templates</title>
-      <link>http://daniel-zamo.github.io/tags/templates/</link>
+      <link>https://daniel-zamo.github.io/tags/templates/</link>
       <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/templates/</guid>
+      <guid>https://daniel-zamo.github.io/tags/templates/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>http://daniel-zamo.github.io/tags/themes/</link>
+      <link>https://daniel-zamo.github.io/tags/themes/</link>
       <pubDate>Wed, 02 Apr 2014 02:13:50 +0000</pubDate>
       
-      <guid>http://daniel-zamo.github.io/tags/themes/</guid>
+      <guid>https://daniel-zamo.github.io/tags/themes/</guid>
       <description></description>
     </item>
     
