@@ -25,8 +25,8 @@ Referencias  WORDPRESS Y MYSQL con DOCKER COMPOSE, por el Pelado Nerd.  </descri
       <description>Comandos desde el cli de Linux.
 Comando sed Expresiones regulares Eliminar líneas
 [1] El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias.
-sed -e &amp;#39;/^[[:blank:]]*#/d&amp;#39; -e &amp;#39;/^$/d&amp;#39; ARCHIVO [2] El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias, o que solo contengan espacios.
-sed -e &amp;#39;/^[[:blank:]]*#/d&amp;#39; -e &amp;#39;/^[[:blank:]]*$/d&amp;#39; ARCHIVO Referencias  WORDPRESS Y MYSQL con DOCKER COMPOSE, por el Pelado Nerd.  </description>
+sed -e &#39;/^[[:blank:]]*#/d&#39; -e &#39;/^$/d&#39; ARCHIVO [2] El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias, o que solo contengan espacios.
+sed -e &#39;/^[[:blank:]]*#/d&#39; -e &#39;/^[[:blank:]]*$/d&#39; ARCHIVO Referencias  WORDPRESS Y MYSQL con DOCKER COMPOSE, por el Pelado Nerd.  </description>
     </item>
     
     <item>

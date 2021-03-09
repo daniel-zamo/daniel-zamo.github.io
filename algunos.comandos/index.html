@@ -104,10 +104,10 @@
 <h3 id="expresiones-regulares">Expresiones regulares</h3>
 <p><em><strong>Eliminar líneas</strong></em></p>
 <p><em>[1]</em> El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -e <span style="color:#e6db74">&#39;/^[[:blank:]]*#/d&#39;</span> -e <span style="color:#e6db74">&#39;/^$/d&#39;</span> ARCHIVO
-</code></pre></div><p><em>[2]</em> El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias, o que solo contengan espacios.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -e <span style="color:#e6db74">&#39;/^[[:blank:]]*#/d&#39;</span> -e <span style="color:#e6db74">&#39;/^[[:blank:]]*$/d&#39;</span> ARCHIVO
-</code></pre></div><h2 id="referencias">Referencias</h2>
+<pre><code>sed -e '/^[[:blank:]]*#/d' -e '/^$/d' ARCHIVO
+</code></pre><p><em>[2]</em> El siguiente comando elimina lineas que comiencen con comentarios y las lineas vacias, o que solo contengan espacios.</p>
+<pre><code>sed -e '/^[[:blank:]]*#/d' -e '/^[[:blank:]]*$/d' ARCHIVO
+</code></pre><h2 id="referencias">Referencias</h2>
 <ul>
 <li><a href="https://www.youtube.com/watch?v=eoFxMaeB9H4&amp;ab_channel=PeladoNerd">WORDPRESS Y MYSQL con DOCKER COMPOSE</a>, por el Pelado Nerd.</li>
 </ul>
