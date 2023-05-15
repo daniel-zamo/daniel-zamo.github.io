@@ -1,0 +1,2 @@
+cli-codes/*.sh
+!cli-codes/_1*.sh
