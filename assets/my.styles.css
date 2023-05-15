@@ -69,3 +69,8 @@
 .bd-mode-toggle {
   z-index: 1500;
 }
+
+div.text-end p code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+}
