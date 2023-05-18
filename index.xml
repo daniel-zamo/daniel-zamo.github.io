@@ -110,6 +110,16 @@ Sequence Diagrams Syntax
     </item>
     
     <item>
+      <title>Getting Started with Hugo</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Show Table at once Section Status Author project 6 alpha weru project 4 beta dan project 4 candidate dahl project y abandoned weru project 1 alpha weru project 4 beta ryan project 4 candidate dan project y abandoned weru project 11 alpha dahl project 4 beta dan project 4 candidate dan project A abandoned weru Firstly define the data you want to display from the front matter:
+1# from page front matter 2[dataset2] 3 fileLink = &amp;#34;content/themes.</description>
+    </item>
+    
+    <item>
       <title>Graphs, charts &amp; dynamic tables</title>
       <link>/docs/compose/graphs-charts-tables/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -226,15 +236,6 @@ Mobile menu positioning The navigation menu when mobile browsing can be configur
       <guid>/docs/clarity/theme-overrides/</guid>
       <description>Custom CSS and JS To minimize HTTP requests per page, we would recommend loading CSS styles and JavaScript helpers in single bundles. That is to say, one CSS file and one JavaScript file. Using Hugo minify functions, these files will be minified to optimize the size.
 Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via the custom SASS file (Compose, Clarity) and the custom JS file (Compose, Clarity).</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>/blog/k8s-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/k8s-in-local/</guid>
-      <description>Show Table at once BEGIN</description>
     </item>
     
     <item>
