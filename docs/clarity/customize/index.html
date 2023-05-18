@@ -13,15 +13,29 @@
 <link rel="mask-icon" href='http://example.org/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='http://example.org/favicons/favicon.ico'>
 <meta name="msapplication-config" content='http://example.org/favicons/browserconfig.xml'>
-<title>Compose | My New Hugo Site</title><meta property="og:title" content="Compose" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/" />
+<title>Customization | My New Hugo Site</title><meta property="og:title" content="Customization" />
+<meta property="og:description" content="Configuration If set, jump over to the config.toml file and start configuring your site.
+This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there&#39;s a good chance it is covered in this Hugo docs page.
+Global Parameters These options set global values that some pages or all pages in the site use by default.
+Parameter Value Type Overidable on Page author string no twitter string no largeTwitterCard boolean no ga_analytics string no description string yes introDescription string no numberOfTagsShown integer no fallBackOgImage file path (string) no codeMaxLines integer yes codeLineNumbers boolean yes mainSections array/string no centerLogo boolean no logo file path (string) no mobileNavigation string no figurePositionShow boolean yes figurePositionLabel string no customCSS array of file path (string) no customJS array of file path (string) no enforceLightMode boolean N/A enforceDarkMode boolean N/A titleSeparator string no comment boolean no Page Parameters These options can be set from a page frontmatter or via archetypes." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/docs/clarity/customize/" /><meta property="article:section" content="docs" />
 
-<meta itemprop="name" content="Compose">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Compose"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Customization">
+<meta itemprop="description" content="Configuration If set, jump over to the config.toml file and start configuring your site.
+This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there&#39;s a good chance it is covered in this Hugo docs page.
+Global Parameters These options set global values that some pages or all pages in the site use by default.
+Parameter Value Type Overidable on Page author string no twitter string no largeTwitterCard boolean no ga_analytics string no description string yes introDescription string no numberOfTagsShown integer no fallBackOgImage file path (string) no codeMaxLines integer yes codeLineNumbers boolean yes mainSections array/string no centerLogo boolean no logo file path (string) no mobileNavigation string no figurePositionShow boolean yes figurePositionLabel string no customCSS array of file path (string) no customJS array of file path (string) no enforceLightMode boolean N/A enforceDarkMode boolean N/A titleSeparator string no comment boolean no Page Parameters These options can be set from a page frontmatter or via archetypes.">
+
+<meta itemprop="wordCount" content="689">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Customization"/>
+<meta name="twitter:description" content="Configuration If set, jump over to the config.toml file and start configuring your site.
+This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there&#39;s a good chance it is covered in this Hugo docs page.
+Global Parameters These options set global values that some pages or all pages in the site use by default.
+Parameter Value Type Overidable on Page author string no twitter string no largeTwitterCard boolean no ga_analytics string no description string yes introDescription string no numberOfTagsShown integer no fallBackOgImage file path (string) no codeMaxLines integer yes codeLineNumbers boolean yes mainSections array/string no centerLogo boolean no logo file path (string) no mobileNavigation string no figurePositionShow boolean yes figurePositionLabel string no customCSS array of file path (string) no customJS array of file path (string) no enforceLightMode boolean N/A enforceDarkMode boolean N/A titleSeparator string no comment boolean no Page Parameters These options can be set from a page frontmatter or via archetypes."/>
 
 
 <link rel="stylesheet" href="http://example.org/css/styles.87547bd71204bdd3ff3b4277df4b96bb02087a3568573f3cf373651d945044750abbcaa103cbcec383837dd5ca5e42eefa22e13a555a7d4a1995912b20f2467e.css" integrity="sha512-h1R71xIEvdP/O0J330uWuwIIejVoVz8883NlHZRQRHUKu8qhA8vOw4ODfdXKXkLu&#43;iLhOlVafUoZlZErIPJGfg==">
@@ -29,9 +43,14 @@
 
 
 
+  <meta name="description" content="Configuration If set, jump over to the config.toml file and start configuring your site.
+This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there&#39;s a good chance it is covered in this Hugo docs page.
+Global Parameters These options set global values that some pages or all pages in the site use by default.
+Parameter Value Type Overidable on Page author string no twitter string no largeTwitterCard boolean no ga_analytics string no description string yes introDescription string no numberOfTagsShown integer no fallBackOgImage file path (string) no codeMaxLines integer yes codeLineNumbers boolean yes mainSections array/string no centerLogo boolean no logo file path (string) no mobileNavigation string no figurePositionShow boolean yes figurePositionLabel string no customCSS array of file path (string) no customJS array of file path (string) no enforceLightMode boolean N/A enforceDarkMode boolean N/A titleSeparator string no comment boolean no Page Parameters These options can be set from a page frontmatter or via archetypes.">
+
 
 </head>
-<body class="page-home" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='http://example.org/' class="nav_brand">
@@ -52,7 +71,7 @@
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search site" id="find" autocomplete="off" data-scope=''>
+    <input type="search" class="search_field  standardize-input" placeholder="Search docs" id="find" autocomplete="off" data-scope='docs'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -96,36 +115,552 @@
     
     
       
-        
-      
-    
-      <div class="content">
-<div class="content">
-  <section class="grid-2"  >
-<div><h1 id="artículos-compartidos-aquí">Artículos compartidos aquí.</h1>
-<p>Este sitio esta generado con <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>. Actualmente utiliza el theme <a href="https://github.com/onweru/compose" title="Repositorio del theme">Compose</a></p>
+    <div class="grid-auto"><aside class="aside menu">
+  <div>
+    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_carly">
+  <use href="#carly"></use>
+</svg></label>
+  </div>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="http://example.org/docs/" class="group">Themes&#39; Docs</a></h2>
+      <section class="" id="docs-themes-docs">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="http://example.org/docs/compose/" class="group">Compose Docs</a></h2>
+      <section class="" id="docs-compose-docs">
+        <h3 class="section_link"><a id="docs-install-theme" href="http://example.org/docs/compose/install-theme/">Install theme</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-your-site-with-compose-theme">Run your site with compose theme</a>
+      <ul>
+        <li><a href="#option-1-my-favorite">Option 1 (my favorite)</a></li>
+        <li><a href="#option-2-recommended">Option 2 (recommended)</a></li>
+        <li><a href="#option-3-great-for-testing-quickly">Option 3 (Great for testing quickly)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-use-forestry-cms" href="http://example.org/docs/compose/use-forestry-cms/">Use forestry CMS</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites-">Prerequisites !!</a>
+      <ul>
+        <li><a href="#requirement-1--a-forestry-account">Requirement 1 : A Forestry account</a></li>
+        <li><a href="#requirement-2-a-netlify-account-_optional_">Requirement 2: A Netlify account <em>(optional)</em></a></li>
+        <li><a href="#step-1--fork-or-clone-compse-theme">Step 1 : Fork or Clone Compse theme</a></li>
+        <li><a href="#step-2--add-your-repository-in-forestry">Step 2 : Add your repository in Forestry</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-content-organization" href="http://example.org/docs/compose/organize-content/">Content organization</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#documentation">Documentation</a></li>
+            <li><a href="#home-page">Home Page</a></li>
+            <li><a href="#other-pages">Other pages</a></li>
+            <li><a href="#does-this-theme-support-blogging-function">Does this theme support blogging function?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-shortcodes" href="http://example.org/docs/compose/shortcodes/">Shortcodes</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#block">Block</a></li>
+        <li><a href="#column">Column</a></li>
+        <li><a href="#youtube-video">Youtube Video</a></li>
+        <li><a href="#button">Button</a></li>
+        <li><a href="#picture">Picture</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#tip">Tip</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-search-function" href="http://example.org/docs/compose/search/">Search Function</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-passive-search">1. Passive search</a></li>
+        <li><a href="#2-live-search">2. Live search</a></li>
+        <li><a href="#customize-search-feedback-labels">Customize search feedback labels</a></li>
+        <li><a href="#what-is-a-valid-search-query">What is a valid search query</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-mermaid" href="http://example.org/docs/compose/mermaid/">Mermaid</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sequence-diagrams">Sequence Diagrams</a></li>
+        <li><a href="#flow-charts">Flow Charts</a></li>
+        <li><a href="#graphs">Graphs</a></li>
+        <li><a href="#class-diagram">Class Diagram</a></li>
+        <li><a href="#state-diagram">State Diagram</a></li>
+        <li><a href="#relationship-diagrams">Relationship Diagrams</a></li>
+        <li><a href="#user-journey">User Journey</a></li>
+        <li><a href="#gantt">Gantt</a></li>
+        <li><a href="#pie-chart">Pie Chart</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-graphs-charts--dynamic-tables" href="http://example.org/docs/compose/graphs-charts-tables/">Graphs, charts &amp; dynamic tables</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#show-a-pie-doughnut--bar-chart-at-once">Show a pie, doughnut &amp; bar chart at once</a></li>
+            <li><a href="#__show-table-at-once__"><strong>Show Table at once</strong></a></li>
+            <li><a href="#show-only-a-pie-and-a-doughnut-chart">Show only a pie and a doughnut chart</a></li>
+            <li><a href="#show-table-with-filter">Show table with filter</a></li>
+            <li><a href="#show-table-only">Show table only</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-customize-layouts--components" href="http://example.org/docs/compose/customize/">Customize layouts &amp; components</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#shortcodes-modifiers">Shortcodes modifiers</a>
+          <ul>
+            <li><a href="#grid">Grid</a></li>
+            <li><a href="#spacing">Spacing</a></li>
+          </ul>
+        </li>
+        <li><a href="#how-do-i-disable-dark-mode">How do I disable dark mode?</a></li>
+        <li><a href="#how-do-i-change-the-theme-color">How do I change the theme color?</a></li>
+        <li><a href="#how-can-i-change-the-address-bar-color-on-mobile-devices">How can I change the address bar color on mobile devices?</a></li>
+        <li><a href="#how-do-i-add-custom-styles-scripts-meta-tags-etc">How do I add custom styles, scripts, meta tags e.t.c</a></li>
+        <li><a href="#i-want-to-add-custom-sass-or-js">I want to add custom SASS or JS</a></li>
+        <li><a href="#how-to-change-site-favicon">How to change site favicon</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-leverage-github-actions" href="http://example.org/docs/compose/github-actions/">Leverage Github actions</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#aws-ci">AWS CI</a></li>
+    <li><a href="#algolia-ci">Algolia CI</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="http://example.org/docs/clarity/" class="group">Clarity Docs</a></h2>
+      <section class="" id="docs-clarity-docs">
+        <h3 class="section_link"><a id="docs-getting-started" href="http://example.org/docs/clarity/getting-started/">Getting started</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#prerequisites">Prerequisites</a></li>
+    <li><a href="#getting-up-and-running">Getting up and running</a>
+      <ul>
+        <li><a href="#option-1-recommended">Option 1 (recommended)</a></li>
+        <li><a href="#option-2-great-for-testing-quickly">Option 2 (Great for testing quickly)</a></li>
+        <li><a href="#option-3-the-new-most-fun--painless-approach">Option 3 (The new, most fun &amp; painless approach)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-features" href="http://example.org/docs/clarity/features/">Features</a></h3><nav id="TableOfContents"></nav>
+        <h3 class="section_link active"><a id="docs-customization" href="http://example.org/docs/clarity/customize/">Customization</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuration">Configuration</a>
+      <ul>
+        <li><a href="#global-parameters">Global Parameters</a></li>
+        <li><a href="#page-parameters">Page Parameters</a></li>
+        <li><a href="#modify-links-menu">Modify links menu</a></li>
+        <li><a href="#social-media">Social media</a></li>
+        <li><a href="#search-engine">Search engine</a></li>
+        <li><a href="#forcing-light-or-dark-mode">Forcing light or dark mode</a></li>
+        <li><a href="#i18n">I18N</a></li>
+        <li><a href="#comments">Comments</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-manipulating-images" href="http://example.org/docs/clarity/images/">Manipulating Images</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#images">Images</a>
+      <ul>
+        <li><a href="#image-figure-captions">Image figure captions</a></li>
+        <li><a href="#image-figure-captions-example">Image figure captions example</a></li>
+        <li><a href="#inline-images">Inline images</a></li>
+        <li><a href="#inline-images-example">Inline images example</a></li>
+        <li><a href="#float-images-to-the-left">Float images to the left</a></li>
+        <li><a href="#float-images-left-example">Float images left example</a></li>
+        <li><a href="#add-classes-to-images">Add classes to images</a></li>
+        <li><a href="#image-class-example">Image class example</a></li>
+        <li><a href="#article-thumbnail-image">Article thumbnail image</a></li>
+        <li><a href="#article-featured-image">Article featured image</a></li>
+        <li><a href="#share-image">Share Image</a></li>
+        <li><a href="#align-logo">Align logo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-blogging" href="http://example.org/docs/clarity/blogging/">Blogging</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#blog-directory">Blog directory</a></li>
+        <li><a href="#mobile-menu-positioning">Mobile menu positioning</a></li>
+        <li><a href="#tags-and-taxonomies">Tags and Taxonomies</a>
+          <ul>
+            <li><a href="#show-number-of-tags">Show number of tags</a></li>
+            <li><a href="#number-of-tags-example">Number of tags example</a></li>
+          </ul>
+        </li>
+        <li><a href="#table-of-contents">Table of contents</a>
+          <ul>
+            <li><a href="#table-of-contents-toc-example">Table of contents (TOC) example</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-syntax-highlighting" href="http://example.org/docs/clarity/syntax-highlighting/">Syntax Highlighting</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#code">Code</a>
+          <ul>
+            <li><a href="#display-line-numbers">Display line numbers</a></li>
+            <li><a href="#limit-code-block-height">Limit code block height</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-theme-overrides" href="http://example.org/docs/clarity/theme-overrides/">Theme Overrides</a></h3><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#custom-css-and-js">Custom CSS and JS</a></li>
+        <li><a href="#hooks">Hooks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </section>
+  </section>
+      </section>
+  </section>
+</aside>
+
+  <main class="content">
+    <h1>Customization</h1><h2 id="configuration">Configuration</h2>
+<p>If set, jump over to the <code>config.toml</code> file and start <a href="#configuration">configuring</a> your site.</p>
+<p>This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there's a good chance it is covered in <a href="https://gohugo.io/getting-started/configuration/#configuration-file">this Hugo docs page</a>.</p>
+<h3 id="global-parameters">Global Parameters</h3>
+<p>These options set global values that some pages or all pages in the site use by default.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th>Value Type</th>
+<th>Overidable on Page</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">author</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">twitter</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">largeTwitterCard</td>
+<td>boolean</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">ga_analytics</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td>string</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">introDescription</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">numberOfTagsShown</td>
+<td>integer</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">fallBackOgImage</td>
+<td>file path (string)</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">codeMaxLines</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">codeLineNumbers</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">mainSections</td>
+<td>array/string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">centerLogo</td>
+<td>boolean</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">logo</td>
+<td>file path (string)</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">mobileNavigation</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">figurePositionShow</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">figurePositionLabel</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">customCSS</td>
+<td>array of file path (string)</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">customJS</td>
+<td>array of file path (string)</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">enforceLightMode</td>
+<td>boolean</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">enforceDarkMode</td>
+<td>boolean</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">titleSeparator</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">comment</td>
+<td>boolean</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="page-parameters">Page Parameters</h3>
+<p>These options can be set from a page <a href="https://gohugo.io/content-management/front-matter#readout">frontmatter</a> or via <a href="https://gohugo.io/content-management/archetypes/#readout">archetypes</a>.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th>Value Type</th>
+<th>Overrides Global</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">title</td>
+<td>string</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">date</td>
+<td>date</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">description</td>
+<td>string</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">draft</td>
+<td>boolean</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">featured</td>
+<td>boolean</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">tags</td>
+<td>array/string</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">categories</td>
+<td>array/string</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">toc</td>
+<td>boolean</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">thumbnail</td>
+<td>file path (string)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">featureImage</td>
+<td>file path (string)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">shareImage</td>
+<td>file path (string)</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td style="text-align:left">codeMaxLines</td>
+<td>integer</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">codeLineNumbers</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">figurePositionShow</td>
+<td>boolean</td>
+<td>yes</td>
+</tr>
+<tr>
+<td style="text-align:left">figurePositionLabel</td>
+<td>string</td>
+<td>no</td>
+</tr>
+<tr>
+<td style="text-align:left">comment</td>
+<td>boolean</td>
+<td>no</td>
+</tr>
+</tbody>
+</table>
+<h3 id="modify-links-menu">Modify links menu</h3>
+<p>To add, remove, or reorganize top menu items, <a href="https://github.com/chipzoller/hugo-clarity/blob/master/exampleSite/data/menu.yaml">edit this YAML file</a>. These menu items also display any categories (taxonomies) that might be configured for articles.</p>
+<h3 id="social-media">Social media</h3>
+<p>To edit your social media profile links, <a href="https://github.com/chipzoller/hugo-clarity/blob/master/exampleSite/data/social.yaml">edit this YAML file</a>.</p>
+<p>If you wish to globally use a <a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image">large Twitter summary card</a> when sharing posts, set the global parameter <code>largeTwitterCard</code> to <code>true</code>.</p>
+<h3 id="search-engine">Search engine</h3>
+<p>If using Google Analytics, configure the <code>ga_analytics</code> global parameter in your site with your ID.</p>
+<h3 id="forcing-light-or-dark-mode">Forcing light or dark mode</h3>
+<p>By default, sites authored using Clarity will load in the browser with the user's system-wide settings. I.e., if the underlying OS is set to dark mode, the site will automatically load in dark mode. Regardless of the default mode, a UI control switch exists to override the theme mode at the user's discretion.</p>
+<p>In order to override this behavior and force one mode or another, add either <code>enforceLightMode</code> or <code>enforceDarkMode</code> to your <code>config.toml</code> file. If neither value is present, add it.</p>
+<p>To enforce Light Mode by default, turn <code>enforceLightMode</code>  to <code>true</code>.</p>
+<p>To enforce Dark Mode by default, turn <code>enforceDarkMode</code>  to <code>true</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">[</span><span class="l">params]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="l">enforceLightMode = true</span><span class="w"> </span><span class="c"># Force the site to always load in light mode.</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><p>Please note that you cannot enforce both modes at the same time. It wouldn't make sense, would it?</p>
+
 <div class="tip tip_warning">
-  En este sitio comparto algunos artículos/notas respecto principalmente a despliegues/configuraciones de sistemas operativos sobre hardware de PC y/o servicios basados en servidores Linux, sobre diferentes distribuciones.
+  <blockquote>
+<p>Please also note that the mode toggle UI will remain in place. That way, if a user prefers dark mode, they can have their way. The best of both worlds.</p>
+</blockquote>
+
 </div>
-<div class="tip">
-  <h2 id="tecnologías-utilizadas-aquí">Tecnologías utilizadas aquí</h2>
-<p>Este sitio de contenido de páginas estáticas utiliza las siguientes tecnologías:</p>
+
+<h3 id="i18n">I18N</h3>
+<p>This theme supports Multilingual (i18n / internationalization / translations)</p>
+<p>The <code>exampleSite</code> gives you some examples already.
+You may extend the multilingual functionality by following the <a href="https://gohugo.io/content-management/multilingual/">official documentation</a>.</p>
+<p>Things to consider in multilingual:</p>
 <ul>
-<li><a href="https://docs.gitlab.com/ee/user/project/pages/" title="GitLab Pages">Page static</a> sobre repositorio desde el sitio <a href="https://www.gitlab.com" title="Gitlab">Gitlab</a>.</li>
-<li><a href="https://docs.gitlab.com/ee/ci/" title="GitLab CI/CD">GitLab CI/CD</a> para el despliegue desatendido/automático del contenido web.</li>
-<li>El theme <a href="https://github.com/onweru/compose">Compose</a> de <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>, el cual soporta generar diagramas, diagramas de flujo y gráficos circulares, a partir de texto de forma similar a hacerlo con <a href="https://www.markdownguide.org/">Markdown</a> utilizando <a href="https://mermaid.js.org/">mermaid</a>. También permite <a href="docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once">generar gráficos, cuadros</a> y tablas a partir de archivo csv <del>o json</del>.</li>
+<li><strong>supported languages</strong> are configured in <a href="./exampleSite/config/_default/languages.toml">config/_default/languages.toml</a></li>
+<li><strong>add new language support</strong> by creating a new file inside <a href="./i18n/">i18n</a> directory.
+Check for missing translations using <code>hugo server --i18n-warnings</code></li>
+<li><strong>taxonomy</strong> names (tags, categories, etc...) are translated in <a href="./i18n/">i18n</a> as well (translate the key)</li>
+<li><strong>menus</strong> are translated manually in the config files <a href="./exampleSite/config/_default/menus/">config/_default/menus/menu.xx.toml</a></li>
+<li><strong>menu's languages list</strong> are semi-hardcoded. You may chose another text for the menu entry with <a href="./exampleSite/config.toml">languageMenuName</a>. Please, do better and create a PR for that.</li>
+<li><strong>content</strong> must be translated individually. Read the <a href="https://gohugo.io/content-management/multilingual/#translate-your-content">official documentation</a> for information on how to do it.</li>
 </ul>
+<p><strong>note:</strong> if you do NOT want any translations (thus removing the translations menu entry), then you must not have any translations.
+In the exampleSite that's as easy as removing the extra translations from the <code>config/_default/...</code> or executing this onliner:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sed <span class="s1">&#39;/^\[pt]$/,$d&#39;</span> -i config/_default/languages.toml   <span class="o">&amp;&amp;</span>   rm config/_default/menus/menu.pt.toml
+</span></span></code></pre></div><h3 id="comments">Comments</h3>
+<p>Clarity supports Hugo built-in Disqus partial, you can enable Disqus simply by setting <a href="https://gohugo.io/templates/internal/#configure-disqus"><code>disqusShortname</code></a> in your configuration file.</p>
+
+<div class="tip">
+  <blockquote>
+<p><code>disqusShortname</code> should be placed in root level of configuration.</p>
+</blockquote>
+
+</div>
+
+<p>You can also create a file named <code>layouts/partials/comments.html</code> for customizing the comments, checkout <a href="https://gohugo.io/content-management/comments/#comments-alternatives">Comments Alternatives</a> for details.</p>
+
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="http://example.org/docs/clarity/features/" class="pager_link button" title="Features" rel="prev">
+        <span class="pager_label">Features</span>
+      </a>
+    </div>
+    
+  
+
+  
+    
+    <div class="pager_item next">
+      <a href="http://example.org/docs/clarity/images/" class="pager_link button" title="Manipulating Images" rel="next">
+        <span class="pager_label">Manipulating Images</span>
+      </a>
+    </div>
+    
+  
+</div>
+  </main>
 </div>
 </div>
-
-
-<div><img src="/images/scribble.jpg" alt="diy"></div>
-
-</section>
-
-
-</div>
-      </div></div>
   <script>
 
 const copy_text = 'Copy';
@@ -250,14 +785,5 @@ const no_matches_found = 'No matches found';
 <script src="http://example.org/js/search.min.c329b0d2781e5d9f65d006e55da4b25ca6ecbbec0e8213ddf28e38ebf7016f75d18fc0863985ffb416f80134d994a60718a7476f9e5b9b23af761259a3d2afc6.js" async></script>
 
 
-
-<script defer src=http://example.org/js/mermaid.min.js></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mermaid.initialize({
-      flowchart: { useMaxWidth: true }
-    });
-  });
-</script>
 </body>
 </html>

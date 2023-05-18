@@ -13,15 +13,35 @@
 <link rel="mask-icon" href='http://example.org/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='http://example.org/favicons/favicon.ico'>
 <meta name="msapplication-config" content='http://example.org/favicons/browserconfig.xml'>
-<title>Compose | My New Hugo Site</title><meta property="og:title" content="Compose" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/" />
+<title>Getting Started with Hugo | My New Hugo Site</title><meta property="og:title" content="Getting Started with Hugo" />
+<meta property="og:description" content="Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/blog/hugoisforlovers/" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2014-04-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-04-02T00:00:00+00:00" />
 
-<meta itemprop="name" content="Compose">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Compose"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="Getting Started with Hugo">
+<meta itemprop="description" content="Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:"><meta itemprop="datePublished" content="2014-04-02T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2014-04-02T00:00:00+00:00" />
+<meta itemprop="wordCount" content="370">
+<meta itemprop="keywords" content="go,golang,hugo,development," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting Started with Hugo"/>
+<meta name="twitter:description" content="Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:"/>
 
 
 <link rel="stylesheet" href="http://example.org/css/styles.87547bd71204bdd3ff3b4277df4b96bb02087a3568573f3cf373651d945044750abbcaa103cbcec383837dd5ca5e42eefa22e13a555a7d4a1995912b20f2467e.css" integrity="sha512-h1R71xIEvdP/O0J330uWuwIIejVoVz8883NlHZRQRHUKu8qhA8vOw4ODfdXKXkLu&#43;iLhOlVafUoZlZErIPJGfg==">
@@ -29,9 +49,16 @@
 
 
 
+  <meta name="description" content="Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at Install Hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313 Corresponding pseudo commands:">
+
 
 </head>
-<body class="page-home" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='http://example.org/' class="nav_brand">
@@ -52,7 +79,7 @@
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search site" id="find" autocomplete="off" data-scope=''>
+    <input type="search" class="search_field  standardize-input" placeholder="Search blog" id="find" autocomplete="off" data-scope='blog'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -91,41 +118,84 @@
 
   </header>
   
-  <div class="main wrap pt-4">
-    
-    
-    
-      
+  <div class="wrap mt post">
+    <div><p class="post_date">02. April 2014</p>
+      <h1 class="post_title">Getting Started with Hugo</h1>
+      <div class="post_body">
+        <div class="post_inner">
         
-      
+          
+          <img src="http://example.org/images/stuck.jpg" alt="stuck.jpg" class="post_thumbnail">
+        
+          <h2 id="step-1-install-hugo">Step 1. Install Hugo</h2>
+<p>Go to <a href="https://github.com/spf13/hugo/releases">Hugo releases</a> and download the
+appropriate version for your OS and architecture.</p>
+<p>Save it somewhere specific as we will be using it in the next step.</p>
+<p>More complete instructions are available at <a href="https://gohugo.io/getting-started/installing/">Install Hugo</a></p>
+<h2 id="step-2-build-the-docs">Step 2. Build the Docs</h2>
+<p>Hugo has its own example site which happens to also be the documentation site
+you are reading right now.</p>
+<p>Follow the following steps:</p>
+<ol>
+<li>Clone the <a href="http://github.com/spf13/hugo">Hugo repository</a></li>
+<li>Go into the repo</li>
+<li>Run hugo in server mode and build the docs</li>
+<li>Open your browser to http://localhost:1313</li>
+</ol>
+<p>Corresponding pseudo commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">    git clone https://github.com/spf13/hugo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nb">cd</span> hugo
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    /path/to/where/you/installed/hugo server --source<span class="o">=</span>./docs
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    &gt; <span class="m">29</span> pages created
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    &gt; <span class="m">0</span> tags index created
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    &gt; in <span class="m">27</span> ms
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    &gt; Web Server is available at http://localhost:1313
+</span></span><span class="line"><span class="ln">8</span><span class="cl">    &gt; Press ctrl+c to stop
+</span></span></code></pre></div><p>Once you've gotten here, follow along the rest of this page on your local build.</p>
+<h2 id="step-3-change-the-docs-site">Step 3. Change the docs site</h2>
+<p>Stop the Hugo process by hitting Ctrl+C.</p>
+<p>Now we are going to run hugo again, but this time with hugo in watch mode.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">    /path/to/hugo/from/step/1/hugo server --source<span class="o">=</span>./docs --watch
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    &gt; <span class="m">29</span> pages created
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    &gt; <span class="m">0</span> tags index created
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    &gt; in <span class="m">27</span> ms
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    &gt; Web Server is available at http://localhost:1313
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    &gt; Watching <span class="k">for</span> changes in /Users/spf13/Code/hugo/docs/content
+</span></span><span class="line"><span class="ln">7</span><span class="cl">    &gt; Press ctrl+c to stop
+</span></span></code></pre></div><p>Open your <a href="http://vim.spf13.com">favorite editor</a> and change one of the source
+content pages. How about changing this very file to <em>fix the typo</em>. How about changing this very file to <em>fix the typo</em>.</p>
+<p>Content files are found in <code>docs/content/</code>. Unless otherwise specified, files
+are located at the same relative location as the url, in our case
+<code>docs/content/overview/quickstart.md</code>.</p>
+<p>Change and save this file.. Notice what happened in your terminal.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">    &gt; Change detected, rebuilding site
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    &gt; <span class="m">29</span> pages created
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    &gt; <span class="m">0</span> tags index created
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    &gt; in <span class="m">26</span> ms
+</span></span></code></pre></div><p>Refresh the browser and observe that the typo is now fixed.</p>
+<p>Notice how quick that was. Try to refresh the site before it's finished building. I double dare you.
+Having nearly instant feedback enables you to have your creativity flow without waiting for long builds.</p>
+<h2 id="step-4-have-fun">Step 4. Have fun</h2>
+<p>The best way to learn something is to play with it.</p>
+
+        </div>
+        <div class="post_extra mb-2">
+          
+<div class="copy" data-before="" data-after="">
+  <svg class="icon">
+    <use xlink:href="#copy"></use>
+  </svg>
+</div>
+        </div>
+        <div>
+        
+        </div>
+      </div>
+    </div>
     
-      <div class="content">
-<div class="content">
-  <section class="grid-2"  >
-<div><h1 id="artículos-compartidos-aquí">Artículos compartidos aquí.</h1>
-<p>Este sitio esta generado con <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>. Actualmente utiliza el theme <a href="https://github.com/onweru/compose" title="Repositorio del theme">Compose</a></p>
-<div class="tip tip_warning">
-  En este sitio comparto algunos artículos/notas respecto principalmente a despliegues/configuraciones de sistemas operativos sobre hardware de PC y/o servicios basados en servidores Linux, sobre diferentes distribuciones.
-</div>
-<div class="tip">
-  <h2 id="tecnologías-utilizadas-aquí">Tecnologías utilizadas aquí</h2>
-<p>Este sitio de contenido de páginas estáticas utiliza las siguientes tecnologías:</p>
-<ul>
-<li><a href="https://docs.gitlab.com/ee/user/project/pages/" title="GitLab Pages">Page static</a> sobre repositorio desde el sitio <a href="https://www.gitlab.com" title="Gitlab">Gitlab</a>.</li>
-<li><a href="https://docs.gitlab.com/ee/ci/" title="GitLab CI/CD">GitLab CI/CD</a> para el despliegue desatendido/automático del contenido web.</li>
-<li>El theme <a href="https://github.com/onweru/compose">Compose</a> de <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>, el cual soporta generar diagramas, diagramas de flujo y gráficos circulares, a partir de texto de forma similar a hacerlo con <a href="https://www.markdownguide.org/">Markdown</a> utilizando <a href="https://mermaid.js.org/">mermaid</a>. También permite <a href="docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once">generar gráficos, cuadros</a> y tablas a partir de archivo csv <del>o json</del>.</li>
-</ul>
-</div>
-</div>
+  </div>
 
-
-<div><img src="/images/scribble.jpg" alt="diy"></div>
-
-</section>
-
-
-</div>
-      </div></div>
   <script>
 
 const copy_text = 'Copy';
@@ -250,14 +320,5 @@ const no_matches_found = 'No matches found';
 <script src="http://example.org/js/search.min.c329b0d2781e5d9f65d006e55da4b25ca6ecbbec0e8213ddf28e38ebf7016f75d18fc0863985ffb416f80134d994a60718a7476f9e5b9b23af761259a3d2afc6.js" async></script>
 
 
-
-<script defer src=http://example.org/js/mermaid.min.js></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mermaid.initialize({
-      flowchart: { useMaxWidth: true }
-    });
-  });
-</script>
 </body>
 </html>

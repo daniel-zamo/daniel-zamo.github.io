@@ -13,14 +13,14 @@
 <link rel="mask-icon" href='http://example.org/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='http://example.org/favicons/favicon.ico'>
 <meta name="msapplication-config" content='http://example.org/favicons/browserconfig.xml'>
-<title>Compose | My New Hugo Site</title><meta property="og:title" content="Compose" />
+<title>Development | My New Hugo Site</title><meta property="og:title" content="Development" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="http://example.org/" />
+<meta property="og:url" content="http://example.org/categories/development/" />
 
-<meta itemprop="name" content="Compose">
+<meta itemprop="name" content="Development">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Compose"/>
+<meta name="twitter:title" content="Development"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -31,7 +31,7 @@
 
 
 </head>
-<body class="page-home" id="pagetop">
+<body class="page-term" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='http://example.org/' class="nav_brand">
@@ -52,7 +52,7 @@
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search site" id="find" autocomplete="off" data-scope=''>
+    <input type="search" class="search_field  standardize-input" placeholder="Search categories" id="find" autocomplete="off" data-scope='categories'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -96,35 +96,47 @@
     
     
       
-        
-      
     
       <div class="content">
-<div class="content">
-  <section class="grid-2"  >
-<div><h1 id="artículos-compartidos-aquí">Artículos compartidos aquí.</h1>
-<p>Este sitio esta generado con <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>. Actualmente utiliza el theme <a href="https://github.com/onweru/compose" title="Repositorio del theme">Compose</a></p>
-<div class="tip tip_warning">
-  En este sitio comparto algunos artículos/notas respecto principalmente a despliegues/configuraciones de sistemas operativos sobre hardware de PC y/o servicios basados en servidores Linux, sobre diferentes distribuciones.
+
+<div class = 'wrap pt-2 mt-2'>
+    
+      
+    
+    
+    
+  <article class = 'article mb-2'>
+    <a href = 'http://example.org/blog/goisforlovers/'  class = 'grid-reverse' >
+      <div class = 'article_thumb' style='background-image: url(http://example.org/images/artist.jpg)'></div>
+      <div class = 'article_meta  center_y '>
+        <time class = 'post_date'>April 02, 2014</time>
+        <h3 class = 'article_title'>(Hu)go Template Primer</h3>
+        <div class = 'article_excerpt  visible '>
+        <p>Hugo uses the excellent Go html/template library for its template engine. It is an extremely …</p>
+        </div>
+      </div>
+    </a>
+  </article><div class = 'grid-2 article_showcase'>
+    
+      
+    
+    
+    
+  <article class = 'article mb-2'>
+    <a href = 'http://example.org/blog/hugoisforlovers/' >
+      <div class = 'article_thumb' style='background-image: url(http://example.org/images/stuck.jpg)'></div>
+      <div class = 'article_meta '>
+        <time class = 'post_date'>April 02, 2014</time>
+        <h3 class = 'article_title'>Getting Started with Hugo</h3>
+        <div class = 'article_excerpt '>
+        <p>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and …</p>
+        </div>
+      </div>
+    </a>
+  </article>
 </div>
-<div class="tip">
-  <h2 id="tecnologías-utilizadas-aquí">Tecnologías utilizadas aquí</h2>
-<p>Este sitio de contenido de páginas estáticas utiliza las siguientes tecnologías:</p>
-<ul>
-<li><a href="https://docs.gitlab.com/ee/user/project/pages/" title="GitLab Pages">Page static</a> sobre repositorio desde el sitio <a href="https://www.gitlab.com" title="Gitlab">Gitlab</a>.</li>
-<li><a href="https://docs.gitlab.com/ee/ci/" title="GitLab CI/CD">GitLab CI/CD</a> para el despliegue desatendido/automático del contenido web.</li>
-<li>El theme <a href="https://github.com/onweru/compose">Compose</a> de <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>, el cual soporta generar diagramas, diagramas de flujo y gráficos circulares, a partir de texto de forma similar a hacerlo con <a href="https://www.markdownguide.org/">Markdown</a> utilizando <a href="https://mermaid.js.org/">mermaid</a>. También permite <a href="docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once">generar gráficos, cuadros</a> y tablas a partir de archivo csv <del>o json</del>.</li>
-</ul>
-</div>
-</div>
 
 
-<div><img src="/images/scribble.jpg" alt="diy"></div>
-
-</section>
-
-
-</div>
       </div></div>
   <script>
 
@@ -250,14 +262,5 @@ const no_matches_found = 'No matches found';
 <script src="http://example.org/js/search.min.c329b0d2781e5d9f65d006e55da4b25ca6ecbbec0e8213ddf28e38ebf7016f75d18fc0863985ffb416f80134d994a60718a7476f9e5b9b23af761259a3d2afc6.js" async></script>
 
 
-
-<script defer src=http://example.org/js/mermaid.min.js></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mermaid.initialize({
-      flowchart: { useMaxWidth: true }
-    });
-  });
-</script>
 </body>
 </html>
