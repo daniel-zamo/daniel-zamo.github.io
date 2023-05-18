@@ -13,7 +13,7 @@
       <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>/blog/kubernetes-in-local/</guid>
-      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker Feature: addons X X Container runtime Docker, containerd, CRI-O CRI-O containerd, kata Feature: multi node X X X Ref: MicroK8s vs K3s vs minikube.</description>
+      <description>&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
     </item>
     
   </channel>
