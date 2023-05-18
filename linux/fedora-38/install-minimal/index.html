@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Esta página explica la instalación de Fedora 38 - minimal.
 "><meta itemprop="datePublished" content="2023-05-18T17:14:06+02:00" />
 <meta itemprop="dateModified" content="2023-05-18T17:14:06+02:00" />
-<meta itemprop="wordCount" content="159">
+<meta itemprop="wordCount" content="187">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instalación del sistema - minimal"/>
 <meta name="twitter:description" content="Esta página explica la instalación de Fedora 38 - minimal.
@@ -123,7 +123,8 @@
         <li>
           <ul>
             <li><a href="#instalación-de-fedora-38">Instalación de Fedora 38</a></li>
-            <li><a href="#elegir-idioma">Elegir idioma</a></li>
+            <li><a href="#elegir-idioma-del-asistente">Elegir idioma (del asistente)</a></li>
+            <li><a href="#esquema-de-partición-del-filesystem">Esquema de partición del filesystem</a></li>
           </ul>
         </li>
       </ul>
@@ -146,21 +147,36 @@
 </div>
 
 <p><em>Nota del autor:</em> En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.</p>
-
-<picture class="nav_logo" data-lit="/images/images/f38/install/sel.install.png" data-dark="/images/images/f38/install/sel.install.png">
-  <img src="/images/images/f38/install/sel.install.png" alt="Sel. instalar Fedora 38">
-</picture>
-
 <h4 id="instalación-de-fedora-38">Instalación de Fedora 38</h4>
 <p align="center" width="100%">
 <!--img src="/images/f38/install/sel.install.png" height="400" width="600" align="center" title="Seleccionar el idioma (que utiliza el asistente durante la instalación 2)"> </img -->
 <img src="/images/f38/install/sel.install.png" align="center" title="Seleccionar instalar"> </img>
 </p>
-<h4 id="elegir-idioma">Elegir idioma</h4>
+<h4 id="elegir-idioma-del-asistente">Elegir idioma (del asistente)</h4>
 <p>En la siguiente pantalla se debe seleccionar el idioma que utilizará el asistente de instalación. Es decir, este se aplica al asistente, ya que en la próxima pantalla es donde realmente se selecciona el idioma (o idiomas) que se requiera instalar para el sistema.</p>
 <p align="center" width="100%">
 <img src="/images/f38/install/sel.language.png" align="center" title="Seleccionar el idioma (que utiliza el asistente durante la instalación 2)"> </img>
 </p>
+<h4 id="esquema-de-partición-del-filesystem">Esquema de partición del filesystem</h4>
+<p>En esta instalación se utilizará arranque UEFI. En las capturas siguientes se muestran el particionado manual realizado con el propio asistente.</p>
+
+<div class="gallery">
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.boot.efi.png " class="gallery_image" alt="/boot/efi"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.boot.png " class="gallery_image" alt="/boot"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.root.png " class="gallery_image" alt="/"/>
+  </figure>
+  
+</div>
+
+
     <div class="pager">
   
 
