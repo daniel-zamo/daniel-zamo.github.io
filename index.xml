@@ -86,6 +86,15 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
     </item>
     
     <item>
+      <title>Opciones de Kubernetes en local</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X </description>
+    </item>
+    
+    <item>
       <title>Mermaid</title>
       <link>/docs/compose/mermaid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -119,15 +128,6 @@ Sequence Diagrams Syntax
 At this point if you want to display data from a json or yaml file, you would need to convert it into csv first. Else the template will error out.
 Once you have a csv file, you display the charts as follows:
 Show a pie, doughnut &amp;amp; bar chart at once Firstly define the data you want to display from the front matter:</description>
-    </item>
-    
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>/blog/k8s-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/k8s-in-local/</guid>
-      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X </description>
     </item>
     
     <item>
