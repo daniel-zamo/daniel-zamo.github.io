@@ -86,6 +86,15 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
     </item>
     
     <item>
+      <title>Opciones de Kubernetes en local</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker Plat.: linux only X X X ~ Plat.: docker X Feature: addons X X Feature: arm X X Feature: multi node X X </description>
+    </item>
+    
+    <item>
       <title>Mermaid</title>
       <link>/docs/compose/mermaid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -153,15 +162,6 @@ Option 1 (recommended) Generate a new Hugo site and add this theme as a Git subm
 AWS CI Algolia CI AWS CI This helps you to autodeploy your hugo website from github to an AWS s3 bucket. Set the secrets in the action accordingly and voila.
 Algolia CI This action will automatically update your algolia search index. No extra npm manual setup will be needed.
 These actions are customizable to fire off under your specified set of circumstances.</description>
-    </item>
-    
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>/blog/k8s-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/k8s-in-local/</guid>
-      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node 66 X X </description>
     </item>
     
     <item>
