@@ -13,9 +13,6 @@
   </url><url>
     <loc>/tutorials/</loc>
   </url><url>
-    <loc>/blog/k8s-in-local/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/docs/compose/install-theme/</loc>
   </url><url>
     <loc>/docs/compose/use-forestry-cms/</loc>
@@ -44,6 +41,9 @@
     <loc>/docs/clarity/getting-started/</loc>
   </url><url>
     <loc>/docs/compose/github-actions/</loc>
+  </url><url>
+    <loc>/blog/k8s-in-local/</loc>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/docs/clarity/features/</loc>
   </url><url>
