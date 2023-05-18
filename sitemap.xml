@@ -13,6 +13,9 @@
   </url><url>
     <loc>/tutorials/</loc>
   </url><url>
+    <loc>/blog/k8s-in-local/</loc>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/docs/compose/install-theme/</loc>
   </url><url>
     <loc>/docs/compose/use-forestry-cms/</loc>
@@ -23,9 +26,6 @@
     <lastmod>2023-05-18T17:14:06+02:00</lastmod>
   </url><url>
     <loc>/docs/compose/shortcodes/</loc>
-  </url><url>
-    <loc>/blog/k8s-in-local/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/docs/compose/search/</loc>
   </url><url>

@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 18 May 2023 17:14:06 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Opciones de Kubernetes en local</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node fsaf X X </description>
+    </item>
+    
+    <item>
       <title>Install theme</title>
       <link>/docs/compose/install-theme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -62,15 +71,6 @@ En la selección de paquetes de dicho asistente, solo se selecciona el metapaque
 Why shortcodes? While markdown is sufficient to produce simple pages, it&#39;s insufficient where complex page structures are needed. Thusly, whenever we need special styling, shortcodes compliment the shortcomings of markdown.
 This way, you can side step complex html and css boilerplate in your content files.
 Sometimes, the shortcode will wrap content, sometimes it won&#39;t. When content is wrapped, a closing shortcode tag is needed.</description>
-    </item>
-    
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>/blog/k8s-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/k8s-in-local/</guid>
-      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X </description>
     </item>
     
     <item>
