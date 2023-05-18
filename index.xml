@@ -8,15 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 18 May 2023 17:14:06 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Instalación mínima</title>
-      <link>/linux/fedora-38/install-minimal/</link>
-      <pubDate>Thu, 18 May 2023 17:14:06 +0200</pubDate>
-      
-      <guid>/linux/fedora-38/install-minimal/</guid>
-      <description>Instalación del sistema - metapaquete Minimal </description>
-    </item>
-    
-    <item>
       <title>Install theme</title>
       <link>/docs/compose/install-theme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -49,6 +40,18 @@ Prerequisites !! Obviously you ought to have a github account. This is where you
 Documentation By default, the theme will look for all your documentation content within the docs directory.
 However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
 ... docSections = [&amp;#34;docs&amp;#34;, &amp;#34;tutorials&amp;#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages.</description>
+    </item>
+    
+    <item>
+      <title>Instalación mínima</title>
+      <link>/linux/fedora-38/install-minimal/</link>
+      <pubDate>Thu, 18 May 2023 17:14:06 +0200</pubDate>
+      
+      <guid>/linux/fedora-38/install-minimal/</guid>
+      <description>Instalación del sistema - metapaquete Minimal 1 {{&amp;lt; column &amp;#34;mt-2 mb-2&amp;#34; &amp;gt;}} 2 &amp;lt;!-- applied margin top and margin bottom modifiers --&amp;gt; 3 {{&amp;lt; /column &amp;gt;}} Picture You want to use darkmode images when darkmode is enabled on a device and a regular image on lightmode? It takes 3 positional parameter
+Store these images in the static/images directory.
+Syntax
+1... 2{{&amp;lt; picture &amp;#34;lightModeImage.png&amp;#34; &amp;#34;darkModeImage.png&amp;#34; &amp;#34;Image alt text&amp;#34; &amp;gt;}} 3... Result</description>
     </item>
     
     <item>

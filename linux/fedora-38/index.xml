@@ -13,7 +13,10 @@
       <pubDate>Thu, 18 May 2023 17:14:06 +0200</pubDate>
       
       <guid>/linux/fedora-38/install-minimal/</guid>
-      <description>Instalación del sistema - metapaquete Minimal </description>
+      <description>Instalación del sistema - metapaquete Minimal 1 {{&amp;lt; column &amp;#34;mt-2 mb-2&amp;#34; &amp;gt;}} 2 &amp;lt;!-- applied margin top and margin bottom modifiers --&amp;gt; 3 {{&amp;lt; /column &amp;gt;}} Picture You want to use darkmode images when darkmode is enabled on a device and a regular image on lightmode? It takes 3 positional parameter
+Store these images in the static/images directory.
+Syntax
+1... 2{{&amp;lt; picture &amp;#34;lightModeImage.png&amp;#34; &amp;#34;darkModeImage.png&amp;#34; &amp;#34;Image alt text&amp;#34; &amp;gt;}} 3... Result</description>
     </item>
     
   </channel>
