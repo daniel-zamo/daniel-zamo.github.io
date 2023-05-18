@@ -14,19 +14,19 @@
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
 <title>Getting Started with Hugo | My New Hugo Site</title><meta property="og:title" content="Getting Started with Hugo" />
-<meta property="og:description" content="Opciones de Kubernetes en local Minikube Kind clarity V.1 chipzoller compose V.1 weru swift V.2 weru newsroom V.1 weru " />
+<meta property="og:description" content="Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/blog/k8s-in-local/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-04-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-04-02T00:00:00+00:00" />
 
 <meta itemprop="name" content="Getting Started with Hugo">
-<meta itemprop="description" content="Opciones de Kubernetes en local Minikube Kind clarity V.1 chipzoller compose V.1 weru swift V.2 weru newsroom V.1 weru "><meta itemprop="datePublished" content="2023-04-02T00:00:00+00:00" />
+<meta itemprop="description" content="Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X "><meta itemprop="datePublished" content="2023-04-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-04-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="19">
+<meta itemprop="wordCount" content="28">
 <meta itemprop="keywords" content="Containers,Virtualization,Kubernetes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Getting Started with Hugo"/>
-<meta name="twitter:description" content="Opciones de Kubernetes en local Minikube Kind clarity V.1 chipzoller compose V.1 weru swift V.2 weru newsroom V.1 weru "/>
+<meta name="twitter:description" content="Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X "/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -34,7 +34,7 @@
 
 
 
-  <meta name="description" content="Opciones de Kubernetes en local Minikube Kind clarity V.1 chipzoller compose V.1 weru swift V.2 weru newsroom V.1 weru ">
+  <meta name="description" content="Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X ">
 
 
 </head>
@@ -105,71 +105,60 @@
           <img src="/images/stuck.jpg" alt="stuck.jpg" class="post_thumbnail">
         
           <h4 id="__opciones-de-kubernetes-en-local__"><strong>Opciones de Kubernetes en local</strong></h4>
-
-<div class="grid-3">
-  
-  
-  <script src = '/js/w3.js'></script>
-  <div class="table_wrap">
-    <table id="chartTable">
-      <thead>
-        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(1)')"> <svg class="icon icon_sort">
-    <use href="#sort"></use>
-  </svg></th>
-        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(2)')">Minikube <svg class="icon icon_sort">
-    <use href="#sort"></use>
-  </svg></th>
-        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(3)')">Kind <svg class="icon icon_sort">
-    <use href="#sort"></use>
-  </svg></th>
-      </thead>
-      <tr class="row">
-        <td>clarity</td>
-        <td>V.1</td>
-        <td>chipzoller</td>
-      </tr>
-      <tr class="row">
-        <td>compose</td>
-        <td>V.1</td>
-        <td>weru</td>
-      </tr>
-      <tr class="row">
-        <td>swift</td>
-        <td>V.2</td>
-        <td>weru</td>
-      </tr>
-      <tr class="row">
-        <td>newsroom</td>
-        <td>V.1</td>
-        <td>weru</td>
-      </tr>
-    </table>
-  </div>
-  
-  <script src='/js/chart.min.js'></script>
-  <script>
-    Chart.platform.disableCSSInjection = true;
-    function getCanvas(id){
-      return document.getElementById(id)
-    };
-    var dataTally = ["3","1"].map(value => parseInt(value));
-    var labels = ["V.1","V.2"];
-    var data  = {
-      datasets: [{
-        data: dataTally,
-        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
-        label: "Hugo Themes"
-      }],
-  
-      labels: labels
-    };
-    var options = {};
-  </script>
-  
-  
-
-
-</div>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>minikube</th>
+<th>kind</th>
+<th>k3s</th>
+<th>microk8s</th>
+<th>docker</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>linux only</td>
+<td>X</td>
+<td></td>
+<td>X</td>
+<td>X</td>
+<td>~</td>
+</tr>
+<tr>
+<td>docker</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>addons</td>
+<td>X</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>arm</td>
+<td></td>
+<td></td>
+<td>X</td>
+<td>X</td>
+<td></td>
+</tr>
+<tr>
+<td>multi node</td>
+<td></td>
+<td>X</td>
+<td></td>
+<td>X</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 
         </div>
         <div class="post_extra mb-2">
