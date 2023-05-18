@@ -13,15 +13,29 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Graphs, charts &amp; dynamic tables | My New Hugo Site</title><meta property="og:title" content="Graphs, charts &amp; dynamic tables" />
+<meta property="og:description" content="Using chart js library you can display data you have stored in a csv file as a pie chart, bar graph or doughnut chart.
+At this point if you want to display data from a json or yaml file, you would need to convert it into csv first. Else the template will error out.
+Once you have a csv file, you display the charts as follows:
+Show a pie, doughnut &amp; bar chart at once Firstly define the data you want to display from the front matter:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/graphs-charts-tables/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Graphs, charts &amp; dynamic tables">
+<meta itemprop="description" content="Using chart js library you can display data you have stored in a csv file as a pie chart, bar graph or doughnut chart.
+At this point if you want to display data from a json or yaml file, you would need to convert it into csv first. Else the template will error out.
+Once you have a csv file, you display the charts as follows:
+Show a pie, doughnut &amp; bar chart at once Firstly define the data you want to display from the front matter:">
+
+<meta itemprop="wordCount" content="419">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Graphs, charts &amp; dynamic tables"/>
+<meta name="twitter:description" content="Using chart js library you can display data you have stored in a csv file as a pie chart, bar graph or doughnut chart.
+At this point if you want to display data from a json or yaml file, you would need to convert it into csv first. Else the template will error out.
+Once you have a csv file, you display the charts as follows:
+Show a pie, doughnut &amp; bar chart at once Firstly define the data you want to display from the front matter:"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +43,14 @@
 
 
 
+  <meta name="description" content="Using chart js library you can display data you have stored in a csv file as a pie chart, bar graph or doughnut chart.
+At this point if you want to display data from a json or yaml file, you would need to convert it into csv first. Else the template will error out.
+Once you have a csv file, you display the charts as follows:
+Show a pie, doughnut &amp;amp; bar chart at once Firstly define the data you want to display from the front matter:">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +110,418 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
-
+      <div class="content">
+<div class="content">
+	<h1>Graphs, charts &amp; dynamic tables</h1>
+	<p>Using <a href="https://www.chartjs.org/">chart js library</a> you can display data you have stored in a <code>csv</code> file as a pie chart, bar graph or doughnut chart.</p>
+<p>At this point if you want to display data from a json or yaml file, you would need to <a href="http://convertcsv.com/json-to-csv.htm">convert it into csv</a> first. Else the template will error out.</p>
+<p>Once you have a csv file, you display the charts as follows:</p>
+<h4 id="show-a-pie-doughnut--bar-chart-at-once">Show a pie, doughnut &amp; bar chart at once</h4>
+<p>Firstly define the data you want to display from the front matter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="gh"># from front matter
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="gh"></span>...
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">[dataset1] # this key will in the chart shortcode
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  fileLink = &#34;content/projects.csv&#34; # path to where csv is stored
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  colors = [&#34;#627c62&#34;, &#34;#11819b&#34;, &#34;#ef7f1a&#34;, &#34;#4e1154&#34;] # chart colors
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  columnTitles = [&#34;Section&#34;, &#34;Status&#34;, &#34;Author&#34;]
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  charts = [&#34;bar&#34;, &#34;doughnut&#34;, &#34;pie&#34;, &#34;table&#34;]
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  baseChartOn = 3 # number of column the chart(s) and graph should be drawn from
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  piechart = true
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  doughnutchart = true
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  bargraph = true
+</span></span><span class="line"><span class="ln">12</span><span class="cl">  title = &#34;Projects&#34;
+</span></span><span class="line"><span class="ln">13</span><span class="cl">  table = true # show table listing the chart data
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl">// from page content
+</span></span><span class="line"><span class="ln">16</span><span class="cl">...
+</span></span><span class="line"><span class="ln">17</span><span class="cl">{{<span class="p">&lt;</span> <span class="nt">grid</span> <span class="err">&#34;</span> <span class="na">mt-2</span><span class="err">&#34;</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">18</span><span class="cl">  {{<span class="p">&lt;</span> <span class="nt">chart</span> <span class="err">&#34;</span><span class="na">dataset1</span><span class="err">&#34;</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">19</span><span class="cl">{{<span class="p">&lt;</span> <span class="p">/</span><span class="nt">grid</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">20</span><span class="cl">...
+</span></span></code></pre></div>
+<div class="grid-3 mt-2 mb-2">
   
+  
+  
+  <script src='/js/chart.min.js'></script>
+  <script>
+    Chart.platform.disableCSSInjection = true;
+    function getCanvas(id){
+      return document.getElementById(id)
+    };
+    var dataTally = ["2","4","1","5"].map(value => parseInt(value));
+    var labels = ["dahl","dan","ryan","weru"];
+    var data  = {
+      datasets: [{
+        data: dataTally,
+        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
+        label: "Projects"
+      }],
+  
+      labels: labels
+    };
+    var options = {};
+  </script>
+  <div class="chart">
+    <canvas id="piedataset1" width="500" height="500"></canvas>
+  </div>
+  <script>
+    var ctx = getCanvas('piedataset1');
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+    });
+  </script>
+  <div class="chart">
+    <canvas id="bardataset1" width="500" height="500"></canvas>
+  </div>
+  <script>
+    var ctx3 = getCanvas('bardataset1');
+    var barChart = new Chart(ctx3, {
+      type: 'bar',
+      data: data,
+      options: {
+        "scales": {
+        "yAxes": [{
+          "ticks": {
+            "beginAtZero": true
+          }
+        }]
+      }
+      }
+    });
+  </script>
+  
+  
+  <div class="chart">
+    <canvas id="doughnutdataset1" width="500" height="500"></canvas>
+  </div>
+  <script>
+    var ctx2 = getCanvas('doughnutdataset1');
+    var doughnutChart = new Chart(ctx2, {
+      type: 'doughnut',
+      data: data,
+      options: options
+    });
+  </script>
+
+
+</div>
+<h4 id="__show-table-at-once__"><strong>Show Table at once</strong></h4>
+<section class=""  >
+  
+  <script src = '/js/w3.js'></script>
+  <div class="table_wrap">
+    <p>
+      <input oninput="w3.filterHTML('#chartTable', '.row', this.value)" class="form_search search_field forminput" placeholder="Filter Table Values">
+    </p>
+    <table id="chartTable">
+      <thead>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(1)')">Section <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(2)')">Status <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(3)')">Author <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+      </thead>
+      <tr class="row">
+        <td>project 6</td>
+        <td>alpha</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>beta</td>
+        <td>dan</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>candidate</td>
+        <td>dahl</td>
+      </tr>
+      <tr class="row">
+        <td>project y</td>
+        <td>abandoned</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>project 1</td>
+        <td>alpha</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>beta</td>
+        <td>ryan</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>candidate</td>
+        <td>dan</td>
+      </tr>
+      <tr class="row">
+        <td>project y</td>
+        <td>abandoned</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>project 11</td>
+        <td>alpha</td>
+        <td>dahl</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>beta</td>
+        <td>dan</td>
+      </tr>
+      <tr class="row">
+        <td>project 4</td>
+        <td>candidate</td>
+        <td>dan</td>
+      </tr>
+      <tr class="row">
+        <td>project A</td>
+        <td>abandoned</td>
+        <td>weru</td>
+      </tr>
+    </table>
+  </div>
+  
+  <script src='/js/chart.min.js'></script>
+  <script>
+    Chart.platform.disableCSSInjection = true;
+    function getCanvas(id){
+      return document.getElementById(id)
+    };
+    var dataTally = ["2","4","1","5"].map(value => parseInt(value));
+    var labels = ["dahl","dan","ryan","weru"];
+    var data  = {
+      datasets: [{
+        data: dataTally,
+        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
+        label: "Projects"
+      }],
+  
+      labels: labels
+    };
+    var options = {};
+  </script>
+  
+  
+
+</section>
+
+<p>Firstly define the data you want to display from the front matter:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># from page front matter</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="p">[</span><span class="nx">dataset2</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">  <span class="nx">fileLink</span> <span class="p">=</span> <span class="s2">&#34;content/themes.csv&#34;</span> <span class="c"># path to where csv is stored # this key will in the chart shortcode</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">  <span class="nx">colors</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;#627c62&#34;</span><span class="p">,</span> <span class="s2">&#34;#11819b&#34;</span><span class="p">,</span> <span class="s2">&#34;#ef7f1a&#34;</span><span class="p">,</span> <span class="s2">&#34;#4e1154&#34;</span><span class="p">]</span> <span class="c"># chart colors</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">  <span class="nx">columnTitles</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;Theme&#34;</span><span class="p">,</span> <span class="s2">&#34;Latest Version&#34;</span><span class="p">,</span> <span class="s2">&#34;Owner&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">  <span class="nx">title</span> <span class="p">=</span> <span class="s2">&#34;Hugo Themes&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">  <span class="nx">baseChartOn</span> <span class="p">=</span> <span class="mi">2</span> <span class="c"># number of column the chart(s) and graph should be drawn from</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">  <span class="nx">piechart</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">  <span class="nx">doughnutchart</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">  <span class="nx">bargraph</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">  <span class="nx">table</span> <span class="p">=</span> <span class="kc">false</span> <span class="c"># show table listing the chart data</span>
+</span></span></code></pre></div><h4 id="show-only-a-pie-and-a-doughnut-chart">Show only a pie and a doughnut chart</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl">// from page content
+</span></span><span class="line"><span class="ln">2</span><span class="cl">...
+</span></span><span class="line"><span class="ln">3</span><span class="cl">{{<span class="p">&lt;</span> <span class="nt">grid</span> <span class="err">&#34;</span> <span class="na">mt-2</span><span class="err">&#34;</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">4</span><span class="cl">  {{<span class="p">&lt;</span> <span class="nt">chart</span> <span class="err">&#34;</span><span class="na">dataset2</span><span class="err">&#34;</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">5</span><span class="cl">{{<span class="p">&lt;</span> <span class="p">/</span><span class="nt">grid</span> <span class="p">&gt;</span>}}
+</span></span><span class="line"><span class="ln">6</span><span class="cl">...
+</span></span></code></pre></div>
+<div class="grid-3 mt-2 mb-2">
+  
+  
+  
+  <script src='/js/chart.min.js'></script>
+  <script>
+    Chart.platform.disableCSSInjection = true;
+    function getCanvas(id){
+      return document.getElementById(id)
+    };
+    var dataTally = ["1","1","1","1"].map(value => parseInt(value));
+    var labels = ["clarity","compose","newsroom","swift"];
+    var data  = {
+      datasets: [{
+        data: dataTally,
+        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
+        label: "Hugo Themes"
+      }],
+  
+      labels: labels
+    };
+    var options = {};
+  </script>
+  <div class="chart">
+    <canvas id="piedataset2" width="500" height="500"></canvas>
+  </div>
+  <script>
+    var ctx = getCanvas('piedataset2');
+    var myPieChart = new Chart(ctx, {
+      type: 'pie',
+      data: data,
+      options: options
+    });
+  </script>
+  
+  
+  <div class="chart">
+    <canvas id="doughnutdataset2" width="500" height="500"></canvas>
+  </div>
+  <script>
+    var ctx2 = getCanvas('doughnutdataset2');
+    var doughnutChart = new Chart(ctx2, {
+      type: 'doughnut',
+      data: data,
+      options: options
+    });
+  </script>
+
+
+</div>
+<h4 id="show-table-with-filter">Show table with filter</h4>
+
+<div class="grid-3">
+  
+  
+  <script src = '/js/w3.js'></script>
+  <div class="table_wrap">
+    <p>
+      <input oninput="w3.filterHTML('#chartTable', '.row', this.value)" class="form_search search_field forminput" placeholder="Filter Table Values">
+    </p>
+    <table id="chartTable">
+      <thead>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(1)')">Theme <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(2)')">Latest Version <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(3)')">Repo Owner <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+      </thead>
+      <tr class="row">
+        <td>clarity</td>
+        <td>V.1</td>
+        <td>chipzoller</td>
+      </tr>
+      <tr class="row">
+        <td>compose</td>
+        <td>V.1</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>swift</td>
+        <td>V.2</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>newsroom</td>
+        <td>V.1</td>
+        <td>weru</td>
+      </tr>
+    </table>
+  </div>
+  
+  <script src='/js/chart.min.js'></script>
+  <script>
+    Chart.platform.disableCSSInjection = true;
+    function getCanvas(id){
+      return document.getElementById(id)
+    };
+    var dataTally = ["3","1"].map(value => parseInt(value));
+    var labels = ["V.1","V.2"];
+    var data  = {
+      datasets: [{
+        data: dataTally,
+        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
+        label: "Hugo Themes"
+      }],
+  
+      labels: labels
+    };
+    var options = {};
+  </script>
+  
+  
+
+
+</div>
+<h4 id="show-table-only">Show table only</h4>
+
+<div class="grid-3">
+  
+  
+  <script src = '/js/w3.js'></script>
+  <div class="table_wrap">
+    <table id="chartTable">
+      <thead>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(1)')">Theme <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(2)')">Latest Version <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+        <th onclick="w3.sortHTML('#chartTable', '.row', 'td:nth-child(3)')">Repo Owner <svg class="icon icon_sort">
+    <use href="#sort"></use>
+  </svg></th>
+      </thead>
+      <tr class="row">
+        <td>clarity</td>
+        <td>V.1</td>
+        <td>chipzoller</td>
+      </tr>
+      <tr class="row">
+        <td>compose</td>
+        <td>V.1</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>swift</td>
+        <td>V.2</td>
+        <td>weru</td>
+      </tr>
+      <tr class="row">
+        <td>newsroom</td>
+        <td>V.1</td>
+        <td>weru</td>
+      </tr>
+    </table>
+  </div>
+  
+  <script src='/js/chart.min.js'></script>
+  <script>
+    Chart.platform.disableCSSInjection = true;
+    function getCanvas(id){
+      return document.getElementById(id)
+    };
+    var dataTally = ["3","1"].map(value => parseInt(value));
+    var labels = ["V.1","V.2"];
+    var data  = {
+      datasets: [{
+        data: dataTally,
+        backgroundColor: ["#ef7f1a","#627c62","#11819b","#4e1154"],
+        label: "Hugo Themes"
+      }],
+  
+      labels: labels
+    };
+    var options = {};
+  </script>
+  
+  
+
+
+</div>
+
+</div>
       </div></div>
   <script>
 

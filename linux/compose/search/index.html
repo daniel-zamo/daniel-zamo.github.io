@@ -13,15 +13,26 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Search Function | My New Hugo Site</title><meta property="og:title" content="Search Function" />
+<meta property="og:description" content="Firstly, ensure you have these lines inside your config.toml file
+1[outputs] 2 home = [&#34;HTML&#34;, &#34;RSS&#34;,&#34;JSON&#34;] Compose implements Fuse js or Algolia to enable search functionality. By default Fuse is applied. Algolia can be enabled by adding this settings to config/_default/params.toml file
+1# search 2[search] 3on = true 4global = false 5[search.algolia] 6enable = false # if false search will default to fusejs 7id = &#34;Q40WQQX84U&#34; # Application ID 8index = &#34;compose&#34; # Index name 9key = &#34;da87401a458102ec6bbd6cc5e5cf8d95&#34; # Search-Only API Key Both search engines will display results using the same UI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/search/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Search Function">
+<meta itemprop="description" content="Firstly, ensure you have these lines inside your config.toml file
+1[outputs] 2 home = [&#34;HTML&#34;, &#34;RSS&#34;,&#34;JSON&#34;] Compose implements Fuse js or Algolia to enable search functionality. By default Fuse is applied. Algolia can be enabled by adding this settings to config/_default/params.toml file
+1# search 2[search] 3on = true 4global = false 5[search.algolia] 6enable = false # if false search will default to fusejs 7id = &#34;Q40WQQX84U&#34; # Application ID 8index = &#34;compose&#34; # Index name 9key = &#34;da87401a458102ec6bbd6cc5e5cf8d95&#34; # Search-Only API Key Both search engines will display results using the same UI.">
+
+<meta itemprop="wordCount" content="453">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Search Function"/>
+<meta name="twitter:description" content="Firstly, ensure you have these lines inside your config.toml file
+1[outputs] 2 home = [&#34;HTML&#34;, &#34;RSS&#34;,&#34;JSON&#34;] Compose implements Fuse js or Algolia to enable search functionality. By default Fuse is applied. Algolia can be enabled by adding this settings to config/_default/params.toml file
+1# search 2[search] 3on = true 4global = false 5[search.algolia] 6enable = false # if false search will default to fusejs 7id = &#34;Q40WQQX84U&#34; # Application ID 8index = &#34;compose&#34; # Index name 9key = &#34;da87401a458102ec6bbd6cc5e5cf8d95&#34; # Search-Only API Key Both search engines will display results using the same UI."/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +40,13 @@
 
 
 
+  <meta name="description" content="Firstly, ensure you have these lines inside your config.toml file
+1[outputs] 2 home = [&amp;#34;HTML&amp;#34;, &amp;#34;RSS&amp;#34;,&amp;#34;JSON&amp;#34;] Compose implements Fuse js or Algolia to enable search functionality. By default Fuse is applied. Algolia can be enabled by adding this settings to config/_default/params.toml file
+1# search 2[search] 3on = true 4global = false 5[search.algolia] 6enable = false # if false search will default to fusejs 7id = &amp;#34;Q40WQQX84U&amp;#34; # Application ID 8index = &amp;#34;compose&amp;#34; # Index name 9key = &amp;#34;da87401a458102ec6bbd6cc5e5cf8d95&amp;#34; # Search-Only API Key Both search engines will display results using the same UI.">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +106,49 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
-
-  
+      <div class="content">
+<div class="content">
+	<h1>Search Function</h1>
+	<p>Firstly, ensure you have these lines inside your config.toml file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">[</span><span class="nx">outputs</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">   <span class="nx">home</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;HTML&#34;</span><span class="p">,</span> <span class="s2">&#34;RSS&#34;</span><span class="p">,</span><span class="s2">&#34;JSON&#34;</span><span class="p">]</span>
+</span></span></code></pre></div><p>Compose implements <a href="https://fusejs.io/">Fuse js</a> or <a href="https://www.algolia.com/doc/rest-api/search/">Algolia</a> to enable search functionality. By default Fuse is applied. Algolia can be enabled by adding this settings to <code>config/_default/params.toml</code> file</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># search</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">[</span><span class="nx">search</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">on</span> <span class="p">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nx">global</span> <span class="p">=</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">[</span><span class="nx">search</span><span class="p">.</span><span class="nx">algolia</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nx">enable</span> <span class="p">=</span> <span class="kc">false</span> <span class="c"># if false search will default to fusejs</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nx">id</span> <span class="p">=</span> <span class="s2">&#34;Q40WQQX84U&#34;</span> <span class="c"># Application ID</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="nx">index</span> <span class="p">=</span> <span class="s2">&#34;compose&#34;</span> <span class="c"># Index name</span>
+</span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="nx">key</span> <span class="p">=</span> <span class="s2">&#34;da87401a458102ec6bbd6cc5e5cf8d95&#34;</span> <span class="c"># Search-Only API Key</span>
+</span></span></code></pre></div><p>Both search engines will display results using the same UI. By choosing the default (.ie fuse js),  you will be opting for local search. This way, no additional setup is needed.</p>
+<p>Algolia will require you to build and host your index. For those using Github, this theme ships with an <a href="/docs/compose/github-actions/#algolia-ci">algolia github action</a>.</p>
+<p>By default, search will return results from the current content section. Searches from the top level section e.g the homepage, will return global results. This way, the results are scoped. You can override this behaviour using this setting</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">[</span><span class="nx">search</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nx">global</span> <span class="p">=</span> <span class="kc">false</span> <span class="c"># turn to `true` to enable global search</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
+</span></span></code></pre></div><p>At the time of this writing, search on these theme takes either of this forms:</p>
+<h3 id="1-passive-search">1. Passive search</h3>
+<p>This occurs only when the user loads the search page i.e <code>/search/</code>. They can directly navigate to that url. Alternatively, the user can type you search query on the search field and click enter. They will be redirected to the search page which will contain matched results if any.</p>
+<h3 id="2-live-search">2. Live search</h3>
+<p>This behaviour will be obvious as the user types a search query on the search field. All <code>valid search queries</code>, will yield a list of <code>quick links</code> or a simple <code>no matches found</code>. Else, the user will be prompted to continue typing.</p>
+<blockquote>
+<p>Please note that the results under quick links will be a truncated list of the most relevant results. Only a maximum of 8 items will be returned. This number is pragmatic at best if not arbitrary. On the search page, the number is set to 12.</p>
+</blockquote>
+<p>Note that live search on the search page will behave differently than on the other pages. Nonetheles, the pages apply the same live search principle.</p>
+<blockquote>
+<p>Hitting enter while typing on the search page will be moot as that page’s content will live update as you type in the search word / phrase.</p>
+</blockquote>
+<h3 id="customize-search-feedback-labels">Customize search feedback labels</h3>
+<p>Use the <code>i18n</code> files to do so.</p>
+<h3 id="what-is-a-valid-search-query">What is a valid search query</h3>
+<p>A valid search query must be long enough. If the search query can be cast as a float, then it only need contain one or more characters.</p>
+<p>Else the search query must be at least 2 characters long.</p>
+<!-- This behaviour will change. -->
+</div>
       </div></div>
   <script>
 

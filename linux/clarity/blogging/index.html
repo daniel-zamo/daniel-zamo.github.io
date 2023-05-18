@@ -13,15 +13,26 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Blogging | My New Hugo Site</title><meta property="og:title" content="Blogging" />
+<meta property="og:description" content="Blog directory Edit the config.toml file and change the blogDir key. Value will be name of the folder where the blog articles reside.
+1[params] 2... 3blogDir = &#34;blog&#34; 4... For more info, see the Hugo docs.
+Mobile menu positioning The navigation menu when mobile browsing can be configured in config.toml to open right or left depending on preference. The &quot;hamburger&quot; menu icon will always display in the upper right hand corner regardless." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/clarity/blogging/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Blogging">
+<meta itemprop="description" content="Blog directory Edit the config.toml file and change the blogDir key. Value will be name of the folder where the blog articles reside.
+1[params] 2... 3blogDir = &#34;blog&#34; 4... For more info, see the Hugo docs.
+Mobile menu positioning The navigation menu when mobile browsing can be configured in config.toml to open right or left depending on preference. The &quot;hamburger&quot; menu icon will always display in the upper right hand corner regardless.">
+
+<meta itemprop="wordCount" content="238">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blogging"/>
+<meta name="twitter:description" content="Blog directory Edit the config.toml file and change the blogDir key. Value will be name of the folder where the blog articles reside.
+1[params] 2... 3blogDir = &#34;blog&#34; 4... For more info, see the Hugo docs.
+Mobile menu positioning The navigation menu when mobile browsing can be configured in config.toml to open right or left depending on preference. The &quot;hamburger&quot; menu icon will always display in the upper right hand corner regardless."/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +40,13 @@
 
 
 
+  <meta name="description" content="Blog directory Edit the config.toml file and change the blogDir key. Value will be name of the folder where the blog articles reside.
+1[params] 2... 3blogDir = &amp;#34;blog&amp;#34; 4... For more info, see the Hugo docs.
+Mobile menu positioning The navigation menu when mobile browsing can be configured in config.toml to open right or left depending on preference. The &amp;quot;hamburger&amp;quot; menu icon will always display in the upper right hand corner regardless.">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +106,38 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Blogging</h1>
+	<h3 id="blog-directory">Blog directory</h3>
+<p>Edit the <code>config.toml</code> file and change the <code>blogDir</code> key. Value will be name of the folder where the blog articles reside.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">[</span><span class="l">params]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="l">blogDir = &#34;blog&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><p>For more info, see the <a href="https://gohugo.io/functions/where/#mainsections">Hugo docs</a>.</p>
+<h3 id="mobile-menu-positioning">Mobile menu positioning</h3>
+<p>The navigation menu when mobile browsing can be configured in <code>config.toml</code> to open right or left depending on preference. The &quot;hamburger&quot; menu icon will always display in the upper right hand corner regardless.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">[</span><span class="l">params]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="l">mobileNavigation = &#34;left&#34;</span><span class="w"> </span><span class="c"># Mobile nav menu will open to the left of the screen.</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><h3 id="tags-and-taxonomies">Tags and Taxonomies</h3>
+<h4 id="show-number-of-tags">Show number of tags</h4>
+<p>The number of tags and taxonomies (including categories) that should be shown can be configured so that any more than this value will only be accessible when clicking the All Tags button. This is to ensure a large number of tags or categories can be easily managed without consuming excess screen real estate. Edit the <code>numberOfTagsShown</code> parameter and set accordingly.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">[</span><span class="l">params]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="l">numberOfTagsShown = 14</span><span class="w"> </span><span class="c"># Applies for all other default &amp; custom taxonomies. e.g categories, brands see https://gohugo.io/content-management/taxonomies#what-is-a-taxonomy</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><h4 id="number-of-tags-example">Number of tags example</h4>
+<p><img src="../../../images/clarity/tags.png" alt="Tags"></p>
+<!-- mark -->
+<h3 id="table-of-contents">Table of contents</h3>
+<p>Each article can optionally have a table of contents (TOC) generated for it based on top-level links. By configuring the <code>toc</code> parameter in the article frontmatter and setting it to <code>true</code>, a TOC will be generated only for that article. The TOC will then render under the featured image.</p>
+<h4 id="table-of-contents-toc-example">Table of contents (TOC) example</h4>
+<p><img src="../../../images/clarity/article-toc.png" alt="Article table of contents"></p>
 
-  
+</div>
       </div></div>
   <script>
 

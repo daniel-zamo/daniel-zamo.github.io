@@ -13,15 +13,20 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Leverage Github actions | My New Hugo Site</title><meta property="og:title" content="Leverage Github actions" />
+<meta property="og:description" content="Use github actions with compose theme" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/github-actions/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Leverage Github actions">
+<meta itemprop="description" content="Use github actions with compose theme">
+
+<meta itemprop="wordCount" content="108">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Leverage Github actions"/>
+<meta name="twitter:description" content="Use github actions with compose theme"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +34,11 @@
 
 
 
+  <meta name="description" content="Use github actions with compose theme">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +98,25 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
-
-  
+      <div class="content">
+<div class="content">
+	<h1>Leverage Github actions</h1>
+	<div>Use github actions with compose theme</div><p>This theme ships with 2 github actions inside the exampleSite folder:</p>
+<ol>
+<li>AWS CI</li>
+<li>Algolia CI</li>
+</ol>
+<h2 id="aws-ci">AWS CI</h2>
+<p>This helps you to autodeploy your hugo website from github to an AWS s3 bucket. Set the secrets in the action accordingly and voila.</p>
+<h2 id="algolia-ci">Algolia CI</h2>
+<p>This action will automatically update your algolia search index. No extra npm manual setup will be needed.</p>
+<p>These actions are customizable to fire off under your specified set of circumstances.</p>
+<p>By default, the actions will be off, so be sure to turn them on, and set the github actions secrets appropriately.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">name: Update Algolia Search Index
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">off: <span class="c1"># change to `on:` to turn on</span>
+</span></span></code></pre></div>
+</div>
       </div></div>
   <script>
 

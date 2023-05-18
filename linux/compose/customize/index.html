@@ -13,15 +13,20 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Customize layouts &amp; components | My New Hugo Site</title><meta property="og:title" content="Customize layouts &amp; components" />
+<meta property="og:description" content="basic configuration" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/customize/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Customize layouts &amp; components">
+<meta itemprop="description" content="basic configuration">
+
+<meta itemprop="wordCount" content="411">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Customize layouts &amp; components"/>
+<meta name="twitter:description" content="basic configuration"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +34,11 @@
 
 
 
+  <meta name="description" content="basic configuration">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +98,136 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Customize layouts &amp; components</h1>
+	<div>basic configuration</div><h3 id="shortcodes-modifiers">Shortcodes modifiers</h3>
+<p>These modifiers are classes you can use with shortcodes to customize the look and feel of your layouts and components.</p>
+<h4 id="grid">Grid</h4>
+<table>
+<thead>
+<tr>
+<th>modifier</th>
+<th>space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grid-2</td>
+<td>2 columns</td>
+</tr>
+<tr>
+<td>grid-3</td>
+<td>3 columns</td>
+</tr>
+<tr>
+<td>grid-4</td>
+<td>4 columns</td>
+</tr>
+</tbody>
+</table>
+<h4 id="spacing">Spacing</h4>
+<table>
+<thead>
+<tr>
+<th>modifier</th>
+<th>space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mt-1</td>
+<td>1.5rem top margin</td>
+</tr>
+<tr>
+<td>mt-2</td>
+<td>3rem top margin</td>
+</tr>
+<tr>
+<td>mt-3</td>
+<td>4.5rem top margin</td>
+</tr>
+<tr>
+<td>mt-4</td>
+<td>6rem top margin</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>use pt-1 ~ pt-4 for top padding</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>modifier</th>
+<th>space</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mb-1</td>
+<td>1.5rem bottom margin</td>
+</tr>
+<tr>
+<td>mb-2</td>
+<td>3rem bottom margin</td>
+</tr>
+<tr>
+<td>mb-3</td>
+<td>4.5rem bottom margin</td>
+</tr>
+<tr>
+<td>mb-4</td>
+<td>6rem bottom margin</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>use pb-1 ~ pb-4 for bottom padding</p>
+</blockquote>
+<h3 id="how-do-i-disable-dark-mode">How do I disable dark mode?</h3>
+<p>Under <code>params</code> add <code>enableDarkMode = false</code> to your <code>config.toml</code> file. If your site is based on the exampleSite, the value is already included; you only need to uncomment it.</p>
+<blockquote>
+<p>The user will still have the option to activate dark mode, if they so wish through the UI</p>
+</blockquote>
+<h3 id="how-do-i-change-the-theme-color">How do I change the theme color?</h3>
+<p>If the theme is a git submodule, you can copy the file <code>assets/sass/_variables.sass</code> from the theme into your own site.
+The location must be exactly the same as in the theme, so put it in <code>YourFancySite/assets/sass/</code>.
+You can then edit the file to customize the theme color in your site without having to modify the theme itself.</p>
+<h3 id="how-can-i-change-the-address-bar-color-on-mobile-devices">How can I change the address bar color on mobile devices?</h3>
+<p>Just put the following line in the <code>[params]</code> section in your <code>config.toml</code> file (and of course change the color):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">metaThemeColor</span> <span class="p">=</span> <span class="s2">&#34;#123456&#34;</span>
+</span></span></code></pre></div><h3 id="how-do-i-add-custom-styles-scripts-meta-tags-etc">How do I add custom styles, scripts, meta tags e.t.c</h3>
+<p>Use hooks. Ideally, you should not override the them directly.</p>
+<p>Instead, you should duplicate <a href="https://github.com/onweru/compose/tree/master/layouts/partials/hooks">these files</a> at the root of you site directory.</p>
+<ol>
+<li>layouts/partials/hooks/head.html</li>
+<li>layouts/partials/hooks/scripts.html</li>
+</ol>
+<p>The contents of the first file will be attached just before the <code>&lt;/head&gt;</code> tag.</p>
+<p>The contents of the second file will be attached just before the <code>&lt;/body&gt;</code> tag.</p>
+<p>Alternatively, if you want to use the <code>config.toml</code> to track your custom styles or scripts, declare them as slices under <code>[params]</code> like so:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">[</span><span class="nx">params</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">customCSS</span> <span class="p">=</span> <span class="p">[</span><span class="nx">styleURL1</span><span class="p">,</span> <span class="nx">styleURL2</span> <span class="p">...]</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nx">customJS</span> <span class="p">=</span> <span class="p">[</span><span class="nx">scriptURL1</span><span class="p">,</span> <span class="nx">scriptURL2</span> <span class="p">...</span> <span class="p">]</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="p">...</span>
+</span></span></code></pre></div><h3 id="i-want-to-add-custom-sass-or-js">I want to add custom SASS or JS</h3>
+<p>Add custom SASS and JS via <a href="https://github.com/onweru/compose/blob/master/assets/sass/_custom.sass">this custom SASS file</a> and <a href="https://github.com/onweru/compose/hugo-compose/blob/master/assets/js/custom.js">this custom JavaScript file</a>.</p>
+<h3 id="how-to-change-site-favicon">How to change site favicon</h3>
+<p>Your favicons should be stored inside <code>static/favicons</code> directory.</p>
+<p>Here are some of the favicon files that you should have in that folder:</p>
+<pre tabindex="0"><code>.
+├── android-chrome-192x192.png
+├── android-chrome-512x512.png
+├── apple-touch-icon.png
+├── favicon-16x16.png
+├── favicon-32x32.png
+├── favicon.ico
+└── site.webmanifest
+</code></pre><p>We recommend you consider using this <a href="https://realfavicongenerator.net/">tool</a> while generating your favicons.</p>
 
-  
+</div>
       </div></div>
   <script>
 

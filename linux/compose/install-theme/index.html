@@ -13,15 +13,23 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Install theme | My New Hugo Site</title><meta property="og:title" content="Install theme" />
+<meta property="og:description" content="This page tells you how to get started with the Compose theme.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/install-theme/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Install theme">
+<meta itemprop="description" content="This page tells you how to get started with the Compose theme.
+">
+
+<meta itemprop="wordCount" content="307">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Install theme"/>
+<meta name="twitter:description" content="This page tells you how to get started with the Compose theme.
+"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +37,12 @@
 
 
 
+  <meta name="description" content="This page tells you how to get started with the Compose theme.
+">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +102,52 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Install theme</h1>
+	<div>This page tells you how to get started with the Compose theme.</div><h3 id="prerequisites">Prerequisites</h3>
+<p>First ensure that you have hugo installed.</p>
+<p>You need a <a href="https://github.com/gohugoio/hugo/releases">recent <strong>extended</strong> version</a> (we recommend version 0.61 or later) of <a href="https://gohugo.io/">Hugo</a> to do local builds and previews of sites (like this one) that uses this theme.</p>
+<p>If you install from the release page, make sure to get the <code>extended</code> Hugo version, which supports <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html">sass</a>; you may need to scroll down the list of releases to see it.</p>
+<p>For comprehensive Hugo documentation, see <a href="https://gohugo.io/">gohugo.io</a>.</p>
+<h2 id="run-your-site-with-compose-theme">Run your site with compose theme</h2>
+<p>You could go with the options right below.</p>
+<h3 id="option-1-my-favorite">Option 1 (my favorite)</h3>
+<p>This option enables you to load compose theme as a hugo module. First things first, ensure you have <code>go</code> binary <a href="https://golang.org/doc/install">installed on your machine</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">$ git clone https://github.com/onweru/compose/
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server
+</span></span></code></pre></div><p>To pull in theme updates, run <code>hugo mod get -u ./...</code> from the theme folder. If unsure, <a href="https://gohugo.io/hugo-modules/use-modules/#update-modules">learn how to update hugo modules</a></p>
 
-  
+<div class="tip tip_warning">
+  <p>The exampleSite uses the theme as a hugo module by default.</p>
+<p>If you choose <strong>Option 2</strong> or <strong>Option 3</strong> below, ensure you edit <a href="https://github.com/onweru/compose/blob/b3e30e0816621223224897edc45eeeabd0d9cd16/exampleSite/config.toml#L4-L7">these lines in the config.toml file</a> as advised on the comments. Else, you will not be able to pull theme updates.</p>
+
+</div>
+
+<h3 id="option-2-recommended">Option 2 (recommended)</h3>
+<p>Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new site yourSiteName
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> yourSiteName
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git init
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git submodule add https://github.com/onweru/compose/ themes/compose
+</span></span><span class="line"><span class="ln">5</span><span class="cl">cp -a themes/compose/exampleSite/* .
+</span></span></code></pre></div><p>Then run</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server
+</span></span></code></pre></div><p>Hurray!</p>
+<h3 id="option-3-great-for-testing-quickly">Option 3 (Great for testing quickly)</h3>
+<p>You can run your site directly from the <code>exampleSite</code>. To do so, use the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/onweru/compose/
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server --themesDir ../..
+</span></span></code></pre></div>
+<div class="tip">
+  Although, option 3 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.
+</div>
+
+<p>Once set, jump over to the <a href="https://github.com/onweru/compose/blob/afdf1cd76408aeac11547a6abd51bdc5138a295f/exampleSite/config.toml#L4-L7">config.toml</a> file and start configuring your site.</p>
+
+</div>
       </div></div>
   <script>
 

@@ -13,15 +13,26 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Use forestry CMS | My New Hugo Site</title><meta property="og:title" content="Use forestry CMS" />
+<meta property="og:description" content="Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the next section
+Let&#39;s sync your site with forestry CMS.
+Prerequisites !! Obviously you ought to have a github account. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/use-forestry-cms/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Use forestry CMS">
+<meta itemprop="description" content="Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the next section
+Let&#39;s sync your site with forestry CMS.
+Prerequisites !! Obviously you ought to have a github account. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo.">
+
+<meta itemprop="wordCount" content="235">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Use forestry CMS"/>
+<meta name="twitter:description" content="Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the next section
+Let&#39;s sync your site with forestry CMS.
+Prerequisites !! Obviously you ought to have a github account. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo."/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +40,13 @@
 
 
 
+  <meta name="description" content="Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the next section
+Let&#39;s sync your site with forestry CMS.
+Prerequisites !! Obviously you ought to have a github account. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo.">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +106,38 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Use forestry CMS</h1>
+	<p>Do you prefer managing your site using a CMS? Or would you like to make it easier for someone (a non-techie, perhaps) in your team to make edits easily? If interested, follow along. Else, skip to the <a href="../overview/">next section</a></p>
+<p>Let's sync your site with forestry CMS.</p>
+<h2 id="prerequisites-">Prerequisites !!</h2>
+<p>Obviously you  ought to have <strong>a github account</strong>. This is where your website source will live. Basically, forestry will read from github and write (commmit) to your github repo.</p>
 
-  
+<div class="tip tip_warning">
+  Gitlab or bitbucket will work too. Just check their <a href="https://forestry.io/docs/git-sync/gitlab/">implementation here</a>. Happy fishing.
+</div>
+
+<h3 id="requirement-1--a-forestry-account">Requirement 1 : A Forestry account</h3>
+<p>Jump over to <a href="https://bit.ly/forestry-account">forestry</a> and sign up for an account. Consider signing up using your github account. That way, you don't have to deal with passwords.</p>
+<h3 id="requirement-2-a-netlify-account-_optional_">Requirement 2: A Netlify account <em>(optional)</em></h3>
+<p>If you intend to host with something other than Netlify <em>e.g github pages</em>, please scroll on. Hosting with Netlify is a lot of fun though; I highly recommend it.</p>
+<h3 id="step-1--fork-or-clone-compse-theme">Step 1 : Fork or Clone Compse theme</h3>
+<p>First we will fork <a href="https://github.com/onweru/compose">this theme's</a> template.</p>
+<h3 id="step-2--add-your-repository-in-forestry">Step 2 : Add your repository in Forestry</h3>
+
+<div class="tip">
+  The exampleSite already comes with prefilled default forestry settings. If you set up your site using <a href="../getting-started/#option-2-recommended">option 2</a>, look for a file <code>.forestry/settings.yml</code> and remove all <code>exampleSite/</code> strings from it.
+</div>
+
+<p>Go to your <a href="https://bit.ly/forestry-account">forestry</a>  account and click on <code>import your site now</code>.</p>
+<ol>
+<li>Choose <code>hugo</code></li>
+<li><code>github</code> or <code>gitlab</code>. wherever your repo is at.</li>
+<li>Select your repo</li>
+</ol>
+
+</div>
       </div></div>
   <script>
 

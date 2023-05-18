@@ -13,15 +13,26 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Getting started | My New Hugo Site</title><meta property="og:title" content="Getting started" />
+<meta property="og:description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
+Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
+Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/clarity/getting-started/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Getting started">
+<meta itemprop="description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
+Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
+Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:">
+
+<meta itemprop="wordCount" content="279">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Getting started"/>
+<meta name="twitter:description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
+Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
+Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +40,13 @@
 
 
 
+  <meta name="description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
+Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
+Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +106,46 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Getting started</h1>
+	<h2 id="prerequisites">Prerequisites</h2>
+<p>Firstly, <strong>ensure you have installed the <a href="https://github.com/gohugoio/hugo/releases">extended version of Hugo</a></strong>. See installation steps from <a href="https://gohugo.io/getting-started/installing/">Hugo's official docs</a>.</p>
+<h2 id="getting-up-and-running">Getting up and running</h2>
+<p>Read the <a href="#prerequisites">prerequisites</a> above and verify you're using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:</p>
+<h3 id="option-1-recommended">Option 1 (recommended)</h3>
+<p>Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new site yourSiteName
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> yourSiteName
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git init
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity
+</span></span><span class="line"><span class="ln">5</span><span class="cl">cp -a themes/hugo-clarity/exampleSite/* .
+</span></span></code></pre></div><p>Then run</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server
+</span></span></code></pre></div><p>Hurray!</p>
+<h3 id="option-2-great-for-testing-quickly">Option 2 (Great for testing quickly)</h3>
+<p>You can run your site directly from the <code>exampleSite</code>. To do so, use the following commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/chipzoller/hugo-clarity
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> hugo-clarity/exampleSite/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server --themesDir ../..
+</span></span></code></pre></div><blockquote>
+<p>Although, option 2 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.</p>
+</blockquote>
+<h3 id="option-3-the-new-most-fun--painless-approach">Option 3 (The new, most fun &amp; painless approach)</h3>
+<p>This option enables you to load this theme as a hugo module. It arguably requires the least effort to run and maintain in your website.</p>
+<p>First things first, ensure you have <code>go</code> binary <a href="https://golang.org/doc/install">installed on your machine</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/chipzoller/hugo-clarity.git clarity
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> clarity/exampleSite/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo mod init my-site
+</span></span></code></pre></div><p>Open config.toml file in your code editor, replace <code>theme = &quot;hugo-clarity&quot;</code> with <code>theme = [&quot;github.com/chipzoller/hugo-clarity&quot;]</code> or just <code>theme = &quot;github.com/chipzoller/hugo-clarity&quot;</code>.</p>
+<p>Hurray you can now run</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="l">hugo server</span><span class="w">
+</span></span></span></code></pre></div><p>To pull in theme updates, run <code>hugo mod get -u ./...</code> from the theme folder. If unsure, <a href="https://gohugo.io/hugo-modules/use-modules/#update-modules">learn how to update hugo modules</a></p>
+<blockquote>
+<p>There <a href="https://discourse.gohugo.io/t/hugo-modules-for-dummies/20758">is more you could do with hugo modules</a>, but this will suffice for our use case here.</p>
+</blockquote>
 
-  
+</div>
       </div></div>
   <script>
 

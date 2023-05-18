@@ -2,61 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/docs/</loc>
+    <loc>/linux/</loc>
     <lastmod>2023-05-18T16:01:05+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/</loc>
-  </url><url>
-    <loc>/linux/example/</loc>
+    <loc>/linux/compose/</loc>
   </url><url>
     <loc>/tutorials/example/</loc>
   </url><url>
-    <loc>/linux/</loc>
-  </url><url>
     <loc>/tutorials/</loc>
   </url><url>
-    <loc>/docs/compose/install-theme/</loc>
+    <loc>/linux/compose/install-theme/</loc>
   </url><url>
-    <loc>/docs/compose/use-forestry-cms/</loc>
+    <loc>/linux/compose/use-forestry-cms/</loc>
   </url><url>
-    <loc>/docs/compose/organize-content/</loc>
+    <loc>/linux/compose/organize-content/</loc>
   </url><url>
-    <loc>/docs/compose/shortcodes/</loc>
+    <loc>/linux/compose/shortcodes/</loc>
   </url><url>
-    <loc>/docs/compose/search/</loc>
+    <loc>/linux/compose/search/</loc>
   </url><url>
-    <loc>/docs/compose/mermaid/</loc>
-  </url><url>
-    <loc>/linux/example/mermaid/</loc>
+    <loc>/linux/compose/mermaid/</loc>
   </url><url>
     <loc>/tutorials/example/mermaid/</loc>
   </url><url>
-    <loc>/docs/compose/graphs-charts-tables/</loc>
+    <loc>/linux/compose/graphs-charts-tables/</loc>
   </url><url>
-    <loc>/docs/clarity/</loc>
+    <loc>/linux/clarity/</loc>
   </url><url>
-    <loc>/docs/compose/customize/</loc>
+    <loc>/linux/compose/customize/</loc>
   </url><url>
-    <loc>/docs/clarity/getting-started/</loc>
+    <loc>/linux/clarity/getting-started/</loc>
   </url><url>
-    <loc>/docs/compose/github-actions/</loc>
+    <loc>/linux/compose/github-actions/</loc>
   </url><url>
-    <loc>/docs/clarity/features/</loc>
+    <loc>/linux/clarity/features/</loc>
   </url><url>
-    <loc>/docs/clarity/customize/</loc>
+    <loc>/linux/clarity/customize/</loc>
   </url><url>
-    <loc>/docs/clarity/images/</loc>
+    <loc>/linux/clarity/images/</loc>
   </url><url>
-    <loc>/docs/clarity/blogging/</loc>
+    <loc>/linux/clarity/blogging/</loc>
   </url><url>
-    <loc>/docs/clarity/syntax-highlighting/</loc>
+    <loc>/linux/clarity/syntax-highlighting/</loc>
   </url><url>
-    <loc>/docs/clarity/theme-overrides/</loc>
+    <loc>/linux/clarity/theme-overrides/</loc>
   </url><url>
     <loc>/</loc>
     <lastmod>2023-05-18T16:01:05+02:00</lastmod>
   </url><url>
-    <loc>/docs/fedora-38/</loc>
+    <loc>/linux/fedora-38/</loc>
     <lastmod>2023-05-18T16:01:05+02:00</lastmod>
   </url><url>
     <loc>/blog/</loc>

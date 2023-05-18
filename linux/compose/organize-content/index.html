@@ -13,15 +13,29 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Content organization | My New Hugo Site</title><meta property="og:title" content="Content organization" />
+<meta property="og:description" content="This theme is primarily meant for documentation.
+Documentation By default, the theme will look for all your documentation content within the docs directory.
+However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
+... docSections = [&#34;docs&#34;, &#34;tutorials&#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/compose/organize-content/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Content organization">
+<meta itemprop="description" content="This theme is primarily meant for documentation.
+Documentation By default, the theme will look for all your documentation content within the docs directory.
+However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
+... docSections = [&#34;docs&#34;, &#34;tutorials&#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages.">
+
+<meta itemprop="wordCount" content="161">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Content organization"/>
+<meta name="twitter:description" content="This theme is primarily meant for documentation.
+Documentation By default, the theme will look for all your documentation content within the docs directory.
+However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
+... docSections = [&#34;docs&#34;, &#34;tutorials&#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages."/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +43,14 @@
 
 
 
+  <meta name="description" content="This theme is primarily meant for documentation.
+Documentation By default, the theme will look for all your documentation content within the docs directory.
+However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
+... docSections = [&amp;#34;docs&amp;#34;, &amp;#34;tutorials&amp;#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages.">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +110,26 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Content organization</h1>
+	<p>This theme is primarily meant for documentation.</p>
+<h4 id="documentation">Documentation</h4>
+<p>By default, the theme will look for all your documentation content within the <code>docs</code> directory.</p>
+<p>However, if you would like to have your docs content across multiple directories, please list those directories inside <code>config/_default/params.toml</code> under <code>docSections</code> like so:</p>
+<pre tabindex="0"><code>...
+docSections = [&#34;docs&#34;, &#34;tutorials&#34;]
+...
+</code></pre><p>Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages. Beneath each link, there will be a collapsible list of <strong>table of contents'</strong> links. These nested lists will unfold automatically on the active/current page.</p>
+<h4 id="home-page">Home Page</h4>
+<p>At the root level there's an <code>_index.md</code> page which is the homepage. Feel free to edit it as you like.</p>
+<h4 id="other-pages">Other pages</h4>
+<p>You can also add as many regular pages as you like e.g <code>about.md</code>, <code>contact.md</code>...</p>
+<p>Take advantage of <a href="../shortcodes">shortcodes</a> to customize the layouts of these pages and any other.</p>
+<h4 id="does-this-theme-support-blogging-function">Does this theme support blogging function?</h4>
+<p>Currently, no.</p>
 
-  
+</div>
       </div></div>
   <script>
 

@@ -13,15 +13,23 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Articles - Docs | My New Hugo Site</title><meta property="og:title" content="Articles - Docs" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/" />
+<title>Manipulating Images | My New Hugo Site</title><meta property="og:title" content="Manipulating Images" />
+<meta property="og:description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
+figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/clarity/images/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Articles - Docs">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Articles - Docs"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Manipulating Images">
+<meta itemprop="description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
+figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption.">
+
+<meta itemprop="wordCount" content="562">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Manipulating Images"/>
+<meta name="twitter:description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.
+figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption."/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +37,12 @@
 
 
 
+  <meta name="description" content="Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &amp;quot;Figure N&amp;quot; to the alt text. This is controlled via two global settings.
+figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &amp;quot;Figure.&amp;quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption.">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -91,9 +102,71 @@
     
       
     
-      <div class="content"><p>Aquí se agrupan varios de los artículos compartidos en este sitio, de páginas estáticas.</p>
+      <div class="content">
+<div class="content">
+	<h1>Manipulating Images</h1>
+	<h2 id="images">Images</h2>
+<h3 id="image-figure-captions">Image figure captions</h3>
+<p>You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &quot;Figure N&quot; to the alt text. This is controlled via two global settings.</p>
+<p><code>figurePositionLabel</code> is a string which will be prepended to any alt text of an article image. By default, this is set to &quot;Figure.&quot; And <code>figurePositionShow</code> controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption. For more granular control, <code>figurePositionShow</code> can be overridden at the article level if desired.</p>
+<p>The number will be automatically calculated and assigned after the <code>figurePositionLabel</code> text starting from the top of the article and counting down. Featured images will be excluded from this figuration.</p>
+<h3 id="image-figure-captions-example">Image figure captions example</h3>
+<p>In this example, <code>figurePositionLabel</code> is set to &quot;Figure&quot; in <code>config.toml</code> and this is the first image in a given article.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl">![<span class="nt">Antrea Kubernetes nodes prepared</span>](<span class="na">./images/calrity/image-figure.png</span>)
+</span></span></code></pre></div><p><img src="../../../images/clarity/image-figure.png" alt="Here is my alt text for this image."></p>
+<h3 id="inline-images">Inline images</h3>
+<p>To make a blog image inline, append <code>:inline</code> to its alt text. Typically, inline images will have no alt text associated with them.</p>
+<h3 id="inline-images-example">Inline images example</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">&lt;!-- some image without alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">![<span class="nt">:inline</span>](<span class="na">someImageUrl</span>)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c">&lt;!-- some image with alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">![<span class="nt">some alt text:inline</span>](<span class="na">someOtherImageUrl</span>)
+</span></span></code></pre></div><p><img src="../../../images/clarity/image-inline.png" alt="Inline image example"></p>
+<h3 id="float-images-to-the-left">Float images to the left</h3>
+<p>To align a blog image to the left, append <code>:left</code> to its alt text. Article text will then flow to the right of the image.</p>
+<h3 id="float-images-left-example">Float images left example</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">&lt;!-- some image without alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">![<span class="nt">:left</span>](<span class="na">someImageUrl</span>)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c">&lt;!-- some image with alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">![<span class="nt">some alt text:left</span>](<span class="na">someOtherImageUrl</span>)
+</span></span></code></pre></div><h3 id="add-classes-to-images">Add classes to images</h3>
+<p>To add a class image to the left, append <code>::&lt;classname&gt;</code> to its alt text. You can also add multiple classes to an image separated by space. <code>::&lt;classname1&gt; &lt;classname2&gt;</code>.</p>
+<h3 id="image-class-example">Image class example</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl"><span class="c">&lt;!-- some image without alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">![<span class="nt">::img-medium</span>](<span class="na">someImageUrl</span>)
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c">&lt;!-- some image with alt text --&gt;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">![<span class="nt">some alt text::img-large img-shadow</span>](<span class="na">someOtherImageUrl</span>)
+</span></span></code></pre></div><h3 id="article-thumbnail-image">Article thumbnail image</h3>
+<p>Blog articles can specify a thumbnail image which will be displayed to the left of the card on the home page. Thumbnails should be square (height:width ratio of <code>1:1</code>) and a suggested dimension of 150 x 150 pixels. They will be specified using a frontmatter variable as follows:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">thumbnail</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/thumbnail.jpg&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><p>The thumbnail image will take precedence on opengraph share tags if the <a href="#share-image">shareImage</a> parameter is not specified.</p>
+<h3 id="article-featured-image">Article featured image</h3>
+<p>Each article can specify an image that appears at the top of the content. When sharing the blog article on social media, if a thumnail is not specified, the featured image will be used as a fallback on opengraph share tags.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">featureImage</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;images/2020-04/capv-overview/featured.jpg&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><h3 id="share-image">Share Image</h3>
+<p>Sometimes, you want to explicitly set the image that will be used in the preview when you share an article on social media. You can do so in the front matter.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="l">shareImage = &#34;images/theImageToBeUsedOnShare.png&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><p>Note that if a share image is not specified, the order of precedence that will be used to determine which image applies is <code>thumbnail</code> =&gt; <code>featureImage</code> =&gt; <code>fallbackOgImage</code>. When sharing a link to the home page address of the site (as opposed to a specific article), the <code>fallbackOgImage</code> will be used.</p>
+<h3 id="align-logo">Align logo</h3>
+<p>You can left align or center your site's logo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nn">...</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="l">centerLogo = true</span><span class="w"> </span><span class="c"># Change to false to align left</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nn">...</span><span class="w">
+</span></span></span></code></pre></div><p>If no logo is specified, the title of the site will appear in its place.</p>
 
-  
+</div>
       </div></div>
   <script>
 
