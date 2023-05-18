@@ -31,15 +31,6 @@ Prerequisites !! Obviously you ought to have a github account. This is where you
     </item>
     
     <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>/blog/kubernetes-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/kubernetes-in-local/</guid>
-      <description>&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
       <title>Content organization</title>
       <link>/docs/compose/organize-content/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -235,6 +226,15 @@ Mobile menu positioning The navigation menu when mobile browsing can be configur
       <guid>/docs/clarity/theme-overrides/</guid>
       <description>Custom CSS and JS To minimize HTTP requests per page, we would recommend loading CSS styles and JavaScript helpers in single bundles. That is to say, one CSS file and one JavaScript file. Using Hugo minify functions, these files will be minified to optimize the size.
 Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via the custom SASS file (Compose, Clarity) and the custom JS file (Compose, Clarity).</description>
+    </item>
+    
+    <item>
+      <title>Opciones de Kubernetes en local</title>
+      <link>/blog/kubernetes-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/kubernetes-in-local/</guid>
+      <description>&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
     </item>
     
     <item>
