@@ -2,110 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://example.org/docs/compose/</loc>
+    <loc>/docs/compose/</loc>
   </url><url>
-    <loc>http://example.org/linux/example/</loc>
+    <loc>/linux/example/</loc>
   </url><url>
-    <loc>http://example.org/tutorials/example/</loc>
+    <loc>/tutorials/example/</loc>
   </url><url>
-    <loc>http://example.org/docs/</loc>
+    <loc>/docs/</loc>
   </url><url>
-    <loc>http://example.org/linux/</loc>
+    <loc>/linux/</loc>
   </url><url>
-    <loc>http://example.org/tutorials/</loc>
+    <loc>/tutorials/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/install-theme/</loc>
+    <loc>/docs/compose/install-theme/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/use-forestry-cms/</loc>
+    <loc>/docs/compose/use-forestry-cms/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/organize-content/</loc>
+    <loc>/docs/compose/organize-content/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/shortcodes/</loc>
+    <loc>/docs/compose/shortcodes/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/search/</loc>
+    <loc>/docs/compose/search/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/mermaid/</loc>
+    <loc>/docs/compose/mermaid/</loc>
   </url><url>
-    <loc>http://example.org/linux/example/mermaid/</loc>
+    <loc>/linux/example/mermaid/</loc>
   </url><url>
-    <loc>http://example.org/tutorials/example/mermaid/</loc>
+    <loc>/tutorials/example/mermaid/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/graphs-charts-tables/</loc>
+    <loc>/docs/compose/graphs-charts-tables/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/</loc>
+    <loc>/docs/clarity/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/customize/</loc>
+    <loc>/docs/compose/customize/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/getting-started/</loc>
+    <loc>/docs/clarity/getting-started/</loc>
   </url><url>
-    <loc>http://example.org/docs/compose/github-actions/</loc>
+    <loc>/docs/compose/github-actions/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/features/</loc>
+    <loc>/docs/clarity/features/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/customize/</loc>
+    <loc>/docs/clarity/customize/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/images/</loc>
+    <loc>/docs/clarity/images/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/blogging/</loc>
+    <loc>/docs/clarity/blogging/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/syntax-highlighting/</loc>
+    <loc>/docs/clarity/syntax-highlighting/</loc>
   </url><url>
-    <loc>http://example.org/docs/clarity/theme-overrides/</loc>
+    <loc>/docs/clarity/theme-overrides/</loc>
   </url><url>
-    <loc>http://example.org/blog/</loc>
+    <loc>/blog/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/</loc>
+    <loc>/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/emoji/</loc>
+    <loc>/tags/emoji/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/emoji-support/</loc>
+    <loc>/blog/emoji-support/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/creating-a-new-theme/</loc>
+    <loc>/blog/creating-a-new-theme/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/goisforlovers/</loc>
+    <loc>/blog/goisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/hugoisforlovers/</loc>
+    <loc>/blog/hugoisforlovers/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/go/</loc>
+    <loc>/tags/go/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/golang/</loc>
+    <loc>/tags/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/categories/golang/</loc>
+    <loc>/categories/golang/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/hugo/</loc>
+    <loc>/tags/hugo/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/templates/</loc>
+    <loc>/tags/templates/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/tags/themes/</loc>
+    <loc>/tags/themes/</loc>
     <lastmod>2014-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/blog/migrate-from-jekyll/</loc>
+    <loc>/blog/migrate-from-jekyll/</loc>
     <lastmod>2014-03-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://example.org/search/</loc>
+    <loc>/search/</loc>
   </url>
 </urlset>
