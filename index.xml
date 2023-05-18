@@ -65,6 +65,15 @@ Sometimes, the shortcode will wrap content, sometimes it won&#39;t. When content
     </item>
     
     <item>
+      <title>Opciones de Kubernetes en local</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X </description>
+    </item>
+    
+    <item>
       <title>Search Function</title>
       <link>/docs/compose/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -83,15 +92,6 @@ Sometimes, the shortcode will wrap content, sometimes it won&#39;t. When content
       <guid>/docs/compose/shortcodes-example/</guid>
       <description>Blocks, columns &amp;amp; buttons 1{{&amp;lt; block &amp;#34;grid-2&amp;#34; &amp;gt;}} 2{{&amp;lt; column &amp;gt;}} 3#### Coumn 1 4 5Lorem ipsum dolor sit amet, 6... 7 8{{&amp;lt; button &amp;#34;https://github.com/onweru/compose&amp;#34; &amp;#34;Download Theme&amp;#34; &amp;gt;}} 9 10{{&amp;lt; /column &amp;gt;}} 11{{&amp;lt; column &amp;gt;}} 12 13&amp;lt;!-- generates 👇 --&amp;gt; Coumn 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</description>
-    </item>
-    
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>/blog/k8s-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>/blog/k8s-in-local/</guid>
-      <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker linux only X X X ~ docker X addons X X arm X X multi node X X </description>
     </item>
     
     <item>
