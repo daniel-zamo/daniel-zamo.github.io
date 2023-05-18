@@ -5,45 +5,83 @@
     <loc>/linux/</loc>
     <lastmod>2023-05-18T16:01:05+02:00</lastmod>
   </url><url>
+    <loc>/docs/compose/</loc>
+  </url><url>
     <loc>/linux/compose/</loc>
   </url><url>
     <loc>/tutorials/example/</loc>
   </url><url>
+    <loc>/docs/</loc>
+  </url><url>
     <loc>/tutorials/</loc>
+  </url><url>
+    <loc>/docs/compose/install-theme/</loc>
   </url><url>
     <loc>/linux/compose/install-theme/</loc>
   </url><url>
+    <loc>/docs/compose/use-forestry-cms/</loc>
+  </url><url>
     <loc>/linux/compose/use-forestry-cms/</loc>
+  </url><url>
+    <loc>/docs/compose/organize-content/</loc>
   </url><url>
     <loc>/linux/compose/organize-content/</loc>
   </url><url>
+    <loc>/docs/compose/shortcodes/</loc>
+  </url><url>
     <loc>/linux/compose/shortcodes/</loc>
   </url><url>
+    <loc>/docs/compose/search/</loc>
+  </url><url>
     <loc>/linux/compose/search/</loc>
+  </url><url>
+    <loc>/docs/compose/mermaid/</loc>
   </url><url>
     <loc>/linux/compose/mermaid/</loc>
   </url><url>
     <loc>/tutorials/example/mermaid/</loc>
   </url><url>
+    <loc>/docs/compose/graphs-charts-tables/</loc>
+  </url><url>
     <loc>/linux/compose/graphs-charts-tables/</loc>
+  </url><url>
+    <loc>/docs/clarity/</loc>
   </url><url>
     <loc>/linux/clarity/</loc>
   </url><url>
+    <loc>/docs/compose/customize/</loc>
+  </url><url>
     <loc>/linux/compose/customize/</loc>
+  </url><url>
+    <loc>/docs/clarity/getting-started/</loc>
   </url><url>
     <loc>/linux/clarity/getting-started/</loc>
   </url><url>
+    <loc>/docs/compose/github-actions/</loc>
+  </url><url>
     <loc>/linux/compose/github-actions/</loc>
+  </url><url>
+    <loc>/docs/clarity/features/</loc>
   </url><url>
     <loc>/linux/clarity/features/</loc>
   </url><url>
+    <loc>/docs/clarity/customize/</loc>
+  </url><url>
     <loc>/linux/clarity/customize/</loc>
+  </url><url>
+    <loc>/docs/clarity/images/</loc>
   </url><url>
     <loc>/linux/clarity/images/</loc>
   </url><url>
+    <loc>/docs/clarity/blogging/</loc>
+  </url><url>
     <loc>/linux/clarity/blogging/</loc>
   </url><url>
+    <loc>/docs/clarity/syntax-highlighting/</loc>
+  </url><url>
     <loc>/linux/clarity/syntax-highlighting/</loc>
+  </url><url>
+    <loc>/docs/clarity/theme-overrides/</loc>
   </url><url>
     <loc>/linux/clarity/theme-overrides/</loc>
   </url><url>
