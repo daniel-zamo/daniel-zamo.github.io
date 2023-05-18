@@ -229,6 +229,15 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
     </item>
     
     <item>
+      <title>Getting Started with Hugo</title>
+      <link>/blog/k8s-in-local/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/k8s-in-local/</guid>
+      <description>Show Table at once BEGIN</description>
+    </item>
+    
+    <item>
       <title>Emoji Support</title>
       <link>/blog/emoji-support/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
