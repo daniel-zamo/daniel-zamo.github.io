@@ -49,7 +49,7 @@ However, if you would like to have your docs content across multiple directories
       
       <guid>/linux/fedora-38/install-minimal/</guid>
       <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
-En dicho asistente solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. Con esta forma de realizarlo luego podremos escalar el sistema a una utilidad como servidor o como estación de trabajo como Desktop con algún gestor de ventanas (como Gnome o KDE).</description>
+En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De este modo, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
     </item>
     
     <item>
