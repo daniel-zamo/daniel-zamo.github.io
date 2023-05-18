@@ -9,10 +9,10 @@
     <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Opciones de Kubernetes en local</title>
-      <link>/blog/k8s-in-local/</link>
+      <link>/blog/kubernetes-in-local/</link>
       <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
       
-      <guid>/blog/k8s-in-local/</guid>
+      <guid>/blog/kubernetes-in-local/</guid>
       <description>Opciones de Kubernetes en local minikube kind k3s microk8s docker Feature: addons X X Container runtime Docker, containerd, CRI-O CRI-O containerd, kata Feature: multi node X X X Ref: MicroK8s vs K3s vs minikube.</description>
     </item>
     
