@@ -17,9 +17,18 @@
     </item>
     
     <item>
+      <title>DevOps</title>
+      <link>/categories/devops/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>golang</title>
       <link>/categories/golang/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/categories/golang/</guid>
       <description></description>
