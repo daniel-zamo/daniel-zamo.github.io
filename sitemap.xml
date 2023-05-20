@@ -15,14 +15,12 @@
   </url><url>
     <loc>/docs/compose/install-theme/</loc>
   </url><url>
-    <loc>/docs/compose/use-forestry-cms/</loc>
-  </url><url>
-    <loc>/docs/compose/organize-content/</loc>
-  </url><url>
     <loc>/linux/fedora-38/install-minimal/</loc>
     <lastmod>2023-05-18T17:14:06+02:00</lastmod>
   </url><url>
-    <loc>/linux/fedora-38/initial-settings-minimal/</loc>
+    <loc>/docs/compose/use-forestry-cms/</loc>
+  </url><url>
+    <loc>/docs/compose/organize-content/</loc>
   </url><url>
     <loc>/docs/compose/shortcodes/</loc>
   </url><url>
@@ -33,6 +31,8 @@
     <loc>/docs/compose/mermaid/</loc>
   </url><url>
     <loc>/tutorials/example/mermaid/</loc>
+  </url><url>
+    <loc>/linux/fedora-38/initial-settings-minimal/</loc>
   </url><url>
     <loc>/docs/compose/graphs-charts-tables/</loc>
   </url><url>
