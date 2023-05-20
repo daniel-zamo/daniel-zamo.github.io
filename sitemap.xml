@@ -2,131 +2,156 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/linux/</loc>
-    <lastmod>2023-05-18T16:01:05+02:00</lastmod>
+    <loc>https://dzamo.gitlab.io/docs/compose/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/</loc>
+    <loc>https://dzamo.gitlab.io/tutorials/example/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tutorials/example/</loc>
+    <loc>https://dzamo.gitlab.io/linux/</loc>
+    <lastmod>2023-05-18T18:50:34+02:00</lastmod>
   </url><url>
-    <loc>/docs/</loc>
+    <loc>https://dzamo.gitlab.io/docs/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tutorials/</loc>
+    <loc>https://dzamo.gitlab.io/tutorials/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/install-theme/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/install-theme/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/linux/fedora-38/install-minimal/</loc>
+    <loc>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</loc>
+    <lastmod>2023-05-18T18:50:34+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/use-forestry-cms/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/use-forestry-cms/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/organize-content/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/organize-content/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/shortcodes/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/shortcodes/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/search/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/search/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/shortcodes-example/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/shortcodes-example/</loc>
+    <lastmod>2023-05-18T18:50:34+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/mermaid/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/mermaid/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tutorials/example/mermaid/</loc>
+    <loc>https://dzamo.gitlab.io/tutorials/example/mermaid/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/linux/fedora-38/initial-settings-minimal/</loc>
+    <loc>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</loc>
   </url><url>
-    <loc>/docs/compose/graphs-charts-tables/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/graphs-charts-tables/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/customize/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/customize/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/getting-started/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/getting-started/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/compose/github-actions/</loc>
+    <loc>https://dzamo.gitlab.io/docs/compose/github-actions/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/features/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/features/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/customize/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/customize/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/images/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/images/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/blogging/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/blogging/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/syntax-highlighting/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/syntax-highlighting/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/docs/clarity/theme-overrides/</loc>
+    <loc>https://dzamo.gitlab.io/docs/clarity/theme-overrides/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2023-05-18T16:01:05+02:00</lastmod>
+    <loc>https://dzamo.gitlab.io/linux/fedora-38/</loc>
+    <lastmod>2023-05-18T18:50:34+02:00</lastmod>
   </url><url>
-    <loc>/linux/fedora-38/</loc>
-    <lastmod>2023-05-18T16:01:05+02:00</lastmod>
+    <loc>https://dzamo.gitlab.io/categories/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
+    <loc>https://dzamo.gitlab.io/tags/containers/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://dzamo.gitlab.io/categories/development/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/categories/devops/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/containers/</loc>
+    <loc>https://dzamo.gitlab.io/tags/kubernetes/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/development/</loc>
+    <loc>https://dzamo.gitlab.io/blog/kubernetes-in-local/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/devops/</loc>
+    <loc>https://dzamo.gitlab.io/tags/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/virtualization/</loc>
     <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/kubernetes/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/emoji/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/kubernetes-in-local/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/emoji-support/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/creating-a-new-theme/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/virtualization/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/goisforlovers/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/emoji/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/development/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/emoji-support/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/hugoisforlovers/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/creating-a-new-theme/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/go/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/goisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/golang/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/development/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/categories/golang/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/blog/hugoisforlovers/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/hugo/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/go/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/templates/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/tags/themes/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/categories/golang/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/migrate-from-jekyll/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/hugo/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/blog/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/templates/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
+    <loc>https://dzamo.gitlab.io/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
-    <loc>/tags/themes/</loc>
-    <lastmod>2014-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/migrate-from-jekyll/</loc>
-    <lastmod>2014-03-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/search/</loc>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url>
 </urlset>
