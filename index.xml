@@ -6,7 +6,7 @@
     <description>Recent content in Compose on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 May 2023 17:14:06 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 May 2023 17:14:06 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Install theme</title>
       <link>/docs/compose/install-theme/</link>
@@ -43,22 +43,22 @@ However, if you would like to have your docs content across multiple directories
     </item>
     
     <item>
-      <title>Configuración incial - mínima</title>
-      <link>/linux/fedora-38/initial-settings-minimal/</link>
-      <pubDate>Sat, 20 May 2023 17:14:06 +0200</pubDate>
-      
-      <guid>/linux/fedora-38/initial-settings-minimal/</guid>
-      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
-    </item>
-    
-    <item>
       <title>Instalación del sistema - minimal</title>
       <link>/linux/fedora-38/install-minimal/</link>
       <pubDate>Thu, 18 May 2023 17:14:06 +0200</pubDate>
       
       <guid>/linux/fedora-38/install-minimal/</guid>
       <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
+En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
+    </item>
+    
+    <item>
+      <title>Configuración incial - mínima</title>
+      <link>/linux/fedora-38/initial-settings-minimal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/linux/fedora-38/initial-settings-minimal/</guid>
+      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
 En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
     </item>
     
