@@ -297,7 +297,9 @@ Clone the Hugo repository Go into the repo Run hugo in server mode and build the
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/linux/fedora-38/install.app/</guid>
-      <description>Instalación Openshot 1sudo dnf -y install openshot </description>
+      <description>Aplicaciones para Desktop Las aplicaciones que se instalan en este apartado son para ser utilizadas con ambiente gráfico ya instalado.
+Salvo que se indique expresamente, la estación de trabajo que se utiliza es un Fedora 38 con KDE Plasma 5.27 funcional.
+Instalación Openshot 1sudo dnf -y install openshot </description>
     </item>
     
     <item>
