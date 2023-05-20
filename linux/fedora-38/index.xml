@@ -29,12 +29,13 @@ Configuración usuario para sudo El siguiente comando, configura para el usuario
     </item>
     
     <item>
-      <title></title>
+      <title>Instalación de KDE Plasma workspaces</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</guid>
-      <description></description>
+      <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
+Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
     </item>
     
   </channel>

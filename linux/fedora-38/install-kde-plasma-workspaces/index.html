@@ -13,20 +13,23 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>My dzamo Hugo Site</title><meta property="og:title" content="" />
-<meta property="og:description" content="" />
+<title>Instalación de KDE Plasma workspaces | My dzamo Hugo Site</title><meta property="og:title" content="Instalación de KDE Plasma workspaces" />
+<meta property="og:description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
+" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/" /><meta property="article:section" content="linux" />
 
 
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="">
+<meta itemprop="name" content="Instalación de KDE Plasma workspaces">
+<meta itemprop="description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
+">
 
-<meta itemprop="wordCount" content="0">
+<meta itemprop="wordCount" content="187">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Instalación de KDE Plasma workspaces"/>
+<meta name="twitter:description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
+"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -34,7 +37,8 @@
 
 
 
-  <meta name="description" content="">
+  <meta name="description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
+">
 
 
 </head>
@@ -142,7 +146,13 @@
     </li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-" href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/"></a></h3><nav id="TableOfContents"></nav>
+        <h3 class="section_link active"><a id="docs-instalación-de-kde-plasma-workspaces" href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma workspaces</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</a></li>
+    <li><a href="#desintalar-paquetes">Desintalar paquetes</a></li>
+    <li><a href="#instalar-firefox-y-ark">Instalar firefox y ark</a></li>
+  </ul>
+</nav>
       </section>
   </section>
       </section>
@@ -150,7 +160,26 @@
 </aside>
 
   <main class="content">
-    <h1></h1>
+    <h1>Instalación de KDE Plasma workspaces</h1><p align="center" width="100%">
+<img src="/f38/install/kde-plasma-info-center.png" align="center" title="KDE Plasma - Info center"> </img>
+</p>
+<blockquote>
+<p>En este documento se detalla como agregar <strong>KDE Plasma</strong> desde el grupo predefinido <em><strong>&quot;KDE Plasma Workspaces&quot;</strong></em> en el sistema <em>Fedora 38</em> basado inicialmente en la instalación mínima realizada <a href="https://dzamo.gitlab.io/linux/fedora-38/install-minimal/">en este artículo</a> (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas <a href="https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/">aquí</a>.</p>
+</blockquote>
+<p><em>Nota del autor:</em> Se intenta remarcar que, la instalación indicada fue realizada en un <em>Fedora 38</em> con solo los paquetes mínimos previamente disponibles/instalados. Se recomienda revisar/evaluar si las tareas documentadas aquí son adecuadas para su caso en particular, para no sobre cargar el sistema.</p>
+<h2 id="instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y groupinstall <span class="s2">&#34;KDE Plasma Workspaces&#34;</span>
+</span></span></code></pre></div><h2 id="desintalar-paquetes">Desintalar paquetes</h2>
+<p>El siguiente comando, desinstala algunos de los paquetes que no se utilizarán.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y remove kmail akregator kaddressbook korganizer
+</span></span></code></pre></div><h2 id="instalar-firefox-y-ark">Instalar firefox y ark</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># Instalar paquetes (que se han eliminado por dependencias, al haber ejecutado el anterior comando)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y install firefox ark
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Por si algunos de los script del sistema instalo/habilito nuevametne zram...</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">sudo dnf remove -y zram-generator zram-generator-defaults
+</span></span></code></pre></div><p>En esta [captura][kde-plasma-info-center] se muestra el [About this System - Info Center][kde-plasma-info-center] instalado en nuestro Desktop Fedora 38.</p>
+<p><img src="https://dzamo.gitlab.io/images/f38/install/kde-plasma-info-center.png" alt="Imagen"></p>
+
     <div class="pager">
   
     
