@@ -24,7 +24,8 @@ En la selección de paquetes de dicho asistente, solo se selecciona el metapaque
       
       <guid>/linux/fedora-38/initial-settings-minimal/</guid>
       <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-Configuración usuario para sudo 1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
+Configuración usuario para sudo El siguiente comando, configura para el usuario $USER poder ejecutar los comandos con privilegios de usuario root sin que se le pida password.
+1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
     </item>
     
   </channel>
