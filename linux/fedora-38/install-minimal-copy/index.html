@@ -13,15 +13,23 @@
 <link rel="mask-icon" href='/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='/favicons/favicon.ico'>
 <meta name="msapplication-config" content='/favicons/browserconfig.xml'>
-<title>Instalación de Fedora 38 | My New Hugo Site</title><meta property="og:title" content="Instalación de Fedora 38" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/linux/fedora-38/" />
+<title>Instalación del sistema - minimal | My New Hugo Site</title><meta property="og:title" content="Instalación del sistema - minimal" />
+<meta property="og:description" content="Esta página explica la instalación de Fedora 38 - minimal.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/linux/fedora-38/install-minimal-copy/" /><meta property="article:section" content="linux" />
+<meta property="article:published_time" content="2023-05-18T17:14:06+02:00" />
+<meta property="article:modified_time" content="2023-05-18T17:14:06+02:00" />
 
-<meta itemprop="name" content="Instalación de Fedora 38">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalación de Fedora 38"/>
-<meta name="twitter:description" content=""/>
+<meta itemprop="name" content="Instalación del sistema - minimal">
+<meta itemprop="description" content="Esta página explica la instalación de Fedora 38 - minimal.
+"><meta itemprop="datePublished" content="2023-05-18T17:14:06+02:00" />
+<meta itemprop="dateModified" content="2023-05-18T17:14:06+02:00" />
+<meta itemprop="wordCount" content="278">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Instalación del sistema - minimal"/>
+<meta name="twitter:description" content="Esta página explica la instalación de Fedora 38 - minimal.
+"/>
 
 
 <link rel="stylesheet" href="/css/styles.02314b2017c7f1b51782a125dc61e2f6b057abaff9917128a9c39c82d6e810e52f8e1752b9eb54f23a794ee9d36edac715429ecb999981f036d1ee3f7245bc64.css" integrity="sha512-AjFLIBfH8bUXgqEl3GHi9rBXq6/5kXEoqcOcgtboEOUvjhdSuetU8jp5TunTbtrHFUKey5mZgfA20e4/ckW8ZA==">
@@ -29,9 +37,12 @@
 
 
 
+  <meta name="description" content="Esta página explica la instalación de Fedora 38 - minimal.
+">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='/' class="nav_brand">
@@ -103,9 +114,9 @@
     <h2 class="section_title"><a  href="/linux/" class="group">Instalaciones de Linux</a></h2>
       <section class="" id="docs-instalaciones-de-linux">
   <section class="section aside_inner">
-    <h2 class="section_title active"><a  href="/linux/fedora-38/" class="group">Instalación de Fedora 38</a></h2>
+    <h2 class="section_title"><a  href="/linux/fedora-38/" class="group">Instalación de Fedora 38</a></h2>
       <section class="" id="docs-instalación-de-fedora-38">
-        <h3 class="section_link"><a id="docs-instalación-del-sistema---minimal" href="/linux/fedora-38/install-minimal-copy/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-instalación-del-sistema---minimal" href="/linux/fedora-38/install-minimal-copy/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -148,31 +159,170 @@
 </aside>
 
   <main class="content">
-    <h1>Instalación de Fedora 38</h1><blockquote>
-<p>En esta sección se instala Fedora 38, sobre una portátil <a href="https://www.hp.com/in-en/shop/reviews/victus-by-hp-laptop-16-e1060ax-6h5w0pa">Victus by HP Laptop 16-e1xxx</a>.</p>
+    <h1>Instalación del sistema - minimal</h1><blockquote>
+<p>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.</p>
 </blockquote>
 
 <div class="tip tip_warning">
-  <p>Para estos artículos se ha utlizado un hardware de laptop real para la instalación de Fedora, pero se comparte aquí pues esta misma configuración puede ser utilizada en instalaciones similares del sistema sobre otras arquitecturas, reales o virtuales.</p>
-<h4 id="especificación-hardware">Especificación hardware</h4>
-<ul>
-<li>AMD Ryzen™ 7 processor</li>
-<li>NVIDIA® GeForce RTX™ 3050 Ti Laptop GPU (4 GB GDDR6 dedicated)</li>
-<li>512 GB SSD Generation 4</li>
-<li>16 GB DDR5-4800 MHz RAM (2 x 8 GB)</li>
-</ul>
-
+  En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete <strong>Minimal</strong>, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como <em>servidor</em> o como <em>estación de trabajo</em> (<em>Desktop</em>) con algún gestor de ventanas (como <a href="https://www.gnome.org/">Gnome</a> o <a href="https://www.kde.org/">KDE</a>).
 </div>
 
+<p><em>Nota del autor:</em> En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.</p>
+<h4 id="instalación-de-fedora-38">Instalación de Fedora 38</h4>
+<section class="grid-2"  >
+<div><h5 id="install-fedora-38">Install Fedora 38</h5>
+<p align="center" width="100%">
+<img src="/images/f38/install/sel.install.png" align="center" title="Seleccionar instalar"> </img></div>
 
-<div class="tip">
-  Se parte desde una instalación del sistema con solo el metapaquete Minimal, de modo que sirva como plantilla básica del sistema, según la implementación posterior requerida (como equipo servidor o Desktop).
+<div><h5 id="welcome-to-fedora-38">Welcome to Fedora 38</h5>
+<p align="center" width="100%">
+<img src="/images/f38/install/sel.language.png" align="center" title="Seleccionar el idioma (que utiliza el asistente durante la instalación 2)"> </img></div>
+
+</section>
+
+<h4 id="manual-partitioning">Manual partitioning</h4>
+<p>En esta instalación se utilizará arranque <strong>UEFI</strong>. En las capturas siguientes se muestran el particionado manual realizado con el propio asistente.</p>
+<p>El tamaño del disco es 20Gb, y el esquema de particionado del filesystem requerido es:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">punto montaje</th>
+<th style="text-align:center">tamaño</th>
+<th style="text-align:center">tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>/</code></td>
+<td style="text-align:center"><em>14.66G</em></td>
+<td style="text-align:center"><code>VG - LV - ext4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/boot/efi</code></td>
+<td style="text-align:center"><em>600 Mb</em></td>
+<td style="text-align:center"><code>EFI</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/boot</code></td>
+<td style="text-align:center"><em>768 Mb</em></td>
+<td style="text-align:center"><code>ext4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>swap</code></td>
+<td style="text-align:center"><em>4 G</em></td>
+<td style="text-align:center"><code>swap</code></td>
+</tr>
+</tbody>
+</table>
+<!-- 
+<div class="gallery">
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.boot.efi.png " class="gallery_image" alt="/boot/efi"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.boot.png " class="gallery_image" alt="/boot"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="/images/f38/install/partition.root.png " class="gallery_image" alt="/"/>
+  </figure>
+  
+</div>
+-->
+<p>A continuación se muestran las capturas del asistente resultante, para realizar el particionado recomendado.</p>
+<section class="grid-2"  >
+<div><h5 id="partición-">Partición /</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/partition.root.png" data-dark="/images/f38/install/partition.root.png">
+  <img src="/images/f38/install/partition.root.png" alt="Partition root">
+</picture>
+<!-- <p align="center" width="100%">
+<img src="/images/f38/install/partition.root.png" align="center" title="Partición root"> </img>
+</p> -->
 </div>
 
+<div><h5 id="partición-bootefi">Partición /boot/efi</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/partition.boot.efi.png" data-dark="/images/f38/install/partition.boot.efi.png">
+  <img src="/images/f38/install/partition.boot.efi.png" alt="Partition /boot/efi">
+</picture>
+</div>
 
-    <div class="pager pager_lean">
+</section>
+
+<section class="grid-2"  >
+<div><h5 id="partición-boot">Partición /boot</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/partition.swap.png" data-dark="/images/f38/install/partition.boot.png">
+  <img src="/images/f38/install/partition.swap.png" alt="Partition /boot">
+</picture>
+</div>
+
+<div><h5 id="partición-swap">Partición swap</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/partition.swap.png" data-dark="/images/f38/install/partition.swap.png">
+  <img src="/images/f38/install/partition.swap.png" alt="Partition swap">
+</picture>
+</div>
+
+</section>
+
+<h4 id="summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</h4>
+<p>Según la previa configuración de las particiones es que la interface <em>&quot;SUMMARY OF CHANGES&quot;</em> resume las modificaciones que serán llevadas a cabo, para el formateo del disco.</p>
+
+<picture class="nav_logo" data-lit="/images/f38/install/manual.partitioning.png" data-dark="/images/f38/install/manual.partitioning.png">
+  <img src="/images/f38/install/manual.partitioning.png" alt="Summary of changes - filesystem">
+</picture>
+
+<h4 id="create-user--account-root">Create user &amp; Account root</h4>
+<section class="grid-2"  >
+<div><h5 id="create-user">Create user</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/create.user.png" data-dark="/images/f38/install/create.user.png">
+  <img src="/images/f38/install/create.user.png" alt="Create user">
+</picture>
+</div>
+
+<div><h4 id="root-account">Root account</h4>
+<picture class="nav_logo" data-lit="/images/f38/install/root.account.png" data-dark="/images/f38/install/root.account.png">
+  <img src="/images/f38/install/root.account.png" alt="Root account">
+</picture>
+</div>
+
+</section>
+
+<h4 id="software-selecction">Software selecction</h4>
+<p>En la siguiente captura se muestra la interface <em>SOFTWARE SELECTION</em> y en esta solo se elige de instalar el metapaquete <em>&quot;Minimal install&quot;</em>.</p>
+
+<picture class="nav_logo" data-lit="/images/f38/install/software.selection.png" data-dark="/images/f38/install/software.selection.png">
+  <img src="/images/f38/install/software.selection.png" alt="Software selection - Minimal install">
+</picture>
+
+<h4 id="instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</h4>
+<section class="grid-2"  >
+<div><h5 id="installation-summary">Installation summary</h5>
+<picture class="nav_logo" data-lit="/images/f38/install/resume.png" data-dark="/images/f38/install/resume.png">
+  <img src="/images/f38/install/resume.png" alt="Installation summary">
+</picture>
+</div>
+
+<div><h4 id="installation-progress">Installation progress</h4>
+<picture class="nav_logo" data-lit="/images/f38/install/installation.progress.png" data-dark="/images/f38/install/installation.progress.png">
+  <img src="/images/f38/install/installation.progress.png" alt="Installation progress">
+</picture>
+</div>
+
+</section>
+
+
+    <div class="pager">
   
 
+  
+    
+    <div class="pager_item next">
+      <a href="/linux/fedora-38/install-minimal/" class="pager_link button" title="Instalación del sistema - minimal" rel="next">
+        <span class="pager_label">Instalación del sistema - minimal</span>
+      </a>
+    </div>
+    
   
 </div>
   </main>
