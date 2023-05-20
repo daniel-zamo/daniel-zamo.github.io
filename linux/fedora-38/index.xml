@@ -23,9 +23,10 @@ En la selección de paquetes de dicho asistente, solo se selecciona el metapaque
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/linux/fedora-38/initial-settings-minimal/</guid>
-      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
+      <description> En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
 ... Nota del autor: En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.
-Instalación de Fedora 38 Install Fedora 38 Welcome to Fedora 38 Manual partitioning En esta instalación se utilizará arranque UEFI.</description>
+2 columnas Col 1 Col 2 ... H4 ...
+t1 t2 t3 kkk asdfasdf faasdf </description>
     </item>
     
   </channel>
