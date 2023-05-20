@@ -24,7 +24,8 @@ En la selección de paquetes de dicho asistente, solo se selecciona el metapaque
       
       <guid>/linux/fedora-38/initial-settings-minimal/</guid>
       <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
+... Nota del autor: En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.
+Instalación de Fedora 38 Install Fedora 38 Welcome to Fedora 38 Manual partitioning En esta instalación se utilizará arranque UEFI.</description>
     </item>
     
   </channel>
