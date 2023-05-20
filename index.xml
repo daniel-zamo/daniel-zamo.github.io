@@ -44,10 +44,10 @@ However, if you would like to have your docs content across multiple directories
     
     <item>
       <title>Instalación del sistema - minimal</title>
-      <link>/linux/fedora-38/configuration-initial/</link>
+      <link>/linux/fedora-38/initial-settings-minimal/</link>
       <pubDate>Thu, 18 May 2023 17:14:06 +0200</pubDate>
       
-      <guid>/linux/fedora-38/configuration-initial/</guid>
+      <guid>/linux/fedora-38/initial-settings-minimal/</guid>
       <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
 En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
     </item>
