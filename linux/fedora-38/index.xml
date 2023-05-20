@@ -28,5 +28,14 @@ Configuración usuario para sudo El siguiente comando, configura para el usuario
 1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
