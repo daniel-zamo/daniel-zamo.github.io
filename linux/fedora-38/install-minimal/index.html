@@ -118,20 +118,12 @@
       <section class="" id="docs-fedora-38">
         <h3 class="section_link active"><a id="docs-instalación-del-sistema---minimal" href="/linux/fedora-38/install-minimal/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</a></li>
-            <li><a href="#manual-partitioning">Manual partitioning</a></li>
-            <li><a href="#summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</a></li>
-            <li><a href="#create-user--account-root">Create user &amp; Account root</a></li>
-            <li><a href="#software-selecction">Software selecction</a></li>
-            <li><a href="#instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+    <li><a href="#install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</a></li>
+    <li><a href="#manual-partitioning">Manual partitioning</a></li>
+    <li><a href="#summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</a></li>
+    <li><a href="#create-user--account-root">Create user &amp; Account root</a></li>
+    <li><a href="#software-selecction">Software selecction</a></li>
+    <li><a href="#instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</a></li>
   </ul>
 </nav>
         <h3 class="section_link"><a id="docs-configuración-inicial" href="/linux/fedora-38/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
@@ -170,16 +162,16 @@
 </div>
 
 <p><em>Nota del autor:</em> En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.</p>
-<h4 id="install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</h4>
+<h2 id="install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</h2>
 <section class="grid-2"  >
-<div><h5 id="install-fedora-38">Install Fedora 38</h5>
+<div><h3 id="install-fedora-38">Install Fedora 38</h3>
 <p>Menu inicial para seleccionar instalar Fedora 38.</p>
 <picture class="nav_logo" data-lit="/images/f38/install/sel.install.png" data-dark="/images/f38/install/sel.install.png">
   <img src="/images/f38/install/sel.install.png" alt="Install Fedora 38">
 </picture>
 </div>
 
-<div><h5 id="welcome-to-fedora-38">Welcome to Fedora 38</h5>
+<div><h3 id="welcome-to-fedora-38">Welcome to Fedora 38</h3>
 <p>Seleccionar el idioma del asistente de instalación.</p>
 <picture class="nav_logo" data-lit="/images/f38/install/sel.language.png" data-dark="/images/f38/install/sel.install.png">
   <img src="/images/f38/install/sel.language.png" alt="Sel. languaje del asistente">
@@ -188,7 +180,7 @@
 
 </section>
 
-<h4 id="manual-partitioning">Manual partitioning</h4>
+<h2 id="manual-partitioning">Manual partitioning</h2>
 <p>En esta instalación se utilizará arranque <strong>UEFI</strong>. En las capturas siguientes se muestran el particionado manual realizado con el propio asistente.</p>
 <p>El tamaño del disco es 20Gb, y el esquema de particionado del filesystem requerido es:</p>
 <table>
@@ -241,7 +233,7 @@
 -->
 <p>A continuación se muestran las capturas del asistente resultante, para realizar el particionado recomendado.</p>
 <section class="grid-2"  >
-<div><h5 id="partición-">Partición /</h5>
+<div><h3 id="partición-">Partición /</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/partition.root.png" data-dark="/images/f38/install/partition.root.png">
   <img src="/images/f38/install/partition.root.png" alt="Partition root">
 </picture>
@@ -250,7 +242,7 @@
 </p> -->
 </div>
 
-<div><h5 id="partición-bootefi">Partición /boot/efi</h5>
+<div><h3 id="partición-bootefi">Partición /boot/efi</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/partition.boot.efi.png" data-dark="/images/f38/install/partition.boot.efi.png">
   <img src="/images/f38/install/partition.boot.efi.png" alt="Partition /boot/efi">
 </picture>
@@ -259,13 +251,13 @@
 </section>
 
 <section class="grid-2"  >
-<div><h5 id="partición-boot">Partición /boot</h5>
+<div><h3 id="partición-boot">Partición /boot</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/partition.swap.png" data-dark="/images/f38/install/partition.boot.png">
   <img src="/images/f38/install/partition.swap.png" alt="Partition /boot">
 </picture>
 </div>
 
-<div><h5 id="partición-swap">Partición swap</h5>
+<div><h3 id="partición-swap">Partición swap</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/partition.swap.png" data-dark="/images/f38/install/partition.swap.png">
   <img src="/images/f38/install/partition.swap.png" alt="Partition swap">
 </picture>
@@ -273,22 +265,22 @@
 
 </section>
 
-<h4 id="summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</h4>
+<h2 id="summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</h2>
 <p>Según la previa configuración de las particiones es que la interface <em>&quot;SUMMARY OF CHANGES&quot;</em> resume las modificaciones que serán llevadas a cabo, para el formateo del disco.</p>
 
 <picture class="nav_logo" data-lit="/images/f38/install/manual.partitioning.png" data-dark="/images/f38/install/manual.partitioning.png">
   <img src="/images/f38/install/manual.partitioning.png" alt="Summary of changes - filesystem">
 </picture>
 
-<h4 id="create-user--account-root">Create user &amp; Account root</h4>
+<h2 id="create-user--account-root">Create user &amp; Account root</h2>
 <section class="grid-2"  >
-<div><h5 id="create-user">Create user</h5>
+<div><h3 id="create-user">Create user</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/create.user.png" data-dark="/images/f38/install/create.user.png">
   <img src="/images/f38/install/create.user.png" alt="Create user">
 </picture>
 </div>
 
-<div><h4 id="root-account">Root account</h4>
+<div><h3 id="root-account">Root account</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/root.account.png" data-dark="/images/f38/install/root.account.png">
   <img src="/images/f38/install/root.account.png" alt="Root account">
 </picture>
@@ -296,22 +288,22 @@
 
 </section>
 
-<h4 id="software-selecction">Software selecction</h4>
+<h2 id="software-selecction">Software selecction</h2>
 <p>En la siguiente captura se muestra la interface <em>SOFTWARE SELECTION</em> y en esta solo se elige de instalar el metapaquete <em>&quot;Minimal install&quot;</em>.</p>
 
 <picture class="nav_logo" data-lit="/images/f38/install/software.selection.png" data-dark="/images/f38/install/software.selection.png">
   <img src="/images/f38/install/software.selection.png" alt="Software selection - Minimal install">
 </picture>
 
-<h4 id="instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</h4>
+<h2 id="instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</h2>
 <section class="grid-2"  >
-<div><h5 id="installation-summary">Installation summary</h5>
+<div><h3 id="installation-summary">Installation summary</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/resume.png" data-dark="/images/f38/install/resume.png">
   <img src="/images/f38/install/resume.png" alt="Installation summary">
 </picture>
 </div>
 
-<div><h4 id="installation-progress">Installation progress</h4>
+<div><h3 id="installation-progress">Installation progress</h3>
 <picture class="nav_logo" data-lit="/images/f38/install/installation.progress.png" data-dark="/images/f38/install/installation.progress.png">
   <img src="/images/f38/install/installation.progress.png" alt="Installation progress">
 </picture>
