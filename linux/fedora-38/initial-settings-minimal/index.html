@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Configuración mínima inicial.
 ">
 
-<meta itemprop="wordCount" content="72">
+<meta itemprop="wordCount" content="299">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuración inicial"/>
 <meta name="twitter:description" content="Configuración mínima inicial.
@@ -140,6 +140,29 @@
       <ul>
         <li>
           <ul>
+            <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
+            <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
+            <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
+            <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
+            <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+          </ul>
+        </li>
+        <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#sudo-dnf-install-fedora-repos-fedora-repos-modular">sudo dnf install fedora-repos fedora-repos-modular</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#instalación-paquetes-para-cli">Instalación paquetes (para CLI)</a></li>
+        <li><a href="#habilitarinstalar-flatpak">Habilitar/instalar flatpak</a></li>
+        <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a>
+          <ul>
             <li><a href="#2-columnas">2 columnas</a></li>
             <li><a href="#h4">H4</a></li>
           </ul>
@@ -158,11 +181,49 @@
     <h1>Configuración inicial</h1><blockquote>
 <p>En este documento se comparte la configuración inicial/básica para un Linux basado en <a href="https://fedoraproject.org/">Fedora 38</a>. Se da por supuesto cumplido la instalación documentada en este <a href="https://dzamo.gitlab.io/linux/fedora-38/install-minimal/">otro artículo</a> de este mismo sitio.</p>
 </blockquote>
-
-<div class="tip tip_warning">
-  ...
-</div>
-
+<h4 id="configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> ALL=(ALL) NOPASSWD:ALL&#34;</span><span class="p">|</span>sudo tee /etc/sudoers.d/<span class="nv">$USER</span>
+</span></span></code></pre></div><h4 id="configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</h4>
+<p>Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo <code>wheel</code> pueda hacer uso del comando <code>su</code>. Esta configuración es considerada como tarea de <em>hardening</em>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo usermod -G wheel -a <span class="nv">$USER</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo sed -i <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  <span class="s1">&#39;s/^#auth\t\trequired\tpam_wheel.so use_uid$/&amp;\nauth\t\trequired\tpam_wheel.so use_uid/&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  /etc/pam.d/su
+</span></span></code></pre></div><h4 id="deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
+</span></span></code></pre></div><h4 id="deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># Para que los cambios se ejecuten, es neccesario reiniciar</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># sudo reboot</span>
+</span></span></code></pre></div><h4 id="configuración-dnf-flags">Configuración Dnf (flags)</h4>
+<p>echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
+echo 'max_parallel_downloads=6' | sudo tee -a /etc/dnf/dnf.conf
+echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf</p>
+<h3 id="actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</h3>
+<p>sudo dnf upgrade -y --refresh
+sudo dnf -y update</p>
+<h1 id="agregar-repo-y-habilitar-fedora-third-party">Agregar repo y habilitar fedora-third-party</h1>
+<p>sudo dnf -y install fedora-workstation-repositories</p>
+<h2 id="sudo-dnf-install-fedora-repos-fedora-repos-modular">sudo dnf install fedora-repos fedora-repos-modular</h2>
+<h1 id="repositorios-fusion">Repositorios Fusion</h1>
+<p>sudo dnf install -y <a href="https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-%22$(rpm">https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-&quot;$(rpm</a> -E %fedora)&quot;.noarch.rpm
+sudo dnf install -y <a href="https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%22$(rpm">https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-&quot;$(rpm</a> -E %fedora)&quot;.noarch.rpm
+dnf install -y rpmfusion-free-appstream-data rpmfusion-nonfree-appstream-data</p>
+<h1 id="agregar-mas-repositorios">Agregar mas repositorios</h1>
+<p>sudo dnf install createrepo_c
+sudo dnf upgrade -y --refresh</p>
+<h3 id="instalación-paquetes-para-cli">Instalación paquetes (para CLI)</h3>
+<p>sudo dnf -y install <br>
+git htop vim <br>
+rsync openssh-server openssh-clients</p>
+<h3 id="habilitarinstalar-flatpak">Habilitar/instalar flatpak</h3>
+<p>sudo dnf -y install flatpak
+flatpak remote-add --if-not-exists flathub <a href="https://flathub.org/repo/flathub.flatpakrepo">https://flathub.org/repo/flathub.flatpakrepo</a>
+flatpak update</p>
+<h3 id="deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</h3>
+<p>sudo systemctl disable --now <a href="mailto:systemd-zram-setup@zram0.service">systemd-zram-setup@zram0.service</a>
+sudo dnf remove -y zram-generator zram-generator-defaults
+sudo swapoff -a &amp;&amp; sudo swapon -a</p>
 <p><em>Nota del autor:</em> En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.</p>
 <h4 id="2-columnas">2 columnas</h4>
 <section class="grid-2"  >
