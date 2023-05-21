@@ -275,7 +275,8 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</guid>
       <description>La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.</description>
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
+1sudo pacmac -S btop Instalación de Obsidian</description>
     </item>
     
     <item>
