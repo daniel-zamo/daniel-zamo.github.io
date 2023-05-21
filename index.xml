@@ -270,10 +270,10 @@ Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via th
     
     <item>
       <title>Repositorios y paqueterías en Linux Arch</title>
-      <link>https://dzamo.gitlab.io/linux/manjaro/repositories/</link>
+      <link>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dzamo.gitlab.io/linux/manjaro/repositories/</guid>
+      <guid>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</guid>
       <description>Tareas de configuracion inicial (usuario sudo y para su) 1echo &amp;#34;$USER ALL=(ALL:ALL) NOPASSWD: ALL&amp;#34; | sudo tee /etc/sudoers.d/$USER 2sudo usermod -G wheel -a $USER La distribución Manjaro esta basada en Linux Arch. Cabe remarcar que una de las buenas caracteristicas que posee los ante dichos sistemas, es que tiene una amplia coleccion de herramientas para
 Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.</description>
     </item>
