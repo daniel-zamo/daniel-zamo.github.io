@@ -15,8 +15,7 @@
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
 <title>Instalaciones, Repositorios y paqueterías | My dzamo Hugo Site</title><meta property="og:title" content="Instalaciones, Repositorios y paqueterías" />
 <meta property="og:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
-1sudo pacmac -S btop Instalación de Obsidian" />
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/linux/manjaro/install-multiples/" /><meta property="article:section" content="linux" />
 
@@ -24,15 +23,13 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 
 <meta itemprop="name" content="Instalaciones, Repositorios y paqueterías">
 <meta itemprop="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
-1sudo pacmac -S btop Instalación de Obsidian">
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
 <meta itemprop="dateModified" content="2023-05-21T04:03:37+02:00" />
-<meta itemprop="wordCount" content="273">
+<meta itemprop="wordCount" content="286">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instalaciones, Repositorios y paqueterías"/>
 <meta name="twitter:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
-1sudo pacmac -S btop Instalación de Obsidian"/>
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman."/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -41,8 +38,7 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 
 
   <meta name="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
-1sudo pacmac -S btop Instalación de Obsidian">
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
 
 
 </head>
@@ -181,12 +177,7 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
             <li><a href="#instalación-de-varios-paquetes">Instalación de varios paquetes</a></li>
           </ul>
         </li>
-        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a>
-          <ul>
-            <li><a href="#habilitarinstalar-flatpak">Habilitar/instalar Flatpak</a></li>
-            <li><a href="#habilitarinstalar-discover">Habilitar/instalar Discover</a></li>
-          </ul>
-        </li>
+        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a></li>
         <li><a href="#instalaciones-con-flatpak">Instalaciones con flatpak</a>
           <ul>
             <li><a href="#instalar-drawio">Instalar Drawio</a></li>
@@ -226,6 +217,7 @@ En este documento se muestra como realizar instalaciones utilizando estas presta
 </blockquote>
 <h2 id="instalación-paquetesprogramas">Instalación paquetes/programas</h2>
 <h3 id="instalaciones-con-pacman">Instalaciones con pacman</h3>
+<p>A continuación se instala <code>btop</code>, <code>obsidian</code> y múltiples paquetes con el comando <code>pacman</code>.</p>
 <section class="grid-2"  >
 <div><p>Instalación de btop</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacmac -S btop
@@ -240,14 +232,20 @@ En este documento se muestra como realizar instalaciones utilizando estas presta
 <h4 id="instalación-de-varios-paquetes">Instalación de varios paquetes</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">for</span> i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop<span class="p">;</span> <span class="k">do</span> sudo pacman -S <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
 </span></span></code></pre></div><h3 id="instalaciones-con-pamac">Instalaciones con pamac</h3>
-<h4 id="habilitarinstalar-flatpak">Habilitar/instalar Flatpak</h4>
+<section class="grid-2"  >
+<div><p><em><strong>Habilitar/instalar Flatpak</strong></em></p>
 <p>Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado. En este item se utiliza para habilitar flatpak.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pamac install flatpak libpamac-flatpak-plugin
-</span></span></code></pre></div><hr>
-<h4 id="habilitarinstalar-discover">Habilitar/instalar Discover</h4>
+</span></span></code></pre></div></div>
+
+<div><h4 id="habilitarinstalar-discover">Habilitar/instalar Discover</h4>
 <p>Como se dijo antes, aunque <em>Manjaro</em> (<em>Linux Arch</em>) posee su propio gestor de paquetes (<code>pacman</code>) para agregar/quitar paquetes, en este apartado se instala <em>Discover</em>, el gestor de paquetes propio de <em>KDE Plasma</em>.</p>
 <pre tabindex="0"><code>sudo pamac install discover
-</code></pre><h3 id="instalaciones-con-flatpak">Instalaciones con flatpak</h3>
+</code></pre></div>
+
+</section>
+
+<h3 id="instalaciones-con-flatpak">Instalaciones con flatpak</h3>
 <h4 id="instalar-drawio">Instalar Drawio</h4>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo flatpak install com.jgraph.drawio.desktop
 </span></span></code></pre></div><h3 id="instalar-paquetes-desde-aur">Instalar paquetes desde aur</h3>

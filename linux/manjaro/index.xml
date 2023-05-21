@@ -23,8 +23,7 @@ Tareas de configuracion inicial (usuario sudo y para con comando su) 1echo &amp;
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</guid>
       <description>La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop
-1sudo pacmac -S btop Instalación de Obsidian</description>
+pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.</description>
     </item>
     
     <item>
