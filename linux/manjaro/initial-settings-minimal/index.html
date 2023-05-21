@@ -164,6 +164,17 @@
         <h3 class="section_link active"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#tareas-de-configuracion-inicial-usuario-sudo-y-para-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para <code>su</code>)</a></li>
+    <li><a href="#actualización-sistemapaquetes">Actualización sistema/paquetes</a></li>
+    <li><a href="#instalar-fuentes-microsoft-true-type">Instalar fuentes Microsoft True Type</a></li>
+    <li><a href="#instalación-paquetesprogramas">Instalación paquetes/programas</a>
+      <ul>
+        <li><a href="#instalaciones-con-pacman">Instalaciones con pacman</a>
+          <ul>
+            <li><a href="#instalación-de-btop">Instalación de btop</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
       </section>
@@ -176,17 +187,17 @@
     <h1>Configuración inicial</h1><h2 id="tareas-de-configuracion-inicial-usuario-sudo-y-para-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para <code>su</code>)</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> ALL=(ALL:ALL) NOPASSWD: ALL&#34;</span> <span class="p">|</span> sudo tee /etc/sudoers.d/<span class="nv">$USER</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo usermod -G wheel -a <span class="nv">$USER</span>
-</span></span></code></pre></div><p>Actualización sistema/paquetes</p>
+</span></span></code></pre></div><h2 id="actualización-sistemapaquetes">Actualización sistema/paquetes</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">## Buscar los mirrors  mas rápidos</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo pacman-mirrors --fasttrack
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">## Actualizar base y todos los paquetes</span>
 </span></span><span class="line"><span class="ln">4</span><span class="cl">sudo pacman -Syyu
-</span></span></code></pre></div><p>Instalar fuentes Microsoft True Type</p>
-<pre tabindex="0"><code>pamac upgrade -a
-pamac build ttf-ms-fonts
-</code></pre><p>Instalación paquetes/programas</p>
-<p>Instalaciones con pacman</p>
-<p>Instalación de btop</p>
+</span></span></code></pre></div><h2 id="instalar-fuentes-microsoft-true-type">Instalar fuentes Microsoft True Type</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pamac upgrade -a
+</span></span><span class="line"><span class="ln">2</span><span class="cl">pamac build ttf-ms-fonts
+</span></span></code></pre></div><h2 id="instalación-paquetesprogramas">Instalación paquetes/programas</h2>
+<h3 id="instalaciones-con-pacman">Instalaciones con pacman</h3>
+<h4 id="instalación-de-btop">Instalación de btop</h4>
 <p>sudo pacmac -S btop</p>
 <p>Instalación de varios paquetes</p>
 <p>for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done</p>

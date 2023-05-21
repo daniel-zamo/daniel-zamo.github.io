@@ -12,12 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</guid>
-      <description>Tareas de configuracion inicial (usuario sudo y para su) 1echo &amp;#34;$USER ALL=(ALL:ALL) NOPASSWD: ALL&amp;#34; | sudo tee /etc/sudoers.d/$USER 2sudo usermod -G wheel -a $USER Actualización sistema/paquetes
-1## Buscar los mirrors mas rápidos 2sudo pacman-mirrors --fasttrack 3## Actualizar base y todos los paquetes 4sudo pacman -Syyu Instalar fuentes Microsoft True Type
-pamac upgrade -a pamac build ttf-ms-fonts Instalación paquetes/programas
-Instalaciones con pacman
-Instalación de btop
-sudo pacmac -S btop
+      <description>Tareas de configuracion inicial (usuario sudo y para su) 1echo &amp;#34;$USER ALL=(ALL:ALL) NOPASSWD: ALL&amp;#34; | sudo tee /etc/sudoers.d/$USER 2sudo usermod -G wheel -a $USER Actualización sistema/paquetes 1## Buscar los mirrors mas rápidos 2sudo pacman-mirrors --fasttrack 3## Actualizar base y todos los paquetes 4sudo pacman -Syyu Instalar fuentes Microsoft True Type 1pamac upgrade -a 2pamac build ttf-ms-fonts Instalación paquetes/programas Instalaciones con pacman Instalación de btop sudo pacmac -S btop
 Instalación de varios paquetes</description>
     </item>
     

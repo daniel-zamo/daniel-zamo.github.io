@@ -44,8 +44,6 @@
     <loc>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</loc>
     <lastmod>2023-05-21T02:26:18+02:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</loc>
-  </url><url>
     <loc>https://dzamo.gitlab.io/docs/compose/mermaid/</loc>
     <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
@@ -63,6 +61,8 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/manjaro/</loc>
     <lastmod>2023-05-21T02:48:19+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</loc>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/clarity/getting-started/</loc>
     <lastmod>2023-05-18T11:17:10+02:00</lastmod>
