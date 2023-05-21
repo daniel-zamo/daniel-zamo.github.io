@@ -13,23 +13,20 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Instalaciones, Repositorios y paqueterías en Linux Arch | My dzamo Hugo Site</title><meta property="og:title" content="Instalaciones, Repositorios y paqueterías en Linux Arch" />
-<meta property="og:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado." />
+<title>Instalación utilitarios para GPU | My dzamo Hugo Site</title><meta property="og:title" content="Instalación utilitarios para GPU" />
+<meta property="og:description" content="Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&#39;amdgpu_top&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&#39;radeontop&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&#39;https://aur." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/" /><meta property="article:section" content="linux" />
 
 
 
-<meta itemprop="name" content="Instalaciones, Repositorios y paqueterías en Linux Arch">
-<meta itemprop="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.">
+<meta itemprop="name" content="Instalación utilitarios para GPU">
+<meta itemprop="description" content="Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&#39;amdgpu_top&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&#39;radeontop&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&#39;https://aur.">
 
-<meta itemprop="wordCount" content="277">
+<meta itemprop="wordCount" content="119">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalaciones, Repositorios y paqueterías en Linux Arch"/>
-<meta name="twitter:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado."/>
+<meta name="twitter:title" content="Instalación utilitarios para GPU"/>
+<meta name="twitter:description" content="Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&#39;amdgpu_top&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&#39;radeontop&#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&#39;https://aur."/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,8 +34,7 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 
 
 
-  <meta name="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.">
+  <meta name="description" content="Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&amp;#39;amdgpu_top&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&amp;#39;radeontop&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&amp;#39;https://aur.">
 
 
 </head>
@@ -199,35 +195,12 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
     </li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-instalaciones-repositorios-y-paqueterías-en-linux-arch" href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/">Instalaciones, Repositorios y paqueterías en Linux Arch</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-instalación-utilitarios-para-gpu" href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/">Instalación utilitarios para GPU</a></h3><nav id="TableOfContents">
   <ul>
-    <li><a href="#instalación-paquetesprogramas">Instalación paquetes/programas</a>
-      <ul>
-        <li><a href="#instalaciones-con-pacman">Instalaciones con pacman</a>
-          <ul>
-            <li><a href="#instalación-de-btop">Instalación de btop</a></li>
-            <li><a href="#instalación-de-obsidian">Instalación de Obsidian</a></li>
-            <li><a href="#instalación-de-varios-paquetes">Instalación de varios paquetes</a></li>
-          </ul>
-        </li>
-        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a>
-          <ul>
-            <li><a href="#habilitarinstalar-flatpak">Habilitar/instalar Flatpak</a></li>
-            <li><a href="#habilitarinstalar-discover">Habilitar/instalar Discover</a></li>
-          </ul>
-        </li>
-        <li><a href="#instalaciones-con-flatpak">Instalaciones con flatpak</a>
-          <ul>
-            <li><a href="#instalar-drawio">Instalar Drawio</a></li>
-          </ul>
-        </li>
-        <li><a href="#instalar-paquetes-desde-aur">Instalar paquetes desde aur</a>
-          <ul>
-            <li><a href="#instalación-de-insync">Instalación de Insync</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
+    <li><a href="#amdgpu_top">amdgpu_top</a></li>
+    <li><a href="#nvtop">nvtop</a></li>
+    <li><a href="#radeontop">radeontop</a></li>
+    <li><a href="#gwe">gwe</a></li>
   </ul>
 </nav>
       </section>
@@ -237,58 +210,40 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 </aside>
 
   <main class="content">
-    <h1>Instalaciones, Repositorios y paqueterías en Linux Arch</h1><blockquote>
-<p>La distribución <a href="https://manjaro.org/">Manjaro</a> esta basada en <a href="https://archlinux.org/">Linux Arch</a>. El principal gestor de paquetes de estas distribuciones es <a href="https://denovatoanovato.net/gestor-de-paquetes-pacman/">Pacman</a>, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:</p>
-<ul>
-<li><em><strong>pamac</strong></em></li>
-<li><em><strong>repositorios aur</strong></em>
-En este documento se muestra como realizar instalaciones utilizando estas prestaciones.</li>
-</ul>
-</blockquote>
-<h2 id="instalación-paquetesprogramas">Instalación paquetes/programas</h2>
-<h3 id="instalaciones-con-pacman">Instalaciones con pacman</h3>
-<h4 id="instalación-de-btop">Instalación de btop</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacmac -S btop
-</span></span></code></pre></div><h4 id="instalación-de-obsidian">Instalación de Obsidian</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacman -S obsidian
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo pacman -S obsidian-icon-theme
-</span></span></code></pre></div><h4 id="instalación-de-varios-paquetes">Instalación de varios paquetes</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">for</span> i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop<span class="p">;</span> <span class="k">do</span> sudo pacman -S <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-</span></span></code></pre></div><h3 id="instalaciones-con-pamac">Instalaciones con pamac</h3>
-<h4 id="habilitarinstalar-flatpak">Habilitar/instalar Flatpak</h4>
-<p>Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado. En este item se utiliza para habilitar flatpak.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pamac install flatpak libpamac-flatpak-plugin
-</span></span></code></pre></div><hr>
-<h4 id="habilitarinstalar-discover">Habilitar/instalar Discover</h4>
-<p>Como se dijo antes, aunque <em>Manjaro</em> (<em>Linux Arch</em>) posee su propio gestor de paquetes (<code>pacman</code>) para agregar/quitar paquetes, en este apartado se instala <em>Discover</em>, el gestor de paquetes propio de <em>KDE Plasma</em>.</p>
-<pre tabindex="0"><code>sudo pamac install discover
-</code></pre><h3 id="instalaciones-con-flatpak">Instalaciones con flatpak</h3>
-<h4 id="instalar-drawio">Instalar Drawio</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo flatpak install com.jgraph.drawio.desktop
-</span></span></code></pre></div><h3 id="instalar-paquetes-desde-aur">Instalar paquetes desde aur</h3>
-<p>Se muestra a continuación como se realizan las instalaciones basadas en los repositorios aur, que la comunidad de Linux Arch (principalmente) pone a disposición de los usuarios. Todas las instalaciones de este tipo, se realizan de manera similar.</p>
-<h4 id="instalación-de-insync">Instalación de Insync</h4>
-<ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync">insync</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Instalación insync, mediante aur. Ref: https://aur.archlinux.org/packages/insync</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git clone https://aur.archlinux.org/insync.git
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">cd</span> insync
-</span></span><span class="line"><span class="ln">6</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div><h5 id="agregar-insync-dolphin-extensión-para-dolphin">Agregar Insync Dolphin (extensión para Dolphin)</h5>
-<ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync-dolphin">insync-dolphin</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://aur.archlinux.org/insync-dolphin.git
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> insync-dolphin
+    <h1>Instalación utilitarios para GPU</h1>
+<div class="tip">
+  Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee  una <em>GPU Raedon 580M</em> y una <em>Nvidia 3050 Geforce RTX</em>.
+</div>
+
+<h2 id="amdgpu_top">amdgpu_top</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nv">amdgpu_top</span><span class="o">=</span><span class="s1">&#39;amdgpu_top&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">my_p</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://aur.archlinux.org/<span class="si">${</span><span class="nv">amdgpu_top</span><span class="si">}</span>.git
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> <span class="si">${</span><span class="nv">amdgpu_top</span><span class="si">}</span>
 </span></span><span class="line"><span class="ln">5</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">cd</span> <span class="si">${</span><span class="nv">my_p</span><span class="si">}</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">rm -rfv <span class="si">${</span><span class="nv">amdgpu_top</span><span class="si">}</span>
+</span></span></code></pre></div><h2 id="nvtop">nvtop</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacman -S nvtop
+</span></span></code></pre></div><h2 id="radeontop">radeontop</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nv">amdgpu_top</span><span class="o">=</span><span class="s1">&#39;radeontop&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">my_p</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://aur.archlinux.org/<span class="si">${</span><span class="nv">radeontop</span><span class="si">}</span>.git
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> <span class="si">${</span><span class="nv">radeontop</span><span class="si">}</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">makepkg -si
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">cd</span> <span class="si">${</span><span class="nv">my_p</span><span class="si">}</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">rm -rfv <span class="si">${</span><span class="nv">radeontop</span><span class="si">}</span>
+</span></span></code></pre></div><h2 id="gwe">gwe</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nv">url_aur</span><span class="o">=</span><span class="s1">&#39;https://aur.archlinux.org&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">my_aur</span><span class="o">=</span><span class="s1">&#39;gwe&#39;</span> <span class="o">&amp;&amp;</span> <span class="nv">my_p</span><span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git clone <span class="si">${</span><span class="nv">url_aur</span><span class="si">}</span>/<span class="si">${</span><span class="nv">my_aur</span><span class="si">}</span>.git 
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">cd</span> <span class="si">${</span><span class="nv">my_aur</span><span class="si">}</span> <span class="o">&amp;&amp;</span> makepkg -si <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="si">${</span><span class="nv">my_p</span><span class="si">}</span> <span class="o">&amp;&amp;</span> rm -rfv <span class="si">${</span><span class="nv">my_aur</span><span class="si">}</span>
+</span></span></code></pre></div><p>En la captura, se muestra la ejecución del comando <code>gwe</code> y la carga del sistema desde el comando <code>btop</code>, también ya instalado en el sistema.</p>
+
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/manjaro/hp.victus.manjaro.png" data-dark="https://dzamo.gitlab.io/images/manjaro/manjaro.load.work.victus.png">
+  <img src="https://dzamo.gitlab.io/images/manjaro/hp.victus.manjaro.png" alt="ewg y carga del sistema">
+</picture>
+
+
     <div class="pager">
   
     

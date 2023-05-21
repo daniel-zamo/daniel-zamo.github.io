@@ -27,13 +27,12 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
     </item>
     
     <item>
-      <title>Instalaciones, Repositorios y paqueterías en Linux Arch</title>
+      <title>Instalación utilitarios para GPU</title>
       <link>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</guid>
-      <description>La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de Obsidian 1sudo pacman -S obsidian 2sudo pacman -S obsidian-icon-theme Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.</description>
+      <description>Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&amp;#39;amdgpu_top&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&amp;#39;radeontop&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&amp;#39;https://aur.</description>
     </item>
     
   </channel>
