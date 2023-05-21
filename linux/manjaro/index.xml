@@ -8,6 +8,15 @@
     <language>en-us</language><atom:link href="https://dzamo.gitlab.io/linux/manjaro/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Configuración inicial</title>
+      <link>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal-copy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal-copy/</guid>
+      <description>Tareas de configuracion inicial (usuario sudo y para su) 1echo &amp;#34;$USER ALL=(ALL:ALL) NOPASSWD: ALL&amp;#34; | sudo tee /etc/sudoers.d/$USER 2sudo usermod -G wheel -a $USER Actualización sistema/paquetes 1## Buscar los mirrors mas rápidos 2sudo pacman-mirrors --fasttrack 3## Actualizar base y todos los paquetes 4sudo pacman -Syyu Instalar fuentes Microsoft True Type 1pamac upgrade -a 2pamac build ttf-ms-fonts Instalación paquetes/programas Instalaciones con pacman Instalación de btop 1sudo pacmac -S btop Instalación de varios paquetes 1for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done Instalaciones con pamac Habilitar/instalar Flatpak Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado.</description>
+    </item>
+    
+    <item>
+      <title>Configuración inicial</title>
       <link>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
