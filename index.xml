@@ -19,16 +19,6 @@ For comprehensive Hugo documentation, see gohugo.</description>
     </item>
     
     <item>
-      <title>Instalación del sistema - minimal</title>
-      <link>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</guid>
-      <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
-En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
-    </item>
-    
-    <item>
       <title>Use forestry CMS</title>
       <link>https://dzamo.gitlab.io/docs/compose/use-forestry-cms/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -49,6 +39,16 @@ Prerequisites !! Obviously you ought to have a github account. This is where you
 Documentation By default, the theme will look for all your documentation content within the docs directory.
 However, if you would like to have your docs content across multiple directories, please list those directories inside config/_default/params.toml under docSections like so:
 ... docSections = [&amp;#34;docs&amp;#34;, &amp;#34;tutorials&amp;#34;] ... Unlike other regular pages, the documentation pages will have a left sidebar. This sidebar will list links to all the pages in the documentation pages.</description>
+    </item>
+    
+    <item>
+      <title>Instalación del sistema - minimal</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</guid>
+      <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
+En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
     </item>
     
     <item>
@@ -166,6 +166,16 @@ These actions are customizable to fire off under your specified set of circumsta
     </item>
     
     <item>
+      <title>Instalación de KDE Plasma workspaces</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</guid>
+      <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
+Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
+    </item>
+    
+    <item>
       <title>Features</title>
       <link>https://dzamo.gitlab.io/docs/clarity/features/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -195,16 +205,6 @@ Copy to clipboard Toggle line wrap (dynamic) Toggle line numbers Language label 
 This section will mainly cover settings that are unique to this theme. If something is not covered here (or elsewhere in this file), there&#39;s a good chance it is covered in this Hugo docs page.
 Global Parameters These options set global values that some pages or all pages in the site use by default.
 Parameter Value Type Overidable on Page author string no twitter string no largeTwitterCard boolean no ga_analytics string no description string yes introDescription string no numberOfTagsShown integer no fallBackOgImage file path (string) no codeMaxLines integer yes codeLineNumbers boolean yes mainSections array/string no centerLogo boolean no logo file path (string) no mobileNavigation string no figurePositionShow boolean yes figurePositionLabel string no customCSS array of file path (string) no customJS array of file path (string) no enforceLightMode boolean N/A enforceDarkMode boolean N/A titleSeparator string no comment boolean no Page Parameters These options can be set from a page frontmatter or via archetypes.</description>
-    </item>
-    
-    <item>
-      <title>Instalación de KDE Plasma workspaces</title>
-      <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</guid>
-      <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
-Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
     </item>
     
     <item>
