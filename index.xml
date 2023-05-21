@@ -85,6 +85,17 @@ dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
     </item>
     
     <item>
+      <title>Configuración inicial</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</guid>
+      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
+Configuración usuario para sudo El siguiente comando, configura para el usuario $USER poder ejecutar los comandos con privilegios de usuario root sin que se le pida password.
+1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
+    </item>
+    
+    <item>
       <title>Mermaid</title>
       <link>https://dzamo.gitlab.io/docs/compose/mermaid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -106,17 +117,6 @@ Sequence Diagrams Syntax
 With compose theme, you can use mermaid using a custom shortcode as follows:
 Sequence Diagrams Syntax
 1{{&amp;lt; mermaid &amp;gt;}} 2sequenceDiagram 3 participant Alice 4 participant Bob 5 Alice-&amp;gt;&amp;gt;John: Hello John, how are you? 6 loop Healthcheck 7 John-&amp;gt;&amp;gt;John: Fight against hypochondria 8 end 9 Note right of John: Rational thoughts&amp;lt;br/&amp;gt;prevail... 10 John--&amp;gt;&amp;gt;Alice: Great!</description>
-    </item>
-    
-    <item>
-      <title>Configuración inicial</title>
-      <link>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</guid>
-      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-Configuración usuario para sudo El siguiente comando, configura para el usuario $USER poder ejecutar los comandos con privilegios de usuario root sin que se le pida password.
-1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
     </item>
     
     <item>
