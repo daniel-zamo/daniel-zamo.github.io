@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Agregando repositorios.
 ">
 
-<meta itemprop="wordCount" content="139">
+<meta itemprop="wordCount" content="199">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Repositorios paquetes RPM y flatpak"/>
 <meta name="twitter:description" content="Agregando repositorios.
@@ -197,6 +197,7 @@
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 </span></span><span class="line"><span class="ln">3</span><span class="cl">sudo flatpak update
 </span></span></code></pre></div><h2 id="deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</h2>
+<p>Por si algunos de los comandos anteriores agrego/habilito nuevamente <code>zram-generator</code> y <code>zram-generator-defaults</code>, los comandos siguientes deshabilita y quita los paquetes. (recordar que el autor de estas notas, prefiere utilizar aún <em>swap</em> como partición aparte y en formato <code>swap</code>. Muchas distribuciones Linux ya proponen otros mecanismos, sobre todo si el sistema tiene una funcionalidad de Desktop con ambiente gráfico por defecto).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl disable --now systemd-zram-setup@zram0.service
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf remove -y zram-generator zram-generator-defaults
 </span></span><span class="line"><span class="ln">3</span><span class="cl">sudo swapoff -a <span class="o">&amp;&amp;</span> sudo swapon -a
