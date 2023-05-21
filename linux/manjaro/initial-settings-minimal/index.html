@@ -14,7 +14,7 @@
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
 <title>Configuración inicial | My dzamo Hugo Site</title><meta property="og:title" content="Configuración inicial" />
-<meta property="og:description" content="Configuración mínima inicial.
+<meta property="og:description" content="Configuración mínima inicial de Manjaro.
 " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/" /><meta property="article:section" content="linux" />
@@ -22,13 +22,13 @@
 
 
 <meta itemprop="name" content="Configuración inicial">
-<meta itemprop="description" content="Configuración mínima inicial.
+<meta itemprop="description" content="Configuración mínima inicial de Manjaro.
 ">
 
-<meta itemprop="wordCount" content="227">
+<meta itemprop="wordCount" content="91">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuración inicial"/>
-<meta name="twitter:description" content="Configuración mínima inicial.
+<meta name="twitter:description" content="Configuración mínima inicial de Manjaro.
 "/>
 
 
@@ -37,7 +37,7 @@
 
 
 
-  <meta name="description" content="Configuración mínima inicial.
+  <meta name="description" content="Configuración mínima inicial de Manjaro.
 ">
 
 
@@ -167,18 +167,7 @@
       <section class="" id="docs-manjaro---kde-plasma">
         <h3 class="section_link active"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
-        <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
-        <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
-        <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
-        <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
-        <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
-        <li><a href="#instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</a></li>
-        <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
-      </ul>
-    </li>
+    <li><a href="#tareas-de-configuracion-inicial-usuario-sudo-y-para-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para <code>su</code>)</a></li>
   </ul>
 </nav>
       </section>
@@ -188,40 +177,24 @@
 </aside>
 
   <main class="content">
-    <h1>Configuración inicial</h1><blockquote>
-<p>En este documento se comparte la configuración inicial/básica para un Linux basado en <a href="https://fedoraproject.org/">Fedora 38</a>. Se da por supuesto cumplido la instalación documentada en este <a href="https://dzamo.gitlab.io/linux/fedora-38/install-minimal/">otro artículo</a> de este mismo sitio.</p>
-</blockquote>
-<h3 id="configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></h3>
-<p>El siguiente comando, configura para el usuario <code>$USER</code> poder ejecutar los comandos con privilegios de usuario <code>root</code> sin que se le pida <strong>password</strong>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> ALL=(ALL) NOPASSWD:ALL&#34;</span><span class="p">|</span>sudo tee /etc/sudoers.d/<span class="nv">$USER</span>
-</span></span></code></pre></div><h3 id="configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</h3>
-<p>Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo <code>wheel</code> pueda hacer uso del comando <code>su</code>. Esta configuración es considerada como tarea de <em>hardening</em>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo usermod -G wheel -a <span class="nv">$USER</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo sed -i <span class="se">\
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  <span class="s1">&#39;s/^#auth\t\trequired\tpam_wheel.so use_uid$/&amp;\nauth\t\trequired\tpam_wheel.so use_uid/&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  /etc/pam.d/su
-</span></span></code></pre></div><h3 id="deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
-</span></span></code></pre></div><h3 id="deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># Para que los cambios se ejecuten, es neccesario reiniciar</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># sudo reboot</span>
-</span></span></code></pre></div><h3 id="configuración-dnf-flags">Configuración Dnf (flags)</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;fastestmirror=1&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;max_parallel_downloads=6&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;deltarpm=true&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
-</span></span></code></pre></div><h3 id="actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf upgrade -y --refresh
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y update
-</span></span></code></pre></div><h3 id="instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install <span class="se">\
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  git htop vim <span class="se">\
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  rsync openssh-server openssh-clients
-</span></span></code></pre></div><h3 id="deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl disable --now systemd-zram-setup@zram0.service
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf remove -y zram-generator zram-generator-defaults
-</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo swapoff -a <span class="o">&amp;&amp;</span> sudo swapon -a
-</span></span></code></pre></div>
+    <h1>Configuración inicial</h1><h2 id="tareas-de-configuracion-inicial-usuario-sudo-y-para-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para <code>su</code>)</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> ALL=(ALL:ALL) NOPASSWD: ALL&#34;</span> <span class="p">|</span> sudo tee /etc/sudoers.d/<span class="nv">$USER</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo usermod -G wheel -a <span class="nv">$USER</span>
+</span></span></code></pre></div><p>Actualización sistema/paquetes</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">## Buscar los mirrors  mas rápidos</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo pacman-mirrors --fasttrack
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">## Actualizar base y todos los paquetes</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">sudo pacman -Syyu
+</span></span></code></pre></div><p>Instalar fuentes Microsoft True Type</p>
+<pre tabindex="0"><code>pamac upgrade -a
+pamac build ttf-ms-fonts
+</code></pre><p>Instalación paquetes/programas</p>
+<p>Instalaciones con pacman</p>
+<p>Instalación de btop</p>
+<p>sudo pacmac -S btop</p>
+<p>Instalación de varios paquetes</p>
+<p>for i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop; do sudo pacman -S $i; done</p>
+
     <div class="pager">
   
 

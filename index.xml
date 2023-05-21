@@ -101,9 +101,13 @@ Configuración usuario para sudo El siguiente comando, configura para el usuario
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</guid>
-      <description>En este documento se comparte la configuración inicial/básica para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-Configuración usuario para sudo El siguiente comando, configura para el usuario $USER poder ejecutar los comandos con privilegios de usuario root sin que se le pida password.
-1echo &amp;#34;$USER ALL=(ALL) NOPASSWD:ALL&amp;#34;|sudo tee /etc/sudoers.d/$USER Configurar usuario para usuario su (admin en wheel) Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo wheel pueda hacer uso del comando su.</description>
+      <description>Tareas de configuracion inicial (usuario sudo y para su) 1echo &amp;#34;$USER ALL=(ALL:ALL) NOPASSWD: ALL&amp;#34; | sudo tee /etc/sudoers.d/$USER 2sudo usermod -G wheel -a $USER Actualización sistema/paquetes
+1## Buscar los mirrors mas rápidos 2sudo pacman-mirrors --fasttrack 3## Actualizar base y todos los paquetes 4sudo pacman -Syyu Instalar fuentes Microsoft True Type
+pamac upgrade -a pamac build ttf-ms-fonts Instalación paquetes/programas
+Instalaciones con pacman
+Instalación de btop
+sudo pacmac -S btop
+Instalación de varios paquetes</description>
     </item>
     
     <item>
