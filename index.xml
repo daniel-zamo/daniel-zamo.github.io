@@ -292,6 +292,16 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
     </item>
     
     <item>
+      <title>Aplicaciones para el Desktop Linux</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/install.app/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/install.app/</guid>
+      <description>En esta publicación, se instalan aplicaciones para ser utilizadas con un ambiente gráfico ya disponible, sobre Linux Fedora 38. Las instalaciones acá compartidas, han sido realizadas sobre un Desktop KDE Plasma ya operativo, pero debería ser también funcional en otros windows manager (Gnome, Cinnamon, Xfce, etc). Para la instalaci de KDE Plasma sobre Fedora, mas info puede consultarse en Instalación de KDE Plasma Workspaces aquí mismo.
+Salvo que se indique expresamente, la estación de trabajo que se utiliza es un Fedora 38 con KDE Plasma 5.</description>
+    </item>
+    
+    <item>
       <title>Instalación utilitarios para GPU</title>
       <link>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
