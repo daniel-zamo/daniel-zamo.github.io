@@ -31,7 +31,7 @@ Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el c
 Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
 ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages">
 
-<meta itemprop="wordCount" content="117">
+<meta itemprop="wordCount" content="130">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Instalación de Ansible"/>
 <meta name="twitter:description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
@@ -235,6 +235,10 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo mv /etc/ansible/ansible.cfg<span class="o">{</span>,.org<span class="o">}</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">ansible-config init --disabled <span class="p">|</span>sudo tee /etc/ansible/ansible.cfg
 </span></span><span class="line"><span class="ln">3</span><span class="cl">sudo sed -i.<span class="k">$(</span>date +%F<span class="k">)</span> <span class="s1">&#39;s/;host_key_checking=True/&amp;\nhost_key_checking=False/&#39;</span> /etc/ansible/ansible.cfg
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cp /etc/ansible/ansible.cfg .
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">echo</span> -e <span class="s1">&#39;localhost&#39;</span> &gt; inventory
+</span></span><span class="line"><span class="ln">7</span><span class="cl">ansible all --list
 </span></span></code></pre></div>
     <div class="pager">
   
