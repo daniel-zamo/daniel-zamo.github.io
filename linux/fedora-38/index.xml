@@ -28,6 +28,19 @@ Configuración usuario para sudo El siguiente comando, configura para el usuario
     </item>
     
     <item>
+      <title>Instalación de Ansible</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</guid>
+      <description>Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages</description>
+    </item>
+    
+    <item>
       <title>Instalación de KDE Plasma workspaces</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

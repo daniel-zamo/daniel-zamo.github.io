@@ -13,15 +13,32 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Compose | My dzamo Hugo Site</title><meta property="og:title" content="Compose" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dzamo.gitlab.io/" />
+<title>Instalación de Ansible | My dzamo Hugo Site</title><meta property="og:title" content="Instalación de Ansible" />
+<meta property="og:description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dzamo.gitlab.io/linux/fedora-38/ansible.install/" /><meta property="article:section" content="linux" />
 
-<meta itemprop="name" content="Compose">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Compose"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Instalación de Ansible">
+<meta itemprop="description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages">
+
+<meta itemprop="wordCount" content="113">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Instalación de Ansible"/>
+<meta name="twitter:description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -29,9 +46,15 @@
 
 
 
+  <meta name="description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages">
+
 
 </head>
-<body class="page-home" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='https://dzamo.gitlab.io/' class="nav_brand">
@@ -52,7 +75,7 @@
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search site" id="find" autocomplete="off" data-scope=''>
+    <input type="search" class="search_field  standardize-input" placeholder="Search linux" id="find" autocomplete="off" data-scope='linux'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -93,36 +116,153 @@
     
     
       
-        
-      
-    
-      <div class="content">
-<div class="content">
-  <section class="grid-2"  >
-<div><h1 id="artículos-compartidos-aquí">Artículos compartidos aquí.</h1>
-<p>Este sitio esta generado con <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>. Actualmente utiliza el theme <a href="https://github.com/onweru/compose" title="Repositorio del theme">Compose</a></p>
-<div class="tip tip_warning">
-  Se comparte aquí algunos artículos/notas respecto principalmente a despliegues/configuraciones de sistemas operativos sobre hardware de servidores o PC y/o servicios basados en distribuciones Linux.
-</div>
-<div class="tip">
-  <h2 id="tecnologías-utilizadas-aquí">Tecnologías utilizadas aquí</h2>
-<p>Este sitio de contenido de páginas estáticas utiliza las siguientes tecnologías:</p>
+    <div class="grid-auto"><aside class="aside menu">
+  <div>
+    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_carly">
+  <use href="#carly"></use>
+</svg></label>
+  </div>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/" class="group">Linux</a></h2>
+      <section class="" id="docs-linux">
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/fedora-38/" class="group">Fedora 38</a></h2>
+      <section class="" id="docs-fedora-38">
+        <h3 class="section_link"><a id="docs-instalación-del-sistema---minimal" href="https://dzamo.gitlab.io/linux/fedora-38/install-minimal/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</a></li>
+    <li><a href="#manual-partitioning">Manual partitioning</a></li>
+    <li><a href="#summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</a></li>
+    <li><a href="#create-user--account-root">Create user &amp; Account root</a></li>
+    <li><a href="#software-selection">Software selection</a></li>
+    <li><a href="#instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
+    <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
+    <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
+    <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
+    <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+    <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+    <li><a href="#instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</a></li>
+    <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link active"><a id="docs-instalación-de-ansible" href="https://dzamo.gitlab.io/linux/fedora-38/ansible.install/">Instalación de Ansible</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación-de-ansible">Instalación de Ansible</a></li>
+    <li><a href="#configuración-inicial">Configuración inicial</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalación-de-kde-plasma-workspaces" href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma workspaces</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</a></li>
+    <li><a href="#desintalar-paquetes">Desintalar paquetes</a></li>
+    <li><a href="#instalar-firefox-y-ark">Instalar firefox y ark</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-repositorios-paquetes-rpm-y-flatpak" href="https://dzamo.gitlab.io/linux/fedora-38/add-repository-and-flatpak/">Repositorios paquetes RPM y flatpak</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+    <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+    <li><a href="#agregar-repo-y-habilitar-fedora-third-party">Agregar repo y habilitar fedora-third-party</a></li>
+    <li><a href="#repositorios-fusion">Repositorios Fusion</a></li>
+    <li><a href="#otros-repositorios">Otros repositorios</a></li>
+    <li><a href="#habilitarinstalar-flatpak">Habilitar/instalar flatpak</a></li>
+    <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+  <section class="section aside_inner">
+    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/manjaro/" class="group">Manjaro - KDE Plasma</a></h2>
+      <section class="" id="docs-manjaro---kde-plasma">
+        <h3 class="section_link"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#tareas-de-configuracion-inicial-usuario-sudo-y-para-con-comando-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para con comando <code>su</code>)</a></li>
+    <li><a href="#actualización-sistemapaquetes">Actualización sistema/paquetes</a></li>
+    <li><a href="#instalar-fuentes-microsoft-true-type">Instalar fuentes Microsoft True Type</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalaciones-repositorios-y-paqueterías" href="https://dzamo.gitlab.io/linux/manjaro/install-multiples/">Instalaciones, Repositorios y paqueterías</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación-paquetesprogramas">Instalación paquetes/programas</a>
+      <ul>
+        <li><a href="#instalaciones-con-pacman">Instalaciones con pacman</a>
+          <ul>
+            <li><a href="#instalación-de-varios-paquetes">Instalación de varios paquetes</a></li>
+          </ul>
+        </li>
+        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a></li>
+        <li><a href="#instalaciones-con-flatpak">Instalaciones con flatpak</a></li>
+        <li><a href="#instalar-paquetes-desde-aur">Instalar paquetes desde aur</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalación-utilitarios-para-gpu" href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/">Instalación utilitarios para GPU</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#amdgpu_top">amdgpu_top</a></li>
+    <li><a href="#nvtop">nvtop</a></li>
+    <li><a href="#radeontop">radeontop</a></li>
+    <li><a href="#gwe">gwe</a></li>
+  </ul>
+</nav>
+      </section>
+  </section>
+      </section>
+  </section>
+</aside>
+
+  <main class="content">
+    <h1>Instalación de Ansible</h1><p align="center" width="100%">
+<img src="/images/f38/install/kde-plasma-info-center.png" align="center" title="KDE Plasma - Info center"></img>
+</p>
+<blockquote>
+<p>Aca se comparte como instalar <strong>Ansible</strong> sobre un Fedora 38 mínimo.</p>
+</blockquote>
+<h2 id="instalación-de-ansible">Instalación de Ansible</h2>
+<p>A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.</p>
+<p>Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.</p>
+<p>Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:</p>
 <ul>
-<li><a href="https://docs.gitlab.com/ee/user/project/pages/" title="GitLab Pages">Page static</a> sobre repositorio desde el sitio <a href="https://www.gitlab.com" title="Gitlab">Gitlab</a>.</li>
-<li><a href="https://docs.gitlab.com/ee/ci/" title="GitLab CI/CD">GitLab CI/CD</a> para el despliegue desatendido/automático del contenido web.</li>
-<li>El theme <a href="https://github.com/onweru/compose">Compose</a> de <a href="https://gohugo.io/" title="Generador de sitio estático">Hugo</a>, el cual soporta generar diagramas, diagramas de flujo y gráficos circulares, a partir de texto de forma similar a hacerlo con <a href="https://www.markdownguide.org/">Markdown</a> utilizando <a href="https://mermaid.js.org/">mermaid</a>. También permite <a href="docs/compose/graphs-charts-tables/#show-a-pie-doughnut--bar-chart-at-once">generar gráficos, cuadros</a> y tablas a partir de archivo csv <del>o json</del>.</li>
+<li>ansible (community)</li>
+<li>ansible-core</li>
 </ul>
+<p>Para un detalle de las diferencias puede revisarse el articulo <a href="https://www.ansiblepilot.com/articles/ansible-terminology-ansible-vs-ansible-core-packages/">Ansible terminology - ansible vs ansible-core packages</a></p>
+<p>Para la instalación de <strong>ansible-core</strong> sobre un sistema basado en Fedora 38 basta con ejecutar:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install ansible-core
+</span></span></code></pre></div><h2 id="configuración-inicial">Configuración inicial</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo mv /etc/ansible/ansible.cfg<span class="o">{</span>,.org<span class="o">}</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ansible-config init --disabled <span class="p">|</span>sudo tee /etc/ansible/ansible.cfg
+</span></span><span class="line"><span class="ln">3</span><span class="cl">vi /etc/ansible/ansible.cfg
+</span></span></code></pre></div>
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/" class="pager_link button" title="Configuración inicial" rel="prev">
+        <span class="pager_label">Configuración inicial</span>
+      </a>
+    </div>
+    
+  
+
+  
+    
+    <div class="pager_item next">
+      <a href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/" class="pager_link button" title="Instalación de KDE Plasma workspaces" rel="next">
+        <span class="pager_label">Instalación de KDE Plasma workspaces</span>
+      </a>
+    </div>
+    
+  
+</div>
+  </main>
 </div>
 </div>
-
-
-<div><img src="/images/scribble.jpg" alt="diy"></div>
-
-</section>
-
-
-</div>
-      </div></div>
   <script>
 
 const copy_text = 'Copy';
@@ -247,14 +387,5 @@ const no_matches_found = 'No matches found';
 <script src="https://dzamo.gitlab.io/js/search.min.c329b0d2781e5d9f65d006e55da4b25ca6ecbbec0e8213ddf28e38ebf7016f75d18fc0863985ffb416f80134d994a60718a7476f9e5b9b23af761259a3d2afc6.js" async></script>
 
 
-
-<script defer src=https://dzamo.gitlab.io/js/mermaid.min.js></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mermaid.initialize({
-      flowchart: { useMaxWidth: true }
-    });
-  });
-</script>
 </body>
 </html>
