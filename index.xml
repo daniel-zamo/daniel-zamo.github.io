@@ -176,19 +176,6 @@ These actions are customizable to fire off under your specified set of circumsta
     </item>
     
     <item>
-      <title>Instalación de Ansible</title>
-      <link>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</guid>
-      <description>Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages</description>
-    </item>
-    
-    <item>
       <title>Instalación de KDE Plasma workspaces</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -279,6 +266,19 @@ Configuración Dnf (flags) 1echo &amp;#39;fastestmirror=1&amp;#39; | sudo tee -a
       <guid>https://dzamo.gitlab.io/docs/clarity/theme-overrides/</guid>
       <description>Custom CSS and JS To minimize HTTP requests per page, we would recommend loading CSS styles and JavaScript helpers in single bundles. That is to say, one CSS file and one JavaScript file. Using Hugo minify functions, these files will be minified to optimize the size.
 Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via the custom SASS file (Compose, Clarity) and the custom JS file (Compose, Clarity).</description>
+    </item>
+    
+    <item>
+      <title>Instalación de Ansible</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</guid>
+      <description>Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages</description>
     </item>
     
     <item>
