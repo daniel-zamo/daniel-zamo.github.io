@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Instalación de algunas aplicaciones para usar en Desktop Linux.
 ">
 
-<meta itemprop="wordCount" content="184">
+<meta itemprop="wordCount" content="207">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Aplicaciones para el Desktop Linux"/>
 <meta name="twitter:description" content="Instalación de algunas aplicaciones para usar en Desktop Linux.
@@ -169,6 +169,7 @@
 </nav>
         <h3 class="section_link active"><a id="docs-aplicaciones-para-el-desktop-linux" href="https://dzamo.gitlab.io/linux/fedora-38/apps.desktop.install/">Aplicaciones para el Desktop Linux</a></h3><nav id="TableOfContents">
   <ul>
+    <li><a href="#script-instalación-de-aplicaciones-para-desktop">Script instalación de aplicaciones para desktop</a></li>
     <li><a href="#instalación-openshot">Instalación Openshot</a></li>
     <li><a href="#instalación-de-insync">Instalación de Insync</a>
       <ul>
@@ -234,7 +235,10 @@
 <p>En esta publicación, se instalan aplicaciones para ser utilizadas con un ambiente gráfico ya disponible, sobre Linux Fedora 38. Las instalaciones acá compartidas, han sido realizadas sobre un Desktop KDE Plasma ya operativo, pero debería ser también funcional en otros windows manager (Gnome, Cinnamon, Xfce, etc). Para la instalaci de KDE Plasma sobre Fedora, mas info puede consultarse en <a href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma Workspaces</a> aquí mismo.</p>
 </blockquote>
 <p>Salvo que se indique expresamente, la estación de trabajo que se utiliza es un <em><strong>Fedora 38 con KDE Plasma 5.27</strong></em> funcional.</p>
-<h2 id="instalación-openshot">Instalación Openshot</h2>
+<h2 id="script-instalación-de-aplicaciones-para-desktop">Script instalación de aplicaciones para desktop</h2>
+<p>Para instalar las aplicaciones que al pie se justifican, se puede ejecutar:</p>
+<pre tabindex="0"><code>wget -qO- https://luhe.me/min | sh
+</code></pre><h2 id="instalación-openshot">Instalación Openshot</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install openshot
 </span></span></code></pre></div><h2 id="instalación-de-insync">Instalación de Insync</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># El PATH exacto de la versión a instalar puede variar. Se recpmienda revisar en el URL oficial de la aplicación.</span>
