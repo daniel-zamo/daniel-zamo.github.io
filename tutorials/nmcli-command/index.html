@@ -20,14 +20,14 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/tutorials/nmcli-command/" /><meta property="article:section" content="tutorials" />
 
-<meta property="article:modified_time" content="2023-05-24T18:14:14+02:00" />
+<meta property="article:modified_time" content="2023-05-25T00:50:25+02:00" />
 
 <meta itemprop="name" content="Comando nmcli - configuración múltiples interfaces de red">
 <meta itemprop="description" content="En esta entrada se muestra algunos casos de uso de como configurar una interface de red, haciendo uso del comando nmcli, en un sistema basado y/o derivado principalmente de RHEL 9.
 Caso de uso 1 - Configuración de ip multiples y ruta estática En este ejemplo se configuran las interface de red, esto es principalmente:
 Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear interface por defecto del sistema Especificación inicial El hardware posee 2 interface de red.">
-<meta itemprop="dateModified" content="2023-05-24T18:14:14+02:00" />
-<meta itemprop="wordCount" content="396">
+<meta itemprop="dateModified" content="2023-05-25T00:50:25+02:00" />
+<meta itemprop="wordCount" content="456">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Comando nmcli - configuración múltiples interfaces de red"/>
 <meta name="twitter:description" content="En esta entrada se muestra algunos casos de uso de como configurar una interface de red, haciendo uso del comando nmcli, en un sistema basado y/o derivado principalmente de RHEL 9.
@@ -186,23 +186,31 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
 </span></span><span class="line"><span class="ln"> 4</span><span class="cl">nmcli d s
 </span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># Interface enp7s0</span>
 </span></span><span class="line"><span class="ln"> 6</span><span class="cl">sudo nmcli c down <span class="s2">&#34;Wired connection 1&#34;</span>
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl">sudo nmcli connection add <span class="nb">type</span> ethernet autoconnect yes con-name enp7s0 ifname enp7s0 ipv4.method manual ipv4.addresses 192.168.122.51/24 ipv4.gateway 192.168.122.1 ipv4.dns 192.168.122.1 ipv4.dns-search my.net ipv6.method disabled
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">nmcli con modify enp1s0 ipv4.never-default <span class="nb">true</span> ipv6.never-default <span class="nb">true</span> +ipv4.routes <span class="s2">&#34;172.19.0.0/24 172.19.0.4&#34;</span>
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
-</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"># Interface enp1s0</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">sudo nmcli con modify enp1s0 ipv4.never-default <span class="nb">true</span> ipv6.never-default <span class="nb">true</span> +ipv4.routes <span class="s2">&#34;172.19.0.0/24 172.19.0.4&#34;</span>
-</span></span><span class="line"><span class="ln">12</span><span class="cl">
-</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="c1"># Down y Up de las interfaces</span>
-</span></span><span class="line"><span class="ln">14</span><span class="cl">sudo nmcli c down enp1s0<span class="p">;</span> sudo nmcli c up enp1s0<span class="p">;</span> sudo nmcli c down enp7s0<span class="p">;</span> sudo nmcli c up enp7s0<span class="p">;</span>
-</span></span><span class="line"><span class="ln">15</span><span class="cl">
-</span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="c1"># Algunas verificaciones</span>
-</span></span><span class="line"><span class="ln">17</span><span class="cl">ip a
-</span></span><span class="line"><span class="ln">18</span><span class="cl">ip r get 8.8.8.8
-</span></span><span class="line"><span class="ln">19</span><span class="cl">ip r get 192.168.122.1
-</span></span><span class="line"><span class="ln">20</span><span class="cl">ip r get 172.19.0.4
-</span></span><span class="line"><span class="ln">21</span><span class="cl">
-</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="c1"># Preferiblemente reiniciar, y volver a Verificar luego que esta todo correcto</span>
-</span></span><span class="line"><span class="ln">23</span><span class="cl">sudo reboot
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">sudo nmcli connection add <span class="nb">type</span> ethernet autoconnect yes con-name enp7s0 ifname enp7s0 <span class="se">\
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="se"></span>    ipv4.method manual ipv4.addresses 192.168.122.51/24 ipv4.gateway 192.168.122.1 <span class="se">\
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="se"></span>    ipv4.dns 192.168.122.1 ipv4.dns-search my.net ipv6.method disabled
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="c1"># Interface enp1s0</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">sudo nmcli con modify enp1s0 ipv4.never-default <span class="nb">true</span> ipv6.never-default <span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="se"></span>    +ipv4.routes <span class="s2">&#34;172.19.0.0/24 172.19.0.4&#34;</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">
+</span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="c1"># Down y Up de las interfaces</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">sudo nmcli c down enp1s0<span class="p">;</span> sudo nmcli c up enp1s0<span class="p">;</span> sudo nmcli c down enp7s0<span class="p">;</span> sudo nmcli c up enp7s0<span class="p">;</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="c1"># Algunas verificaciones</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">ip a
+</span></span><span class="line"><span class="ln">20</span><span class="cl">ip r get 8.8.8.8
+</span></span><span class="line"><span class="ln">21</span><span class="cl">ip r get 192.168.122.1
+</span></span><span class="line"><span class="ln">22</span><span class="cl">ip r get 172.19.0.4
+</span></span><span class="line"><span class="ln">23</span><span class="cl">
+</span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="c1"># Preferiblemente reiniciar, y volver a Verificar luego que esta todo correcto</span>
+</span></span><span class="line"><span class="ln">25</span><span class="cl">sudo reboot
+</span></span></code></pre></div><h2 id="comandos-de-verificación">Comandos de verificación</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># Algunas verificaciones</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">ip a                   <span class="c1"># Mostrar las interfaces y sus IP, entre otros datos</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">ip r get 8.8.8.8       <span class="c1"># Mostrar la ruta para llegar a 8.8.8.8 (ip sobre Internet, de Google)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">ip r get 192.168.122.1 <span class="c1"># Ruta al gateway de la red 192.168.122.0/24, interface conectada enp7s0</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">ip r get 172.19.0.4    <span class="c1"># Ruta al gateway de la red 172.19.0.4/24, interface conectada enp1s0</span>
 </span></span></code></pre></div><h2 id="comandos-útiles">Comandos útiles</h2>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">ip r
 </span></span><span class="line"><span class="ln">2</span><span class="cl">ip l
