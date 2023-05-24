@@ -13,14 +13,14 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Tutoriales - artículos | My dzamo Hugo Site</title><meta property="og:title" content="Tutoriales - artículos" />
+<title>Configuración interface de red | My dzamo Hugo Site</title><meta property="og:title" content="Configuración interface de red" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://dzamo.gitlab.io/tutorials/" />
+<meta property="og:url" content="https://dzamo.gitlab.io/tutorials/networking/" />
 
-<meta itemprop="name" content="Tutoriales - artículos">
+<meta itemprop="name" content="Configuración interface de red">
 <meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Tutoriales - artículos"/>
+<meta name="twitter:title" content="Configuración interface de red"/>
 <meta name="twitter:description" content=""/>
 
 
@@ -94,21 +94,53 @@
     
       
     
-      <div class="content"><ul>
-<li>Configuración de <a href="./networking">interface de red</a>.</li>
+      <div class="content"><p>En esta entrada se muestra como configurar una interface de red, haciendo uso del comando <code>nmcli</code>, en un sistema basado y/o derivado principalmente de RHEL 9.</p>
+<h2 id="especificación-inicial">Especificación inicial</h2>
+<p>El hardware posee 2 interface de red. La especificación de la configuración inicial es:</p>
+<ul>
+<li>Nombre del host: <code>k3s-single-dev-station</code></li>
 </ul>
-<p>~~- <a href="./example/mermaid/#Sequence-Diagrams">follow this instructions to enable it</a></p>
-<p><a href="../docs/compose/organize-content/#documentation">follow this instructions to enable it</a>~~</p>
-<!--
-Surprised that it doesn't have a left sidebar menu? Worry not; just [follow this instructions to enable it](../docs/compose/organize-content/#documentation).
-
-< ! -- That content is better than dummy lorem ipsum 2) That content serves a good real-world demo for this theme 3) Publish more structured docs for each theme which are better than long blocky READMEs -- >
-
-<a href="./example" class="button mb-1">Tutorials</a>
-
-<a href="../docs/" class="button">Back to docs</a>
-
--->
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Nombre de la interface</th>
+<th style="text-align:center">Estado de la configuración</th>
+<th style="text-align:center">IP asignado</th>
+<th style="text-align:center">gateway</th>
+<th style="text-align:center">otros datos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>enp1s0</code></td>
+<td style="text-align:center">Interface configurada</td>
+<td style="text-align:center"><code>172.19.0.51</code></td>
+<td style="text-align:center"><code>172.19.0.4</code></td>
+<td style="text-align:center">DNS: <code>172.19.0.4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>enp7s0</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="caso-de-uso-1">Caso de uso 1</h2>
+<p>En este primer caso de uso de configuración se requiere configurar la interface <code>enp7s0</code> con la siguiente especificación, esta es:</p>
+<ul>
+<li>Nombre del servidor: <code>k3s-single-dev-station</code></li>
+<li>Nombre de la interface a configurar: <code>enp7s0</code>
+<ul>
+<li>Asignación de IP fijo:</li>
+<li>Red:</li>
+<li>Gw:</li>
+<li>DNS:</li>
+<li>Ruta por defecto del sistema:</li>
+</ul>
+</li>
+</ul>
 
   
       </div></div>
@@ -236,14 +268,5 @@ const no_matches_found = 'No matches found';
 <script src="https://dzamo.gitlab.io/js/search.min.c329b0d2781e5d9f65d006e55da4b25ca6ecbbec0e8213ddf28e38ebf7016f75d18fc0863985ffb416f80134d994a60718a7476f9e5b9b23af761259a3d2afc6.js" async></script>
 
 
-
-<script defer src=https://dzamo.gitlab.io/js/mermaid.min.js></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    mermaid.initialize({
-      flowchart: { useMaxWidth: true }
-    });
-  });
-</script>
 </body>
 </html>
