@@ -2,13 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dzamo.gitlab.io/tutorials/nmcli-command/</loc>
+  </url><url>
     <loc>https://dzamo.gitlab.io/docs/compose/</loc>
     <lastmod>2023-05-18T11:17:10+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tutorials/example/</loc>
     <lastmod>2023-05-18T11:17:10+02:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/tutorials/networking/</loc>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/fedora-38/</loc>
     <lastmod>2023-05-21T03:13:45+02:00</lastmod>
