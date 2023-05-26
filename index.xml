@@ -18,6 +18,18 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
     </item>
     
     <item>
+      <title>Entornos virtuales en Python</title>
+      <link>https://dzamo.gitlab.io/docs/compose/env/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/compose/env/</guid>
+      <description>Prerequisites First ensure that you have hugo installed.
+You need a recent extended version (we recommend version 0.61 or later) of Hugo to do local builds and previews of sites (like this one) that uses this theme.
+If you install from the release page, make sure to get the extended Hugo version, which supports sass; you may need to scroll down the list of releases to see it.
+For comprehensive Hugo documentation, see gohugo.</description>
+    </item>
+    
+    <item>
       <title>Instalación del sistema - minimal</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
