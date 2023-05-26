@@ -13,23 +13,20 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Entornos virtuales en Python | My dzamo Hugo Site</title><meta property="og:title" content="Entornos virtuales en Python" />
-<meta property="og:description" content="Entornos virtuales en aplicaciones de Python.
-" />
+<title>Comando virsh | My dzamo Hugo Site</title><meta property="og:title" content="Comando virsh" />
+<meta property="og:description" content="Apuntes del comando virsh (comando del CLI) " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/python/virtual-environment/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://dzamo.gitlab.io/docs/kvm/cli-virsh/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-05-26T15:29:21+02:00" />
 
-<meta itemprop="name" content="Entornos virtuales en Python">
-<meta itemprop="description" content="Entornos virtuales en aplicaciones de Python.
-">
-<meta itemprop="dateModified" content="2023-05-26T15:29:21+02:00" />
-<meta itemprop="wordCount" content="233">
+
+<meta itemprop="name" content="Comando virsh">
+<meta itemprop="description" content="Apuntes del comando virsh (comando del CLI) ">
+
+<meta itemprop="wordCount" content="107">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Entornos virtuales en Python"/>
-<meta name="twitter:description" content="Entornos virtuales en aplicaciones de Python.
-"/>
+<meta name="twitter:title" content="Comando virsh"/>
+<meta name="twitter:description" content="Apuntes del comando virsh (comando del CLI) "/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,8 +34,7 @@
 
 
 
-  <meta name="description" content="Entornos virtuales en aplicaciones de Python.
-">
+  <meta name="description" content="Apuntes del comando virsh (comando del CLI) ">
 
 
 </head>
@@ -116,7 +112,7 @@
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/python/" class="group">Python</a></h2>
       <section class="" id="docs-python">
-        <h3 class="section_link active"><a id="docs-entornos-virtuales-en-python" href="https://dzamo.gitlab.io/docs/python/virtual-environment/">Entornos virtuales en Python</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-entornos-virtuales-en-python" href="https://dzamo.gitlab.io/docs/python/virtual-environment/">Entornos virtuales en Python</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -144,7 +140,7 @@
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kvm/" class="group">KVM</a></h2>
       <section class="" id="docs-kvm">
-        <h3 class="section_link"><a id="docs-comando-virsh" href="https://dzamo.gitlab.io/docs/kvm/cli-virsh/">Comando virsh</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-comando-virsh" href="https://dzamo.gitlab.io/docs/kvm/cli-virsh/">Comando virsh</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -161,29 +157,13 @@
 </aside>
 
   <main class="content">
-    <h1>Entornos virtuales en Python</h1><h3 id="entorno-virtual-para-aplicaciones-python">Entorno virtual para aplicaciones Python</h3>
-<p>En este item se muestra, como preparar un <em>entorno virtual</em> para ejecutar aplicaciones <em>Python</em>.</p>
-<h2 id="crear-entorno-virtual-python">Crear entorno virtual Python</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">python -m venv venv
-</span></span></code></pre></div><h2 id="ejecutar-el-entorno">Ejecutar el entorno</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">source</span> venv/bin/activate
-</span></span></code></pre></div><h2 id="instalar-módulos-requeridos">Instalar módulos requeridos</h2>
-<p>En desarrollos basados en Python, cuando se hace uso de los entornos virtuales, es recomendable públicar y mantener los módulos mediante el fichero <code>requirements.txt</code> independiente. A continuación se muestra resumidamente como instalar los módulos en los casos de disponer el fichero.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip install -r requirements.txt
-</span></span></code></pre></div><h2 id="generar-requirementstxt">Generar requirements.txt</h2>
-<p>Como se indico anteriormente, cuando se desarrolla o ejecutan aplicaciones <em>Python</em> basadas en entornos virtuales, es recomendable mantener los módulos de nuestra aplicación en el fichero <code>requirements.txt</code>. En este apartado se indican algunos comandos extras mínimos para gestionar los módulos de la aplicación y como generar el fichero que permitirá migrar la misma a diferentes equipos o tecnologías.</p>
-<p><strong>Listar los módulos de la aplicación</strong></p>
-<p>El comando <code>pip freeze</code> permite ver los módulos instalados (y/o activos en el entorno virtual) de la aplicación Python actual.</p>
-<p><em><strong>pip freeze</strong></em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip freeze
-</span></span></code></pre></div><p>Con el comando anterior se puede crear el <code>requirements.txt</code> (para luego instalarlo y así poder migrar la aplicación/script/utilidad) o compartirla, ejecutarla en otro sistema o tecnología (contenedores Docker, Podman, etc).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip freeze &gt; requirements.txt
-</span></span></code></pre></div><h2 id="otros-comandos-desarrollo-python">Otros comandos (desarrollo Python)</h2>
-<h4 id="desactivando-un-entorno">Desactivando un entorno</h4>
-<p>Para desactivar un entorno python se puede ejecutar:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">deactivate
-</span></span></code></pre></div><h4 id="comando-pip-list">Comando pip list</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip list   <span class="c1"># Lista los modulos instalados, que están corriendo.</span>
+    <h1>Comando virsh</h1><h3 id="destruir-un-dominio">Destruir un dominio</h3>
+<p>La siguiente ejecución destruye/detiene un dominio (VM, guest o máquina virtual).</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo virsh destroy NOMBRE_DOMINIO
+</span></span></code></pre></div><p><em>Donde:</em> <code>NOMBRE_DOMINIO</code> es el nombre del dominio (es el nombre de la máquina virtual, o guest). En este documento, y en lo que respecta a la tecnología <a href="https://www.kvm.org">KVM</a> del contenido compartido en esta sección, para referirse a una <em>máquina virtual</em> será indistintamente referida como <em>VM</em>, <em>guest de KVM</em>, o <em>nombre</em> o <em>nombre de dominio</em>.</p>
+<h3 id="borrar-un-dominio-o-vm">Borrar un dominio o VM</h3>
+<p>El siguiente comando borra por completo una <em>VM</em>, tanto su configuración como sus <em>storage</em> (<em>almacenamiento</em>). Para borrar una <em>máquina</em> el dominio debe estar detenido.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo virsh undefine --domain NOMBRE_DOMINIO --remove-all-storage
 </span></span></code></pre></div>
     <div class="pager">
   
