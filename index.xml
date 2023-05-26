@@ -71,17 +71,6 @@ Tareas de configuracion inicial (usuario sudo y para con comando su) 1echo &amp;
     </item>
     
     <item>
-      <title>Getting started</title>
-      <link>https://dzamo.gitlab.io/docs/clarity/getting-started/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/clarity/getting-started/</guid>
-      <description>Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
-Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
-Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:</description>
-    </item>
-    
-    <item>
       <title>Instalación de KDE Plasma workspaces</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -92,16 +81,6 @@ Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada 
     </item>
     
     <item>
-      <title>Manipulating Images</title>
-      <link>https://dzamo.gitlab.io/docs/clarity/images/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/clarity/images/</guid>
-      <description>Images Image figure captions You have the option of adding captions to images in blog posts and automatically prepending a desired string such as &amp;quot;Figure N&amp;quot; to the alt text. This is controlled via two global settings.
-figurePositionLabel is a string which will be prepended to any alt text of an article image. By default, this is set to &amp;quot;Figure.&amp;quot; And figurePositionShow controls, globally, whether to show this label. It does not affect whether to show the image alt text, only the prefix figure caption.</description>
-    </item>
-    
-    <item>
       <title>Repositorios paquetes RPM y flatpak</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/add-repository-and-flatpak/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -109,26 +88,6 @@ figurePositionLabel is a string which will be prepended to any alt text of an ar
       <guid>https://dzamo.gitlab.io/linux/fedora-38/add-repository-and-flatpak/</guid>
       <description>En este apartado se agregan repositorios para paquetes RPM y flatpak.
 Configuración Dnf (flags) 1echo &amp;#39;fastestmirror=1&amp;#39; | sudo tee -a /etc/dnf/dnf.conf 2echo &amp;#39;max_parallel_downloads=6&amp;#39; | sudo tee -a /etc/dnf/dnf.conf 3echo &amp;#39;deltarpm=true&amp;#39; | sudo tee -a /etc/dnf/dnf.conf Actualizar paquetes del sistema 1sudo dnf upgrade -y --refresh 2sudo dnf -y update Agregar repo y habilitar fedora-third-party 1sudo dnf -y install fedora-workstation-repositories 2## sudo dnf install fedora-repos fedora-repos-modular Repositorios Fusion 1sudo dnf install -y https://download1.</description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>https://dzamo.gitlab.io/docs/clarity/syntax-highlighting/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/clarity/syntax-highlighting/</guid>
-      <description>Code Display line numbers Choose whether to display line numbers within a code block globally with the parameter codeLineNumbers setting to true or false.
-1[params] 2... 3codeLineNumbers = true # Shows line numbers for all code blocks globally. 4... Limit code block height You can globally control the number of lines which are displayed by default for your code blocks. Code which has the number of lines exceed this value will dynamically cause two code block expansion buttons to appear, allowing the user to expand to full length and contract.</description>
-    </item>
-    
-    <item>
-      <title>Theme Overrides</title>
-      <link>https://dzamo.gitlab.io/docs/clarity/theme-overrides/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/clarity/theme-overrides/</guid>
-      <description>Custom CSS and JS To minimize HTTP requests per page, we would recommend loading CSS styles and JavaScript helpers in single bundles. That is to say, one CSS file and one JavaScript file. Using Hugo minify functions, these files will be minified to optimize the size.
-Going by the above 👆🏻 reason, we recommend adding custom CSS and JS via the custom SASS file (Compose, Clarity) and the custom JS file (Compose, Clarity).</description>
     </item>
     
     <item>
