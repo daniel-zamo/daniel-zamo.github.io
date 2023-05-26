@@ -26,9 +26,6 @@
     <loc>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</loc>
     <lastmod>2023-05-21T02:26:18+02:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/docs/python/virtual-environment/</loc>
-    <lastmod>2023-05-26T15:29:21+02:00</lastmod>
-  </url><url>
     <loc>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</loc>
     <lastmod>2023-05-26T19:59:17+02:00</lastmod>
   </url><url>
@@ -49,6 +46,9 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/fedora-38/add-repository-and-flatpak/</loc>
     <lastmod>2023-05-21T02:26:18+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/docs/python/virtual-environment/</loc>
+    <lastmod>2023-05-26T15:29:21+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/fedora-38/ansible.install/</loc>
     <lastmod>2023-05-23T14:02:02+02:00</lastmod>
