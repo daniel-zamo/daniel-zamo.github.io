@@ -13,26 +13,23 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Getting started | My dzamo Hugo Site</title><meta property="og:title" content="Getting started" />
-<meta property="og:description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
-Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
-Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:" />
+<title>Entornos virtuales en Python | My dzamo Hugo Site</title><meta property="og:title" content="Entornos virtuales en Python" />
+<meta property="og:description" content="Entornos virtuales en aplicaciones de Python.
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/clarity/getting-started/" /><meta property="article:section" content="docs" />
+<meta property="og:url" content="https://dzamo.gitlab.io/docs/python/virtual-environment/" /><meta property="article:section" content="docs" />
 
-<meta property="article:modified_time" content="2023-05-18T11:17:10+02:00" />
 
-<meta itemprop="name" content="Getting started">
-<meta itemprop="description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
-Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
-Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:">
-<meta itemprop="dateModified" content="2023-05-18T11:17:10+02:00" />
-<meta itemprop="wordCount" content="279">
+
+<meta itemprop="name" content="Entornos virtuales en Python">
+<meta itemprop="description" content="Entornos virtuales en aplicaciones de Python.
+">
+
+<meta itemprop="wordCount" content="307">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Getting started"/>
-<meta name="twitter:description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
-Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
-Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:"/>
+<meta name="twitter:title" content="Entornos virtuales en Python"/>
+<meta name="twitter:description" content="Entornos virtuales en aplicaciones de Python.
+"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -40,9 +37,8 @@ Option 1 (recommended) Generate a new Hugo site and add this theme as a Git subm
 
 
 
-  <meta name="description" content="Prerequisites Firstly, ensure you have installed the extended version of Hugo. See installation steps from Hugo&#39;s official docs.
-Getting up and running Read the prerequisites above and verify you&#39;re using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:
-Option 1 (recommended) Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:">
+  <meta name="description" content="Entornos virtuales en aplicaciones de Python.
+">
 
 
 </head>
@@ -120,7 +116,7 @@ Option 1 (recommended) Generate a new Hugo site and add this theme as a Git subm
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/python/" class="group">Python</a></h2>
       <section class="" id="docs-python">
-        <h3 class="section_link"><a id="docs-entornos-virtuales-en-python" href="https://dzamo.gitlab.io/docs/python/virtual-environment/">Entornos virtuales en Python</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-entornos-virtuales-en-python" href="https://dzamo.gitlab.io/docs/python/virtual-environment/">Entornos virtuales en Python</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -141,7 +137,7 @@ Option 1 (recommended) Generate a new Hugo site and add this theme as a Git subm
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/clarity/" class="group">Clarity Docs</a></h2>
       <section class="" id="docs-clarity-docs">
-        <h3 class="section_link active"><a id="docs-getting-started" href="https://dzamo.gitlab.io/docs/clarity/getting-started/">Getting started</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-getting-started" href="https://dzamo.gitlab.io/docs/clarity/getting-started/">Getting started</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#getting-up-and-running">Getting up and running</a>
@@ -204,53 +200,51 @@ Option 1 (recommended) Generate a new Hugo site and add this theme as a Git subm
 </aside>
 
   <main class="content">
-    <h1>Getting started</h1><h2 id="prerequisites">Prerequisites</h2>
-<p>Firstly, <strong>ensure you have installed the <a href="https://github.com/gohugoio/hugo/releases">extended version of Hugo</a></strong>. See installation steps from <a href="https://gohugo.io/getting-started/installing/">Hugo's official docs</a>.</p>
-<h2 id="getting-up-and-running">Getting up and running</h2>
-<p>Read the <a href="#prerequisites">prerequisites</a> above and verify you're using the extended version of Hugo. There are at least two ways of quickly getting started with Hugo and the VMware Clarity theme:</p>
-<h3 id="option-1-recommended">Option 1 (recommended)</h3>
+    <h1>Entornos virtuales en Python</h1><h3 id="prerequisites">Prerequisites</h3>
+<p>First ensure that you have hugo installed.</p>
+<p>You need a <a href="https://github.com/gohugoio/hugo/releases">recent <strong>extended</strong> version</a> (we recommend version 0.61 or later) of <a href="https://gohugo.io/">Hugo</a> to do local builds and previews of sites (like this one) that uses this theme.</p>
+<p>If you install from the release page, make sure to get the <code>extended</code> Hugo version, which supports <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html">sass</a>; you may need to scroll down the list of releases to see it.</p>
+<p>For comprehensive Hugo documentation, see <a href="https://gohugo.io/">gohugo.io</a>.</p>
+<h2 id="run-your-site-with-compose-theme">Run your site with compose theme</h2>
+<p>You could go with the options right below.</p>
+<h3 id="option-1-my-favorite">Option 1 (my favorite)</h3>
+<p>This option enables you to load compose theme as a hugo module. First things first, ensure you have <code>go</code> binary <a href="https://golang.org/doc/install">installed on your machine</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">$ git clone https://github.com/onweru/compose/
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server
+</span></span></code></pre></div><p>To pull in theme updates, run <code>hugo mod get -u ./...</code> from the theme folder. If unsure, <a href="https://gohugo.io/hugo-modules/use-modules/#update-modules">learn how to update hugo modules</a></p>
+
+<div class="tip tip_warning">
+  <p>The exampleSite uses the theme as a hugo module by default.</p>
+<p>If you choose <strong>Option 2</strong> or <strong>Option 3</strong> below, ensure you edit <a href="https://github.com/onweru/compose/blob/b3e30e0816621223224897edc45eeeabd0d9cd16/exampleSite/config.toml#L4-L7">these lines in the config.toml file</a> as advised on the comments. Else, you will not be able to pull theme updates.</p>
+
+</div>
+
+<h3 id="option-2-recommended">Option 2 (recommended)</h3>
 <p>Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new site yourSiteName
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> yourSiteName
 </span></span><span class="line"><span class="ln">3</span><span class="cl">git init
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git submodule add https://github.com/chipzoller/hugo-clarity themes/hugo-clarity
-</span></span><span class="line"><span class="ln">5</span><span class="cl">cp -a themes/hugo-clarity/exampleSite/* .
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git submodule add https://github.com/onweru/compose/ themes/compose
+</span></span><span class="line"><span class="ln">5</span><span class="cl">cp -a themes/compose/exampleSite/* .
 </span></span></code></pre></div><p>Then run</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server
 </span></span></code></pre></div><p>Hurray!</p>
-<h3 id="option-2-great-for-testing-quickly">Option 2 (Great for testing quickly)</h3>
+<h3 id="option-3-great-for-testing-quickly">Option 3 (Great for testing quickly)</h3>
 <p>You can run your site directly from the <code>exampleSite</code>. To do so, use the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/chipzoller/hugo-clarity
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> hugo-clarity/exampleSite/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/onweru/compose/
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
 </span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server --themesDir ../..
-</span></span></code></pre></div><blockquote>
-<p>Although, option 2 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.</p>
-</blockquote>
-<h3 id="option-3-the-new-most-fun--painless-approach">Option 3 (The new, most fun &amp; painless approach)</h3>
-<p>This option enables you to load this theme as a hugo module. It arguably requires the least effort to run and maintain in your website.</p>
-<p>First things first, ensure you have <code>go</code> binary <a href="https://golang.org/doc/install">installed on your machine</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/chipzoller/hugo-clarity.git clarity
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> clarity/exampleSite/
-</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo mod init my-site
-</span></span></code></pre></div><p>Open config.toml file in your code editor, replace <code>theme = &quot;hugo-clarity&quot;</code> with <code>theme = [&quot;github.com/chipzoller/hugo-clarity&quot;]</code> or just <code>theme = &quot;github.com/chipzoller/hugo-clarity&quot;</code>.</p>
-<p>Hurray you can now run</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="l">hugo server</span><span class="w">
-</span></span></span></code></pre></div><p>To pull in theme updates, run <code>hugo mod get -u ./...</code> from the theme folder. If unsure, <a href="https://gohugo.io/hugo-modules/use-modules/#update-modules">learn how to update hugo modules</a></p>
-<blockquote>
-<p>There <a href="https://discourse.gohugo.io/t/hugo-modules-for-dummies/20758">is more you could do with hugo modules</a>, but this will suffice for our use case here.</p>
-</blockquote>
+</span></span></code></pre></div>
+<div class="tip">
+  Although, option 3 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.
+</div>
+
+<p>Once set, jump over to the <a href="https://github.com/onweru/compose/blob/afdf1cd76408aeac11547a6abd51bdc5138a295f/exampleSite/config.toml#L4-L7">config.toml</a> file and start configuring your site.</p>
 
     <div class="pager">
   
 
-  
-    
-    <div class="pager_item next">
-      <a href="https://dzamo.gitlab.io/docs/clarity/images/" class="pager_link button" title="Manipulating Images" rel="next">
-        <span class="pager_label">Manipulating Images</span>
-      </a>
-    </div>
-    
   
 </div>
   </main>
