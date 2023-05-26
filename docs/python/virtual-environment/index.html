@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Entornos virtuales en aplicaciones de Python.
 ">
 
-<meta itemprop="wordCount" content="219">
+<meta itemprop="wordCount" content="233">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Entornos virtuales en Python"/>
 <meta name="twitter:description" content="Entornos virtuales en aplicaciones de Python.
@@ -126,12 +126,13 @@
     <li><a href="#crear-entorno-virtual-python">Crear entorno virtual Python</a></li>
     <li><a href="#ejecutar-el-entorno">Ejecutar el entorno</a></li>
     <li><a href="#instalar-modulos-requeridos">Instalar modulos requeridos</a></li>
-    <li><a href="#generar-requirementstxt">Generar requirements.txt</a>
+    <li><a href="#generar-requirementstxt">Generar requirements.txt</a></li>
+    <li><a href="#otros-comandos-desarrollo-python">Otros comandos (desarrollo Python)</a>
       <ul>
-        <li><a href="#listar-los-módulos-de-la-aplicación">Listar los módulos de la aplicación</a></li>
+        <li><a href="#desactivando-un-entorno">Desactivando un entorno</a></li>
+        <li><a href="#comando-pip-list">Comando pip list</a></li>
       </ul>
     </li>
-    <li><a href="#otros-comandos-desarrollo-python">Otros comandos (desarrollo Python)</a></li>
   </ul>
 </nav>
       </section>
@@ -213,15 +214,18 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip install -r requirements.txt
 </span></span></code></pre></div><h2 id="generar-requirementstxt">Generar requirements.txt</h2>
 <p>Como se indico anteriormente, cuando se desarrolla o ejecutan aplicaciones <em>Python</em> basadas en entornos virtuales, es recomendable mantener los módulos de nuestra aplicación en el fichero <code>requirements.txt</code>. En este apartado se indican algunos comandos extras mínimos para gestionar los módulos de la aplicación y como generar el fichero que permitirá migrar la misma a diferentes equipos o tecnologías.</p>
-<h3 id="listar-los-módulos-de-la-aplicación">Listar los módulos de la aplicación</h3>
-<p>Los siguientes comandos permiten ver los módulos instalados (y/o activos en el entorno virtual) de la aplicación Python actual.</p>
+<p><strong>Listar los módulos de la aplicación</strong></p>
+<p>El comando <code>pip freeze</code> permite ver los módulos instalados (y/o activos en el entorno virtual) de la aplicación Python actual.</p>
 <p><em><strong>pip freeze</strong></em></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip freeze
 </span></span></code></pre></div><p>Con el comando anterior se puede crear el <code>requirements.txt</code> (para luego instalarlo y así poder migrar la aplicación/script/utilidad) o compartirla, ejecutarla en otro sistema o tecnología (contenedores Docker, Podman, etc).</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip freeze &gt; requirements.txt
 </span></span></code></pre></div><h2 id="otros-comandos-desarrollo-python">Otros comandos (desarrollo Python)</h2>
-<p><em><strong>pip list</strong></em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip list   <span class="c1"># Lista los modulos instalados, que están corriendo.</span>
+<h3 id="desactivando-un-entorno">Desactivando un entorno</h3>
+<p>Para desactivar un entorno python se puede ejecutar:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">deactivate
+</span></span></code></pre></div><h3 id="comando-pip-list">Comando pip list</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip list   <span class="c1"># Lista los modulos instalados, que están corriendo.</span>
 </span></span></code></pre></div>
     <div class="pager">
   
