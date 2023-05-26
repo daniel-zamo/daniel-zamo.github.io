@@ -18,16 +18,6 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
     </item>
     
     <item>
-      <title>Entornos virtuales en Python</title>
-      <link>https://dzamo.gitlab.io/docs/python/virtual-environment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/python/virtual-environment/</guid>
-      <description>Entorno virtual para aplicaciones Python En este item se muestra, como preparar un entorno virtual para ejecutar aplicaciones Python.
-Crear entorno virtual Python 1python -m venv venv Ejecutar el entorno 1source venv/bin/activate Instalar módulos requeridos En desarrollos basados en Python, cuando se hace uso de los entornos virtuales, es recomendable públicar y mantener los módulos mediante el fichero requirements.txt independiente. A continuación se muestra resumidamente como instalar los módulos en los casos de disponer el fichero.</description>
-    </item>
-    
-    <item>
       <title>Instalación del sistema - minimal</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -35,6 +25,16 @@ Crear entorno virtual Python 1python -m venv venv Ejecutar el entorno 1source ve
       <guid>https://dzamo.gitlab.io/linux/fedora-38/install-minimal/</guid>
       <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
 En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
+    </item>
+    
+    <item>
+      <title>Entornos virtuales en Python</title>
+      <link>https://dzamo.gitlab.io/docs/python/virtual-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/python/virtual-environment/</guid>
+      <description>Entorno virtual para aplicaciones Python En este item se muestra, como preparar un entorno virtual para ejecutar aplicaciones Python.
+Crear entorno virtual Python 1python -m venv venv Ejecutar el entorno 1source venv/bin/activate Instalar módulos requeridos En desarrollos basados en Python, cuando se hace uso de los entornos virtuales, es recomendable públicar y mantener los módulos mediante el fichero requirements.txt independiente. A continuación se muestra resumidamente como instalar los módulos en los casos de disponer el fichero.</description>
     </item>
     
     <item>
