@@ -14,8 +14,6 @@
     <loc>https://dzamo.gitlab.io/linux/fedora-38/</loc>
     <lastmod>2023-05-21T03:13:45+02:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/docs/kvm/</loc>
-  </url><url>
     <loc>https://dzamo.gitlab.io/linux/</loc>
     <lastmod>2023-05-23T14:02:02+02:00</lastmod>
   </url><url>
@@ -54,6 +52,8 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</loc>
     <lastmod>2023-05-21T04:28:27+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/docs/kvm/</loc>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/fedora-38/apps.desktop.install/</loc>
     <lastmod>2023-05-24T10:56:50+02:00</lastmod>
