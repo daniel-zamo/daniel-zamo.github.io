@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Entornos virtuales en aplicaciones de Python.
 ">
 
-<meta itemprop="wordCount" content="311">
+<meta itemprop="wordCount" content="141">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Entornos virtuales en Python"/>
 <meta name="twitter:description" content="Entornos virtuales en aplicaciones de Python.
@@ -120,14 +120,20 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#configuración-entorno-virtual-en-python">Configuración entorno virtual en Python</a></li>
+        <li><a href="#entorno-virtual-para-aplicaciones-python">Entorno virtual para aplicaciones Python</a></li>
       </ul>
     </li>
-    <li><a href="#run-your-site-with-compose-theme">Run your site with compose theme</a>
+    <li><a href="#crear-entorno-virtual-python">Crear entorno virtual Python</a></li>
+    <li><a href="#ejecutar-el-entorno">Ejecutar el entorno</a></li>
+    <li><a href="#instalar-modulos-requeridos">Instalar modulos requeridos</a></li>
+    <li><a href="#otros-comandos-desarrollo-cpython">Otros comandos (desarrollo c/Python)</a>
       <ul>
-        <li><a href="#option-1-my-favorite">Option 1 (my favorite)</a></li>
-        <li><a href="#option-2-recommended">Option 2 (recommended)</a></li>
-        <li><a href="#option-3-great-for-testing-quickly">Option 3 (Great for testing quickly)</a></li>
+        <li><a href="#listar-los-módulos-del-entorno-usado">Listar los módulos del entorno usado</a>
+          <ul>
+            <li><a href="#pip-freeze">pip freeze</a></li>
+            <li><a href="#pip">pip</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
   </ul>
@@ -200,48 +206,23 @@
 </aside>
 
   <main class="content">
-    <h1>Entornos virtuales en Python</h1><h3 id="configuración-entorno-virtual-en-python">Configuración entorno virtual en Python</h3>
-<p>First ensure that you have hugo installed.</p>
-<p>You need a <a href="https://github.com/gohugoio/hugo/releases">recent <strong>extended</strong> version</a> (we recommend version 0.61 or later) of <a href="https://gohugo.io/">Hugo</a> to do local builds and previews of sites (like this one) that uses this theme.</p>
-<p>If you install from the release page, make sure to get the <code>extended</code> Hugo version, which supports <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html">sass</a>; you may need to scroll down the list of releases to see it.</p>
-<p>For comprehensive Hugo documentation, see <a href="https://gohugo.io/">gohugo.io</a>.</p>
-<h2 id="run-your-site-with-compose-theme">Run your site with compose theme</h2>
-<p>You could go with the options right below.</p>
-<h3 id="option-1-my-favorite">Option 1 (my favorite)</h3>
-<p>This option enables you to load compose theme as a hugo module. First things first, ensure you have <code>go</code> binary <a href="https://golang.org/doc/install">installed on your machine</a>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">$ git clone https://github.com/onweru/compose/
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
-</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server
-</span></span></code></pre></div><p>To pull in theme updates, run <code>hugo mod get -u ./...</code> from the theme folder. If unsure, <a href="https://gohugo.io/hugo-modules/use-modules/#update-modules">learn how to update hugo modules</a></p>
-
-<div class="tip tip_warning">
-  <p>The exampleSite uses the theme as a hugo module by default.</p>
-<p>If you choose <strong>Option 2</strong> or <strong>Option 3</strong> below, ensure you edit <a href="https://github.com/onweru/compose/blob/b3e30e0816621223224897edc45eeeabd0d9cd16/exampleSite/config.toml#L4-L7">these lines in the config.toml file</a> as advised on the comments. Else, you will not be able to pull theme updates.</p>
-
-</div>
-
-<h3 id="option-2-recommended">Option 2 (recommended)</h3>
-<p>Generate a new Hugo site and add this theme as a Git submodule inside your themes folder:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new site yourSiteName
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> yourSiteName
-</span></span><span class="line"><span class="ln">3</span><span class="cl">git init
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git submodule add https://github.com/onweru/compose/ themes/compose
-</span></span><span class="line"><span class="ln">5</span><span class="cl">cp -a themes/compose/exampleSite/* .
-</span></span></code></pre></div><p>Then run</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server
-</span></span></code></pre></div><p>Hurray!</p>
-<h3 id="option-3-great-for-testing-quickly">Option 3 (Great for testing quickly)</h3>
-<p>You can run your site directly from the <code>exampleSite</code>. To do so, use the following commands:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/onweru/compose/
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> compose/exampleSite/
-</span></span><span class="line"><span class="ln">3</span><span class="cl">hugo server --themesDir ../..
+    <h1>Entornos virtuales en Python</h1><h3 id="entorno-virtual-para-aplicaciones-python">Entorno virtual para aplicaciones Python</h3>
+<p>En este item se muestra, como preparar un <em>entorno virtual</em> para ejecutar aplicaciones <em>Python</em>.</p>
+<h2 id="crear-entorno-virtual-python">Crear entorno virtual Python</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">python -m venv venv
+</span></span></code></pre></div><h2 id="ejecutar-el-entorno">Ejecutar el entorno</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">source</span> venv/bin/activate
+</span></span></code></pre></div><h2 id="instalar-modulos-requeridos">Instalar modulos requeridos</h2>
+<p>En desarrollos basados en Python, es recomendable publicar y mantener los módulos mediante el fichero <code>requirements.txt</code>. A continuación se muestra resumidamente como instalar los modulos en los casos de disponer el fichero.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip install -r requirements.txt
+</span></span></code></pre></div><h2 id="otros-comandos-desarrollo-cpython">Otros comandos (desarrollo c/Python)</h2>
+<h3 id="listar-los-módulos-del-entorno-usado">Listar los módulos del entorno usado</h3>
+<p>Los siguientes comandos permiten ver los módulos instalados (y/o activos en el entorno virtual) de la aplicación Python actual.</p>
+<h4 id="pip-freeze">pip freeze</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip freeze <span class="c1"># Con la salida de este se puede crear el requirements.txt (para luego instalarlo y así poder migrar la aplicación/script/utilidad) o compartirla, ejecutarla en otro sistema.</span>
+</span></span></code></pre></div><h4 id="pip">pip</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip list   <span class="c1"># Lista los modulos instalados, que están corriendo.</span>
 </span></span></code></pre></div>
-<div class="tip">
-  Although, option 3 is great for quick testing, it is somewhat problematic when you want to update your theme. You would need to be careful not to overwrite your changes.
-</div>
-
-<p>Once set, jump over to the <a href="https://github.com/onweru/compose/blob/afdf1cd76408aeac11547a6abd51bdc5138a295f/exampleSite/config.toml#L4-L7">config.toml</a> file and start configuring your site.</p>
-
     <div class="pager">
   
 
