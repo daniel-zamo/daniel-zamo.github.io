@@ -28,16 +28,6 @@ En la selección de paquetes de dicho asistente, solo se selecciona el metapaque
     </item>
     
     <item>
-      <title>Comando virsh</title>
-      <link>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</guid>
-      <description>Destruir un dominio La siguiente ejecución destruye/detiene un dominio (VM, guest o máquina virtual).
-1sudo virsh destroy NOMBRE_DOMINIO Donde: NOMBRE_DOMINIO es el nombre del dominio (es el nombre de la máquina virtual, o guest). En este documento, y en lo que respecta a la tecnología KVM del contenido compartido en esta sección, para referirse a una máquina virtual será indistintamente referida como VM, guest de KVM, o nombre o nombre de dominio.</description>
-    </item>
-    
-    <item>
       <title>Configuración inicial</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -61,6 +51,16 @@ Sequence Diagrams Syntax
     </item>
     
     <item>
+      <title>Comando virsh</title>
+      <link>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</guid>
+      <description>Destruir un dominio La siguiente ejecución destruye/detiene un dominio (VM, guest o máquina virtual).
+1sudo virsh destroy NOMBRE_DOMINIO Donde: NOMBRE_DOMINIO es el nombre del dominio (es el nombre de la máquina virtual, o guest). En este documento, y en lo que respecta a la tecnología KVM del contenido compartido en esta sección, para referirse a una máquina virtual será indistintamente referida como VM, guest de KVM, o nombre o nombre de dominio.</description>
+    </item>
+    
+    <item>
       <title>Configuración inicial</title>
       <link>https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -78,6 +78,15 @@ Tareas de configuracion inicial (usuario sudo y para con comando su) 1echo &amp;
       <guid>https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/</guid>
       <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
 Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
+    </item>
+    
+    <item>
+      <title>Obsidian GTD plugin</title>
+      <link>https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/</guid>
+      <description> Repositorio del plugin Descargar ficheros para instalar el plugin </description>
     </item>
     
     <item>
@@ -140,15 +149,6 @@ Salvo que se indique expresamente, la estación de trabajo que se utiliza es un 
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</guid>
       <description>Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&amp;#39;amdgpu_top&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&amp;#39;radeontop&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&amp;#39;https://aur.</description>
-    </item>
-    
-    <item>
-      <title>Obsidian GTD plugin</title>
-      <link>https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/</guid>
-      <description> Repositorio del plugin Descargar ficheros para instalar el plugin </description>
     </item>
     
     <item>
