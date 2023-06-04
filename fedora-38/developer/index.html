@@ -13,32 +13,26 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Instalación de Ansible | My dzamo Hugo Site</title><meta property="og:title" content="Instalación de Ansible" />
-<meta property="og:description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages" />
+<title>App/serv desarrollo c/Fedora 38 | My dzamo Hugo Site</title><meta property="og:title" content="App/serv desarrollo c/Fedora 38" />
+<meta property="og:description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/ansible.install/" /><meta property="article:section" content="fedora-38" />
+<meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/developer/" /><meta property="article:section" content="fedora-38" />
 
 
 
-<meta itemprop="name" content="Instalación de Ansible">
-<meta itemprop="description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages">
+<meta itemprop="name" content="App/serv desarrollo c/Fedora 38">
+<meta itemprop="description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.">
 
-<meta itemprop="wordCount" content="174">
+<meta itemprop="wordCount" content="244">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalación de Ansible"/>
-<meta name="twitter:description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages"/>
+<meta name="twitter:title" content="App/serv desarrollo c/Fedora 38"/>
+<meta name="twitter:description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual."/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -46,11 +40,9 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
 
 
 
-  <meta name="description" content="Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages">
+  <meta name="description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.">
 
 
 </head>
@@ -179,7 +171,7 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
     </li>
   </ul>
 </nav>
-        <h3 class="section_link"><a id="docs-appserv-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/fedora-38/developer/">App/serv desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-appserv-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/fedora-38/developer/">App/serv desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#instalación-de-aplicaciones-yo-servicios">Instalación de aplicaciones y/o servicios</a>
       <ul>
@@ -193,7 +185,7 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
     </li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-instalación-de-ansible" href="https://dzamo.gitlab.io/fedora-38/ansible.install/">Instalación de Ansible</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-instalación-de-ansible" href="https://dzamo.gitlab.io/fedora-38/ansible.install/">Instalación de Ansible</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#instalación-de-ansible">Instalación de Ansible</a></li>
     <li><a href="#configuración-inicial">Configuración inicial</a>
@@ -209,45 +201,64 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
 </aside>
 
   <main class="content">
-    <h1>Instalación de Ansible</h1><blockquote>
-<p>Aca se comparte como instalar <strong>Ansible</strong> sobre un Fedora 38 mínimo.</p>
+    <h1>App/serv desarrollo c/Fedora 38</h1><blockquote>
+<p>En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.</p>
 </blockquote>
-<h2 id="instalación-de-ansible">Instalación de Ansible</h2>
-<p>A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.</p>
-<p>Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.</p>
-<p>Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:</p>
+
+<div class="tip">
+  <h2 id="script-instalación-de-aplicaciones-para-desktop">Script instalación de aplicaciones para desktop</h2>
+<p>Se comparte <a href="https://dzamo.gitlab.io/cli-codes/apps.developer.sh">aquí</a>, en script para <em>bash</em>, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.</p>
+<p><em>Nota del autor:</em> Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual. De todos modos en los items abajo, se deja referencia de los paquetes instalados. El comando a continuación instala el paquete/s, utilitarios y/o servicios sin pedir confimación o verificaciones.</p>
 <ul>
-<li>ansible (community)</li>
-<li>ansible-core</li>
+<li>Para descargar y ejecutar la instalación (<em>sin ninguna restricción o verificación</em> desde el CLI de Fedora se puede ejecutar:</li>
 </ul>
-<p>Para un detalle de las diferencias puede revisarse el articulo <a href="https://www.ansiblepilot.com/articles/ansible-terminology-ansible-vs-ansible-core-packages/">Ansible terminology - ansible vs ansible-core packages</a></p>
-<p>Para la instalación de <strong>ansible-core</strong> sobre un sistema basado en Fedora 38 basta con ejecutar:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install ansible-core
-</span></span></code></pre></div><h2 id="configuración-inicial">Configuración inicial</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo mv /etc/ansible/ansible.cfg<span class="o">{</span>,.org<span class="o">}</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">ansible-config init --disabled <span class="p">|</span>sudo tee /etc/ansible/ansible.cfg
-</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo sed -i.<span class="k">$(</span>date +%F<span class="k">)</span> <span class="s1">&#39;s/;host_key_checking=True/&amp;\nhost_key_checking=False/&#39;</span> /etc/ansible/ansible.cfg
-</span></span></code></pre></div><h3 id="configuración-en-el-path-actual">Configuración en el PATH actual</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">cp /etc/ansible/ansible.cfg .
-</span></span></code></pre></div><h2 id="verificación-simple">Verificación simple</h2>
-<pre tabindex="0"><code># Crear un inventory (independiente, en PATH actual)
-echo -e &#39;127.0.0.1&#39; &gt; inventory
-# Comando de prueba, pasando el inventory a recorrer (ansible -i ...)
-ansible -i inventory all --list
-# Ejecutar el modulo ping, sobre todos los host del inventario
-ansible -i inventory all -m ping
+<pre tabindex="0"><code>wget -qO- https://dzamo.gitlab.io/cli-codes/apps.developer.sh | sh
+</code></pre><ul>
+<li>Para solo descargar (recomendado):</li>
+</ul>
+<pre tabindex="0"><code>wget https://dzamo.gitlab.io/cli-codes/apps.packages.services.developer.sh
 </code></pre>
+</div>
+
+<h2 id="instalación-de-aplicaciones-yo-servicios">Instalación de aplicaciones y/o servicios</h2>
+<p>En los item siguientes se indican cada uno de los paquetes que se instala y contiene el script antes referido. Las aplicaciones o servicios que se instalan están mas orientadas a una estación de trabajo para desarrolladores, basada en un sistema operativo Fedora 38.</p>
+<h3 id="instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">cat <span class="s">&lt;&lt;EOF |sudo tee /etc/yum.repos.d/vscode.repo
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s">[vscode]
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="s">name=Visual Studio Code
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="s">baseurl=https://packages.microsoft.com/yumrepos/vscode
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s">gpgcheck=1
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="s">priority=20
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="s">gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">sudo dnf -y update --refresh
+</span></span><span class="line"><span class="ln">11</span><span class="cl">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc 
+</span></span><span class="line"><span class="ln">12</span><span class="cl">sudo dnf -y install code
+</span></span></code></pre></div><h2 id="instalar-hugo">Instalar Hugo</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install hugo
+</span></span></code></pre></div><h3 id="instalación-de-kate-editor">Instalación de Kate (editor)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install kate kate-plugins perl-Syntax-Highlight-Engine-Kate
+</span></span></code></pre></div>
     <div class="pager">
   
     
     <div class="pager_item prev">
-      <a href="https://dzamo.gitlab.io/fedora-38/developer/" class="pager_link button" title="App/serv desarrollo c/Fedora 38" rel="prev">
-        <span class="pager_label">App/serv desarrollo c/Fedora 38</span>
+      <a href="https://dzamo.gitlab.io/fedora-38/apps.desktop.install/" class="pager_link button" title="Aplicaciones para el Desktop en Fedora 38" rel="prev">
+        <span class="pager_label">Aplicaciones para el Desktop en Fedora 38</span>
       </a>
     </div>
     
   
 
+  
+    
+    <div class="pager_item next">
+      <a href="https://dzamo.gitlab.io/fedora-38/ansible.install/" class="pager_link button" title="Instalación de Ansible" rel="next">
+        <span class="pager_label">Instalación de Ansible</span>
+      </a>
+    </div>
+    
   
 </div>
   </main>

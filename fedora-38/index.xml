@@ -7,16 +7,6 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://dzamo.gitlab.io/fedora-38/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Instalación del sistema - minimal</title>
-      <link>https://dzamo.gitlab.io/fedora-38/install-minimal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/fedora-38/install-minimal/</guid>
-      <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
-En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
-    </item>
-    
-    <item>
       <title>Configuración inicial</title>
       <link>https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -38,6 +28,16 @@ Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada 
     </item>
     
     <item>
+      <title>Instalación del sistema - minimal</title>
+      <link>https://dzamo.gitlab.io/fedora-38/install-minimal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/fedora-38/install-minimal/</guid>
+      <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
+En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
+    </item>
+    
+    <item>
       <title>Repositorios paquetes RPM y flatpak</title>
       <link>https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -45,19 +45,6 @@ Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada 
       <guid>https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/</guid>
       <description>En este apartado se agregan repositorios para paquetes RPM y flatpak.
 Configuración Dnf (flags) 1echo &amp;#39;fastestmirror=1&amp;#39; | sudo tee -a /etc/dnf/dnf.conf 2echo &amp;#39;max_parallel_downloads=6&amp;#39; | sudo tee -a /etc/dnf/dnf.conf 3echo &amp;#39;deltarpm=true&amp;#39; | sudo tee -a /etc/dnf/dnf.conf Actualizar paquetes del sistema 1sudo dnf upgrade -y --refresh 2sudo dnf -y update Agregar repo y habilitar fedora-third-party 1sudo dnf -y install fedora-workstation-repositories 2## sudo dnf install fedora-repos fedora-repos-modular Repositorios Fusion 1sudo dnf install -y https://download1.</description>
-    </item>
-    
-    <item>
-      <title>Instalación de Ansible</title>
-      <link>https://dzamo.gitlab.io/fedora-38/ansible.install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/fedora-38/ansible.install/</guid>
-      <description>Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
-Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
-Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
-Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
-ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages</description>
     </item>
     
     <item>
@@ -72,13 +59,26 @@ Salvo que se indique expresamente, la estación de trabajo que se utiliza es un 
     
     <item>
       <title>App/serv desarrollo c/Fedora 38</title>
-      <link>https://dzamo.gitlab.io/fedora-38/install-visual-studio-code/</link>
+      <link>https://dzamo.gitlab.io/fedora-38/developer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://dzamo.gitlab.io/fedora-38/install-visual-studio-code/</guid>
+      <guid>https://dzamo.gitlab.io/fedora-38/developer/</guid>
       <description>En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
 Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.</description>
+    </item>
+    
+    <item>
+      <title>Instalación de Ansible</title>
+      <link>https://dzamo.gitlab.io/fedora-38/ansible.install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/fedora-38/ansible.install/</guid>
+      <description>Aca se comparte como instalar Ansible sobre un Fedora 38 mínimo.
+Instalación de Ansible A continuación se instala el orquestador Ansible, herramienta de gestión de configuración.
+Ansible no requiere un programa de servidor/cliente dedicado, solo necesita el comando Ansible y SSH.
+Para sistemas Linux, se proveen al menos dos grandes grupos de paquetes para instalar el orquestador Ansible. Estos son:
+ansible (community) ansible-core Para un detalle de las diferencias puede revisarse el articulo Ansible terminology - ansible vs ansible-core packages</description>
     </item>
     
   </channel>
