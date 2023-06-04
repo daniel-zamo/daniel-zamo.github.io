@@ -13,23 +13,23 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Instalaciones, Repositorios y paqueterías | My dzamo Hugo Site</title><meta property="og:title" content="Instalaciones, Repositorios y paqueterías" />
-<meta property="og:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman." />
+<title>Instalación del sistema - minimal | My dzamo Hugo Site</title><meta property="og:title" content="Instalación del sistema - minimal" />
+<meta property="og:description" content="Esta página explica la instalación de Fedora 38 - minimal.
+" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/linux/manjaro/install-multiples/" /><meta property="article:section" content="linux" />
+<meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/install-minimal/" /><meta property="article:section" content="fedora-38" />
 
-<meta property="article:modified_time" content="2023-05-21T04:28:27+02:00" />
 
-<meta itemprop="name" content="Instalaciones, Repositorios y paqueterías">
-<meta itemprop="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
-<meta itemprop="dateModified" content="2023-05-21T04:28:27+02:00" />
-<meta itemprop="wordCount" content="286">
+
+<meta itemprop="name" content="Instalación del sistema - minimal">
+<meta itemprop="description" content="Esta página explica la instalación de Fedora 38 - minimal.
+">
+
+<meta itemprop="wordCount" content="296">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalaciones, Repositorios y paqueterías"/>
-<meta name="twitter:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman."/>
+<meta name="twitter:title" content="Instalación del sistema - minimal"/>
+<meta name="twitter:description" content="Esta página explica la instalación de Fedora 38 - minimal.
+"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,8 +37,8 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 
 
 
-  <meta name="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
+  <meta name="description" content="Esta página explica la instalación de Fedora 38 - minimal.
+">
 
 
 </head>
@@ -63,7 +63,7 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search linux" id="find" autocomplete="off" data-scope='linux'>
+    <input type="search" class="search_field  standardize-input" placeholder="Search fedora-38" id="find" autocomplete="off" data-scope='fedora-38'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -104,152 +104,171 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
     
     
       
-    <div class="grid-auto"><aside class="aside menu">
-  <div>
-    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_carly">
-  <use href="#carly"></use>
-</svg></label>
-  </div>
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/" class="group">Linux</a></h2>
-      <section class="" id="docs-linux">
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/manjaro/" class="group">Manjaro - KDE Plasma</a></h2>
-      <section class="" id="docs-manjaro---kde-plasma">
-        <h3 class="section_link"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#tareas-de-configuracion-inicial-usuario-sudo-y-para-con-comando-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para con comando <code>su</code>)</a></li>
-    <li><a href="#actualización-sistemapaquetes">Actualización sistema/paquetes</a></li>
-    <li><a href="#instalar-fuentes-microsoft-true-type">Instalar fuentes Microsoft True Type</a></li>
-  </ul>
-</nav>
-        <h3 class="section_link active"><a id="docs-instalaciones-repositorios-y-paqueterías" href="https://dzamo.gitlab.io/linux/manjaro/install-multiples/">Instalaciones, Repositorios y paqueterías</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#instalación-paquetesprogramas">Instalación paquetes/programas</a>
-      <ul>
-        <li><a href="#instalaciones-con-pacman">Instalaciones con pacman</a>
-          <ul>
-            <li><a href="#instalación-de-varios-paquetes">Instalación de varios paquetes</a></li>
-          </ul>
-        </li>
-        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a></li>
-        <li><a href="#instalaciones-con-flatpak">Instalaciones con flatpak</a></li>
-        <li><a href="#instalar-paquetes-desde-aur">Instalar paquetes desde aur</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-        <h3 class="section_link"><a id="docs-instalación-utilitarios-para-gpu" href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/">Instalación utilitarios para GPU</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#amdgpu_top">amdgpu_top</a></li>
-    <li><a href="#nvtop">nvtop</a></li>
-    <li><a href="#radeontop">radeontop</a></li>
-    <li><a href="#gwe">gwe</a></li>
-  </ul>
-</nav>
-      </section>
-  </section>
-      </section>
-  </section>
-</aside>
-
-  <main class="content">
-    <h1>Instalaciones, Repositorios y paqueterías</h1><blockquote>
-<p>La distribución <a href="https://manjaro.org/">Manjaro</a> esta basada en <a href="https://archlinux.org/">Linux Arch</a>. El principal gestor de paquetes de estas distribuciones es <a href="https://denovatoanovato.net/gestor-de-paquetes-pacman/">Pacman</a>, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:</p>
-<ul>
-<li><em><strong>pamac</strong></em></li>
-<li><em><strong>repositorios aur</strong></em>
-En este documento se muestra como realizar instalaciones utilizando estas prestaciones.</li>
-</ul>
+    
+      <div class="content">
+<div class="content">
+	<h1>Instalación del sistema - minimal</h1>
+	<div>Esta página explica la instalación de Fedora 38 - minimal.</div><blockquote>
+<p>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.</p>
 </blockquote>
-<h2 id="instalación-paquetesprogramas">Instalación paquetes/programas</h2>
-<h3 id="instalaciones-con-pacman">Instalaciones con pacman</h3>
-<p>A continuación se instala <code>btop</code>, <code>obsidian</code> y múltiples paquetes con el comando <code>pacman</code>.</p>
-<section class="grid-2"  >
-<div><p>Instalación de btop</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacmac -S btop
-</span></span></code></pre></div></div>
 
-<div><p>Instalación de Obsidian</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacman -S obsidian
-</span></span></code></pre></div></div>
+<div class="tip tip_warning">
+  En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete <strong>Minimal</strong>, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como <em>servidor</em> o como <em>estación de trabajo</em> (<em>Desktop</em>) con algún gestor de ventanas (como <a href="https://www.gnome.org/">Gnome</a> o <a href="https://www.kde.org/">KDE</a>).
+</div>
+
+<p><em>Nota del autor:</em> En esta entrada, no son mostradas todas las pantallas del asistente de instalación, solo las que se consideran mas relevantes de referir.</p>
+<h2 id="install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</h2>
+<section class="grid-2"  >
+<div><h3 id="install-fedora-38">Install Fedora 38</h3>
+<p>Menu inicial para seleccionar instalar Fedora 38.</p>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/sel.install.png" data-dark="https://dzamo.gitlab.io/images/f38/install/sel.install.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/sel.install.png" alt="Install Fedora 38">
+</picture>
+<!-- <p align="center" width="100%">
+<img src="/images/f38/install/partition.root.png" align="center" title="Partición root"> </img>
+</p> -->
+</div>
+
+<div><h3 id="welcome-to-fedora-38">Welcome to Fedora 38</h3>
+<p>Seleccionar el idioma del asistente de instalación.</p>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/sel.language.png" data-dark="https://dzamo.gitlab.io/images/f38/install/sel.install.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/sel.language.png" alt="Sel. languaje del asistente">
+</picture>
+</div>
 
 </section>
 
-<h4 id="instalación-de-varios-paquetes">Instalación de varios paquetes</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">for</span> i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop<span class="p">;</span> <span class="k">do</span> sudo pacman -S <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-</span></span></code></pre></div><h3 id="instalaciones-con-pamac">Instalaciones con pamac</h3>
+<h2 id="manual-partitioning">Manual partitioning</h2>
+<p>En esta instalación se utilizará arranque <strong>UEFI</strong>. En las capturas siguientes se muestran el particionado manual realizado con el propio asistente.</p>
+<p>El tamaño del disco es 20Gb, y el esquema de particionado del filesystem requerido es:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">punto montaje</th>
+<th style="text-align:center">tamaño</th>
+<th style="text-align:center">tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>/</code></td>
+<td style="text-align:center"><em>14.66G</em></td>
+<td style="text-align:center"><code>VG - LV - ext4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/boot/efi</code></td>
+<td style="text-align:center"><em>600 Mb</em></td>
+<td style="text-align:center"><code>EFI</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>/boot</code></td>
+<td style="text-align:center"><em>768 Mb</em></td>
+<td style="text-align:center"><code>ext4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>swap</code></td>
+<td style="text-align:center"><em>4 G</em></td>
+<td style="text-align:center"><code>swap</code></td>
+</tr>
+</tbody>
+</table>
+<!-- 
+<div class="gallery">
+  
+  <figure class="gallery_item">
+    <img src="https://dzamo.gitlab.io/images/f38/install/partition.boot.efi.png " class="gallery_image" alt="/boot/efi"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="https://dzamo.gitlab.io/images/f38/install/partition.boot.png " class="gallery_image" alt="/boot"/>
+  </figure>
+  
+  <figure class="gallery_item">
+    <img src="https://dzamo.gitlab.io/images/f38/install/partition.root.png " class="gallery_image" alt="/"/>
+  </figure>
+  
+</div>
+-->
+<p>A continuación se muestran las capturas del asistente resultante, para realizar el particionado recomendado.</p>
 <section class="grid-2"  >
-<div><p><em><strong>Habilitar/instalar Flatpak</strong></em></p>
-<p>Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado. En este item se utiliza para habilitar flatpak.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pamac install flatpak libpamac-flatpak-plugin
-</span></span></code></pre></div></div>
+<div><h3 id="partición-">Partición /</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/partition.root.png" data-dark="https://dzamo.gitlab.io/images/f38/install/partition.root.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/partition.root.png" alt="Partition root">
+</picture>
+</div>
 
-<div><p><em><strong>Habilitar/instalar Discover</strong></em></p>
-<p>Como se dijo antes, aunque <em>Manjaro</em> (<em>Linux Arch</em>) posee su propio gestor de paquetes (<code>pacman</code>) para agregar/quitar paquetes, en este apartado se instala <em>Discover</em>, el gestor de paquetes propio de <em>KDE Plasma</em>.</p>
-<pre tabindex="0"><code>sudo pamac install discover
-</code></pre></div>
+<div><h3 id="partición-bootefi">Partición /boot/efi</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/partition.boot.efi.png" data-dark="https://dzamo.gitlab.io/images/f38/install/partition.boot.efi.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/partition.boot.efi.png" alt="Partition /boot/efi">
+</picture>
+</div>
 
 </section>
 
-<h3 id="instalaciones-con-flatpak">Instalaciones con flatpak</h3>
-<p><em><strong>Instalar Drawio</strong></em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo flatpak install com.jgraph.drawio.desktop
-</span></span></code></pre></div><h3 id="instalar-paquetes-desde-aur">Instalar paquetes desde aur</h3>
-<p>Se muestra a continuación como se realizan las instalaciones basadas en los repositorios aur, que la comunidad de Linux Arch (principalmente) pone a disposición de los usuarios. Todas las instalaciones de este tipo, se realizan de manera similar.</p>
 <section class="grid-2"  >
-<div><p><em><strong>Instalación de Insync</strong></em></p>
-<ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync">insync</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Instalación insync, mediante aur. Ref: https://aur.archlinux.org/packages/insync</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git clone https://aur.archlinux.org/insync.git
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">cd</span> insync
-</span></span><span class="line"><span class="ln">6</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div></div>
+<div><h3 id="partición-boot">Partición /boot</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/partition.swap.png" data-dark="https://dzamo.gitlab.io/images/f38/install/partition.boot.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/partition.swap.png" alt="Partition /boot">
+</picture>
+</div>
 
-<div><p><em><strong>Agregar Insync Dolphin (extensión para Dolphin)</strong></em></p>
-<ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync-dolphin">insync-dolphin</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://aur.archlinux.org/insync-dolphin.git
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> insync-dolphin
-</span></span><span class="line"><span class="ln">5</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div></div>
+<div><h3 id="partición-swap">Partición swap</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/partition.swap.png" data-dark="https://dzamo.gitlab.io/images/f38/install/partition.swap.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/partition.swap.png" alt="Partition swap">
+</picture>
+</div>
+
+</section>
+
+<h2 id="summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</h2>
+<p>Según la previa configuración de las particiones es que la interface <em>&quot;SUMMARY OF CHANGES&quot;</em> resume las modificaciones que serán llevadas a cabo, para el formateo del disco.</p>
+
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/manual.partitioning.png" data-dark="https://dzamo.gitlab.io/images/f38/install/manual.partitioning.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/manual.partitioning.png" alt="Summary of changes - filesystem">
+</picture>
+
+<h2 id="create-user--account-root">Create user &amp; Account root</h2>
+<section class="grid-2"  >
+<div><h3 id="create-user">Create user</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/create.user.png" data-dark="https://dzamo.gitlab.io/images/f38/install/create.user.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/create.user.png" alt="Create user">
+</picture>
+</div>
+
+<div><h3 id="root-account">Root account</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/root.account.png" data-dark="https://dzamo.gitlab.io/images/f38/install/root.account.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/root.account.png" alt="Root account">
+</picture>
+</div>
+
+</section>
+
+<h2 id="software-selection">Software selection</h2>
+<p>En la siguiente captura se muestra la interface <em>SOFTWARE SELECTION</em> y en esta solo se elige de instalar el metapaquete <em>&quot;Minimal install&quot;</em>.</p>
+
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/software.selection.png" data-dark="https://dzamo.gitlab.io/images/f38/install/software.selection.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/software.selection.png" alt="Software selection - Minimal install">
+</picture>
+
+<h2 id="instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</h2>
+<section class="grid-2"  >
+<div><h3 id="installation-summary">Installation summary</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/resume.png" data-dark="https://dzamo.gitlab.io/images/f38/install/resume.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/resume.png" alt="Installation summary">
+</picture>
+</div>
+
+<div><h3 id="installation-progress">Installation progress</h3>
+<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/installation.progress.png" data-dark="https://dzamo.gitlab.io/images/f38/install/installation.progress.png">
+  <img src="https://dzamo.gitlab.io/images/f38/install/installation.progress.png" alt="Installation progress">
+</picture>
+</div>
 
 </section>
 
 
-    <div class="pager">
-  
-    
-    <div class="pager_item prev">
-      <a href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/" class="pager_link button" title="Configuración inicial" rel="prev">
-        <span class="pager_label">Configuración inicial</span>
-      </a>
-    </div>
-    
-  
-
-  
-    
-    <div class="pager_item next">
-      <a href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/" class="pager_link button" title="Instalación utilitarios para GPU" rel="next">
-        <span class="pager_label">Instalación utilitarios para GPU</span>
-      </a>
-    </div>
-    
-  
 </div>
-  </main>
-</div>
-</div>
+      </div></div>
   <script>
 
 const copy_text = 'Copy';

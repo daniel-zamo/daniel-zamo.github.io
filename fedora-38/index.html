@@ -13,23 +13,15 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Instalaciones, Repositorios y paqueterías | My dzamo Hugo Site</title><meta property="og:title" content="Instalaciones, Repositorios y paqueterías" />
-<meta property="og:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/linux/manjaro/install-multiples/" /><meta property="article:section" content="linux" />
+<title>Fedora 38 | My dzamo Hugo Site</title><meta property="og:title" content="Fedora 38" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/" />
 
-<meta property="article:modified_time" content="2023-05-21T04:28:27+02:00" />
-
-<meta itemprop="name" content="Instalaciones, Repositorios y paqueterías">
-<meta itemprop="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
-<meta itemprop="dateModified" content="2023-05-21T04:28:27+02:00" />
-<meta itemprop="wordCount" content="286">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalaciones, Repositorios y paqueterías"/>
-<meta name="twitter:description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman."/>
+<meta itemprop="name" content="Fedora 38">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fedora 38"/>
+<meta name="twitter:description" content=""/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,12 +29,9 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 
 
 
-  <meta name="description" content="La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
-pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.">
-
 
 </head>
-<body class="page-page" id="pagetop">
+<body class="page-section" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='https://dzamo.gitlab.io/' class="nav_brand">
@@ -63,7 +52,7 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search linux" id="find" autocomplete="off" data-scope='linux'>
+    <input type="search" class="search_field  standardize-input" placeholder="Search fedora-38" id="find" autocomplete="off" data-scope='fedora-38'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -104,152 +93,31 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
     
     
       
-    <div class="grid-auto"><aside class="aside menu">
-  <div>
-    <label class="aside_toggle toggle" title='Docs Menu' role="button">Docs Menu <svg class="icon icon_carly">
-  <use href="#carly"></use>
-</svg></label>
-  </div>
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/" class="group">Linux</a></h2>
-      <section class="" id="docs-linux">
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/linux/manjaro/" class="group">Manjaro - KDE Plasma</a></h2>
-      <section class="" id="docs-manjaro---kde-plasma">
-        <h3 class="section_link"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#tareas-de-configuracion-inicial-usuario-sudo-y-para-con-comando-su">Tareas de configuracion inicial (usuario <code>sudo</code> y para con comando <code>su</code>)</a></li>
-    <li><a href="#actualización-sistemapaquetes">Actualización sistema/paquetes</a></li>
-    <li><a href="#instalar-fuentes-microsoft-true-type">Instalar fuentes Microsoft True Type</a></li>
-  </ul>
-</nav>
-        <h3 class="section_link active"><a id="docs-instalaciones-repositorios-y-paqueterías" href="https://dzamo.gitlab.io/linux/manjaro/install-multiples/">Instalaciones, Repositorios y paqueterías</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#instalación-paquetesprogramas">Instalación paquetes/programas</a>
-      <ul>
-        <li><a href="#instalaciones-con-pacman">Instalaciones con pacman</a>
-          <ul>
-            <li><a href="#instalación-de-varios-paquetes">Instalación de varios paquetes</a></li>
-          </ul>
-        </li>
-        <li><a href="#instalaciones-con-pamac">Instalaciones con pamac</a></li>
-        <li><a href="#instalaciones-con-flatpak">Instalaciones con flatpak</a></li>
-        <li><a href="#instalar-paquetes-desde-aur">Instalar paquetes desde aur</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-        <h3 class="section_link"><a id="docs-instalación-utilitarios-para-gpu" href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/">Instalación utilitarios para GPU</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#amdgpu_top">amdgpu_top</a></li>
-    <li><a href="#nvtop">nvtop</a></li>
-    <li><a href="#radeontop">radeontop</a></li>
-    <li><a href="#gwe">gwe</a></li>
-  </ul>
-</nav>
-      </section>
-  </section>
-      </section>
-  </section>
-</aside>
-
-  <main class="content">
-    <h1>Instalaciones, Repositorios y paqueterías</h1><blockquote>
-<p>La distribución <a href="https://manjaro.org/">Manjaro</a> esta basada en <a href="https://archlinux.org/">Linux Arch</a>. El principal gestor de paquetes de estas distribuciones es <a href="https://denovatoanovato.net/gestor-de-paquetes-pacman/">Pacman</a>, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:</p>
-<ul>
-<li><em><strong>pamac</strong></em></li>
-<li><em><strong>repositorios aur</strong></em>
-En este documento se muestra como realizar instalaciones utilizando estas prestaciones.</li>
-</ul>
+    
+      <div class="content"><blockquote>
+<p>En esta sección se instala Fedora 38, sobre una portátil <a href="https://www.hp.com/in-en/shop/reviews/victus-by-hp-laptop-16-e1060ax-6h5w0pa">Victus by HP Laptop 16-e1xxx</a>.</p>
 </blockquote>
-<h2 id="instalación-paquetesprogramas">Instalación paquetes/programas</h2>
-<h3 id="instalaciones-con-pacman">Instalaciones con pacman</h3>
-<p>A continuación se instala <code>btop</code>, <code>obsidian</code> y múltiples paquetes con el comando <code>pacman</code>.</p>
-<section class="grid-2"  >
-<div><p>Instalación de btop</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacmac -S btop
-</span></span></code></pre></div></div>
 
-<div><p>Instalación de Obsidian</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pacman -S obsidian
-</span></span></code></pre></div></div>
-
-</section>
-
-<h4 id="instalación-de-varios-paquetes">Instalación de varios paquetes</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">for</span> i in mpv vlc unrar unzip python3-pip cargo p7zip p7zip-plugins ntfs-3g htop<span class="p">;</span> <span class="k">do</span> sudo pacman -S <span class="nv">$i</span><span class="p">;</span> <span class="k">done</span>
-</span></span></code></pre></div><h3 id="instalaciones-con-pamac">Instalaciones con pamac</h3>
-<section class="grid-2"  >
-<div><p><em><strong>Habilitar/instalar Flatpak</strong></em></p>
-<p>Por defecto en Manjaro Linux KDE Plasma el comando pamac viene instalado. En este item se utiliza para habilitar flatpak.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo pamac install flatpak libpamac-flatpak-plugin
-</span></span></code></pre></div></div>
-
-<div><p><em><strong>Habilitar/instalar Discover</strong></em></p>
-<p>Como se dijo antes, aunque <em>Manjaro</em> (<em>Linux Arch</em>) posee su propio gestor de paquetes (<code>pacman</code>) para agregar/quitar paquetes, en este apartado se instala <em>Discover</em>, el gestor de paquetes propio de <em>KDE Plasma</em>.</p>
-<pre tabindex="0"><code>sudo pamac install discover
-</code></pre></div>
-
-</section>
-
-<h3 id="instalaciones-con-flatpak">Instalaciones con flatpak</h3>
-<p><em><strong>Instalar Drawio</strong></em></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo flatpak install com.jgraph.drawio.desktop
-</span></span></code></pre></div><h3 id="instalar-paquetes-desde-aur">Instalar paquetes desde aur</h3>
-<p>Se muestra a continuación como se realizan las instalaciones basadas en los repositorios aur, que la comunidad de Linux Arch (principalmente) pone a disposición de los usuarios. Todas las instalaciones de este tipo, se realizan de manera similar.</p>
-<section class="grid-2"  >
-<div><p><em><strong>Instalación de Insync</strong></em></p>
+<div class="tip tip_warning">
+  <p>Para estos artículos se ha utlizado un hardware de laptop real para la instalación de Fedora, pero se comparte aquí pues esta misma configuración puede ser utilizada en instalaciones similares del sistema sobre otras arquitecturas, reales o virtuales.</p>
+<h2 id="especificación-hardware">Especificación hardware</h2>
 <ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync">insync</a></li>
+<li>AMD Ryzen™ 7 processor</li>
+<li>NVIDIA® GeForce RTX™ 3050 Ti Laptop GPU (4 GB GDDR6 dedicated)</li>
+<li>512 GB SSD Generation 4</li>
+<li>16 GB DDR5-4800 MHz RAM (2 x 8 GB)</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Instalación insync, mediante aur. Ref: https://aur.archlinux.org/packages/insync</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git clone https://aur.archlinux.org/insync.git
-</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">cd</span> insync
-</span></span><span class="line"><span class="ln">6</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div></div>
 
-<div><p><em><strong>Agregar Insync Dolphin (extensión para Dolphin)</strong></em></p>
-<ul>
-<li>Repositorio aur: <a href="https://aur.archlinux.org/packages/insync-dolphin">insync-dolphin</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> <span class="o">&amp;&amp;</span> mkdir -pv Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> Documents/linux-arch-post-conf
-</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://aur.archlinux.org/insync-dolphin.git
-</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">cd</span> insync-dolphin
-</span></span><span class="line"><span class="ln">5</span><span class="cl">makepkg -si
-</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="nb">cd</span>
-</span></span></code></pre></div></div>
-
-</section>
-
-
-    <div class="pager">
-  
-    
-    <div class="pager_item prev">
-      <a href="https://dzamo.gitlab.io/linux/manjaro/initial-settings-minimal/" class="pager_link button" title="Configuración inicial" rel="prev">
-        <span class="pager_label">Configuración inicial</span>
-      </a>
-    </div>
-    
-  
-
-  
-    
-    <div class="pager_item next">
-      <a href="https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/" class="pager_link button" title="Instalación utilitarios para GPU" rel="next">
-        <span class="pager_label">Instalación utilitarios para GPU</span>
-      </a>
-    </div>
-    
-  
 </div>
-  </main>
+
+
+<div class="tip">
+  Se parte desde una instalación del sistema con solo el metapaquete Minimal, de modo que sirva como plantilla básica del sistema, según la implementación posterior requerida (como equipo servidor o Desktop).
 </div>
-</div>
+
+
+  
+      </div></div>
   <script>
 
 const copy_text = 'Copy';
