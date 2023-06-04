@@ -25,7 +25,7 @@
 <meta itemprop="description" content="Configuración mínima inicial.
 ">
 
-<meta itemprop="wordCount" content="325">
+<meta itemprop="wordCount" content="332">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Configuración inicial"/>
 <meta name="twitter:description" content="Configuración mínima inicial.
@@ -118,14 +118,18 @@
       <section class="" id="docs-fedora-38">
         <h3 class="section_link active"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
   <ul>
-    <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
-    <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
-    <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
-    <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
-    <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
-    <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
-    <li><a href="#instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</a></li>
-    <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
+    <li><a href="#detalle-de-los-comandos">Detalle de los comandos</a>
+      <ul>
+        <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
+        <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
+        <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
+        <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
+        <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+        <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+        <li><a href="#instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</a></li>
+        <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
         <h3 class="section_link"><a id="docs-instalación-de-kde-plasma-workspaces" href="https://dzamo.gitlab.io/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma workspaces</a></h3><nav id="TableOfContents">
@@ -204,7 +208,7 @@
 
 <div class="tip">
   <h2 id="script-instalación-de-las-tareas">Script instalación de las tareas</h2>
-<p>Se comparte <a href="https://dzamo.gitlab.io/cli-codes/apps.developer.sh">aquí</a>, en script para <em>bash</em>, la ejecución de los comandos para una configuración mínima inicial del sistema, indicandose como solo descargarlar o como descargar y ejecutar, desde el CLI de Linux.</p>
+<p>Se comparte <a href="https://dzamo.gitlab.io/cli-codes/_002.initial.settings.minimal.sh">aquí</a>, en script para <em>bash</em>, la ejecución de los comandos para una configuración mínima inicial del sistema recomendada, indicándose a continuación como <em>solo descargarlarla</em> y como <em>descargar y ejecutar</em>, desde el CLI de Linux.</p>
 <p><em>Nota del autor:</em> Si no se esta seguro, se recomienda descargar y revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.</p>
 <ul>
 <li>Para descargar y ejecutar la instalación (<em>sin ninguna restricción o verificación</em> desde el CLI de Fedora se puede ejecutar:</li>
@@ -217,33 +221,34 @@
 </code></pre>
 </div>
 
-<h2 id="configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></h2>
+<h2 id="detalle-de-los-comandos">Detalle de los comandos</h2>
+<h3 id="configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></h3>
 <p>El siguiente comando, configura para el usuario <code>$USER</code> poder ejecutar los comandos con privilegios de usuario <code>root</code> sin que se le pida <strong>password</strong>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;</span><span class="nv">$USER</span><span class="s2"> ALL=(ALL) NOPASSWD:ALL&#34;</span><span class="p">|</span>sudo tee /etc/sudoers.d/<span class="nv">$USER</span>
-</span></span></code></pre></div><h2 id="configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</h2>
+</span></span></code></pre></div><h3 id="configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</h3>
 <p>Con lo siguiente (y para sistemas basados en RHEL) los usuarios pertenecientes al grupo <code>wheel</code> pueda hacer uso del comando <code>su</code>. Esta configuración es considerada como tarea de <em>hardening</em>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo usermod -G wheel -a <span class="nv">$USER</span>
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo sed -i <span class="se">\
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  <span class="s1">&#39;s/^#auth\t\trequired\tpam_wheel.so use_uid$/&amp;\nauth\t\trequired\tpam_wheel.so use_uid/&#39;</span> <span class="se">\
 </span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  /etc/pam.d/su
-</span></span></code></pre></div><h2 id="deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></h2>
+</span></span></code></pre></div><h3 id="deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
-</span></span></code></pre></div><h2 id="deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></h2>
+</span></span></code></pre></div><h3 id="deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo sed -i.org <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/&#39;</span> /etc/selinux/config
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># Para que los cambios se ejecuten, es neccesario reiniciar</span>
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># sudo reboot</span>
-</span></span></code></pre></div><h2 id="configuración-dnf-flags">Configuración Dnf (flags)</h2>
+</span></span></code></pre></div><h3 id="configuración-dnf-flags">Configuración Dnf (flags)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;fastestmirror=1&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
 </span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;max_parallel_downloads=6&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
 </span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;deltarpm=true&#39;</span> <span class="p">|</span> sudo tee -a /etc/dnf/dnf.conf
-</span></span></code></pre></div><h2 id="actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</h2>
+</span></span></code></pre></div><h3 id="actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf upgrade -y --refresh
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y update
-</span></span></code></pre></div><h2 id="instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</h2>
+</span></span></code></pre></div><h3 id="instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install <span class="se">\
 </span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  git htop vim <span class="se">\
 </span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  rsync openssh-server openssh-clients
-</span></span></code></pre></div><h2 id="deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</h2>
+</span></span></code></pre></div><h3 id="deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl disable --now systemd-zram-setup@zram0.service
 </span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf remove -y zram-generator zram-generator-defaults
 </span></span><span class="line"><span class="ln">3</span><span class="cl">sudo swapoff -a <span class="o">&amp;&amp;</span> sudo swapon -a

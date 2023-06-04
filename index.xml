@@ -24,7 +24,7 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
       
       <guid>https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/</guid>
       <description>En este documento se comparte las tareas de configuración inicial/básica (recomendada) para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-Script instalación de las tareas Se comparte aquí, en script para bash, la ejecución de los comandos para una configuración mínima inicial del sistema, indicandose como solo descargarlar o como descargar y ejecutar, desde el CLI de Linux.</description>
+Script instalación de las tareas Se comparte aquí, en script para bash, la ejecución de los comandos para una configuración mínima inicial del sistema recomendada, indicándose a continuación como solo descargarlarla y como descargar y ejecutar, desde el CLI de Linux.</description>
     </item>
     
     <item>
