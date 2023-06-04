@@ -71,14 +71,13 @@ Salvo que se indique expresamente, la estación de trabajo que se utiliza es un 
     </item>
     
     <item>
-      <title>Desktop de desarrollo c/Fedora 38</title>
+      <title>App/serv desarrollo c/Fedora 38</title>
       <link>https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/</guid>
       <description>En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
-URL del repositorio referido a este sitio puede verse: aquí.
-Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.</description>
     </item>
     

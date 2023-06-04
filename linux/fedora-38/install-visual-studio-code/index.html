@@ -13,28 +13,25 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Desktop de desarrollo c/Fedora 38 | My dzamo Hugo Site</title><meta property="og:title" content="Desktop de desarrollo c/Fedora 38" />
+<title>App/serv desarrollo c/Fedora 38 | My dzamo Hugo Site</title><meta property="og:title" content="App/serv desarrollo c/Fedora 38" />
 <meta property="og:description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
-URL del repositorio referido a este sitio puede verse: aquí.
-Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/" /><meta property="article:section" content="linux" />
 
 
 
-<meta itemprop="name" content="Desktop de desarrollo c/Fedora 38">
+<meta itemprop="name" content="App/serv desarrollo c/Fedora 38">
 <meta itemprop="description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
-URL del repositorio referido a este sitio puede verse: aquí.
-Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.">
 
-<meta itemprop="wordCount" content="373">
+<meta itemprop="wordCount" content="195">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Desktop de desarrollo c/Fedora 38"/>
+<meta name="twitter:title" content="App/serv desarrollo c/Fedora 38"/>
 <meta name="twitter:description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
-URL del repositorio referido a este sitio puede verse: aquí.
-Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual."/>
 
 
@@ -44,8 +41,7 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 
 
   <meta name="description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
-URL del repositorio referido a este sitio puede verse: aquí.
-Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.">
 
 
@@ -186,13 +182,11 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
     </li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-desktop-de-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/">Desktop de desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-appserv-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/">App/serv desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</a></li>
-    <li><a href="#instalación-openshot">Instalación Openshot</a></li>
-    <li><a href="#instalación-de-insync">Instalación de Insync</a>
+    <li><a href="#instalar-hugo">Instalar Hugo</a>
       <ul>
-        <li><a href="#instalación-de-dolphin-insync">Instalación de Dolphin Insync</a></li>
         <li><a href="#instalación-de-kate-editor">Instalación de Kate (editor)</a></li>
       </ul>
     </li>
@@ -241,24 +235,20 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 </aside>
 
   <main class="content">
-    <h1>Desktop de desarrollo c/Fedora 38</h1><p align="center" width="100%">
-<img src="/images/f38/install/install.visualstudio.code.png" align="center" title="Instalación Visual Studio Code"></img>
-</p>
-<blockquote>
+    <h1>App/serv desarrollo c/Fedora 38</h1><blockquote>
 <p>En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.</p>
-<p>URL del repositorio referido a este sitio puede verse: <a href="https://dzamo.gitlab.io/linux/fedora-38">aquí</a>.</p>
 </blockquote>
 
 <div class="tip">
   <h2 id="script-instalación-de-aplicaciones-para-desktop">Script instalación de aplicaciones para desktop</h2>
-<p>Se comparte también <a href="https://dzamo.gitlab.io/cli-codes/apps.packages.services.developer.sh">aquí</a>, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.</p>
+<p>Se comparte <a href="https://dzamo.gitlab.io/cli-codes/apps.developer.sh">aquí</a>, en script para <em>bash</em>, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.</p>
 <p><em>Nota del autor:</em> Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual. De todos modos en los items abajo, se deja referencia de los paquetes instalados. El comando a continuación instala el paquete/s, utilitarios y/o servicios sin pedir confimación o verificaciones.</p>
 <ul>
-<li>Para descargar y ejecutar desde el CLI de Fedora se puede ejecutar:</li>
+<li>Para descargar y ejecutar la instalación (<em>sin ninguna restricción o verificación</em> desde el CLI de Fedora se puede ejecutar:</li>
 </ul>
-<pre tabindex="0"><code>wget -qO- https://dzamo.gitlab.io/cli-codes/apps.packages.services.developer.sh | sh
+<pre tabindex="0"><code>wget -qO- https://dzamo.gitlab.io/cli-codes/apps.developer.sh | sh
 </code></pre><ul>
-<li>Para solo descargar:</li>
+<li>Para solo descargar (recomendado):</li>
 </ul>
 <pre tabindex="0"><code>wget https://dzamo.gitlab.io/cli-codes/apps.packages.services.developer.sh
 </code></pre>
@@ -277,20 +267,8 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 </span></span><span class="line"><span class="ln">10</span><span class="cl">sudo dnf -y update --refresh
 </span></span><span class="line"><span class="ln">11</span><span class="cl">sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc 
 </span></span><span class="line"><span class="ln">12</span><span class="cl">sudo dnf -y install code
-</span></span></code></pre></div><hr>
-<blockquote>
-<p>En esta publicación, se instalan aplicaciones para ser utilizadas con un ambiente gráfico ya disponible, sobre Linux Fedora 38. Las instalaciones acá compartidas, han sido realizadas sobre un Desktop KDE Plasma ya operativo, pero debería ser también funcional en otros windows manager (Gnome, Cinnamon, Xfce, etc). Para la instalaci de KDE Plasma sobre Fedora, mas info puede consultarse en <a href="https://dzamo.gitlab.io/linux/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma Workspaces</a> aquí mismo.</p>
-</blockquote>
-<p>Salvo que se indique expresamente, la estación de trabajo que se utiliza es un <em><strong>Fedora 38 con KDE Plasma 5.27</strong></em> funcional.</p>
-<h2 id="instalación-openshot">Instalación Openshot</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install openshot
-</span></span></code></pre></div><h2 id="instalación-de-insync">Instalación de Insync</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># El PATH exacto de la versión a instalar puede variar. Se recpmienda revisar en el URL oficial de la aplicación.</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y install https://cdn.insynchq.com/builds/linux/insync-3.8.6.50504-fc38.x86_64.rpm
-</span></span></code></pre></div><h3 id="instalación-de-dolphin-insync">Instalación de Dolphin Insync</h3>
-<p>Según el explorador de fichero del window manager, se puede instalar el plugin. En el caso de Dolphin para el KDE Plasma actual de este equipo, el complemento puede instalarse ejecutando:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># El PATH exacto de la versión a instalar puede variar. Se recpmienda revisar en el URL oficial de la aplicación.</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y install https://cdn.insynchq.com/builds/linux/insync-dolphin-3.7.9.50368-1.noarch.rpm
+</span></span></code></pre></div><h2 id="instalar-hugo">Instalar Hugo</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install hugo
 </span></span></code></pre></div><h3 id="instalación-de-kate-editor">Instalación de Kate (editor)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install kate kate-plugins perl-Syntax-Highlight-Engine-Kate
 </span></span></code></pre></div>
