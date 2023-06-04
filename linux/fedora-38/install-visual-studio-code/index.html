@@ -27,7 +27,7 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 Script instalación de aplicaciones para desktop Se comparte aquí, en script para bash, la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
 Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.">
 
-<meta itemprop="wordCount" content="195">
+<meta itemprop="wordCount" content="244">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="App/serv desarrollo c/Fedora 38"/>
 <meta name="twitter:description" content="En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
@@ -184,7 +184,11 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 </nav>
         <h3 class="section_link active"><a id="docs-appserv-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/">App/serv desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
   <ul>
-    <li><a href="#instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</a></li>
+    <li><a href="#instalación-de-aplicaciones-yo-servicios">Instalación de aplicaciones y/o servicios</a>
+      <ul>
+        <li><a href="#instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</a></li>
+      </ul>
+    </li>
     <li><a href="#instalar-hugo">Instalar Hugo</a>
       <ul>
         <li><a href="#instalación-de-kate-editor">Instalación de Kate (editor)</a></li>
@@ -254,7 +258,9 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
 </code></pre>
 </div>
 
-<h2 id="instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</h2>
+<h2 id="instalación-de-aplicaciones-yo-servicios">Instalación de aplicaciones y/o servicios</h2>
+<p>En los item siguientes se indican cada uno de los paquetes que se instala y contiene el script antes referido. Las aplicaciones o servicios que se instalan están mas orientadas a una estación de trabajo para desarrolladores, basada en un sistema operativo Fedora 38.</p>
+<h3 id="instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">cat <span class="s">&lt;&lt;EOF |sudo tee /etc/yum.repos.d/vscode.repo
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s">[vscode]
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="s">name=Visual Studio Code
