@@ -13,23 +13,26 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Instalación de KDE Plasma workspaces | My dzamo Hugo Site</title><meta property="og:title" content="Instalación de KDE Plasma workspaces" />
-<meta property="og:description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
-" />
+<title>Instalación GPU Nvidia y Radeon | My dzamo Hugo Site</title><meta property="og:title" content="Instalación GPU Nvidia y Radeon" />
+<meta property="og:description" content="En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.
+Script instalación De modo similar a los anteriores, se comparte aquí, en script para bash, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/" /><meta property="article:section" content="fedora-38" />
 
 
 
-<meta itemprop="name" content="Instalación de KDE Plasma workspaces">
-<meta itemprop="description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
-">
+<meta itemprop="name" content="Instalación GPU Nvidia y Radeon">
+<meta itemprop="description" content="En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.
+Script instalación De modo similar a los anteriores, se comparte aquí, en script para bash, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión.">
 
-<meta itemprop="wordCount" content="187">
+<meta itemprop="wordCount" content="110">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Instalación de KDE Plasma workspaces"/>
-<meta name="twitter:description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
-"/>
+<meta name="twitter:title" content="Instalación GPU Nvidia y Radeon"/>
+<meta name="twitter:description" content="En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.
+Script instalación De modo similar a los anteriores, se comparte aquí, en script para bash, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión."/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,8 +40,9 @@
 
 
 
-  <meta name="description" content="Esta página indica como instalar el desktop KDE Plasma mediante el grupo KDE Plasma Workspaces.
-">
+  <meta name="description" content="En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.
+Script instalación De modo similar a los anteriores, se comparte aquí, en script para bash, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión.">
 
 
 </head>
@@ -135,13 +139,6 @@
     <li><a href="#instalar-firefox-y-ark">Instalar firefox y ark</a></li>
   </ul>
 </nav>
-        <h3 class="section_link active"><a id="docs-instalación-de-kde-plasma-workspaces" href="https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/">Instalación de KDE Plasma workspaces</a></h3><nav id="TableOfContents">
-  <ul>
-    <li><a href="#instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</a></li>
-    <li><a href="#desintalar-paquetes">Desintalar paquetes</a></li>
-    <li><a href="#instalar-firefox-y-ark">Instalar firefox y ark</a></li>
-  </ul>
-</nav>
         <h3 class="section_link"><a id="docs-instalación-del-sistema---minimal" href="https://dzamo.gitlab.io/fedora-38/install-minimal/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</a></li>
@@ -152,6 +149,7 @@
     <li><a href="#instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</a></li>
   </ul>
 </nav>
+        <h3 class="section_link active"><a id="docs-instalación-gpu-nvidia-y-radeon" href="https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/">Instalación GPU Nvidia y Radeon</a></h3><nav id="TableOfContents"></nav>
         <h3 class="section_link"><a id="docs-repositorios-paquetes-rpm-y-flatpak" href="https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/">Repositorios paquetes RPM y flatpak</a></h3><nav id="TableOfContents">
   <ul>
     <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
@@ -204,38 +202,35 @@
 </aside>
 
   <main class="content">
-    <h1>Instalación de KDE Plasma workspaces</h1><p align="center" width="100%">
+    <h1>Instalación GPU Nvidia y Radeon</h1><p align="center" width="100%">
 <img src="/images/f38/install/kde-plasma-info-center.png" align="center" title="KDE Plasma - Info center"></img>
 </p>
 <blockquote>
-<p>En este documento se detalla como agregar <strong>KDE Plasma</strong> desde el grupo predefinido <em><strong>&quot;KDE Plasma Workspaces&quot;</strong></em> en el sistema <em>Fedora 38</em> basado inicialmente en la instalación mínima realizada <a href="https://dzamo.gitlab.io/linux/fedora-38/install-minimal/">en este artículo</a> (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas <a href="https://dzamo.gitlab.io/linux/fedora-38/initial-settings-minimal/">aquí</a>.</p>
+<p>En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.</p>
 </blockquote>
-<p><em>Nota del autor:</em> Se intenta remarcar que, la instalación indicada fue realizada en un <em>Fedora 38</em> con solo los paquetes mínimos previamente disponibles/instalados. Se recomienda revisar/evaluar si las tareas documentadas aquí son adecuadas para su caso en particular, para no sobre cargar el sistema.</p>
-<h2 id="instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y groupinstall <span class="s2">&#34;KDE Plasma Workspaces&#34;</span>
-</span></span></code></pre></div><h2 id="desintalar-paquetes">Desintalar paquetes</h2>
-<p>El siguiente comando, desinstala algunos de los paquetes que no se utilizarán.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y remove kmail akregator kaddressbook korganizer
-</span></span></code></pre></div><h2 id="instalar-firefox-y-ark">Instalar firefox y ark</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># Instalar paquetes (que se han eliminado por dependencias, al haber ejecutado el anterior comando)</span>
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo dnf -y install firefox ark
-</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># Por si algunos de los script del sistema instalo/habilito nuevametne zram...</span>
-</span></span><span class="line"><span class="ln">4</span><span class="cl">sudo dnf remove -y zram-generator zram-generator-defaults
-</span></span></code></pre></div><p>En esta la siguiente captura se muestra <em>KDE Plasma Info Center</em> ya instalado en nuestro Desktop Fedora 38.</p>
-<p align="center" width="100%">
 
-<picture class="nav_logo" data-lit="https://dzamo.gitlab.io/images/f38/install/kde-plasma-info-center.png" data-dark="https://dzamo.gitlab.io/images/f38/install/kde-plasma-info-center.png">
-  <img src="https://dzamo.gitlab.io/images/f38/install/kde-plasma-info-center.png" alt="Install Fedora 38">
-</picture>
+<div class="tip">
+  <h2 id="script-instalación">Script instalación</h2>
+<p>De modo similar a los anteriores, se comparte <a href="https://dzamo.gitlab.io/cli-codes/">aquí</a>, en script para <em>bash</em>, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.</p>
+<p><em>Nota del autor:</em> Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión.</p>
+<ul>
+<li>Para descargar y ejecutar la instalación (<em>sin ninguna restricción o verificación</em> desde el CLI de Fedora se puede ejecutar:</li>
+</ul>
+<pre tabindex="0"><code>wget -qO- https://dzamo.gitlab.io/cli-codes/initial.settings.sh | sh
+</code></pre><ul>
+<li>Para solo descargar (recomendado):</li>
+</ul>
+<pre tabindex="0"><code>wget https://dzamo.gitlab.io/cli-codes/initial.settings.sh
+</code></pre>
+</div>
 
-</p>
 
     <div class="pager">
   
     
     <div class="pager_item prev">
-      <a href="https://dzamo.gitlab.io/fedora-38/install-kde-plasma-workspaces/" class="pager_link button" title="Instalación de KDE Plasma workspaces" rel="prev">
-        <span class="pager_label">Instalación de KDE Plasma workspaces</span>
+      <a href="https://dzamo.gitlab.io/fedora-38/install-minimal/" class="pager_link button" title="Instalación del sistema - minimal" rel="prev">
+        <span class="pager_label">Instalación del sistema - minimal</span>
       </a>
     </div>
     
@@ -244,8 +239,8 @@
   
     
     <div class="pager_item next">
-      <a href="https://dzamo.gitlab.io/fedora-38/install-minimal/" class="pager_link button" title="Instalación del sistema - minimal" rel="next">
-        <span class="pager_label">Instalación del sistema - minimal</span>
+      <a href="https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/" class="pager_link button" title="Repositorios paquetes RPM y flatpak" rel="next">
+        <span class="pager_label">Repositorios paquetes RPM y flatpak</span>
       </a>
     </div>
     

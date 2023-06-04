@@ -26,9 +26,9 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/fedora-38/install-kde-plasma-workspaces/</loc>
   </url><url>
-    <loc>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</loc>
-  </url><url>
     <loc>https://dzamo.gitlab.io/fedora-38/install-minimal/</loc>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</loc>
   </url><url>
     <loc>https://dzamo.gitlab.io/tutorials/example/mermaid/</loc>
     <lastmod>2023-05-18T11:17:10+02:00</lastmod>

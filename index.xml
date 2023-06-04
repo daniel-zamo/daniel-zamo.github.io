@@ -24,8 +24,7 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
       
       <guid>https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/</guid>
       <description>En este documento se comparte las tareas de configuración inicial/básica (recomendada) para un Linux basado en Fedora 38. Se da por supuesto cumplido la instalación documentada en este otro artículo de este mismo sitio.
-Script instalación de las tareas Se comparte aquí, en script para bash, la ejecución de los comandos que aquí se comparten, para que pueda ser descargada o ejecutada desde el CLI de Linux.
-Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.</description>
+Script instalación de las tareas Se comparte aquí, en script para bash, la ejecución de los comandos para una configuración mínima inicial del sistema, indicandose como solo descargarlar o como descargar y ejecutar, desde el CLI de Linux.</description>
     </item>
     
     <item>
@@ -35,17 +34,7 @@ Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este 
       
       <guid>https://dzamo.gitlab.io/fedora-38/install-kde-plasma-workspaces/</guid>
       <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
-Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
-    </item>
-    
-    <item>
-      <title>Instalación de KDE Plasma workspaces</title>
-      <link>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</guid>
-      <description>En este documento se detalla como agregar KDE Plasma desde el grupo predefinido &amp;quot;KDE Plasma Workspaces&amp;quot; en el sistema Fedora 38 basado inicialmente en la instalación mínima realizada en este artículo (que recordemos tiene una instalación de sistema mínimo y ya se han realizado las tareas documentadas aquí.
-Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
+Nota del autor: Se recuerda que, la instalación indicada fue realizada en un Fedora 38 con solo los paquetes mínimos previamente disponibles/instalados.</description>
     </item>
     
     <item>
@@ -56,6 +45,17 @@ Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada 
       <guid>https://dzamo.gitlab.io/fedora-38/install-minimal/</guid>
       <description>En las siguientes capturas se muestran algunas pantallas del asistente de instalación del sistema. Además se intenta resaltar algunos puntos relevantes a considerar. Esta instalación luego será ampliada.
 En la selección de paquetes de dicho asistente, solo se selecciona el metapaquete Minimal, de modo de mantener al mínimo los paquetes instalados. De esta manera, luego podremos ampliar el sistema (según los paquetes que se agreguen) para desempeñarse como servidor o como estación de trabajo (Desktop) con algún gestor de ventanas (como Gnome o KDE).</description>
+    </item>
+    
+    <item>
+      <title>Instalación GPU Nvidia y Radeon</title>
+      <link>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/</guid>
+      <description>En este apartado se instalan los driver de las GPU y agregan algunos paquetes que hacen uso de ellas.
+Script instalación De modo similar a los anteriores, se comparte aquí, en script para bash, la ejecución de los comandos, para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Se insite en referir que antes de ejecutar el siguiente comando, se recomienda revisarlo, por lo que se indica también como solo descargalo para su revisión.</description>
     </item>
     
     <item>
