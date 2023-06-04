@@ -86,7 +86,7 @@ Nota del autor: Se intenta remarcar que, la instalación indicada fue realizada 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/</guid>
-      <description> Repositorio del plugin Obsidian GTD Descargar ficheros para instalar el plugin </description>
+      <description> Repositorio del plugin Obsidian GTD Descargar de los ficheros para instalar el plugin </description>
     </item>
     
     <item>
@@ -149,6 +149,18 @@ Salvo que se indique expresamente, la estación de trabajo que se utiliza es un 
       
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</guid>
       <description>Las instalaciones realizadas en este documento son utilitarios para monitorizar y/o gestionar la/s GPU que posee nuestro sistema hardware. Recordemos que el equipo usado para este trabajo posee una GPU Raedon 580M y una Nvidia 3050 Geforce RTX. amdgpu_top 1amdgpu_top=&amp;#39;amdgpu_top&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${amdgpu_top}.git 4cd ${amdgpu_top} 5makepkg -si 6cd ${my_p} 7rm -rfv ${amdgpu_top} nvtop 1sudo pacman -S nvtop radeontop 1amdgpu_top=&amp;#39;radeontop&amp;#39; 2my_p=$(pwd) 3git clone https://aur.archlinux.org/${radeontop}.git 4cd ${radeontop} 5makepkg -si 6cd ${my_p} 7rm -rfv ${radeontop} gwe 1url_aur=&amp;#39;https://aur.</description>
+    </item>
+    
+    <item>
+      <title>Desktop de desarrollo c/Fedora 38</title>
+      <link>https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/linux/fedora-38/install-visual-studio-code/</guid>
+      <description>En esta publicación, se instalan aplicaciones, paquetes o servicios, para desplegar un Desktop basado en Fedora 38 como estación de trabajo de desarrollo.
+URL del repositorio referido a este sitio puede verse: aquí.
+Script instalación de aplicaciones para desktop Se comparte también aquí, en script la instalación de los paquetes (aplicaciones), para que pueda ser descargada o ejecutada desde el CLI de Linux.
+Nota del autor: Antes de ejecutar el siguiente comando, se recomienda leer este artículo, para revisar si las instalaciones que el script realiza son realmente necesarias en su configuración actual.</description>
     </item>
     
     <item>
