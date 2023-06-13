@@ -12,8 +12,8 @@
       <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</guid>
-      <description>Alta disponibilidad cluster MariaDB Galera This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.
-We&#39;ll start with creating a new site with a very basic template.</description>
+      <description>Alta disponibilidad de cluster MariaDB Galera Este proyecto es el despliegue de un servicio de alta disponibilidad de un cluster RDMS SQL MariaDB Galera, balanceado con HAProxy.
+Tecnologías usadas Hardware virtualizado. Orquestación Ansible. Linux derivado de RHEL 9. HAProxy. RDBMS MariaDB. MariaDB Galera cluster es un clúster multiprimario virtualmente síncrono para MariaDB. Repositorio en cloud El proyecto se deja compartido en este URL - gitlab.com/dzamo/20230613-rhel9-haproxy-bbdd. </description>
     </item>
     
     <item>
