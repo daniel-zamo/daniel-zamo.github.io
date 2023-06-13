@@ -7,6 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://dzamo.gitlab.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Alta disponibilidad cluster MariaDB/Galera</title>
+      <link>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</link>
+      <pubDate>Tue, 13 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&#39;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&#39;t cover using CSS to style your theme.
+We&#39;ll start with creating a new site with a very basic template.</description>
+    </item>
+    
+    <item>
       <title>Opciones de Kubernetes en local</title>
       <link>https://dzamo.gitlab.io/blog/kubernetes-in-local/</link>
       <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
