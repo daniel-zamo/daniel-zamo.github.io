@@ -13,15 +13,20 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Kubernetes | My dzamo Hugo Site</title><meta property="og:title" content="Kubernetes" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/kubernetes/" />
+<title>Instalar gcloud CLI en Fedora | My dzamo Hugo Site</title><meta property="og:title" content="Instalar gcloud CLI en Fedora" />
+<meta property="og:description" content="Gcloud CLI" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/" /><meta property="article:section" content="docs" />
 
-<meta itemprop="name" content="Kubernetes">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernetes"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Instalar gcloud CLI en Fedora">
+<meta itemprop="description" content="Gcloud CLI">
+
+<meta itemprop="wordCount" content="70">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Instalar gcloud CLI en Fedora"/>
+<meta name="twitter:description" content="Gcloud CLI"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -29,9 +34,11 @@
 
 
 
+  <meta name="description" content="Gcloud CLI">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='https://dzamo.gitlab.io/' class="nav_brand">
@@ -149,7 +156,7 @@
       </section>
   </section>
   <section class="section aside_inner">
-    <h2 class="section_title active"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
+    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
       <section class="" id="docs-kubernetes">
         <h3 class="section_link"><a id="docs-crear-yo-borrar-pod-yo-service" href="https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/">Crear y/o borrar pod y/o service</a></h3><nav id="TableOfContents">
   <ul>
@@ -164,7 +171,7 @@
     </li>
   </ul>
 </nav>
-        <h3 class="section_link"><a id="docs-instalar-gcloud-cli-en-fedora" href="https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/">Instalar gcloud CLI en Fedora</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-instalar-gcloud-cli-en-fedora" href="https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/">Instalar gcloud CLI en Fedora</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -205,13 +212,39 @@
 </aside>
 
   <main class="content">
-    <h1>Kubernetes</h1><p><img src="../../../images/kubernetes/components-kubernetes-cluster.png" alt="Componentes de Kubernetes"></p>
-<p>En esta sección se comparten algunos artículos de la tecnolgía <em><strong>Kubernetes</strong></em>.</p>
-<p>El contenido compartido aquí se encuentra completamento compartido en este <a href="https://gitlab.com/dzamo/20230609-my-kubernetes">URL</a>, repositorio también de <a href="https://gitlab.com">Gitlab</a>.</p>
-<br>
-<a href="./pod-service-initial/" class="button">Crear/borrar pod y/o service</a>
-
-    <div class="pager pager_lean">
+    <h1>Instalar gcloud CLI en Fedora</h1><h3 id="instalando-gcloud-cli-en-fedora">Instalando gcloud CLI en Fedora</h3>
+<p>En este artículo se instala gcloud CLI desde repositorio en un Fedora 38.</p>
+<h4 id="agregando-el-repositorio">Agregando el repositorio</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo <span class="s">&lt;&lt; EOM
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s">[google-cloud-cli]
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">name=Google Cloud CLI
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="s">baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="s">gpgcheck=1
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="s">repo_gpgcheck=0
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="s">gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+</span></span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="s">EOM</span>
+</span></span></code></pre></div><h4 id="instalar-libxcrypt-compat-fedora-34-o-35">Instalar libxcrypt-compat (Fedora 34 o 35)</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install libxcrypt-compat.x86_6
+</span></span></code></pre></div><h4 id="instalar-gcloud-cli">Instalar gcloud CLI:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install google-cloud-cli
+</span></span></code></pre></div><h4 id="usar-gcloud">Usar gcloud</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">gcloud init
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="sb">```</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">#### Referencias</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">- <span class="o">[</span>Install the gcloud CLI<span class="o">](</span>https://cloud.google.com/sdk/docs/install#rpm<span class="o">)</span>.
+</span></span></code></pre></div>
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/" class="pager_link button" title="Crear y/o borrar pod y/o service" rel="prev">
+        <span class="pager_label">Crear y/o borrar pod y/o service</span>
+      </a>
+    </div>
+    
   
 
   
