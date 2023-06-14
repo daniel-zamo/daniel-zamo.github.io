@@ -25,15 +25,5 @@
       <description>kubectl get all 1kubectl get all kubectl get nodes 1kubectl get nodes Crear pods 1# run [case-use-001-nginx] pods 2kubectl create deployment case-use-001-nginx --image=nginx 3kubectl get pod 4# show environment variable for [case-use-001-nginx] pod 5kubectl exec case-use-001-nginx-7b97d7cd8b-6kwzg -- env 6# shell access [case-use-001-nginx] pod 7kubectl exec -it case-use-001-nginx-7b97d7cd8b-6kwzg -- bash 8# show logs of [case-use-001-nginx] pod 9kubectl logs case-use-001-nginx-7b97d7cd8b-6kwzg 10# scale out pods 11kubectl scale deployment case-use-001-nginx --replicas=3 12kubectl get pod !</description>
     </item>
     
-    <item>
-      <title>Instalar gcloud CLI en Fedora</title>
-      <link>https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/</guid>
-      <description>Instalando gcloud CLI en Fedora En este artículo se instala gcloud CLI desde repositorio en un Fedora 38.
-Agregando el repositorio 1sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo &amp;lt;&amp;lt; EOM 2[google-cloud-cli] 3name=Google Cloud CLI 4baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64 5enabled=1 6gpgcheck=1 7repo_gpgcheck=0 8gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg 9EOM Instalar libxcrypt-compat (Fedora 34 o 35) 1sudo dnf -y install libxcrypt-compat.x86_6 Instalar gcloud CLI: 1sudo dnf -y install google-cloud-cli Usar gcloud 1gcloud init 2``` 3 4#### Referencias 5 6- [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install#rpm). </description>
-    </item>
-    
   </channel>
 </rss>

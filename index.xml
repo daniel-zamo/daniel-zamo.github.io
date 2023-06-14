@@ -130,16 +130,6 @@ Tareas de configuracion inicial (usuario sudo y para con comando su) 1echo &amp;
     </item>
     
     <item>
-      <title>Instalar gcloud CLI en Fedora</title>
-      <link>https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/kubernetes/google-cloud-cli-install/</guid>
-      <description>Instalando gcloud CLI en Fedora En este artículo se instala gcloud CLI desde repositorio en un Fedora 38.
-Agregando el repositorio 1sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo &amp;lt;&amp;lt; EOM 2[google-cloud-cli] 3name=Google Cloud CLI 4baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64 5enabled=1 6gpgcheck=1 7repo_gpgcheck=0 8gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg 9EOM Instalar libxcrypt-compat (Fedora 34 o 35) 1sudo dnf -y install libxcrypt-compat.x86_6 Instalar gcloud CLI: 1sudo dnf -y install google-cloud-cli Usar gcloud 1gcloud init 2``` 3 4#### Referencias 5 6- [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install#rpm). </description>
-    </item>
-    
-    <item>
       <title>App/serv desarrollo c/Fedora 38</title>
       <link>https://dzamo.gitlab.io/fedora-38/developer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -190,6 +180,16 @@ ansible (community) ansible-core Para un detalle de las diferencias puede revisa
       <guid>https://dzamo.gitlab.io/linux/manjaro/install-multiples/</guid>
       <description>La distribución Manjaro esta basada en Linux Arch. El principal gestor de paquetes de estas distribuciones es Pacman, no obstante sus desarrolladores ponen a disposición varias herramientas y/o programas para que la gestión de paquetes sean más ágil y amplia, las cuales cabe resaltar. Algunas son:
 pamac repositorios aur En este documento se muestra como realizar instalaciones utilizando estas prestaciones. Instalación paquetes/programas Instalaciones con pacman A continuación se instala btop, obsidian y múltiples paquetes con el comando pacman.</description>
+    </item>
+    
+    <item>
+      <title>Instalar gcloud CLI en Fedora</title>
+      <link>https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/</guid>
+      <description>Instalando gcloud CLI en Fedora En este artículo se instala gcloud CLI desde repositorio en un Fedora 38.
+Agregando el repositorio 1sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo &amp;lt;&amp;lt; EOM 2[google-cloud-cli] 3name=Google Cloud CLI 4baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64 5enabled=1 6gpgcheck=1 7repo_gpgcheck=0 8gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg 9EOM Instalar libxcrypt-compat (Fedora 34 o 35) 1sudo dnf -y install libxcrypt-compat.x86_6 Instalar gcloud CLI: 1sudo dnf -y install google-cloud-cli Usar gcloud 1gcloud init 2``` 3 4#### Referencias 5 6- [Install the gcloud CLI](https://cloud.google.com/sdk/docs/install#rpm). </description>
     </item>
     
     <item>

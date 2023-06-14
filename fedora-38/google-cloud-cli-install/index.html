@@ -13,15 +13,20 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Python | My dzamo Hugo Site</title><meta property="og:title" content="Python" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/python/" />
+<title>Instalar gcloud CLI en Fedora | My dzamo Hugo Site</title><meta property="og:title" content="Instalar gcloud CLI en Fedora" />
+<meta property="og:description" content="Gcloud CLI" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/" /><meta property="article:section" content="fedora-38" />
 
-<meta itemprop="name" content="Python">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Python"/>
-<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="Instalar gcloud CLI en Fedora">
+<meta itemprop="description" content="Gcloud CLI">
+
+<meta itemprop="wordCount" content="70">
+<meta itemprop="keywords" content="Linux,Fedora,Kubernetes," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Instalar gcloud CLI en Fedora"/>
+<meta name="twitter:description" content="Gcloud CLI"/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -29,9 +34,11 @@
 
 
 
+  <meta name="description" content="Gcloud CLI">
+
 
 </head>
-<body class="page-section" id="pagetop">
+<body class="page-page" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='https://dzamo.gitlab.io/' class="nav_brand">
@@ -52,7 +59,7 @@
 </svg>
     </label>
     
-    <input type="search" class="search_field  standardize-input" placeholder="Search docs" id="find" autocomplete="off" data-scope='docs'>
+    <input type="search" class="search_field  standardize-input" placeholder="Search fedora-38" id="find" autocomplete="off" data-scope='fedora-38'>
     <div class="search_results results"></div>
   </div>
 		</li>
@@ -103,111 +110,143 @@
 </svg></label>
   </div>
   <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/" class="group">Artículos</a></h2>
-      <section class="" id="docs-artículos">
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
-      <section class="" id="docs-kubernetes">
-        <h3 class="section_link"><a id="docs-opciones-kubernetes-en-workstation-localhost" href="https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/">Opciones Kubernetes en Workstation (localhost)</a></h3><nav id="TableOfContents">
+    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/fedora-38/" class="group">Fedora 38</a></h2>
+      <section class="" id="docs-fedora-38">
+        <h3 class="section_link"><a id="docs-configuración-inicial" href="https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/">Configuración inicial</a></h3><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#detalle-de-los-comandos">Detalle de los comandos</a>
       <ul>
-        <li><a href="#opciones-de-kubernetes-en-local">Opciones de Kubernetes en local</a></li>
-        <li><a href="#minikube">minikube</a></li>
-        <li><a href="#kubeadm">kubeadm</a></li>
-        <li><a href="#kind">kind</a></li>
-        <li><a href="#k3s">k3s</a></li>
+        <li><a href="#configuración-usuario-para-sudo">Configuración usuario para <code>sudo</code></a></li>
+        <li><a href="#configurar-usuario-para-usuario-su-admin-en-wheel">Configurar usuario para usuario su (admin en wheel)</a></li>
+        <li><a href="#deshabilitar-_firewalld_-y-_selinux_">Deshabilitar <em>firewalld</em> y <em>SELinux</em></a></li>
+        <li><a href="#deshabilitar-_selinux_">Deshabilitar <em>SELinux</em></a></li>
+        <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+        <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+        <li><a href="#instalación-de-paquetes-yo-servicios-para-cli">Instalación de paquetes y/o servicios (para CLI)</a></li>
+        <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-        <h3 class="section_link"><a id="docs-crear-yo-borrar-pod-yo-service" href="https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/">Crear y/o borrar pod y/o service</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-instalación-de-kde-plasma-workspaces" href="https://dzamo.gitlab.io/fedora-38/install-kde-plasma-workspaces/">Instalación de KDE Plasma workspaces</a></h3><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#instalar-grupo-kde-plasma-workspaces">Instalar grupo KDE Plasma Workspaces</a></li>
+    <li><a href="#desintalar-paquetes">Desintalar paquetes</a></li>
+    <li><a href="#instalar-firefox-y-ark">Instalar firefox y ark</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalación-del-sistema---minimal" href="https://dzamo.gitlab.io/fedora-38/install-minimal/">Instalación del sistema - minimal</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-fedora-38--welcome-to-fedora-38">Install Fedora 38 &amp; Welcome to Fedora 38</a></li>
+    <li><a href="#manual-partitioning">Manual partitioning</a></li>
+    <li><a href="#summary-of-changes-cambios-al-filesystem">Summary of changes (cambios al filesystem)</a></li>
+    <li><a href="#create-user--account-root">Create user &amp; Account root</a></li>
+    <li><a href="#software-selection">Software selection</a></li>
+    <li><a href="#instalation-summary--instalation-progress">Instalation summary &amp; instalation progress</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalación-gpu-nvidia-y-radeon" href="https://dzamo.gitlab.io/fedora-38/install.gpu.nvidia.and.radeon/">Instalación GPU Nvidia y Radeon</a></h3><nav id="TableOfContents"></nav>
+        <h3 class="section_link"><a id="docs-repositorios-paquetes-rpm-y-flatpak" href="https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/">Repositorios paquetes RPM y flatpak</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuración-dnf-flags">Configuración Dnf (flags)</a></li>
+    <li><a href="#actualizar-paquetes-del-sistema">Actualizar paquetes del sistema</a></li>
+    <li><a href="#agregar-repo-y-habilitar-fedora-third-party">Agregar repo y habilitar fedora-third-party</a></li>
+    <li><a href="#repositorios-fusion">Repositorios Fusion</a></li>
+    <li><a href="#otros-repositorios">Otros repositorios</a></li>
+    <li><a href="#habilitarinstalar-flatpak">Habilitar/instalar flatpak</a></li>
+    <li><a href="#deshabilitar-swap-sobre-zram">Deshabilitar swap sobre zram</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-aplicaciones-para-el-desktop-en-fedora-38" href="https://dzamo.gitlab.io/fedora-38/apps.desktop.install/">Aplicaciones para el Desktop en Fedora 38</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación-openshot">Instalación Openshot</a></li>
+    <li><a href="#instalación-de-insync">Instalación de Insync</a>
       <ul>
-        <li><a href="#kubectl-get-all">kubectl get all</a></li>
-        <li><a href="#kubectl-get-nodes">kubectl get nodes</a></li>
-        <li><a href="#crear-pods">Crear pods</a></li>
-        <li><a href="#crear-yo-borrar-un-servicio">Crear y/o borrar un servicio</a></li>
-        <li><a href="#borrar-un-pod">Borrar un pod</a></li>
+        <li><a href="#instalación-de-dolphin-insync">Instalación de Dolphin Insync</a></li>
+        <li><a href="#instalación-de-kate-editor">Instalación de Kate (editor)</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-      </section>
-  </section>
-  <section class="section aside_inner">
-    <h2 class="section_title active"><a  href="https://dzamo.gitlab.io/docs/python/" class="group">Python</a></h2>
-      <section class="" id="docs-python">
-        <h3 class="section_link"><a id="docs-entornos-virtuales-en-python" href="https://dzamo.gitlab.io/docs/python/virtual-environment/">Entornos virtuales en Python</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-appserv-desarrollo-cfedora-38" href="https://dzamo.gitlab.io/fedora-38/developer/">App/serv desarrollo c/Fedora 38</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación-de-aplicaciones-yo-servicios">Instalación de aplicaciones y/o servicios</a>
+      <ul>
+        <li><a href="#instalar-ide-visual-studio-code">Instalar IDE Visual Studio Code</a></li>
+      </ul>
+    </li>
+    <li><a href="#instalar-hugo">Instalar Hugo</a>
+      <ul>
+        <li><a href="#instalación-de-kate-editor">Instalación de Kate (editor)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        <h3 class="section_link"><a id="docs-instalación-de-ansible" href="https://dzamo.gitlab.io/fedora-38/ansible.install/">Instalación de Ansible</a></h3><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instalación-de-ansible">Instalación de Ansible</a></li>
+    <li><a href="#configuración-inicial">Configuración inicial</a>
+      <ul>
+        <li><a href="#configuración-en-el-path-actual">Configuración en el PATH actual</a></li>
+      </ul>
+    </li>
+    <li><a href="#verificación-simple">Verificación simple</a></li>
+  </ul>
+</nav>
+        <h3 class="section_link active"><a id="docs-instalar-gcloud-cli-en-fedora" href="https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/">Instalar gcloud CLI en Fedora</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
-        <li><a href="#entorno-virtual-para-aplicaciones-python">Entorno virtual para aplicaciones Python</a></li>
-      </ul>
-    </li>
-    <li><a href="#crear-entorno-virtual-python">Crear entorno virtual Python</a></li>
-    <li><a href="#ejecutar-el-entorno">Ejecutar el entorno</a></li>
-    <li><a href="#instalar-módulos-requeridos">Instalar módulos requeridos</a></li>
-    <li><a href="#generar-requirementstxt">Generar requirements.txt</a></li>
-    <li><a href="#otros-comandos-desarrollo-python">Otros comandos (desarrollo Python)</a>
-      <ul>
-        <li>
+        <li><a href="#instalando-gcloud-cli-en-fedora">Instalando gcloud CLI en Fedora</a>
           <ul>
-            <li><a href="#desactivando-un-entorno">Desactivando un entorno</a></li>
-            <li><a href="#comando-pip-list">Comando pip list</a></li>
+            <li><a href="#agregando-el-repositorio">Agregando el repositorio</a></li>
+            <li><a href="#instalar-libxcrypt-compat-fedora-34-o-35">Instalar libxcrypt-compat (Fedora 34 o 35)</a></li>
+            <li><a href="#instalar-gcloud-cli">Instalar gcloud CLI:</a></li>
+            <li><a href="#usar-gcloud">Usar gcloud</a></li>
           </ul>
         </li>
       </ul>
     </li>
   </ul>
 </nav>
-      </section>
-  </section>
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kvm/" class="group">KVM</a></h2>
-      <section class="" id="docs-kvm">
-        <h3 class="section_link"><a id="docs-comando-virsh" href="https://dzamo.gitlab.io/docs/kvm/cli-virsh/">Comando virsh</a></h3><nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#destruir-un-dominio">Destruir un dominio</a></li>
-        <li><a href="#borrar-un-dominio-o-vm">Borrar un dominio o VM</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-      </section>
-  </section>
-  <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/obsidian/" class="group">Obsidian</a></h2>
-      <section class="" id="docs-obsidian">
-        <h3 class="section_link"><a id="docs-obsidian-gtd-plugin" href="https://dzamo.gitlab.io/docs/obsidian/obsidian-gtd-plugin/">Obsidian GTD plugin</a></h3><nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#descargar-de-los-ficheros-para-instalar-el-plugin">Descargar de los ficheros para instalar el plugin</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-      </section>
-  </section>
       </section>
   </section>
 </aside>
 
   <main class="content">
-    <h1>Python</h1><p>En esta sección se comparten entradas de artículos del interprete Python.</p>
-<br>
-<!-- <a href="./install-theme/" class="button">Get started now</a> -->
-<a href="./virtual-environment/" class="button">Entornos virtuales en aplicaciones Python</a>
-
-    <div class="pager pager_lean">
+    <h1>Instalar gcloud CLI en Fedora</h1><h3 id="instalando-gcloud-cli-en-fedora">Instalando gcloud CLI en Fedora</h3>
+<p>En este artículo se instala gcloud CLI desde repositorio en un Fedora 38.</p>
+<h4 id="agregando-el-repositorio">Agregando el repositorio</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo tee -a /etc/yum.repos.d/google-cloud-sdk.repo <span class="s">&lt;&lt; EOM
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s">[google-cloud-cli]
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">name=Google Cloud CLI
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="s">baseurl=https://packages.cloud.google.com/yum/repos/cloud-sdk-el8-x86_64
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">enabled=1
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="s">gpgcheck=1
+</span></span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="s">repo_gpgcheck=0
+</span></span></span><span class="line"><span class="ln">8</span><span class="cl"><span class="s">gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+</span></span></span><span class="line"><span class="ln">9</span><span class="cl"><span class="s">EOM</span>
+</span></span></code></pre></div><h4 id="instalar-libxcrypt-compat-fedora-34-o-35">Instalar libxcrypt-compat (Fedora 34 o 35)</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install libxcrypt-compat.x86_6
+</span></span></code></pre></div><h4 id="instalar-gcloud-cli">Instalar gcloud CLI:</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo dnf -y install google-cloud-cli
+</span></span></code></pre></div><h4 id="usar-gcloud">Usar gcloud</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">gcloud init
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="sb">```</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">#### Referencias</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">- <span class="o">[</span>Install the gcloud CLI<span class="o">](</span>https://cloud.google.com/sdk/docs/install#rpm<span class="o">)</span>.
+</span></span></code></pre></div>
+    <div class="pager">
+  
+    
+    <div class="pager_item prev">
+      <a href="https://dzamo.gitlab.io/fedora-38/ansible.install/" class="pager_link button" title="Instalación de Ansible" rel="prev">
+        <span class="pager_label">Instalación de Ansible</span>
+      </a>
+    </div>
+    
   
 
   

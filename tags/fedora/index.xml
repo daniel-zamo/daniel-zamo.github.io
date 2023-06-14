@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Kubernetes on My dzamo Hugo Site</title>
-    <link>https://dzamo.gitlab.io/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on My dzamo Hugo Site</description>
+    <title>Fedora on My dzamo Hugo Site</title>
+    <link>https://dzamo.gitlab.io/tags/fedora/</link>
+    <description>Recent content in Fedora on My dzamo Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dzamo.gitlab.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Opciones Kubernetes en Workstation (localhost)</title>
-      <link>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;../../../images/k8s-1.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
-    </item>
-    
+    <language>en-us</language><atom:link href="https://dzamo.gitlab.io/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Instalar gcloud CLI en Fedora</title>
       <link>https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/</link>
