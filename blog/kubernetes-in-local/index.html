@@ -23,7 +23,7 @@
 <meta itemprop="name" content="Opciones de Kubernetes en local">
 <meta itemprop="description" content="Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local."><meta itemprop="datePublished" content="2023-04-02T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2023-05-24T11:17:24+02:00" />
-<meta itemprop="wordCount" content="86">
+<meta itemprop="wordCount" content="525">
 <meta itemprop="keywords" content="Containers,Virtualization,Kubernetes," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Opciones de Kubernetes en local"/>
 <meta name="twitter:description" content="Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local."/>
@@ -145,6 +145,46 @@
 </tr>
 </tbody>
 </table>
+<h1 id="minikube">minikube</h1>
+<p>Minikube permite desplegar localmente un &quot;clúster&quot; de Kubernetes con un solo nodo. Minikube es un proyecto oficial de Kubernetes y es probablemente la solución más adecuada para aprender a usar k8s, ya que es un proyecto maduro y muy sencillo de instalar. Los requisitos mínimos para instalar minikube en nuestro equipo son:</p>
+<ul>
+<li>2 CPUs</li>
+<li>2GiB de memoria</li>
+<li>20GiB de espacio libre en disco</li>
+<li>Un sistema de virtualización o de contenedores instalado:
+<ul>
+<li>Docker</li>
+<li>Hyperkit</li>
+<li>Hyper-V</li>
+<li>KVM</li>
+<li>Parallels</li>
+<li>Podman</li>
+<li>VirtualBox</li>
+<li>VMWare</li>
+</ul>
+</li>
+</ul>
+<p>Minikube instalará un nodo de Kubernetes en el sistema de virtualización/contenedores que prefiramos, siendo unas opciones más adecuadas que otras dependiendo del sistema operativo de nuestro equipo, tal como se muestra en <a href="https://minikube.sigs.k8s.io/docs/drivers/">https://minikube.sigs.k8s.io/docs/drivers/</a>. En versiones recientes, es posible aumentar el número de nodos del clúster de minikube, aunque para el objetivo de este curso no es necesario y haremos la instalación estándar de un solo nodo.</p>
+<p>Los detalles para la instalación local de minikube los explicamos en la siguiente sección, ya que va a ser el método recomendado para realizar este curso.</p>
+<h1 id="kubeadm">kubeadm</h1>
+<p>kubeadm es una solución más realista que minikube si se instala un clúster de Kubernetes con varios nodos. Su instalación no es especialmente compleja, pero no está tan automatizada como minikube y necesita más recursos y tiempo para configurarlo. kubeadm es una opción muy interesante cuando queremos ver de forma detallada la diferencia entre lo que se ejecuta en el nodo controlador y en los nodos workers, que no se puede apreciar en minikube.</p>
+<p>La instalación de kubeadm se realiza típicamente en varias máquinas virtuales o varias instancias de nube y dejamos un par de enlaces para quienes estén más interesados en indagar en este software:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/</a></li>
+<li><a href="https://www.josedomingo.org/pledin/2018/05/instalacion-de-kubernetes-con-kubeadm/">https://www.josedomingo.org/pledin/2018/05/instalacion-de-kubernetes-con-kubeadm/</a></li>
+</ul>
+<h1 id="kind">kind</h1>
+<p>kind (kubernetes in docker) es un proyecto oficial de Kubernetes más reciente que los dos anteriores y que permite desplegar un clúster de Kubernetes con varios nodos sobre docker. Es también muy interesante como opción de instalación local y de forma análoga al anterior, dejamos un par de enlaces para quienes estén interesados en probarlo:</p>
+<ul>
+<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/">https://kind.sigs.k8s.io/docs/user/quick-start/</a></li>
+<li><a href="https://www.josedomingo.org/pledin/2021/02/kubernetes-con-kind/">https://www.josedomingo.org/pledin/2021/02/kubernetes-con-kind/</a></li>
+</ul>
+<h1 id="k3s">k3s</h1>
+<p>A diferencia de las opciones anteriores, k3s es una distribución de Kubernetes que sí está pensada para poner en producción, pero en unas circunstancias peculiares como son su uso para IoT, edge computing y en general para configurar clústers de Kubernetes en sistemas de pocos recursos (k3s es por ejemplo la opción más adecuada para usar Kubernetes en la arquitectura arm). k3s no es un proyecto oficial de Kubernetes, sino que lo comenzó a desarrollar la empresa <a href="https://rancher.com/">Rancher</a> y hoy en día lo mantiene la <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a>.</p>
+<p>Los pasos para la instalaciónde k3s están disponibles en:</p>
+<ul>
+<li><a href="https://rancher.com/docs/k3s/latest/en/installation/">https://rancher.com/docs/k3s/latest/en/installation/</a></li>
+</ul>
         </div>
         <div class="post_extra mb-2">
           
