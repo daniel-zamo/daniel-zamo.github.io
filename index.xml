@@ -86,7 +86,7 @@ Configuración Dnf (flags) 1echo &amp;#39;fastestmirror=1&amp;#39; | sudo tee -a
       <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
       
       <guid>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</guid>
-      <description>&lt;p&gt;image = &amp;quot;k8s-1.jpg&amp;quot;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;../../../images/k8s-1.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
     </item>
     
