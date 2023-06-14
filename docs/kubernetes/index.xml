@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on My dzamo Hugo Site</title>
+    <link>https://dzamo.gitlab.io/docs/kubernetes/</link>
+    <description>Recent content in Kubernetes on My dzamo Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://dzamo.gitlab.io/docs/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crear y/o borrar pod y/o service</title>
+      <link>https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/</guid>
+      <description>kubectl get all 1kubectl get all kubectl get nodes 1kubectl get nodes code block functions
+Crear pods 1kubectl create deployment case-use-001-nginx --image=nginx 2kubectl get pod 3# show environment variable for [case-use-001-nginx] pod 4kubectl exec case-use-001-nginx-7b97d7cd8b-6kwzg -- env 5# shell access [case-use-001-nginx] pod 6kubectl exec -it case-use-001-nginx-7b97d7cd8b-6kwzg -- bash 7# show logs of [case-use-001-nginx] pod 8kubectl logs case-use-001-nginx-7b97d7cd8b-6kwzg 9# scale out pods 10kubectl scale deployment case-use-001-nginx --replicas=3 11kubectl get pod Crear y/o borrar un servicio 1kubectl get pod 2# set service 3kubectl expose deployment case-use-001-nginx --type=&amp;#34;NodePort&amp;#34; --port 80 4kubectl get services case-use-001-nginx 5# verify accesses 6ssh -t k3s curl 10.</description>
+    </item>
+    
+  </channel>
+</rss>

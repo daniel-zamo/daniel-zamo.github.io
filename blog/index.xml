@@ -13,7 +13,7 @@
       
       <guid>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</guid>
       <description>Alta disponibilidad de cluster MariaDB Galera Este proyecto es el despliegue de un servicio de alta disponibilidad de un cluster RDMS SQL MariaDB Galera, balanceado con HAProxy.
-Tecnologías usadas Hardware tecnología de virtualización KVM. Instalaciones desatendidas ficheros kickstart. Orquestación Ansible. Alma Linux 9, distribución Linux derivado de RHEL 9. HAProxy. RDBMS MariaDB. MariaDB Galera cluster (clúster multiprimario virtualmente síncrono para servidor MariaDB). Repositorio en cloud El proyecto se deja compartido en este URL - gitlab.</description>
+Tecnologías usadas Hardware tecnología de virtualización KVM. Instalaciones desatendidas ficheros kickstart. Orquestación Ansible. Alma Linux 9, distribución Linux derivado de RHEL 9. HAProxy. RDBMS MariaDB. MariaDB Galera cluster (clúster multiprimario virtualmente síncrono para servidor MariaDB). Repositorio en gitlab El proyecto se deja compartido en este URL - gitlab.</description>
     </item>
     
     <item>

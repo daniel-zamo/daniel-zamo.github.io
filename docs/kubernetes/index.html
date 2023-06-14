@@ -13,20 +13,15 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Comando virsh | My dzamo Hugo Site</title><meta property="og:title" content="Comando virsh" />
-<meta property="og:description" content="Apuntes del comando virsh (comando del CLI)" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/kvm/cli-virsh/" /><meta property="article:section" content="docs" />
+<title>Kubernetes | My dzamo Hugo Site</title><meta property="og:title" content="Kubernetes" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://dzamo.gitlab.io/docs/kubernetes/" />
 
-<meta property="article:modified_time" content="2023-05-31T01:27:50+02:00" />
-
-<meta itemprop="name" content="Comando virsh">
-<meta itemprop="description" content="Apuntes del comando virsh (comando del CLI)">
-<meta itemprop="dateModified" content="2023-05-31T01:27:50+02:00" />
-<meta itemprop="wordCount" content="107">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Comando virsh"/>
-<meta name="twitter:description" content="Apuntes del comando virsh (comando del CLI)"/>
+<meta itemprop="name" content="Kubernetes">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes"/>
+<meta name="twitter:description" content=""/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -34,11 +29,9 @@
 
 
 
-  <meta name="description" content="Apuntes del comando virsh (comando del CLI)">
-
 
 </head>
-<body class="page-page" id="pagetop">
+<body class="page-section" id="pagetop">
   <header class="nav_header">
 <nav class="wrap nav menu">
 	<a href='https://dzamo.gitlab.io/' class="nav_brand">
@@ -143,7 +136,7 @@
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kvm/" class="group">KVM</a></h2>
       <section class="" id="docs-kvm">
-        <h3 class="section_link active"><a id="docs-comando-virsh" href="https://dzamo.gitlab.io/docs/kvm/cli-virsh/">Comando virsh</a></h3><nav id="TableOfContents">
+        <h3 class="section_link"><a id="docs-comando-virsh" href="https://dzamo.gitlab.io/docs/kvm/cli-virsh/">Comando virsh</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -156,7 +149,7 @@
       </section>
   </section>
   <section class="section aside_inner">
-    <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
+    <h2 class="section_title active"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
       <section class="" id="docs-kubernetes">
         <h3 class="section_link"><a id="docs-crear-yo-borrar-pod-yo-service" href="https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/">Crear y/o borrar pod y/o service</a></h3><nav id="TableOfContents"></nav>
       </section>
@@ -184,15 +177,11 @@
 </aside>
 
   <main class="content">
-    <h1>Comando virsh</h1><h3 id="destruir-un-dominio">Destruir un dominio</h3>
-<p>La siguiente ejecución destruye/detiene un dominio (VM, guest o máquina virtual).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo virsh destroy NOMBRE_DOMINIO
-</span></span></code></pre></div><p><em>Donde:</em> <code>NOMBRE_DOMINIO</code> es el nombre del dominio (es el nombre de la máquina virtual, o guest). En este documento, y en lo que respecta a la tecnología <a href="https://www.kvm.org">KVM</a> del contenido compartido en esta sección, para referirse a una <em>máquina virtual</em> será indistintamente referida como <em>VM</em>, <em>guest de KVM</em>, o <em>nombre</em> o <em>nombre de dominio</em>.</p>
-<h3 id="borrar-un-dominio-o-vm">Borrar un dominio o VM</h3>
-<p>El siguiente comando borra por completo una <em>VM</em>, tanto su configuración como sus <em>storage</em> (<em>almacenamiento</em>). Para borrar una <em>máquina</em> el dominio debe estar detenido.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo virsh undefine --domain NOMBRE_DOMINIO --remove-all-storage
-</span></span></code></pre></div>
-    <div class="pager">
+    <h1>Kubernetes</h1><p>En esta sección se comparten algunos artículos de la tecnolgía <em><strong>Kubernetes</strong></em>.</p>
+<br>
+<a href="./pod-service-initial/" class="button">Crear/borrar pod y/o service</a>
+
+    <div class="pager pager_lean">
   
 
   
