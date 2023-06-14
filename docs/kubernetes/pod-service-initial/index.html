@@ -23,7 +23,7 @@
 <meta itemprop="name" content="Crear y/o borrar pod y/o service">
 <meta itemprop="description" content="Comandos de inicio para gestionar pod y servicios">
 <meta itemprop="dateModified" content="2023-06-14T16:30:06+02:00" />
-<meta itemprop="wordCount" content="131">
+<meta itemprop="wordCount" content="135">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Crear y/o borrar pod y/o service"/>
 <meta name="twitter:description" content="Comandos de inicio para gestionar pod y servicios"/>
@@ -202,17 +202,18 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">kubectl get nodes
 </span></span></code></pre></div><p><img src="../../../images/kubernetes/kubectl-get-all_and_nodes.png" alt="Kubectl get all/nodes"></p>
 <h3 id="crear-pods">Crear pods</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">kubectl create deployment <span class="k">case</span>-use-001-nginx --image<span class="o">=</span>nginx
-</span></span><span class="line"><span class="ln"> 2</span><span class="cl">kubectl get pod
-</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># show environment variable for [case-use-001-nginx] pod</span>
-</span></span><span class="line"><span class="ln"> 4</span><span class="cl">kubectl <span class="nb">exec</span> <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg -- env
-</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="c1"># shell access [case-use-001-nginx] pod</span>
-</span></span><span class="line"><span class="ln"> 6</span><span class="cl">kubectl <span class="nb">exec</span> -it <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg -- bash
-</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># show logs of [case-use-001-nginx] pod</span>
-</span></span><span class="line"><span class="ln"> 8</span><span class="cl">kubectl logs <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg
-</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="c1"># scale out pods</span>
-</span></span><span class="line"><span class="ln">10</span><span class="cl">kubectl scale deployment <span class="k">case</span>-use-001-nginx --replicas<span class="o">=</span><span class="m">3</span>
-</span></span><span class="line"><span class="ln">11</span><span class="cl">kubectl get pod
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># run [case-use-001-nginx] pods</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">kubectl create deployment <span class="k">case</span>-use-001-nginx --image<span class="o">=</span>nginx
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">kubectl get pod
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># show environment variable for [case-use-001-nginx] pod</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">kubectl <span class="nb">exec</span> <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg -- env
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"># shell access [case-use-001-nginx] pod</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">kubectl <span class="nb">exec</span> -it <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg -- bash
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="c1"># show logs of [case-use-001-nginx] pod</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">kubectl logs <span class="k">case</span>-use-001-nginx-7b97d7cd8b-6kwzg
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="c1"># scale out pods</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">kubectl scale deployment <span class="k">case</span>-use-001-nginx --replicas<span class="o">=</span><span class="m">3</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">kubectl get pod
 </span></span></code></pre></div><p>![Kubectl create pod]:../../../images/kubernetes/kubectl-pod-create-exec_cmd-logs.png</p>
 <h3 id="crear-yo-borrar-un-servicio">Crear y/o borrar un servicio</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">kubectl get pod
