@@ -14,6 +14,9 @@
     <loc>https://dzamo.gitlab.io/fedora-38/</loc>
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
   </url><url>
+    <loc>https://dzamo.gitlab.io/docs/kubernetes/</loc>
+    <lastmod>2023-06-14T16:30:06+02:00</lastmod>
+  </url><url>
     <loc>https://dzamo.gitlab.io/linux/</loc>
     <lastmod>2023-05-23T14:02:02+02:00</lastmod>
   </url><url>
@@ -44,11 +47,11 @@
     <loc>https://dzamo.gitlab.io/fedora-38/add-repository-and-flatpak/</loc>
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
   </url><url>
+    <loc>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</loc>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</loc>
     <lastmod>2023-05-31T01:27:50+02:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/docs/kubernetes/</loc>
-    <lastmod>2023-06-14T16:30:06+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/manjaro/</loc>
     <lastmod>2023-05-21T03:13:45+02:00</lastmod>
@@ -88,29 +91,17 @@
     <loc>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</loc>
     <lastmod>2023-06-14T16:30:06+02:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/categories/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
-  </url><url>
     <loc>https://dzamo.gitlab.io/tags/containers/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/categories/development/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/categories/devops/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/kubernetes/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/blog/kubernetes-in-local/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/</loc>
     <lastmod>2023-05-24T11:17:24+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/virtualization/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/emoji/</loc>
     <lastmod>2023-05-24T11:17:24+02:00</lastmod>
@@ -124,7 +115,13 @@
     <loc>https://dzamo.gitlab.io/blog/goisforlovers/</loc>
     <lastmod>2023-05-24T11:17:24+02:00</lastmod>
   </url><url>
+    <loc>https://dzamo.gitlab.io/categories/</loc>
+    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+  </url><url>
     <loc>https://dzamo.gitlab.io/tags/development/</loc>
+    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/categories/development/</loc>
     <lastmod>2023-05-24T11:17:24+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/blog/hugoisforlovers/</loc>

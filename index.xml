@@ -81,6 +81,16 @@ Configuración Dnf (flags) 1echo &amp;#39;fastestmirror=1&amp;#39; | sudo tee -a
     </item>
     
     <item>
+      <title>Opciones Kubernetes en Workstation (localhost)</title>
+      <link>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</link>
+      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</guid>
+      <description>&lt;p&gt;image = &amp;quot;k8s-1.jpg&amp;quot;&lt;/p&gt;
+&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Comando virsh</title>
       <link>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -199,15 +209,6 @@ pamac repositorios aur En este documento se muestra como realizar instalaciones 
       <guid>https://dzamo.gitlab.io/blog/ha-mariadb-galera/</guid>
       <description>Alta disponibilidad de cluster MariaDB Galera Este proyecto es el despliegue de un servicio de alta disponibilidad de un cluster RDMS SQL MariaDB Galera, balanceado con HAProxy.
 Tecnologías usadas Hardware tecnología de virtualización KVM. Instalaciones desatendidas ficheros kickstart. Orquestación Ansible. Alma Linux 9, distribución Linux derivado de RHEL 9. HAProxy. RDBMS MariaDB. MariaDB Galera cluster (clúster multiprimario virtualmente síncrono para servidor MariaDB). Repositorio en gitlab El proyecto se deja compartido en este URL - gitlab.</description>
-    </item>
-    
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>https://dzamo.gitlab.io/blog/kubernetes-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/blog/kubernetes-in-local/</guid>
-      <description>&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
     </item>
     
     <item>

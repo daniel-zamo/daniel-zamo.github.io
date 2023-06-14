@@ -6,16 +6,7 @@
     <description>Recent content in Development on My dzamo Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dzamo.gitlab.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Opciones de Kubernetes en local</title>
-      <link>https://dzamo.gitlab.io/blog/kubernetes-in-local/</link>
-      <pubDate>Sun, 02 Apr 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/blog/kubernetes-in-local/</guid>
-      <description>&lt;p&gt;Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Wed, 02 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="https://dzamo.gitlab.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>(Hu)go Template Primer</title>
       <link>https://dzamo.gitlab.io/blog/goisforlovers/</link>
