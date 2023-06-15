@@ -13,23 +13,20 @@
 <link rel="mask-icon" href='https://dzamo.gitlab.io/favicons/safari-pinned-tab.svg'  color="#004750">
 <link rel="shortcut icon" href='https://dzamo.gitlab.io/favicons/favicon.ico'>
 <meta name="msapplication-config" content='https://dzamo.gitlab.io/favicons/browserconfig.xml'>
-<title>Opciones Kubernetes en Workstation (localhost) | My dzamo Hugo Site</title><meta property="og:title" content="Opciones Kubernetes en Workstation (localhost)" />
-<meta property="og:description" content="
-Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local." />
+<title>Kubernetes - recursos/elementos del orquestador | My dzamo Hugo Site</title><meta property="og:title" content="Kubernetes - recursos/elementos del orquestador" />
+<meta property="og:description" content="El contenido compartido aquí se encuentra completamento compartido en este URL, repositorio también de Gitlab." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/" /><meta property="article:section" content="docs" />
-<meta property="article:published_time" content="2023-04-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-04-02T00:00:00+00:00" />
+<meta property="og:url" content="https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/" /><meta property="article:section" content="docs" />
 
-<meta itemprop="name" content="Opciones Kubernetes en Workstation (localhost)">
-<meta itemprop="description" content="
-Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local."><meta itemprop="datePublished" content="2023-04-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-04-02T00:00:00+00:00" />
-<meta itemprop="wordCount" content="528">
-<meta itemprop="keywords" content="Containers,Virtualization,Kubernetes," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Opciones Kubernetes en Workstation (localhost)"/>
-<meta name="twitter:description" content="
-Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local."/>
+
+
+<meta itemprop="name" content="Kubernetes - recursos/elementos del orquestador">
+<meta itemprop="description" content="El contenido compartido aquí se encuentra completamento compartido en este URL, repositorio también de Gitlab.">
+
+<meta itemprop="wordCount" content="15">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes - recursos/elementos del orquestador"/>
+<meta name="twitter:description" content="El contenido compartido aquí se encuentra completamento compartido en este URL, repositorio también de Gitlab."/>
 
 
 <link rel="stylesheet" href="https://dzamo.gitlab.io/css/styles.691629e5f26e68b2c88c9fac25f38162a88c60a95f2e6c07ee5472c138482c04605e01f9f92b3733c4d52683889e8907e8de22d78afe1fa5782ce30b8e2dffb5.css" integrity="sha512-aRYp5fJuaLLIjJ&#43;sJfOBYqiMYKlfLmwH7lRywThILARgXgH5&#43;Ss3M8TVJoOInokH6N4i14r&#43;H6V4LOMLji3/tQ==">
@@ -37,9 +34,7 @@ Las distribuciones ligeras de Kubernetes se están volviendo cada vez más popul
 
 
 
-  <meta name="description" content="
-Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.
-">
+  <meta name="description" content="El contenido compartido aquí se encuentra completamento compartido en este URL, repositorio también de Gitlab.">
 
 
 </head>
@@ -120,8 +115,8 @@ Las distribuciones ligeras de Kubernetes se están volviendo cada vez más popul
   <section class="section aside_inner">
     <h2 class="section_title"><a  href="https://dzamo.gitlab.io/docs/kubernetes/" class="group">Kubernetes</a></h2>
       <section class="" id="docs-kubernetes">
-        <h3 class="section_link"><a id="docs-kubernetes---recursoselementos-del-orquestador" href="https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/">Kubernetes - recursos/elementos del orquestador</a></h3><nav id="TableOfContents"></nav>
-        <h3 class="section_link active"><a id="docs-opciones-kubernetes-en-workstation-localhost" href="https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/">Opciones Kubernetes en Workstation (localhost)</a></h3><nav id="TableOfContents">
+        <h3 class="section_link active"><a id="docs-kubernetes---recursoselementos-del-orquestador" href="https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/">Kubernetes - recursos/elementos del orquestador</a></h3><nav id="TableOfContents"></nav>
+        <h3 class="section_link"><a id="docs-opciones-kubernetes-en-workstation-localhost" href="https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/">Opciones Kubernetes en Workstation (localhost)</a></h3><nav id="TableOfContents">
   <ul>
     <li>
       <ul>
@@ -215,100 +210,17 @@ Las distribuciones ligeras de Kubernetes se están volviendo cada vez más popul
 </aside>
 
   <main class="content">
-    <h1>Opciones Kubernetes en Workstation (localhost)</h1><p><img src="../../../images/k8s-1.jpg" alt="Kubernetes"></p>
-<p>Las distribuciones ligeras de Kubernetes se están volviendo cada vez más populares para el desarrollo local.</p>
-<p>Si desea ejecutar Kubernetes en dispositivos con menos recursos, la siguiente tabla y opciones enumeradas pueden servir de guía. MicroK8s destaca por su sencillez, robustez e integridad. Varias de las listadas soportan multi nodos. Una lista mas completa puede revisarse en <a href="https://microk8s.io/compare" title="MicroK8s vs K3s vs minikube">MicroK8s vs K3s vs minikube</a>.</p>
-<h3 id="opciones-de-kubernetes-en-local">Opciones de Kubernetes en local</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">minikube</th>
-<th style="text-align:center">kind</th>
-<th style="text-align:center">k3s</th>
-<th style="text-align:center">microk8s</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Feature: addons</td>
-<td style="text-align:center">X</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
-<td style="text-align:center">X</td>
-</tr>
-<tr>
-<td style="text-align:center">Container runtime</td>
-<td style="text-align:center">Docker, containerd, CRI-O</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">CRI-O</td>
-<td style="text-align:center">containerd, kata</td>
-</tr>
-<tr>
-<td style="text-align:center">Feature: multi node</td>
-<td style="text-align:center"></td>
-<td style="text-align:center">X</td>
-<td style="text-align:center">X</td>
-<td style="text-align:center">X</td>
-</tr>
-</tbody>
-</table>
-<h3 id="minikube">minikube</h3>
-<p>Minikube permite desplegar localmente un &quot;clúster&quot; de Kubernetes con un solo nodo. Minikube es un proyecto oficial de Kubernetes y es probablemente la solución más adecuada para aprender a usar k8s, ya que es un proyecto maduro y muy sencillo de instalar. Los requisitos mínimos para instalar minikube en nuestro equipo son:</p>
-<ul>
-<li>2 CPUs</li>
-<li>2GiB de memoria</li>
-<li>20GiB de espacio libre en disco</li>
-<li>Un sistema de virtualización o de contenedores instalado:
-<ul>
-<li>Docker</li>
-<li>Hyperkit</li>
-<li>Hyper-V</li>
-<li>KVM</li>
-<li>Parallels</li>
-<li>Podman</li>
-<li>VirtualBox</li>
-<li>VMWare</li>
-</ul>
-</li>
-</ul>
-<p>Minikube instalará un nodo de Kubernetes en el sistema de virtualización/contenedores que prefiramos, siendo unas opciones más adecuadas que otras dependiendo del sistema operativo de nuestro equipo, tal como se muestra en <a href="https://minikube.sigs.k8s.io/docs/drivers/">https://minikube.sigs.k8s.io/docs/drivers/</a>. En versiones recientes, es posible aumentar el número de nodos del clúster de minikube, aunque para el objetivo de este curso no es necesario y haremos la instalación estándar de un solo nodo.</p>
-<p>Los detalles para la instalación local de minikube los explicamos en la siguiente sección, ya que va a ser el método recomendado para realizar este curso.</p>
-<h3 id="kubeadm">kubeadm</h3>
-<p>kubeadm es una solución más realista que minikube si se instala un clúster de Kubernetes con varios nodos. Su instalación no es especialmente compleja, pero no está tan automatizada como minikube y necesita más recursos y tiempo para configurarlo. kubeadm es una opción muy interesante cuando queremos ver de forma detallada la diferencia entre lo que se ejecuta en el nodo controlador y en los nodos workers, que no se puede apreciar en minikube.</p>
-<p>La instalación de kubeadm se realiza típicamente en varias máquinas virtuales o varias instancias de nube y dejamos un par de enlaces para quienes estén más interesados en indagar en este software:</p>
-<ul>
-<li><a href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/">https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/</a></li>
-<li><a href="https://www.josedomingo.org/pledin/2018/05/instalacion-de-kubernetes-con-kubeadm/">https://www.josedomingo.org/pledin/2018/05/instalacion-de-kubernetes-con-kubeadm/</a></li>
-</ul>
-<h3 id="kind">kind</h3>
-<p>kind (kubernetes in docker) es un proyecto oficial de Kubernetes más reciente que los dos anteriores y que permite desplegar un clúster de Kubernetes con varios nodos sobre docker. Es también muy interesante como opción de instalación local y de forma análoga al anterior, dejamos un par de enlaces para quienes estén interesados en probarlo:</p>
-<ul>
-<li><a href="https://kind.sigs.k8s.io/docs/user/quick-start/">https://kind.sigs.k8s.io/docs/user/quick-start/</a></li>
-<li><a href="https://www.josedomingo.org/pledin/2021/02/kubernetes-con-kind/">https://www.josedomingo.org/pledin/2021/02/kubernetes-con-kind/</a></li>
-</ul>
-<h3 id="k3s">k3s</h3>
-<p>A diferencia de las opciones anteriores, k3s es una distribución de Kubernetes que sí está pensada para poner en producción, pero en unas circunstancias peculiares como son su uso para IoT, edge computing y en general para configurar clústers de Kubernetes en sistemas de pocos recursos (k3s es por ejemplo la opción más adecuada para usar Kubernetes en la arquitectura arm). k3s no es un proyecto oficial de Kubernetes, sino que lo comenzó a desarrollar la empresa <a href="https://rancher.com/">Rancher</a> y hoy en día lo mantiene la <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a>.</p>
-<p>Los pasos para la instalaciónde k3s están disponibles en:</p>
-<ul>
-<li><a href="https://rancher.com/docs/k3s/latest/en/installation/">https://rancher.com/docs/k3s/latest/en/installation/</a></li>
-</ul>
+    <h1>Kubernetes - recursos/elementos del orquestador</h1><p><img src="../../../images/kubernetes/kubernetes.resources.png" alt="Componentes de Kubernetes"></p>
+<p>El contenido compartido aquí se encuentra completamento compartido en este <a href="https://gitlab.com/dzamo/20230609-my-kubernetes">URL</a>, repositorio también de <a href="https://gitlab.com">Gitlab</a>.</p>
+
     <div class="pager">
-  
-    
-    <div class="pager_item prev">
-      <a href="https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/" class="pager_link button" title="Kubernetes - recursos/elementos del orquestador" rel="prev">
-        <span class="pager_label">Kubernetes - recursos/elementos del orquestador</span>
-      </a>
-    </div>
-    
   
 
   
     
     <div class="pager_item next">
-      <a href="https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/" class="pager_link button" title="Crear y/o borrar pod y/o service" rel="next">
-        <span class="pager_label">Crear y/o borrar pod y/o service</span>
+      <a href="https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/" class="pager_link button" title="Opciones Kubernetes en Workstation (localhost)" rel="next">
+        <span class="pager_label">Opciones Kubernetes en Workstation (localhost)</span>
       </a>
     </div>
     
