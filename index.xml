@@ -18,7 +18,7 @@ Asignar los ip correspondientes requeridos Configurar rutas estáticas Setear in
     </item>
     
     <item>
-      <title>Kubernetes - recursos/elementos del orquestador</title>
+      <title>Recursos del orquestador</title>
       <link>https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
