@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/dzamo/my-projects/hugo/dzamo.gitlab.io-source",
+	"sourceRoot": "/home/dzamo/dzamo.gitlab.io-source",
 	"sources": [
 		"themes/compose/assets/sass/main.sass",
 		"themes/compose/assets/sass/_variables.sass",

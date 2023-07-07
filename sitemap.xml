@@ -15,7 +15,7 @@
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/kubernetes/</loc>
-    <lastmod>2023-06-14T16:30:06+02:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/</loc>
     <lastmod>2023-05-23T14:02:02+02:00</lastmod>
@@ -27,6 +27,7 @@
     <lastmod>2023-05-24T18:14:14+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/kubernetes/k8s-resources/</loc>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/fedora-38/initial-settings-minimal/</loc>
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
@@ -50,7 +51,7 @@
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/kubernetes/kubernetes-in-workstation/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/kvm/cli-virsh/</loc>
     <lastmod>2023-05-31T01:27:50+02:00</lastmod>
@@ -65,7 +66,7 @@
     <lastmod>2023-05-21T04:03:37+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/docs/kubernetes/pod-service-initial/</loc>
-    <lastmod>2023-06-14T16:30:06+02:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/fedora-38/developer/</loc>
     <lastmod>2023-06-04T15:49:20+02:00</lastmod>
@@ -86,6 +87,7 @@
     <lastmod>2023-05-21T04:28:27+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/fedora-38/google-cloud-cli-install/</loc>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/linux/manjaro/install-tools-gpu/</loc>
     <lastmod>2023-05-21T04:03:37+02:00</lastmod>
@@ -94,16 +96,16 @@
     <lastmod>2023-06-14T16:30:06+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/containers/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/kubernetes/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/</loc>
-    <lastmod>2023-05-24T11:17:24+02:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/virtualization/</loc>
-    <lastmod>2023-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/emoji/</loc>
     <lastmod>2023-05-24T11:17:24+02:00</lastmod>
@@ -154,8 +156,10 @@
     <lastmod>2023-05-23T14:02:02+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/fedora/</loc>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/linux/</loc>
+    <lastmod>2023-07-08T00:42:11+02:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/blog/</loc>
     <lastmod>2023-06-14T16:30:06+02:00</lastmod>
