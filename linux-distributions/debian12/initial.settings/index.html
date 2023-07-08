@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2023-07-08T02:41:51 CEST">
+<meta name="revised" content="2023-07-08T04:37:26 CEST">
 <title>Conf. inicial Debian 12 :: Docs</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -481,20 +481,28 @@
 <p>En esta sección se realizan tareas de configuración inicial de un Desktop basado en Debian 12, en particular se ha instalado en el hardware la distribución <a href="https://crunchbangplusplus.org/">Crunchbangplusplus</a> última liberada estable a la versión 12 <a href="https://www.debian.org/News/2023/20230610">Debian bookworm</a>.</p>
 </blockquote>
 <p><em>Nota del autor:</em> Las tareas realizadas en este apartado, pueden ser ejecutadas en cualquier distribución derivada de la misma versión <a href="https://www.debian.org/News/2023/20230610">Debian bookworm</a>.</p>
-<h2 id="instalar-algunos-paquetes">Instalar algunos paquetes</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt -y install vim vim-scripts exuberant-ctags libtemplate-perl <span class="se">\
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  libtemplate-plugin-gd-perl libtemplate-plugin-xml-perl fonts-dustin libtest-fatal-perl
-</span></span></code></pre></div><h2 id="instalar-hugo-y-extras">Instalar hugo (y extras)</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt -y install hugo asciidoctor npm pandoc python3-docutils node-esprima-fb <span class="se">\
-</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  node-inquirer libjs-angularjs node-babel-plugin-polyfill-es-shims node-babel7-debug <span class="se">\
-</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  livescript chai node-jest-diff texlive-latex-recommended texlive-xetex texlive-luatex <span class="se">\
-</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  texlive-latex-extra context wkhtmltopdf librsvg2-bin groff ghc r-base-core libjs-katex <span class="se">\
-</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="se"></span>  citation-style-language-styles texlive-lang-french texlive-latex-base ttf-bitstream-vera <span class="se">\
-</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="se"></span>  ri ruby-dev bundler
-</span></span></code></pre></div><h2 id="python">Python</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo apt install python3-venv pip python3-pip
-</span></span><span class="line"><span class="ln">2</span><span class="cl">sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.11 <span class="m">1</span>
-</span></span></code></pre></div>
+<h2 id="configurando-usuario-sudo-y-pamdsu">Configurando usuario sudo y pam.d/su</h2>
+<pre tabindex="0"><code># Usuario sudo
+echo &#34;$USER ALL=(ALL) NOPASSWD:ALL&#34; | sudo tee /etc/sudoers.d/$USER
+
+# Usuarios grupo adm en /etc/pam.d/su
+# Habilitar modulo pam su wheel, para limitar solo a los usuarios del grupo adm escalar a root, usando el comando su.
+sudo sed -i &#34;s/^# \{1\}auth \{7\}required \{3\}pam_wheel.so$/&amp;\nauth    required  pam_wheel.so  group=adm/&#34; /etc/pam.d/su
+sudo usermod -G adm -a $USER
+</code></pre><h2 id="instalar-algunos-paquetes">Instalar algunos paquetes</h2>
+<pre tabindex="0"><code>sudo apt -y install tmux  rsync neovim neofetch btop htop vim vim-scripts exuberant-ctags libtemplate-perl \
+  libtemplate-plugin-gd-perl libtemplate-plugin-xml-perl fonts-dustin libtest-fatal-perl
+</code></pre><h2 id="instalar-hugo-y-extras">Instalar hugo (y extras)</h2>
+<pre tabindex="0"><code>sudo apt -y install hugo asciidoctor npm pandoc python3-docutils node-esprima-fb \
+  node-inquirer libjs-angularjs node-babel-plugin-polyfill-es-shims node-babel7-debug \
+  livescript chai node-jest-diff texlive-latex-recommended texlive-xetex texlive-luatex \
+  texlive-latex-extra context wkhtmltopdf librsvg2-bin groff ghc r-base-core libjs-katex \
+  citation-style-language-styles texlive-lang-french texlive-latex-base ttf-bitstream-vera \
+  ri ruby-dev bundler
+</code></pre><h2 id="python">Python</h2>
+<pre tabindex="0"><code>sudo apt install python3-venv pip python3-pip
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1
+</code></pre>
 
 
     
