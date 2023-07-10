@@ -5,7 +5,7 @@
     
       <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="revised" content="2023-07-10T04:53:50 CEST">
+<meta name="revised" content="2023-07-10T05:03:16 CEST">
 <title>children :: Docs</title>
 <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
 <link href="/css/nucleus.css" rel="stylesheet">
@@ -613,154 +613,12 @@
 <p>This is a demo child page</p>
 </span>
 <p><span><h3>
-<a href="/linux-distributions/" >Distribuciones Linux</a></h3></p>
-<p>Diferentes distribuciones linux</p>
+<a href="/shortcodes/children/children-1/children-1-1/" >page 1-1</a></h3></p>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
 </span>
 <p><span><h4>
-<a href="/linux-distributions/debian12/" >Debian 12</a></h4></p>
-<p>Linux Debian 12</p>
-</span>
-<p><span><h3>
-<a href="/getting-start/" >Getting started</a></h3></p>
-<p>Requirements Download Hugo binary for your OS (Windows, Linux, Mac) : it’s that simple
-Installation
-HUGO v0.32 minimum required to use this theme The following steps are here to help you initialize your new website. If you don’t know Hugo at all, we strongly suggest you to train by following this great documentation for beginners.
-Configuration
-When building the website, you can set a theme by using --theme option. We suggest you to edit your configuration file and set the theme by default.</p>
-</span>
-<p><span><h4>
-<a href="/getting-start/installation/" >Installation</a></h4></p>
-<p><div class="alert alert-warning" role="alert">HUGO <strong>v0.32</strong> minimum required to use this theme</div>
-<p>The following steps are here to help you initialize your new website. If you don’t know Hugo at all, we strongly suggest you to train by following this <a href="https://gohugo.io/overview/quickstart/">great documentation for beginners</a>.</p></p>
-</span>
-<p><span><h4>
-<a href="/getting-start/configuration/" >Configuration</a></h4></p>
-<p><p>When building the website, you can set a theme by using <code>--theme</code> option. We suggest you to edit your configuration file and set the theme by default. Example with <code>config.toml</code> format.</p></p>
-</span>
-<p><span><h3>
-<a href="/create-page/" >Create Page</a></h3></p>
-<p>Hugo-theme-docdock defines two types of pages. Default and Slide.
-Default is the common page like the current one you are reading. Slide is a page that use the full screen to display its markdown content as a reveals.js presentation. HomePage is a special content that will be displayed as home page content. To tell Hugo-theme-docdock to consider a page as a slide, just add a type=&quot;slide&quot;in then frontmatter of your file.</p>
-</span>
-<p><span><h4>
-<a href="/create-page/homepage/" >Home page</a></h4></p>
-<p>To tell Hugo-theme-docdock to consider a page as homepage's content, just create a content file named _index.md in content folder.</p>
-</span>
-<p><span><h4>
-<a href="/create-page/page-images/" >About images</a></h4></p>
-<p>Images have a similar syntax to links but include a preceding exclamation point.
-![agence](https://github.com/vjeantet/vjeantet.fr/raw/master/static/images/sgthon/C.jpg) Resizing image Add HTTP parameters width and/or height to the link image to resize the image. Values are CSS values (default is auto).
-![Hackathon](https://github.com/vjeantet/vjeantet.fr/raw/master/static/images/sgthon/C.jpg?height=80px) Add CSS classes Add a HTTP classes parameter to the link image to add CSS classes. shadow and border are available but you could define other ones.
-![s](https://github.com/vjeantet/vjeantet.fr/raw/master/static/images/sgthon/C.jpg?classes=border,shadow) </p>
-</span>
-<p><span><h4>
-<a href="/create-page/page-slide/" >Present a Slide</a></h4></p>
-<p>A basic md content page can be rendered as a reveal.js presentation full screen.
-You can, also, embed presentation in a page as a small box, using the revealjs shortcode in your md file. Formating Use your common Markdown syntax you use in Hugo, don't forget, you can put html tags too.
-Special syntax (in html comment) is available for adding attributes to Markdown elements. This is useful for fragments, amongst other things.</p>
-</span>
-<p><span><h3>
-<a href="/content-organisation/" >Content Organisation</a></h3></p>
-<p>With Hugo, pages are the core of your site. Organize your site like any other Hugo project. Magic occurs with the nested sections implemention done in v0.22 of hugo (congrats @bep).
-With docdock, Each content page composes the menu, they shape the structure of your website.
-To link pages to each other, place them in a folders hierarchy
-content ├── level-one │ ├── level-two │ │ ├── level-three │ │ │ ├── level-four │ │ │ │ ├── _index.</p>
-</span>
-<p><span><h4>
-<a href="/content-organisation/logo/" >Logo placeholder</a></h4></p>
-<p>Create a _header.md page in content folder. Its content is what you get in the logo placeholder (top left of the screen).
-Tip : you can add a image, a combobox with links to other documentation.... Tip 2 : look at extra static menu if you want to add links to other website in this sidebar </p>
-</span>
-<p><span><h4>
-<a href="/content-organisation/extramenu/" >Extra menu entries</a></h4></p>
-<p>You can define additional menu entries in the navigation menu without any link to content.
-Edit the website configuration config.toml and add a [[menu.shortcuts]] entry for each link your want to add.
-Example from the current website, note the pre param which allows you to insert HTML code and used here to separate content's menu from this &quot;static&quot; menu
-[[menu.shortcuts]] pre = &quot;&lt;h3&gt;More&lt;/h3&gt;&quot; name = &quot;&lt;i class='fa fa-github'&gt;&lt;/i&gt; Github repo&quot; identifier = &quot;ds&quot; url = &quot;https://github.</p>
-</span>
-<p><span><h4>
-<a href="/content-organisation/customize-style/" >Customize website look and feel</a></h4></p>
-<p>You can change the style and behavior of the theme without touching it.
-inject your own html, css or js into the page overide existing css or js with your own files No needs to copy the entire theme to customize some parts Bellow are solutions to avoid copying the entire theme into your own codebase.
-Add custom CSS and JS or HTML into the &lt;head&gt; part of each page : Create a custom header partial layouts/partials/custom-head.</p>
-</span>
-<p><span><h3>
-<a href="/shortcodes/" >Shortcodes</a></h3></p>
-<p>A bunch of Shortcodes are available with this theme :
-alert
-The alert shortcode allows you to highlight information in your page.
-attachments
-The Attachments shortcode displays a list of files attached to a page.
-button
-Display an actionable button in your page.
-children
-List the child pages of a page
-excerpt
-The Excerpt shortcode is used to mark a part of a page&#39;s content for re-use.
-excerpt-include
-The Excerpt Include shortcode is used to display 'excerpted' (that is, a segment of) content from one page in another.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/alert/" >alert</a></h4></p>
-<p>The alert shortcode allows you to highlight information in your page.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/attachments/" >attachments</a></h4></p>
-<p>The Attachments shortcode displays a list of files attached to a page.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/button/" >button</a></h4></p>
-<p>Display an actionable button in your page.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/children/" >children</a></h4></p>
-<p>List the child pages of a page</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/excerpt/" >excerpt</a></h4></p>
-<p>The Excerpt shortcode is used to mark a part of a page&#39;s content for re-use.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/excerpt-include/" >excerpt-include</a></h4></p>
-<p>The Excerpt Include shortcode is used to display 'excerpted' (that is, a segment of) content from one page in another. Before you can use this shortcode, the excerpt must have been defined using the Excerpt shortcode. Note that you can have more than one Excerpt Include shortcode on a page (although you can have only one Excerpt shortcode on a page). Usage Parameter Default Description filename required Type the filename of the page that contains the excerpt to be displayed.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/expand/" >expand</a></h4></p>
-<p>Displays an expandable/collapsible section of text on your page</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/icon/" >icon</a></h4></p>
-<p>Display an icon.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/mermaid/" >mermaid</a></h4></p>
-<p>Flowchart example Show code ... {{}} graph LR; A[Hard edge] -->|Link text| B(Round edge) B --> C{Decision} C -->|One| D[Result one] C -->|Two| E[Result two] {{< /mermaid >}} graph LR; A[Hard edge] -->|Link text| B(Round edge) B --> C{Decision} C -->|One| D[Result one] C -->|Two| E[Result two] With sub-graphs and some style Show code... {{}} graph LR; X --> Y linkStyle 0 stroke:#f00,stroke-width:4px; Y --> Z Z --> X linkStyle 1,2 interpolate basis stroke:#0f0,stroke-width:2px; X --> A1 subgraph right A2 --> B2 B2 --> C2 end subgraph left A1 --> B1 B1 --> C1 end C1 --> X Z --> A2 C2 --> Z style Y fill:#f9f,stroke:#333,stroke-width:4px classDef left fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 class A1,B1,C1 left {{&lt; /mermaid &gt;}} graph LR; X --> Y linkStyle 0 stroke:#f00,stroke-width:4px; Y --> Z Z --> X linkStyle 1,2 interpolate basis stroke:#0f0,stroke-width:2px; X --> A1 subgraph right A2 --> B2 B2 --> C2 end subgraph left A1 --> B1 B1 --> C1 end C1 --> X Z --> A2 C2 --> Z style Y fill:#f9f,stroke:#333,stroke-width:4px classDef left fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5 class A1,B1,C1 left Sequence example Show code .</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/notice/" >notice</a></h4></p>
-<p>Disclaimers to help you structure your page</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/panel/" >panel</a></h4></p>
-<p>Allow you to highlight information or put it in a box.</p>
-</span>
-<p><span><h4>
-<a href="/shortcodes/revealjs/" >revealjs</a></h4></p>
-<p>present content as a reveal.js slide</p>
-</span>
-<p><span><h3>
-<a href="/search/" >About the Search Engine</a></h3></p>
-<p> Activate search If not already present, add the follow lines to the config.toml file.
-1[outputs] 2home = [ &#34;HTML&#34;, &#34;RSS&#34;, &#34;JSON&#34;] Docdock theme uses the last improvement available in hugo version 20+ to generate a json index file ready to be consumed by lunr.js javascript search engine.
-hugo generate lunrjs index.json at the root of `public` folder if the site only has one language or within each language subfolder. When you build the site with `hugo server`, hugo generates it internally and of course it don't show up in the filesystem </p>
-</span>
-<p><span><h3>
-<a href="/credits/" >Credits</a></h3></p>
-<p>contributors and packages used by hugo-theme-docdock</p>
-</span>
-<p><span><h3>
-<a href="/showcase/" >Docdock-built Sites</a></h3></p>
-<p>Hugo-built Sites with docdock theme</p>
+<a href="/shortcodes/children/children-1/children-1-1/children-1-1-1/" >page 1-1-1</a></h4></p>
+<p>This is a demo child page</p>
 </span>
 <p><span><h2>
 <a href="/shortcodes/children/children-2/" >page 2</a></h2></p>
