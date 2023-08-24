@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-24T18:51:28+02:00</updated>
+  <updated>2023-08-24T20:15:35+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -141,6 +141,58 @@ There are two ways to create a new repository for this theme:
 Naming and Path
 
 Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Mi Nextcloud interno con Docker</title>
+    <link href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" rel="alternate" type="text/html" title="Mi Nextcloud interno con Docker" />
+    <published>2019-08-08T05:33:00+02:00</published>
+  
+    <updated>2019-08-08T05:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/</id>
+    <content src="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Docker" />
+    
+    <category term="Podman" />
+    
+    <category term="Contenedores" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography.
+
+Headings
+
+H1 - heading
+
+H2 - heading
+
+H3 - heading
+
+H4 - heading
+
+Paragraph
+
+Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilis...
     </summary>
   
 
