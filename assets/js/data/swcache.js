@@ -45,7 +45,7 @@ const allowedDomains = [
     'dzamo.gitlab.io',
 
     
-        'chirpy-img.netlify.app',
+        'dzamo.gitlab.io',
     
 
     'fonts.gstatic.com',
