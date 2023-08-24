@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Docker-Registry en host runtime Docker, sobre Debian 12",
+    "url": "/posts/use-registry-in-debian/",
+    "categories": "Docker, Contenedores",
+    "tags": "Containers",
+    "date": "2023-08-22 05:33:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este ...",
+    "content": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.Tecnologías usadas  Distribución Linux del sistema: Debian 12.  Host anfitrión con container runtime Docker.Instalación de docker-registrysudo apt update &amp;&amp; sudo apt -y upgrade &amp;&amp; sudo apt -y install docker-registryDeshabilitar la sección [auth] (autenticación)En el fichero /etc/docker/registry/config.yml se comenta las siguientes líneas para deshabilitar auth. Su contenido queda como a continuación:# Fichero /etc/docker/registry/config.ymlversion: 0.1log:  fields:    service: registrystorage:  cache:    blobdescriptor: inmemory  filesystem:    rootdirectory: /var/lib/docker-registry  delete:    enabled: truehttp:  addr: :5000  headers:    X-Content-Type-Options: [nosniff]#auth:#  htpasswd:#    realm: basic-realm#    path: /etc/docker/registryhealth:  storagedriver:    enabled: true    interval: 10s    threshold: 3….. SIN TERMINAR"
+  },
+  
+  {
     "title": "Implementación de cloud con contenedores y múltiples entornos (Parte I)",
     "url": "/posts/my-internal-cloud-app-docker/",
     "categories": "Docker, Podman, Contenedores",
