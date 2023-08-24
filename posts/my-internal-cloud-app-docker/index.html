@@ -56,8 +56,8 @@
 <meta property="og:title" content="Mi Nextcloud interno con Docker (Parte I)" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc." />
-<meta property="og:description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc." />
+<meta name="description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores. Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB, independientes entre si) sobre diferentes ambientes, para implementar de este modo múltiples entornos de la misma aplicación." />
+<meta property="og:description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores. Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB, independientes entre si) sobre diferentes ambientes, para implementar de este modo múltiples entornos de la misma aplicación." />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:site_name" content="dZamo docs" />
@@ -70,7 +70,7 @@
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc.","headline":"Mi Nextcloud interno con Docker (Parte I)","image":"https://dzamo.gitlab.io/commons/my.nextcloud.internal.w.docker.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores. Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB, independientes entre si) sobre diferentes ambientes, para implementar de este modo múltiples entornos de la misma aplicación.","headline":"Mi Nextcloud interno con Docker (Parte I)","image":"https://dzamo.gitlab.io/commons/my.nextcloud.internal.w.docker.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -801,7 +801,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="563 words"
+  title="561 words"
 >
   <em>3 min</em> read</span>
 
@@ -813,35 +813,28 @@
 
 <div class="post-content">
   <blockquote class="prompt-tip">
-  <p>En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc.</p>
-</blockquote>
-
-<hr />
-
-<blockquote class="prompt-tip">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">tip</code> type prompt.</p>
+  <p>En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores. Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB, independientes entre si) sobre diferentes ambientes, para implementar de este modo múltiples entornos de la misma aplicación.</p>
 </blockquote>
 
 <blockquote class="prompt-info">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">info</code> type prompt.</p>
-</blockquote>
-
-<blockquote class="prompt-warning">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">warning</code> type prompt.</p>
+  <p>Se utilizo aquí un host anfitrión con motor Docker, pero los contenedores generados (las aplicaciones en concreto) son totalmente compatibles y se podra ejecutar en host anfitrión Podman.</p>
 </blockquote>
 
 <blockquote class="prompt-danger">
   <p>An example showing the <code class="language-plaintext highlighter-rouge">danger</code> type prompt.</p>
 </blockquote>
 
-<blockquote>
+<blockquote class="prompt-info">
   <p>Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose.</p>
-
-  <p>Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
-
 </blockquote>
 
-<p><em>Nota del autor:</em> Los ficheros de variables de entorno (o environment), en este caso de nombre <code class="language-plaintext highlighter-rouge">.dev.env</code> y <code class="language-plaintext highlighter-rouge">.env</code>, no es compartido en este repositorio. Si se muestra la estructura en este documento. (<em>Dichos archivos son básicamente ficheros de definición de variables del estilo interpretado por el shell bash</em>).</p>
+<blockquote class="prompt-info">
+  <p>Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
+</blockquote>
+
+<blockquote class="prompt-warning">
+  <p><em>Nota del autor:</em> Los ficheros de variables de entorno (o environment), en este caso de nombre <code class="language-plaintext highlighter-rouge">.dev.env</code> y <code class="language-plaintext highlighter-rouge">.env</code>, no es compartido en este repositorio. Si se muestra la estructura en este documento. (<em>Dichos archivos son básicamente ficheros de definición de variables del estilo interpretado por el shell bash</em>).</p>
+</blockquote>
 
 <h2 id="repositorio-de-esta-aplicación"><span class="me-2">Repositorio de esta aplicación</span><a href="#repositorio-de-esta-aplicación" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -862,7 +855,7 @@
   <li>Nextcloud (PHP + MariaDB).</li>
 </ul>
 
-<h2 id="contenedor-para-entorno-1"><span class="me-2">Contenedor para entorno 1</span><a href="#contenedor-para-entorno-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="contenedores-entorno-1-aplicación-1"><span class="me-2">Contenedores entorno 1 (aplicación 1)</span><a href="#contenedores-entorno-1-aplicación-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="especificardefinir-docker-composedevyml-entornoambiente-de-desarrollo"><span class="me-2">Especificar/definir docker-compose.dev.yml (entorno/ambiente de desarrollo)</span><a href="#especificardefinir-docker-composedevyml-entornoambiente-de-desarrollo" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
@@ -978,7 +971,7 @@ services:
 docker-compose <span class="nt">--env-file</span> .dev.env <span class="nt">-f</span> docker-compose-dev.yml up <span class="nt">-d</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="contenedor-para-entorno-2"><span class="me-2">Contenedor para entorno 2</span><a href="#contenedor-para-entorno-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="contenedores-entorno-2-aplicación-2"><span class="me-2">Contenedores entorno 2 (aplicación 2)</span><a href="#contenedores-entorno-2-aplicación-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <h3 id="especificardefinir-docker-composeyml-entornoambiente-de-desarrollo"><span class="me-2">Especificar/definir docker-compose.yml (entorno/ambiente de desarrollo)</span><a href="#especificardefinir-docker-composeyml-entornoambiente-de-desarrollo" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
