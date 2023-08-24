@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-24T21:28:41+02:00</updated>
+  <updated>2023-08-24T21:31:16+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -50,14 +50,12 @@
 
 
 
-      Introducción
+      
+  En esta entrada se despliegan 2 aplicaciones de docker. Se despliegan 2 ambientes de la misma aplicación, para implementar 2 entornos. Una de ellas podra usarse para producción y la otra para desarrollo, por ejemplo.
 
+  Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose.
 
-  En esta entrada se despliegan 2 aplicaciones de docker. Ambas son similares, pero se despliegan de modo de disponer de 2 ambientes. Una de ellas podra usarse para un entorno de producción y otro de desarrollo, por ejemplo.
-
-  Para la creación y ejecución de las aplicaciones contenerizadas se utilizá docker compose.
-
-  Además las variables de entorno para la contrucción de las i...
+  Además las variables de entorno para la contrucción de las imágenes han sido se...
     </summary>
   
 
