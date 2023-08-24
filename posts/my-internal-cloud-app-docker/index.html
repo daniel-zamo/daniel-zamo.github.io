@@ -56,8 +56,8 @@
 <meta property="og:title" content="Mi Nextcloud interno con Docker (Parte I)" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="En esta entrada se despliegan 2 aplicaciones docker/podman (contenerizadas). De este modo, se despliega la misma aplicación sobre diferentes ambientes, para implementar, por ejemplo, múltiples entornos (producción, otra para desarrollo, etc). Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose. Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros docker-compose.yml." />
-<meta property="og:description" content="En esta entrada se despliegan 2 aplicaciones docker/podman (contenerizadas). De este modo, se despliega la misma aplicación sobre diferentes ambientes, para implementar, por ejemplo, múltiples entornos (producción, otra para desarrollo, etc). Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose. Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros docker-compose.yml." />
+<meta name="description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc." />
+<meta property="og:description" content="En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc." />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:site_name" content="dZamo docs" />
@@ -70,7 +70,7 @@
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se despliegan 2 aplicaciones docker/podman (contenerizadas). De este modo, se despliega la misma aplicación sobre diferentes ambientes, para implementar, por ejemplo, múltiples entornos (producción, otra para desarrollo, etc). Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose. Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros docker-compose.yml.","headline":"Mi Nextcloud interno con Docker (Parte I)","image":"https://dzamo.gitlab.io/commons/my.nextcloud.internal.w.docker.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc.","headline":"Mi Nextcloud interno con Docker (Parte I)","image":"https://dzamo.gitlab.io/commons/my.nextcloud.internal.w.docker.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -801,9 +801,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="507 words"
+  title="563 words"
 >
-  <em>2 min</em> read</span>
+  <em>3 min</em> read</span>
 
     </div>
 
@@ -812,9 +812,29 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <blockquote>
-  <p>En esta entrada se despliegan 2 aplicaciones docker/podman (contenerizadas). De este modo, se despliega la misma aplicación sobre diferentes ambientes, para implementar, por ejemplo, múltiples entornos (producción, otra para desarrollo, etc).</p>
+  <blockquote class="prompt-tip">
+  <p>En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores Docker (o Podman). Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB) sobre diferentes ambientes, para implementar de este modo múltiples entornos que puedan ser destinado a por ejemplo 1 para producción, y otro para desarrollo, etc.</p>
+</blockquote>
 
+<hr />
+
+<blockquote class="prompt-tip">
+  <p>An example showing the <code class="language-plaintext highlighter-rouge">tip</code> type prompt.</p>
+</blockquote>
+
+<blockquote class="prompt-info">
+  <p>An example showing the <code class="language-plaintext highlighter-rouge">info</code> type prompt.</p>
+</blockquote>
+
+<blockquote class="prompt-warning">
+  <p>An example showing the <code class="language-plaintext highlighter-rouge">warning</code> type prompt.</p>
+</blockquote>
+
+<blockquote class="prompt-danger">
+  <p>An example showing the <code class="language-plaintext highlighter-rouge">danger</code> type prompt.</p>
+</blockquote>
+
+<blockquote>
   <p>Para la creación y ejecución de las aplicaciones contenerizadas, se utilizá docker compose.</p>
 
   <p>Además las variables de entorno para la construcción de las imágenes han sido separadas de los propios ficheros <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
