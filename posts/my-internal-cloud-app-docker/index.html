@@ -35,49 +35,31 @@
   
 
   
-    
-
-    
-      
-      
-
-      
-        <!-- it's a cross-origin URL -->
-        
-      
-
-      
-    
-  
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Mi Nextcloud interno con Docker" />
-<meta name="author" content="Cotes Chung" />
+<meta property="og:title" content="Mi Nextcloud interno con Docker (Parte I)" />
+<meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography." />
-<meta property="og:description" content="This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography." />
+<meta name="description" content="Introducción" />
+<meta property="og:description" content="Introducción" />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
 <meta property="og:site_name" content="dZamo docs" />
-<meta property="og:image" content="https://dzamo.gitlab.io/commons/devices-mockup.png" />
-<meta property="og:image:alt" content="Responsive rendering of Chirpy theme on multiple devices." />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-08-08T05:33:00+02:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://dzamo.gitlab.io/commons/devices-mockup.png" />
-<meta name="twitter:image:alt" content="Responsive rendering of Chirpy theme on multiple devices." />
-<meta property="twitter:title" content="Mi Nextcloud interno con Docker" />
+<meta property="article:published_time" content="2023-08-22T05:33:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Mi Nextcloud interno con Docker (Parte I)" />
 <meta name="twitter:site" content="@daniel_zamo" />
-<meta name="twitter:creator" content="@cotes2020" />
+<meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Cotes Chung","url":"https://github.com/cotes2020/"},"dateModified":"2019-08-08T05:33:00+02:00","datePublished":"2019-08-08T05:33:00+02:00","description":"This post is to show Markdown syntax rendering on Chirpy, you can also use it as an example of writing. Now, let’s start looking at text and typography.","headline":"Mi Nextcloud interno con Docker","image":{"lqip":"data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA","alt":"Responsive rendering of Chirpy theme on multiple devices.","url":"https://dzamo.gitlab.io/commons/devices-mockup.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"Introducción","headline":"Mi Nextcloud interno con Docker (Parte I)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"},"url":"https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Mi Nextcloud interno con Docker | dZamo docs
+  <title>Mi Nextcloud interno con Docker (Parte I) | dZamo docs
   </title>
 
   <!--
@@ -337,7 +319,7 @@
         
           
             
-              <span>Mi Nextcloud interno con Docker</span>
+              <span>Mi Nextcloud interno con Docker (Parte I)</span>
             
 
           
@@ -415,685 +397,6 @@
 
 <!-- images -->
 
-
-
-  
-  
-
-  <!-- CDN URL -->
-  
-
-  <!-- Add image path -->
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-
-  
 
 
 
@@ -1238,78 +541,6 @@
       
 
     
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
 
     
 
@@ -1326,126 +557,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
       
 
       
@@ -1493,7 +604,7 @@
 
 
 
-<h1 data-toc-skip>Mi Nextcloud interno con Docker</h1>
+<h1 data-toc-skip>Mi Nextcloud interno con Docker (Parte I)</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -1510,13 +621,13 @@
 
 <em
   class=""
-  data-ts="1565235180"
+  data-ts="1692675180"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Aug  8, 2019
+  Aug 22, 2023
 </em>
 
     </span>
@@ -1524,15 +635,6 @@
     <!-- lastmod date -->
     
 
-  
-    
-    
-    
-
-    
-
-    <div class="mt-3 mb-3">
-      <a href="https://dzamo.gitlab.io/commons/devices-mockup.png" class="popup img-link preview-img"><img data-src="https://dzamo.gitlab.io/commons/devices-mockup.png"  alt="Responsive rendering of Chirpy theme on multiple devices." width="1200" height="630" data-lqip="true" src="data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA" class="lazyload" data-proofer-ignore></a><figcaption class="text-center pt-2 pb-2">Responsive rendering of Chirpy theme on multiple devices.</figcaption></div>
   
 
   <div class="d-flex justify-content-between">
@@ -1545,7 +647,7 @@
       <em>
       
         
-          <a href="https://github.com/cotes2020/">Cotes Chung</a>
+          <a href="https://gitlab.com/dzamo/">Daniel Oscar Zamo</a>
           
         
       
@@ -1574,9 +676,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="610 words"
+  title="515 words"
 >
-  <em>3 min</em> read</span>
+  <em>2 min</em> read</span>
 
     </div>
 
@@ -1585,147 +687,41 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <p>This post is to show Markdown syntax rendering on <a href="https://github.com/cotes2020/jekyll-theme-chirpy/fork"><strong>Chirpy</strong></a>, you can also use it as an example of writing. Now, let’s start looking at text and typography.</p>
-
-<h2 id="headings"><span class="me-2">Headings</span><a href="#headings" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<h1 class="mt-5">H1 - heading</h1>
-
-<h2 data-toc-skip="">H2 - heading</h2>
-
-<h3 data-toc-skip="">H3 - heading</h3>
-
-<h4>H4 - heading</h4>
-
-<h2 id="paragraph"><span class="me-2">Paragraph</span><a href="#paragraph" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilisis ac. Phasellus semper dui non purus ultrices sodales. Aliquam ante lorem, ornare a feugiat ac, finibus nec mauris. Vivamus ut tristique nisi. Sed vel leo vulputate, efficitur risus non, posuere mi. Nullam tincidunt bibendum rutrum. Proin commodo ornare sapien. Vivamus interdum diam sed sapien blandit, sit amet aliquam risus mattis. Nullam arcu turpis, mollis quis laoreet at, placerat id nibh. Suspendisse venenatis eros eros.</p>
-
-<h2 id="lists"><span class="me-2">Lists</span><a href="#lists" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<h3 id="ordered-list"><span class="me-2">Ordered list</span><a href="#ordered-list" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<ol>
-  <li>Firstly</li>
-  <li>Secondly</li>
-  <li>Thirdly</li>
-</ol>
-
-<h3 id="unordered-list"><span class="me-2">Unordered list</span><a href="#unordered-list" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<ul>
-  <li>Chapter
-    <ul>
-      <li>Section
-        <ul>
-          <li>Paragraph</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="todo-list"><span class="me-2">ToDo list</span><a href="#todo-list" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<ul class="task-list">
-  <li class="task-list-item"><i class="far fa-circle fa-fw"></i>Job
-    <ul class="task-list">
-      <li class="task-list-item"><i class="fas fa-check-circle fa-fw checked"></i>Step 1</li>
-      <li class="task-list-item"><i class="fas fa-check-circle fa-fw checked"></i>Step 2</li>
-      <li class="task-list-item"><i class="far fa-circle fa-fw"></i>Step 3</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="description-list"><span class="me-2">Description list</span><a href="#description-list" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<dl>
-  <dt>Sun</dt>
-  <dd>the star around which the earth orbits</dd>
-  <dt>Moon</dt>
-  <dd>the natural satellite of the earth, visible by reflected light from the sun</dd>
-</dl>
-
-<h2 id="block-quote"><span class="me-2">Block Quote</span><a href="#block-quote" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+  <h2 id="introducción"><span class="me-2">Introducción</span><a href="#introducción" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <blockquote>
-  <p>This line shows the <em>block quote</em>.</p>
+  <p>En esta entrada se despliegan 2 aplicaciones de docker. Ambas son similares, pero se despliegan de modo de disponer de 2 ambientes. Una de ellas podra usarse para un entorno de producción y otro de desarrollo, por ejemplo.</p>
+
+  <p>Para la creación y ejecución de las aplicaciones contenerizadas se utilizá docker compose.</p>
+
+  <p>Además las variables de entorno para la contrucción de las imágenes han sido separadas de los propios ficheros <code class="language-plaintext highlighter-rouge">docker-compose.yml</code>.</p>
+
 </blockquote>
 
-<h2 id="prompts"><span class="me-2">Prompts</span><a href="#prompts" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<p><em>Nota del autor:</em> Los ficheros de variables de entorno (o environment), en este caso de nombre <code class="language-plaintext highlighter-rouge">.dev.env</code> y <code class="language-plaintext highlighter-rouge">.env</code>, no es compartido en este repositorio. Si se muestra la estructura en este documento. (<em>Dichos archivos son básicamente ficheros de definición de variables del estilo interpretado por el shell bash</em>).</p>
 
-<blockquote class="prompt-tip">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">tip</code> type prompt.</p>
-</blockquote>
+<h2 id="repositorio-de-esta-aplicación"><span class="me-2">Repositorio de esta aplicación</span><a href="#repositorio-de-esta-aplicación" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<blockquote class="prompt-info">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">info</code> type prompt.</p>
-</blockquote>
+<p>En este <a href="https://gitlab.com/dzamo/my-docker-applications/-/tree/main/nextcloud-srv101/003.nextcloud-ver-stable?ref_type=heads">URL</a> se comparte los ficheros de esta aplicación implementada.</p>
 
-<blockquote class="prompt-warning">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">warning</code> type prompt.</p>
-</blockquote>
+<h2 id="consideraciones-cumplidas"><span class="me-2">Consideraciones cumplidas</span><a href="#consideraciones-cumplidas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<blockquote class="prompt-danger">
-  <p>An example showing the <code class="language-plaintext highlighter-rouge">danger</code> type prompt.</p>
-</blockquote>
+<ul>
+  <li>Para este despliegue se da por supuesto que se tiene un host anfitrión motor de Docker (o Podman) disponible.</li>
+  <li>Se utilizarán volumenes anónimos.</li>
+  <li>Cada una de las funcionalidades básicas necesarias (http y base de datos) son implementadas sobre contenedores independientes.</li>
+</ul>
 
-<h2 id="tables"><span class="me-2">Tables</span><a href="#tables" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="tecnologías-usadas"><span class="me-2">Tecnologías usadas</span><a href="#tecnologías-usadas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div class="table-wrapper"><table>
-  <thead>
-    <tr>
-      <th style="text-align: left">Company</th>
-      <th style="text-align: left">Contact</th>
-      <th style="text-align: right">Country</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: left">Alfreds Futterkiste</td>
-      <td style="text-align: left">Maria Anders</td>
-      <td style="text-align: right">Germany</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Island Trading</td>
-      <td style="text-align: left">Helen Bennett</td>
-      <td style="text-align: right">UK</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Magazzini Alimentari Riuniti</td>
-      <td style="text-align: left">Giovanni Rovelli</td>
-      <td style="text-align: right">Italy</td>
-    </tr>
-  </tbody>
-</table></div>
+<ul>
+  <li>http: apache.</li>
+  <li>Nextcloud (PHP + MariaDB).</li>
+</ul>
 
-<h2 id="links"><span class="me-2">Links</span><a href="#links" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="contenedor-para-entorno-1"><span class="me-2">Contenedor para entorno 1</span><a href="#contenedor-para-entorno-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a></p>
-
-<h2 id="footnote"><span class="me-2">Footnote</span><a href="#footnote" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>Click the hook will locate the footnote<sup id="fnref:footnote" role="doc-noteref"><a href="#fn:footnote" class="footnote" rel="footnote">1</a></sup>, and here is another footnote<sup id="fnref:fn-nth-2" role="doc-noteref"><a href="#fn:fn-nth-2" class="footnote" rel="footnote">2</a></sup>.</p>
-
-<h2 id="inline-code"><span class="me-2">Inline code</span><a href="#inline-code" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>This is an example of <code class="language-plaintext highlighter-rouge">Inline Code</code>.</p>
-
-<h2 id="filepath"><span class="me-2">Filepath</span><a href="#filepath" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>Here is the <code class="language-plaintext filepath highlighter-rouge">/path/to/the/file.extend</code>.</p>
-
-<h2 id="code-blocks"><span class="me-2">Code blocks</span><a href="#code-blocks" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<h3 id="common"><span class="me-2">Common</span><a href="#common" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="code-header">
-        <span data-label-text="Plaintext"><i class="fas fa-code fa-fw small"></i></span>
-      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre>This is a common code snippet, without syntax highlight and line number.
-</pre></td></tr></tbody></table></code></div></div>
-
-<h3 id="specific-language"><span class="me-2">Specific Language</span><a href="#specific-language" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="especificardefinir-docker-composedevyml-entornoambiente-de-desarrollo"><span class="me-2">Especificar/definir docker-compose.dev.yml (entorno/ambiente de desarrollo)</span><a href="#especificardefinir-docker-composedevyml-entornoambiente-de-desarrollo" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
@@ -1733,87 +729,227 @@
 2
 3
 4
-</pre></td><td class="rouge-code"><pre><span class="k">if</span> <span class="o">[</span> <span class="nv">$?</span> <span class="nt">-ne</span> 0 <span class="o">]</span><span class="p">;</span> <span class="k">then
-  </span><span class="nb">echo</span> <span class="s2">"The command was not successful."</span><span class="p">;</span>
-  <span class="c">#do the needful / exit</span>
-<span class="k">fi</span><span class="p">;</span>
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="rouge-code"><pre><span class="c"># Fichero 'docker-compose.dev.yml'</span>
+
+version <span class="s1">'3'</span>
+volumes:
+  dev_nextcloud:
+  dev_db:
+
+services:
+  dev_db:
+    image: mariadb:10.6
+    restart: always
+    <span class="nb">command</span>: <span class="nt">--transaction-isolation</span><span class="o">=</span>READ-COMMITTED <span class="nt">--log-bin</span><span class="o">=</span>binlog <span class="nt">--binlog-format</span><span class="o">=</span>ROW
+    volumes:
+      <span class="c"># En este caso uso volumenes anónimo, que</span>
+      <span class="c">### se encontrará en este mismo directorio</span>
+      - ./dev_db:/var/lib/mysql
+    environment:
+      - <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_DATABASE</span><span class="k">}</span>
+      - <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_USER</span><span class="k">}</span>
+
+  dev_app:
+    image: nextcloud
+    restart: always
+    ports:
+      - <span class="k">${</span><span class="nv">PUBLISH_APP</span><span class="k">}</span>:80
+    links:
+      - dev_db
+    volumes:
+      <span class="c"># En este caso uso volumenes anónimo, que</span>
+      <span class="c">### se encontrará en este mismo directorio</span>
+     - ./dev_nextcloud:/var/www/html
+    environment:
+      - <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_DATABASE</span><span class="k">}</span>
+      - <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_USER</span><span class="k">}</span>
+      - <span class="nv">MYSQL_HOST</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_HOST</span><span class="k">}</span>
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="specific-filename"><span class="me-2">Specific filename</span><a href="#specific-filename" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="fichero-devenv"><span class="me-2">Fichero .dev.env</span><a href="#fichero-devenv" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<div file="_sass/jekyll-theme-chirpy.scss" class="language-sass highlighter-rouge"><div class="code-header">
-        <span data-label-text="_sass/jekyll-theme-chirpy.scss"><i class="far fa-file-code fa-fw"></i></span>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
 3
-</pre></td><td class="rouge-code"><pre><span class="k">@import</span>
-  <span class="s2">"colors/light-typography"</span><span class="o">,</span>
-  <span class="s2">"colors/dark-typography"</span><span class="o">;</span>
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c"># Fichero '.dev.env'</span>
+
+<span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>123
+<span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>123
+<span class="nv">MYSQL_DATABASE</span><span class="o">=</span>my_db
+<span class="nv">MYSQL_USER</span><span class="o">=</span>usr_dev
+<span class="nv">MYSQL_HOST</span><span class="o">=</span>db
+<span class="nv">PUBLISH_APP</span><span class="o">=</span>8089
 </pre></td></tr></tbody></table></code></div></div>
 
-<h2 id="mathematics"><span class="me-2">Mathematics</span><a href="#mathematics" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<h2 id="crearejecutar-la-aplicación-contenerizada"><span class="me-2">Crear/ejecutar la aplicación contenerizada</span><a href="#crearejecutar-la-aplicación-contenerizada" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>The mathematics powered by <a href="https://www.mathjax.org/"><strong>MathJax</strong></a>:</p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c"># Comando desde CLI</span>
+docker-compose <span class="nt">--env-file</span> .dev.env <span class="nt">-f</span> docker-compose-dev.yml up <span class="nt">-d</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-\[\sum_{n=1}^\infty 1/n^2 = \frac{\pi^2}{6}\]
+<h2 id="contenedor-para-entorno-2"><span class="me-2">Contenedor para entorno 2</span><a href="#contenedor-para-entorno-2" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p>When $a \ne 0$, there are two solutions to $ax^2 + bx + c = 0$ and they are</p>
+<h3 id="especificardefinir-docker-composeyml-entornoambiente-de-desarrollo"><span class="me-2">Especificar/definir docker-compose.yml (entorno/ambiente de desarrollo)</span><a href="#especificardefinir-docker-composeyml-entornoambiente-de-desarrollo" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
 
-\[x = {-b \pm \sqrt{b^2-4ac} \over 2a}\]
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+</pre></td><td class="rouge-code"><pre><span class="c"># Fichero 'docker-compose.yml'</span>
 
-<h2 id="mermaid-svg"><span class="me-2">Mermaid SVG</span><a href="#mermaid-svg" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+version <span class="s1">'3'</span>
+volumes:
+  nextcloud:
+  db:
 
-<pre><code class="language-mermaid"> gantt
-  title  Adding GANTT diagram functionality to mermaid
-  apple :a, 2017-07-20, 1w
-  banana :crit, b, 2017-07-23, 1d
-  cherry :active, c, after b a, 1d
-</code></pre>
+services:
+  db:
+    image: mariadb:10.6
+    restart: always
+    <span class="nb">command</span>: <span class="nt">--transaction-isolation</span><span class="o">=</span>READ-COMMITTED <span class="nt">--log-bin</span><span class="o">=</span>binlog <span class="nt">--binlog-format</span><span class="o">=</span>ROW
+    volumes:
+      <span class="c"># En este caso uso volumenes anónimo, que</span>
+      <span class="c">### se encontrará en este mismo directorio</span>
+      - ./db:/var/lib/mysql
+    environment:
+      - <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_ROOT_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_DATABASE</span><span class="k">}</span>
+      - <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_USER</span><span class="k">}</span>
 
-<h2 id="images"><span class="me-2">Images</span><a href="#images" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+  app:
+    image: nextcloud
+    restart: always
+    ports:
+      - <span class="k">${</span><span class="nv">PUBLISH_APP</span><span class="k">}</span>:80
+    links:
+      - db
+    volumes:
+      <span class="c"># En este caso uso volumenes anónimo, que</span>
+      <span class="c">### se encontrará en este mismo directorio</span>
+     - ./nextcloud:/var/www/html
+    environment:
+      - <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_PASSWORD</span><span class="k">}</span>
+      - <span class="nv">MYSQL_DATABASE</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_DATABASE</span><span class="k">}</span>
+      - <span class="nv">MYSQL_USER</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_USER</span><span class="k">}</span>
+      - <span class="nv">MYSQL_HOST</span><span class="o">=</span><span class="k">${</span><span class="nv">MYSQL_HOST</span><span class="k">}</span>
+</pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="default-with-caption"><span class="me-2">Default (with caption)</span><a href="#default-with-caption" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h2 id="fichero-env"><span class="me-2">Fichero .env</span><a href="#fichero-env" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<p><a href="https://dzamo.gitlab.io/posts/20190808/mockup.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 972 589'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/mockup.png" alt="Desktop View" width="972" height="589" class="lazyload" data-proofer-ignore></a>
-<em>Full screen width and center alignment</em></p>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="rouge-code"><pre><span class="c"># Fichero '.env'</span>
 
-<h3 id="left-aligned"><span class="me-2">Left aligned</span><a href="#left-aligned" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>123
+<span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>123
+<span class="nv">MYSQL_DATABASE</span><span class="o">=</span>db
+<span class="nv">MYSQL_USER</span><span class="o">=</span>usr
+<span class="nv">MYSQL_HOST</span><span class="o">=</span>db
+<span class="nv">PUBLISH_APP</span><span class="o">=</span>8084
+</pre></td></tr></tbody></table></code></div></div>
 
-<p><a href="https://dzamo.gitlab.io/posts/20190808/mockup.png" class="popup img-link w-75 normal shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 972 589'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/mockup.png" alt="Desktop View" width="972" height="589"  class="lazyload" data-proofer-ignore></a></p>
+<h2 id="crearejecutar-la-aplicación-contenerizada-1"><span class="me-2">Crear/ejecutar la aplicación contenerizada</span><a href="#crearejecutar-la-aplicación-contenerizada-1" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
-<h3 id="float-to-left"><span class="me-2">Float to left</span><a href="#float-to-left" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p><a href="https://dzamo.gitlab.io/posts/20190808/mockup.png" class="popup img-link w-50 left shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 972 589'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/mockup.png" alt="Desktop View" width="972" height="589"  class="lazyload" data-proofer-ignore></a>
-Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecenas pharetra, sem sit amet interdum posuere, tellus lacus eleifend magna, ac lobortis felis ipsum id sapien. Proin ornare rutrum metus, ac convallis diam volutpat sit amet. Phasellus volutpat, elit sit amet tincidunt mollis, felis mi scelerisque mauris, ut facilisis leo magna accumsan sapien. In rutrum vehicula nisl eget tempor. Nullam maximus ullamcorper libero non maximus. Integer ultricies velit id convallis varius. Praesent eu nisl eu urna finibus ultrices id nec ex. Mauris ac mattis quam. Fusce aliquam est nec sapien bibendum, vitae malesuada ligula condimentum.</p>
-
-<h3 id="float-to-right"><span class="me-2">Float to right</span><a href="#float-to-right" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p><a href="https://dzamo.gitlab.io/posts/20190808/mockup.png" class="popup img-link w-50 right shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 972 589'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/mockup.png" alt="Desktop View" width="972" height="589"  class="lazyload" data-proofer-ignore></a>
-Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecenas pharetra, sem sit amet interdum posuere, tellus lacus eleifend magna, ac lobortis felis ipsum id sapien. Proin ornare rutrum metus, ac convallis diam volutpat sit amet. Phasellus volutpat, elit sit amet tincidunt mollis, felis mi scelerisque mauris, ut facilisis leo magna accumsan sapien. In rutrum vehicula nisl eget tempor. Nullam maximus ullamcorper libero non maximus. Integer ultricies velit id convallis varius. Praesent eu nisl eu urna finibus ultrices id nec ex. Mauris ac mattis quam. Fusce aliquam est nec sapien bibendum, vitae malesuada ligula condimentum.</p>
-
-<h3 id="darklight-mode--shadow"><span class="me-2">Dark/Light mode &amp; Shadow</span><a href="#darklight-mode--shadow" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
-
-<p>The image below will toggle dark/light mode based on theme preference, notice it has shadows.</p>
-
-<p><a href="https://dzamo.gitlab.io/posts/20190808/devtools-light.png" class="popup img-link light w-75 shadow rounded-10 shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1212 668'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/devtools-light.png" alt="light mode only"  width="1212" height="668" class="lazyload" data-proofer-ignore></a>
-<a href="https://dzamo.gitlab.io/posts/20190808/devtools-dark.png" class="popup img-link dark w-75 shadow rounded-10 shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1212 668'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/20190808/devtools-dark.png" alt="dark mode only"  width="1212" height="668" class="lazyload" data-proofer-ignore></a></p>
-
-<h2 id="video"><span class="me-2">Video</span><a href="#video" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<iframe class="embed-video youtube lazyload" src="https://www.youtube.com/embed/Balreaj8Yqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
-
-<h2 id="reverse-footnote"><span class="me-2">Reverse Footnote</span><a href="#reverse-footnote" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:footnote" role="doc-endnote">
-      <p>The footnote source <a href="#fnref:footnote" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-    <li id="fn:fn-nth-2" role="doc-endnote">
-      <p>The 2nd footnote source <a href="#fnref:fn-nth-2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="c"># Comando desde CLI</span>
+docker-compose <span class="nt">--env-file</span> .env up <span class="nt">-d</span>
+</pre></td></tr></tbody></table></code></div></div>
 
 </div>
 
@@ -1870,7 +1006,7 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Mi%20Nextcloud%20interno%20con%20Docker%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F"
+        href="https://twitter.com/intent/tweet?text=Mi%20Nextcloud%20interno%20con%20Docker%20(Parte%20I)%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1883,7 +1019,7 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Mi%20Nextcloud%20interno%20con%20Docker%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Mi%20Nextcloud%20interno%20con%20Docker%20(Parte%20I)%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -1896,7 +1032,7 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F&text=Mi%20Nextcloud%20interno%20con%20Docker%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fmy-internal-cloud-app-docker%2F&text=Mi%20Nextcloud%20interno%20con%20Docker%20(Parte%20I)%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -2155,43 +1291,43 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -2213,6 +1349,9 @@ Praesent maximus aliquam sapien. Sed vel neque in dolor pulvinar auctor. Maecena
 
 
 
+  
+    
+    
   
     
     
@@ -2391,22 +1530,21 @@ Naming and...
 <div class="post-navigation d-flex justify-content-between">
   
     <a
-      href="/posts/text-and-typography/"
+      href="/posts/customize-the-favicon/"
       class="btn btn-outline-primary"
       prompt="Older"
     >
-      <p>Text and Typography</p>
+      <p>Customize the Favicon</p>
     </a>
   
 
   
-    <a
-      href="/posts/write-a-new-post/"
-      class="btn btn-outline-primary"
+    <div
+      class="btn btn-outline-primary disabled"
       prompt="Newer"
     >
-      <p>Writing a New Post</p>
-    </a>
+      <p>-</p>
+    </div>
   
 </div>
 
