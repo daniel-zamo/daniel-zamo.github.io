@@ -1,7 +1,7 @@
 [
   
   {
-    "title": "Mi Nextcloud interno con Docker (Parte I)",
+    "title": "Implementación de cloud con Docker y/o Podman (Parte I)",
     "url": "/posts/my-internal-cloud-app-docker/",
     "categories": "Docker, Podman, Contenedores",
     "tags": "Containers",
