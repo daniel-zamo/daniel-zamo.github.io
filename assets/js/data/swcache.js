@@ -42,7 +42,7 @@ const resource = [
 const allowedDomains = [
     
 
-    'localhost:4000',
+    'dzamo.gitlab.io',
 
     
         'dzamo.gitlab.io',
