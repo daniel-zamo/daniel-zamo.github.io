@@ -1,0 +1,252 @@
+
+
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>https://dzamo.gitlab.io/</id>
+  <title>dZamo docs</title>
+  <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
+  <updated>2023-08-26T01:36:13+02:00</updated>
+  <author>
+    <name>Daniel Oscar Zamo</name>
+    <uri>https://dzamo.gitlab.io/</uri>
+  </author>
+  <link rel="self" type="application/atom+xml" href="https://dzamo.gitlab.io/feed.xml"/>
+  <link rel="alternate" type="text/html" hreflang="en"
+    href="https://dzamo.gitlab.io/"/>
+  <generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator>
+  <rights> © 2023 Daniel Oscar Zamo </rights>
+  <icon>/assets/img/favicons/favicon.ico</icon>
+  <logo>/assets/img/favicons/favicon-96x96.png</logo>
+
+
+  
+  <entry>
+    <title>USB Ventoy multi boot - desde Desktop Linux</title>
+    <link href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" rel="alternate" type="text/html" title="USB Ventoy multi boot - desde Desktop Linux" />
+    <published>2023-08-23T05:33:00+02:00</published>
+  
+    <updated>2023-08-26T01:25:07+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/</id>
+    <content src="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Hardware" />
+    
+    <category term="support IT" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.
+
+
+Dependencias cumplidas
+
+
+  Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.
+
+
+Tecnologías usadas
+
+
+  Distribución Linux del sistema: Fedora 38, con KDE...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Docker-Registry sobre Debian 12 (sin autenticación)</title>
+    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
+    <published>2023-08-22T05:33:00+02:00</published>
+  
+    <updated>2023-08-26T01:21:23+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/use-registry-in-debian/</id>
+    <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Docker" />
+    
+    <category term="Contenedores" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.
+
+
+Consideraciones cumplidas
+
+
+  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.
+
+
+Tecnologías usadas
+
+
+  ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Implementación de cloud con contenedores y múltiples entornos (Parte I)</title>
+    <link href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" rel="alternate" type="text/html" title="Implementación de cloud con contenedores y múltiples entornos (Parte I)" />
+    <published>2023-08-22T05:33:00+02:00</published>
+  
+    <updated>2023-08-22T05:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/</id>
+    <content src="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Docker" />
+    
+    <category term="Podman" />
+    
+    <category term="Contenedores" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se despliegan 2 entornos (ambientes) de la suite Nextcloud basada en contenedores. Se crea y ejecutan los contenedores (4 en total, 2 x Nextcloud + 2 x MariaDB, independientes entre si) sobre diferentes ambientes, para implementar de este modo múltiples entornos de la misma aplicación.
+
+
+
+  Se utilizo aquí un host anfitrión con motor Docker, pero los contenedores generados (l...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Customize the Favicon</title>
+    <link href="https://dzamo.gitlab.io/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
+    <published>2019-08-10T18:34:00+02:00</published>
+  
+    <updated>2019-08-10T18:34:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/customize-the-favicon/</id>
+    <content src="https://dzamo.gitlab.io/posts/customize-the-favicon/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Tutorial" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
+
+Generate the favicon
+
+Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Getting Started</title>
+    <link href="https://dzamo.gitlab.io/posts/getting-started/" rel="alternate" type="text/html" title="Getting Started" />
+    <published>2019-08-09T14:55:00+02:00</published>
+  
+    <updated>2019-08-09T14:55:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/getting-started/</id>
+    <content src="https://dzamo.gitlab.io/posts/getting-started/" />
+    <author>
+      <name>cotes</name>
+    </author>
+
+  
+    
+    <category term="Blogging" />
+    
+    <category term="Tutorial" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Prerequisites
+
+Follow the instructions in the Jekyll Docs to complete the installation of the basic environment. Git also needs to be installed.
+
+Installation
+
+Creating a New Site
+
+There are two ways to create a new repository for this theme:
+
+
+  Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
+  GitHub Fork - Convenient for custom devel...
+    </summary>
+  
+
+  </entry>
+
+</feed>
+
+
