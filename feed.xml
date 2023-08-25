@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-25T20:33:15+02:00</updated>
+  <updated>2023-08-25T22:12:02+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,14 +20,71 @@
 
   
   <entry>
+    <title>Systemrescue ver 10 en USB Ventoy</title>
+    <link href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" rel="alternate" type="text/html" title="Systemrescue ver 10 en USB Ventoy" />
+    <published>2023-08-23T05:33:00+02:00</published>
+  
+    <updated>2023-08-23T05:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/</id>
+    <content src="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Hardware" />
+    
+    <category term="support IT" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se agrega la imágen de Systemrescue ver 10, sobre un USB multi boot con Ventoy.
+
+
+Consideraciones cumplidas
+
+
+  Las tareas realizadas aquí han sido realizadas sobre un Desktop Linux basado en Fedora 38.
+
+
+Tecnologías usadas
+
+
+  Distribución Linux del sistema: Fedora 38 -  KDE Plasma.
+
+
+Referencias
+
+A continuación se indican los principales link consultados.
+
+
+  Repositorio of...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Docker-Registry sobre Debian 12 (sin autenticación)</title>
-    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
+    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian-copy/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
     <published>2023-08-22T05:33:00+02:00</published>
   
     <updated>2023-08-22T05:33:00+02:00</updated>
   
-    <id>https://dzamo.gitlab.io/posts/use-registry-in-debian/</id>
-    <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian/" />
+    <id>https://dzamo.gitlab.io/posts/use-registry-in-debian-copy/</id>
+    <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian-copy/" />
     <author>
       <name>dzamo</name>
     </author>
@@ -193,46 +250,6 @@ There are two ways to create a new repository for this theme:
 
   Using the Chirpy Starter - Easy to upgrade, isolates irrelevant project files so you can focus on writing.
   GitHub Fork - Convenient for custom devel...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Writing a New Post</title>
-    <link href="https://dzamo.gitlab.io/posts/write-a-new-post/" rel="alternate" type="text/html" title="Writing a New Post" />
-    <published>2019-08-08T08:10:00+02:00</published>
-  
-    <updated>2019-08-08T08:10:00+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/write-a-new-post/</id>
-    <content src="https://dzamo.gitlab.io/posts/write-a-new-post/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      This tutorial will guide you how to write a post in the Chirpy template, and it’s worth reading even if you’ve used Jekyll before, as many features require specific variables to be set.
-
-Naming and Path
-
-Create a new file named YYYY-MM-DD-TITLE.EXTENSION and put it in the _posts of the root directory. Please note that the EXTENSION must be one of md and markdown. If you want to save time of cre...
     </summary>
   
 
