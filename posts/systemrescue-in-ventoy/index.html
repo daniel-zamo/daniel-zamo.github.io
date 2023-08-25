@@ -35,31 +35,49 @@
   
 
   
+    
+
+    
+      
+      
+
+      
+        <!-- it's a cross-origin URL -->
+        
+      
+
+      
+    
+  
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Systemrescue ver 10 en USB Ventoy" />
+<meta property="og:title" content="USB Ventoy multi boot - desde Desktop Linux" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="En esta entrada se prepara un USB booteable, con la utilidad Ventoy (para usb multi arranque). Se muestra tambien el uso de VentoyPlugson para modificar parámetros, y poder hacer booteable la suite SystemRescue." />
-<meta property="og:description" content="En esta entrada se prepara un USB booteable, con la utilidad Ventoy (para usb multi arranque). Se muestra tambien el uso de VentoyPlugson para modificar parámetros, y poder hacer booteable la suite SystemRescue." />
+<meta name="description" content="En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento." />
+<meta property="og:description" content="En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento." />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
 <meta property="og:site_name" content="dZamo docs" />
+<meta property="og:image" content="https://dzamo.gitlab.io/commons/images/ventoy-booting.png" />
+<meta property="og:image:alt" content="Ventoy USB multi boot." />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-08-23T05:33:00+02:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Systemrescue ver 10 en USB Ventoy" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://dzamo.gitlab.io/commons/images/ventoy-booting.png" />
+<meta name="twitter:image:alt" content="Ventoy USB multi boot." />
+<meta property="twitter:title" content="USB Ventoy multi boot - desde Desktop Linux" />
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-23T05:33:00+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se prepara un USB booteable, con la utilidad Ventoy (para usb multi arranque). Se muestra tambien el uso de VentoyPlugson para modificar parámetros, y poder hacer booteable la suite SystemRescue.","headline":"Systemrescue ver 10 en USB Ventoy","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/"},"url":"https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-23T05:33:00+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.","headline":"USB Ventoy multi boot - desde Desktop Linux","image":{"alt":"Ventoy USB multi boot.","url":"https://dzamo.gitlab.io/commons/images/ventoy-booting.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/"},"url":"https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Systemrescue ver 10 en USB Ventoy | dZamo docs
+  <title>USB Ventoy multi boot - desde Desktop Linux | dZamo docs
   </title>
 
   <!--
@@ -319,7 +337,7 @@
         
           
             
-              <span>Systemrescue ver 10 en USB Ventoy</span>
+              <span>USB Ventoy multi boot - desde Desktop Linux</span>
             
 
           
@@ -412,6 +430,101 @@
     
       
       
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
+        <!-- add SVG placehoder -->
+        
+      
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+      
+    
+
+    <!-- combine -->
+    
+
+  
     
 
     
@@ -822,7 +935,7 @@
 
 
 
-<h1 data-toc-skip>Systemrescue ver 10 en USB Ventoy</h1>
+<h1 data-toc-skip>USB Ventoy multi boot - desde Desktop Linux</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -853,6 +966,15 @@
     <!-- lastmod date -->
     
 
+  
+    
+    
+    
+
+    
+
+    <div class="mt-3 mb-3">
+      <a href="https://dzamo.gitlab.io/commons/images/ventoy-booting.png" class="popup img-link preview-img shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/commons/images/ventoy-booting.png"  alt="Ventoy USB multi boot." width="1200" height="630"  class="lazyload" data-proofer-ignore></a><figcaption class="text-center pt-2 pb-2">Ventoy USB multi boot.</figcaption></div>
   
 
   <div class="d-flex justify-content-between">
@@ -894,7 +1016,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="225 words"
+  title="248 words"
 >
   <em>1 min</em> read</span>
 
@@ -906,7 +1028,7 @@
 
 <div class="post-content">
   <blockquote class="prompt-tip">
-  <p>En esta entrada se prepara un USB booteable, con la utilidad Ventoy (para usb multi arranque). Se muestra tambien el uso de <a href="https://www.ventoy.net/en/plugin_plugson.html">VentoyPlugson</a> para modificar parámetros, y poder hacer booteable la suite SystemRescue.</p>
+  <p>En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.</p>
 </blockquote>
 
 <h2 id="dependencias-cumplidas"><span class="me-2">Dependencias cumplidas</span><a href="#dependencias-cumplidas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -918,13 +1040,8 @@
 <h2 id="tecnologías-usadas"><span class="me-2">Tecnologías usadas</span><a href="#tecnologías-usadas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <ul>
-  <li>Distribución Linux del sistema: Fedora 38 -  KDE Plasma.</li>
-  <li><a href="https://www.ventoy.net/en/index.html">Ventoy</a>, solución para USB booteable y multiple imágenes.
-    <ul>
-      <li><a href="https://www.ventoy.net/en/plugin_plugson.html">VentoyPlugson</a>.</li>
-    </ul>
-  </li>
-  <li><a href="https://www.system-rescue.org/">SystemRescue</a></li>
+  <li>Distribución Linux del sistema: <a href="https://fedoraproject.org/workstation/download/">Fedora 38</a>, con <a href="https://kde.org/plasma-desktop/">KDE Plasma</a></li>
+  <li><a href="https://www.ventoy.net/en/index.html">Ventoy</a>, solución para USB booteable y múltiples imágenes.</li>
 </ul>
 
 <h2 id="instalación-de-ventoy"><span class="me-2">Instalación de Ventoy</span><a href="#instalación-de-ventoy" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -966,6 +1083,8 @@
 <p>Y luego se seleccionan las opciones mostradas en la siguiente captura</p>
 
 <p><a href="https://dzamo.gitlab.io/commons/images/ventoy-secure-boot-partition-style.png" class="popup img-link w-75 shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 481 401'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/commons/images/ventoy-secure-boot-partition-style.png" alt="Ventoy c/secure boot y partition style GPT" width="481" height="401"  class="lazyload" data-proofer-ignore></a></p>
+
+<p>Si todo a ido correcto, ya tenemos nuestro USB Ventoy que soportará múltiples imágenes ISO para por ejemplo instalar sistemas operativos diferentes o kit de herramientas de mantenimiento varias.</p>
 
 <h2 id="referencias"><span class="me-2">Referencias</span><a href="#referencias" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
@@ -1031,7 +1150,7 @@
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Systemrescue%20ver%2010%20en%20USB%20Ventoy%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F"
+        href="https://twitter.com/intent/tweet?text=USB%20Ventoy%20multi%20boot%20-%20desde%20Desktop%20Linux%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1044,7 +1163,7 @@
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Systemrescue%20ver%2010%20en%20USB%20Ventoy%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=USB%20Ventoy%20multi%20boot%20-%20desde%20Desktop%20Linux%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -1057,7 +1176,7 @@
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F&text=Systemrescue%20ver%2010%20en%20USB%20Ventoy%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fsystemrescue-in-ventoy%2F&text=USB%20Ventoy%20multi%20boot%20-%20desde%20Desktop%20Linux%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -1111,6 +1230,21 @@
 
 
 
+
+  <div id="access-lastmod" class="post">
+    <div class="panel-heading">Recently Updated</div>
+    <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
+          <a href="/posts/use-registry-in-debian/">Docker-Registry sobre Debian 12 (sin autenticación)</a>
+        </li>
+      
+    </ul>
+  </div>
+  <!-- #access-lastmod -->
 
 
       <!-- The trending tags list -->
@@ -1479,7 +1613,7 @@
         
         
         <div class="col">
-          <a href="/posts/use-registry-in-debian-copy/" class="card post-preview h-100">
+          <a href="/posts/use-registry-in-debian/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1614,7 +1748,7 @@ Consideraciones cumplidas
 <div class="post-navigation d-flex justify-content-between">
   
     <a
-      href="/posts/use-registry-in-debian-copy/"
+      href="/posts/use-registry-in-debian/"
       class="btn btn-outline-primary"
       prompt="Older"
     >
