@@ -39,7 +39,7 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Docker-Registry en host runtime Docker, sobre Debian 12" />
+<meta property="og:title" content="Docker-Registry sobre Debian 12 (sin autenticación)" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker." />
@@ -50,16 +50,16 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-08-22T05:33:00+02:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Docker-Registry en host runtime Docker, sobre Debian 12" />
+<meta property="twitter:title" content="Docker-Registry sobre Debian 12 (sin autenticación)" />
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.","headline":"Docker-Registry en host runtime Docker, sobre Debian 12","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/use-registry-in-debian/"},"url":"https://dzamo.gitlab.io/posts/use-registry-in-debian/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-22T05:33:00+02:00","datePublished":"2023-08-22T05:33:00+02:00","description":"En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.","headline":"Docker-Registry sobre Debian 12 (sin autenticación)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/use-registry-in-debian/"},"url":"https://dzamo.gitlab.io/posts/use-registry-in-debian/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Docker-Registry en host runtime Docker, sobre Debian 12 | dZamo docs
+  <title>Docker-Registry sobre Debian 12 (sin autenticación) | dZamo docs
   </title>
 
   <!--
@@ -319,7 +319,7 @@
         
           
             
-              <span>Docker-Registry en host runtime Docker, sobre Debian 12</span>
+              <span>Docker-Registry sobre Debian 12 (sin autenticación)</span>
             
 
           
@@ -399,6 +399,110 @@
 
 
 
+  
+  
+
+  <!-- CDN URL -->
+  
+
+  <!-- Add image path -->
+  
+
+  
+    
+      
+      
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+    
+    
+
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+      
+
+      
+      
+      
+
+      
+    
+
+    <!-- take out classes -->
+    
+
+    
+
+    
+
+    
+
+    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
+    
+    
+
+    <!-- add image placeholder -->
+    
+      
+        <!-- add SVG placehoder -->
+        
+      
+    
+
+    <!-- Bypass the HTML-proofer test -->
+    
+
+    
+      <!-- make sure the `<img>` is wrapped by `<a>` -->
+      
+
+      
+        <!-- create the image wrapper -->
+        
+      
+    
+
+    <!-- combine -->
+    
+
+  
+
+  
+
+
 
 <!-- Add header for code snippets -->
 
@@ -421,6 +525,30 @@
       
         
         
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
+      
+
+      
+      
+
+      
+      
+      
+
+      
+
+    
       
 
       
@@ -508,7 +636,7 @@
 
 
 
-<h1 data-toc-skip>Docker-Registry en host runtime Docker, sobre Debian 12</h1>
+<h1 data-toc-skip>Docker-Registry sobre Debian 12 (sin autenticación)</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -580,7 +708,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="178 words"
+  title="266 words"
 >
   <em>1 min</em> read</span>
 
@@ -608,6 +736,17 @@
   <li>Host anfitrión con container runtime <strong><em>Docker</em></strong>.</li>
 </ul>
 
+<h2 id="especificaciones-iniciales"><span class="me-2">Especificaciones iniciales</span><a href="#especificaciones-iniciales" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<ul>
+  <li>Nombre de host:
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">debian12-docker</code></li>
+      <li><code class="language-plaintext highlighter-rouge">mydocker</code></li>
+    </ul>
+  </li>
+</ul>
+
 <h2 id="instalación-de-docker-registry"><span class="me-2">Instalación de docker-registry</span><a href="#instalación-de-docker-registry" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <div class="language-bash highlighter-rouge"><div class="code-header">
@@ -616,7 +755,9 @@
 </pre></td><td class="rouge-code"><pre><span class="nb">sudo </span>apt update <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nt">-y</span> upgrade <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>apt <span class="nt">-y</span> <span class="nb">install </span>docker-registry
 </pre></td></tr></tbody></table></code></div></div>
 
-<h3 id="deshabilitar-la-sección-auth-autenticación"><span class="me-2">Deshabilitar la sección [auth] (autenticación)</span><a href="#deshabilitar-la-sección-auth-autenticación" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+<h3 id="configurar-acceso-http-sin-autenticación"><span class="me-2">Configurar acceso http sin autenticación</span><a href="#configurar-acceso-http-sin-autenticación" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
+
+<p>La siguiente configuración usa conexión HTTP y sin autenticación.</p>
 
 <p>En el fichero <code class="language-plaintext highlighter-rouge">/etc/docker/registry/config.yml</code> se comenta las siguientes líneas para deshabilitar <em>auth</em>. Su contenido queda como a continuación:</p>
 
@@ -647,7 +788,9 @@
 23
 24
 25
+26
 </pre></td><td class="rouge-code"><pre><span class="c"># Fichero /etc/docker/registry/config.yml</span>
+dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">cat</span> /etc/docker/registry/config.yml
 version: 0.1
 log:
   fields:
@@ -674,7 +817,51 @@ health:
     threshold: 3
 </pre></td></tr></tbody></table></code></div></div>
 
-<p>….. SIN TERMINAR</p>
+<p>Reiniciar servicio.</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="rouge-code"><pre>dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">sudo </span>systemctl restart docker-registry
+
+dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">cat</span> /etc/docker/daemon.json 
+<span class="o">{</span>
+  <span class="s2">"insecure-registries"</span>:
+    <span class="o">[</span>
+      <span class="s2">"docker.internal:5000"</span>,
+      <span class="s2">"mydocker:5000"</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+
+dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">sudo </span>systemctl restart docker
+</pre></td></tr></tbody></table></code></div></div>
+
+<h2 id="push-imágen-sobre-el-localhost"><span class="me-2">Push imágen sobre el localhost</span><a href="#push-imágen-sobre-el-localhost" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre>dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">sudo </span>docker pull debian
+dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">sudo </span>docker tag debian mydocker:5000/debian:my-registry
+dzamo@debian12-docker:~<span class="nv">$ </span><span class="nb">sudo </span>docker images
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>En la siguiente captura se muestra una sesión de trabajo realizando las tareas comentadas.</p>
+
+<p><a href="https://dzamo.gitlab.io/posts/images/push-image-in-localhost.png" class="popup img-link  shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 961 454'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/posts/images/push-image-in-localhost.png" alt="Push image in localhost" width="961" height="454" class="lazyload" data-proofer-ignore></a></p>
 
 </div>
 
@@ -730,7 +917,7 @@ health:
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Docker-Registry%20en%20host%20runtime%20Docker,%20sobre%20Debian%2012%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F"
+        href="https://twitter.com/intent/tweet?text=Docker-Registry%20sobre%20Debian%2012%20(sin%20autenticaci%C3%B3n)%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -743,7 +930,7 @@ health:
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Docker-Registry%20en%20host%20runtime%20Docker,%20sobre%20Debian%2012%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Docker-Registry%20sobre%20Debian%2012%20(sin%20autenticaci%C3%B3n)%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -756,7 +943,7 @@ health:
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F&text=Docker-Registry%20en%20host%20runtime%20Docker,%20sobre%20Debian%2012%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fuse-registry-in-debian%2F&text=Docker-Registry%20sobre%20Debian%2012%20(sin%20autenticaci%C3%B3n)%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"

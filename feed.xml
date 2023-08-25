@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-25T01:31:34+02:00</updated>
+  <updated>2023-08-25T20:21:07+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,8 +20,8 @@
 
   
   <entry>
-    <title>Docker-Registry en host runtime Docker, sobre Debian 12</title>
-    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry en host runtime Docker, sobre Debian 12" />
+    <title>Docker-Registry sobre Debian 12 (sin autenticación)</title>
+    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
     <published>2023-08-22T05:33:00+02:00</published>
   
     <updated>2023-08-22T05:33:00+02:00</updated>
