@@ -54,7 +54,7 @@
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-23T05:33:00+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se instala y configura Kubernetes con la solución de sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas.","headline":"Servidor minikube en AlmaLinux 9 (orq. Ansible)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-26T14:26:02+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se instala y configura Kubernetes con la solución de sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas.","headline":"Servidor minikube en AlmaLinux 9 (orq. Ansible)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -515,6 +515,30 @@
 
     <!-- lastmod date -->
     
+    <span>
+      Updated
+      <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class=""
+  data-ts="1693052762"
+  data-df="ll"
+  
+    data-bs-toggle="tooltip" data-bs-placement="bottom"
+  
+>
+  Aug 26, 2023
+</em>
+
+    </span>
+    
 
   
 
@@ -557,7 +581,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="184 words"
+  title="185 words"
 >
   <em>1 min</em> read</span>
 
@@ -579,11 +603,11 @@
 <ul>
   <li>Tipo de hardware: <strong><em>virtual, guest de anfitrión KVM</em></strong></li>
   <li>Nombre de hostname: <strong><em>victus-minikube</em></strong></li>
-  <li>Al menos un IP, con asignación: <strong>**</strong></li>
-  <li>RAM: <strong><em>10 Gb</em></strong></li>
-  <li>HHDD: <strong><em>20 Gb</em></strong></li>
+  <li>Al menos un IP, con asignación fija: <strong><em>192.168.122.39</em></strong></li>
+  <li>RAM: <strong><em>256 Gb</em></strong></li>
+  <li>HHDD: <strong><em>512 Gb</em></strong></li>
   <li>SWAP: <strong><em>0</em></strong> (<strong><em>deshabilitada</em></strong>)</li>
-  <li>Distribución Linux: <strong><em>AlmaLinux 9</em></strong> (Derivada y compatible binariamente a RHEL 9).</li>
+  <li>Distribución Linux: <strong><em>AlmaLinux 9</em></strong> (Derivada y compatible binariamente a <strong><em>RHEL 9</em></strong>).</li>
 </ul>
 
 <h2 id="tecnologías-usadas"><span class="me-2">Tecnologías usadas</span><a href="#tecnologías-usadas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -600,7 +624,7 @@
 
 <p>En este apartado se indica el URL donde se encuentra mas documentación de un proyecto basado en este tipo de despliegue compartido aquí, que se deja ubicado en el dominio de .</p>
 
-<blockquote>
+<blockquote class="prompt-tip">
   <p>Url del repositorio con la especificación (documentación) del proyecto de despliegue:</p>
 </blockquote>
 
@@ -751,6 +775,13 @@
         
         
         <li class="text-truncate lh-lg">
+          <a href="/posts/minikube-in-almalinux9/">Servidor minikube en AlmaLinux 9 (orq. Ansible)</a>
+        </li>
+      
+        
+        
+        
+        <li class="text-truncate lh-lg">
           <a href="/posts/kubernetes-alternatives/">Kubernetes alternativas para instalar en local y/o desarrollo</a>
         </li>
       
@@ -773,13 +804,6 @@
         
         <li class="text-truncate lh-lg">
           <a href="/posts/ventoy-usb-from-linux-desktop/">USB Ventoy multi boot - desde Desktop Linux</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/systemrescue-in-ventoy/">USB Ventoy uso de VentoyPlugson y fix para SystemRescue</a>
         </li>
       
     </ul>
