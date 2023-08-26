@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-26T06:37:12+02:00</updated>
+  <updated>2023-08-26T06:41:58+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -17,6 +17,46 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Kubernetes alternativas para instalar</title>
+    <link href="https://dzamo.gitlab.io/posts/kubernetes-alternatives/" rel="alternate" type="text/html" title="Kubernetes alternativas para instalar" />
+    <published>2023-08-25T18:10:00+02:00</published>
+  
+    <updated>2023-08-26T06:41:54+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/kubernetes-alternatives/</id>
+    <content src="https://dzamo.gitlab.io/posts/kubernetes-alternatives/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Kubernetes" />
+    
+    <category term="K8s" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  Kubernetes es un orquestador de contenedores. Dicha tecnología esta pensada para poner en producción aplicaciones más o menos complejas que se ejecutan sobre contenedores, garantizando su disponibilidad, escalabilidad y actualización sin interrupciones.
+
+
+En un entorno en producción no se instala Kubernetes en un solo equipo (nodo), sino que se crea un clúster de nodos que permita garantizar...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -198,46 +238,6 @@ Tecnologías usadas
 
 
   Se utilizo aquí un host anfitrión con motor Docker, pero los contenedores generados (l...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Customize the Favicon</title>
-    <link href="https://dzamo.gitlab.io/posts/customize-the-favicon/" rel="alternate" type="text/html" title="Customize the Favicon" />
-    <published>2019-08-10T18:34:00+02:00</published>
-  
-    <updated>2019-08-10T18:34:00+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/customize-the-favicon/</id>
-    <content src="https://dzamo.gitlab.io/posts/customize-the-favicon/" />
-    <author>
-      <name>cotes</name>
-    </author>
-
-  
-    
-    <category term="Blogging" />
-    
-    <category term="Tutorial" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      The favicons of Chirpy are placed in the directory assets/img/favicons/. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.
-
-Generate the favicon
-
-Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool Real Favicon Generator and click the button Select your Favicon image ...
     </summary>
   
 
