@@ -42,8 +42,8 @@
 <meta property="og:title" content="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="En esta entrada se instala y configura Kubernetes con la solución de sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador , salvo que se indique expresamente." />
-<meta property="og:description" content="En esta entrada se instala y configura Kubernetes con la solución de sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador , salvo que se indique expresamente." />
+<meta name="description" content="En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente." />
+<meta property="og:description" content="En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente." />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
 <meta property="og:site_name" content="dZamo docs" />
@@ -54,7 +54,7 @@
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-26T14:38:53+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se instala y configura Kubernetes con la solución de sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador , salvo que se indique expresamente.","headline":"Servidor minikube en AlmaLinux 9 (orq. Ansible)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-26T14:38:53+02:00","datePublished":"2023-08-23T05:33:00+02:00","description":"En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.","headline":"Servidor minikube en AlmaLinux 9 (orq. Ansible)","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
@@ -581,7 +581,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="202 words"
+  title="215 words"
 >
   <em>1 min</em> read</span>
 
@@ -593,7 +593,7 @@
 
 <div class="post-content">
   <blockquote class="prompt-info">
-  <p>En esta entrada se instala y configura <a href="https://kubernetes.io" target="_blank">Kubernetes</a> con la solución de  sobre un sistemas basado en una distribución <a href="https://almalinux.org" target="_blank">AlmaLinux</a>. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador , salvo que se indique expresamente.</p>
+  <p>En esta entrada se instala y configura <a href="https://kubernetes.io" target="_blank">Kubernetes</a> con la solución de <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a> sobre un sistemas basado en una distribución <a href="https://almalinux.org" target="_blank">AlmaLinux</a>. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador <a href="https://ansible.com" target="_blank">Ansible</a>, salvo que se indique expresamente.</p>
 </blockquote>
 
 <h2 id="dependencias-cumplidas-especificación-inicial"><span class="me-2">Dependencias cumplidas, especificación inicial</span><a href="#dependencias-cumplidas-especificación-inicial" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -615,9 +615,9 @@
 <p>En este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor</p>
 
 <ul>
-  <li>Solución de  a instalar: .</li>
-  <li>Distribución binariamente compatible a : .</li>
-  <li>Orquestador para tareas de post configuración: .</li>
+  <li>Solución de <a href="https://kubernetes.io" target="_blank">Kubernetes</a> a instalar: <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a>.</li>
+  <li>Distribución binariamente compatible a <a href="https://redhat.com" target="_blank">Red Hat Enterprise Linux (RHEL)</a>: <a href="https://almalinux.org" target="_blank">AlmaLinux</a>.</li>
+  <li>Orquestador para tareas de post configuración: <a href="https://ansible.com" target="_blank">Ansible</a>.</li>
 </ul>
 
 <h2 id="repositorio-de-proyecto-similar"><span class="me-2">Repositorio de proyecto similar</span><a href="#repositorio-de-proyecto-similar" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -625,7 +625,7 @@
 <p>En este apartado se indica el URL donde se encuentra mas documentación de un proyecto basado en este tipo de despliegue compartido aquí, que se deja ubicado en el dominio de .</p>
 
 <blockquote class="prompt-tip">
-  <p>Url del repositorio con la especificación (documentación) del proyecto de despliegue:</p>
+  <p>Url del repositorio con la especificación (documentación) del proyecto de despliegue: <a href="https://gitlab.com/dzamo/kubernetes-host-deployments/-/tree/main/004-almalinux-minikube" target="_blank">Minikube sobre AlmaLinux 9 - orquestación Ansible</a></p>
 </blockquote>
 
 </div>
