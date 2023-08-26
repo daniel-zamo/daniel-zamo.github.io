@@ -35,6 +35,23 @@
   },
   
   {
+    "title": "Servidor minikube en AlmaLinux 9 (orq. Ansible)",
+    "url": "/posts/minikube-in-almalinux9/",
+    "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible",
+    "tags": "kubernetes",
+    "date": "2023-08-24 05:33:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá ...",
+    "content": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.Dependencias cumplidas, especificación inicialEl servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:  Tipo de hardware: virtual, guest de anfitrión KVM  Nombre de hostname: victus-minikube  Al menos un IP, con asignación fija: 192.168.122.39  RAM: 256 Gb  HHDD: 512 Gb  SWAP: 0 (deshabilitada)  Distribución Linux: AlmaLinux 9 (Derivada y compatible binariamente a RHEL 9).Tecnologías usadasEn este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor  Solución de Kubernetes a instalar: Minikube.  Distribución binariamente compatible a Red Hat Enterprise Linux (RHEL): AlmaLinux.  Orquestador para tareas de post configuración: Ansible.Repositorio de proyecto similarEn este apartado se indica el URL donde se encuentra mas documentación de un proyecto basado en este tipo de despliegue compartido aquí, que se deja ubicado en el dominio de .  Url del repositorio con la especificación (documentación) del proyecto de despliegue: Minikube sobre AlmaLinux 9 - orquestación Ansible"
+  },
+  
+  {
     "title": "USB Ventoy multi boot - desde Desktop Linux",
     "url": "/posts/ventoy-usb-from-linux-desktop/",
     "categories": "Hardware, support IT",
@@ -49,23 +66,6 @@
     
     "snippet": "  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.Dependencias ...",
     "content": "  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.Dependencias cumplidas  Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.Tecnologías usadas  Distribución Linux del sistema: Fedora 38, con KDE Plasma  Ventoy, solución para USB booteable y múltiples imágenes.Instalación de VentoyA continuación se muestra la descarga y descomprensión de Ventoy para Linux. Tambien se verifica la letra de la unidad USB donde esta conectado nuestro USB que instalaremos el programa. La secuencia de comandos ejecutados es:[dzamo@victus my-ventoy]$ pwd[dzamo@victus my-ventoy]$ wget https://github.com/ventoy/Ventoy/releases/download/v1.0.95/ventoy-1.0.95-linux.tar.gz[dzamo@victus my-ventoy]$ clear[dzamo@victus my-ventoy]$ ls[dzamo@victus my-ventoy]$ tar xzf ventoy-1.0.95-linux.tar.gz[dzamo@victus my-ventoy]$ cd ventoy-1.0.95La secuencia anterior se muestra en la captura siguiente.Instalando desde la interface gráficaEn este apartado se muestra como generar el USB booteable con Ventoy, desde la interface gráfica mediante el ejecutable VentoyGUI.x86_64. Esto es:[dzamo@victus ventoy-1.0.95]$ ./VentoyGUI.x86_64Y luego se seleccionan las opciones mostradas en la siguiente capturaSi todo a ido correcto, ya tenemos nuestro USB Ventoy que soportará múltiples imágenes ISO para por ejemplo instalar sistemas operativos diferentes o kit de herramientas de mantenimiento varias.Agregando algunas imágenesEn la siguiente captura se muestra como se agregan las imágenes iso a la unidad Ventoy. Todos los ficheros iso solo es colocarlos/copiarlos en el directorio Ventoy de la unidad USB. En la captura se muestra como son agregados los siguientes ficheros:  linux-lite-6.6-rc1-64bit.iso  q4os-5.2-x64.r1.iso  rhel-baseos-9.1-x86_64-dvd.isoEn este caso se usa el gestor de archivos Dolphin pues estamos en un WM KDE Plasma. Se puede ver que solo es copiar los ficheros ISO en la correcta carpeta que el propio Ventoy a creado.Para probar nuestro USB multi boot solo basta con arrancar un equipo y que botee desde el USB.ReferenciasA continuación se indican los principales link consultados.  Repositorio oficial de los ficheros de los desarrolladores de la suite SystemRescue  Success Image Report: System Rescue CD 9.03 x86-64, reporte del fix.  VentoyPlugson."
-  },
-  
-  {
-    "title": "Servidor minikube en AlmaLinux 9 (orq. Ansible)",
-    "url": "/posts/minikube-in-almalinux9/",
-    "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible",
-    "tags": "kubernetes",
-    "date": "2023-08-23 05:33:00 +0200",
-    
-
-
-
-
-
-    
-    "snippet": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá ...",
-    "content": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.Dependencias cumplidas, especificación inicialEl servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:  Tipo de hardware: virtual, guest de anfitrión KVM  Nombre de hostname: victus-minikube  Al menos un IP, con asignación fija: 192.168.122.39  RAM: 256 Gb  HHDD: 512 Gb  SWAP: 0 (deshabilitada)  Distribución Linux: AlmaLinux 9 (Derivada y compatible binariamente a RHEL 9).Tecnologías usadasEn este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor  Solución de Kubernetes a instalar: Minikube.  Distribución binariamente compatible a Red Hat Enterprise Linux (RHEL): AlmaLinux.  Orquestador para tareas de post configuración: Ansible.Repositorio de proyecto similarEn este apartado se indica el URL donde se encuentra mas documentación de un proyecto basado en este tipo de despliegue compartido aquí, que se deja ubicado en el dominio de .  Url del repositorio con la especificación (documentación) del proyecto de despliegue: Minikube sobre AlmaLinux 9 - orquestación Ansible"
   },
   
   {

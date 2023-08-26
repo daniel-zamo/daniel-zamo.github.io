@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-26T18:02:10+02:00</updated>
+  <updated>2023-08-26T18:04:35+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -104,6 +104,54 @@ Dependencias cumplidas
 
   
   <entry>
+    <title>Servidor minikube en AlmaLinux 9 (orq. Ansible)</title>
+    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
+    <published>2023-08-24T05:33:00+02:00</published>
+  
+    <updated>2023-08-26T14:38:53+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
+    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Kubernetes" />
+    
+    <category term="k8s" />
+    
+    <category term="minikube" />
+    
+    <category term="Linux" />
+    
+    <category term="AlmaLinux" />
+    
+    <category term="Ansible" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.
+
+
+Dependencias cumplidas, ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>USB Ventoy multi boot - desde Desktop Linux</title>
     <link href="https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/" rel="alternate" type="text/html" title="USB Ventoy multi boot - desde Desktop Linux" />
     <published>2023-08-23T05:33:00+02:00</published>
@@ -146,54 +194,6 @@ Tecnologías usadas
 
 
   Distribución Linux del sistema: Fedora 38, con KDE...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Servidor minikube en AlmaLinux 9 (orq. Ansible)</title>
-    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
-    <published>2023-08-23T05:33:00+02:00</published>
-  
-    <updated>2023-08-26T14:38:53+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
-    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Kubernetes" />
-    
-    <category term="k8s" />
-    
-    <category term="minikube" />
-    
-    <category term="Linux" />
-    
-    <category term="AlmaLinux" />
-    
-    <category term="Ansible" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.
-
-
-Dependencias cumplidas, ...
     </summary>
   
 
