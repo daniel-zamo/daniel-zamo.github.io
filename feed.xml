@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-26T03:54:53+02:00</updated>
+  <updated>2023-08-26T06:37:12+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -24,7 +24,7 @@
     <link href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" rel="alternate" type="text/html" title="USB Ventoy uso de VentoyPlugson y fix para SystemRescue" />
     <published>2023-08-24T05:33:00+02:00</published>
   
-    <updated>2023-08-26T01:25:07+02:00</updated>
+    <updated>2023-08-26T06:37:09+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/</id>
     <content src="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
@@ -68,7 +68,7 @@ Dependencias cumplidas
     <link href="https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/" rel="alternate" type="text/html" title="USB Ventoy multi boot - desde Desktop Linux" />
     <published>2023-08-23T05:33:00+02:00</published>
   
-    <updated>2023-08-23T05:33:00+02:00</updated>
+    <updated>2023-08-26T06:37:09+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/</id>
     <content src="https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/" />
@@ -117,7 +117,7 @@ Tecnologías usadas
     <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
     <published>2023-08-22T05:33:00+02:00</published>
   
-    <updated>2023-08-26T01:21:23+02:00</updated>
+    <updated>2023-08-26T06:37:09+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/use-registry-in-debian/</id>
     <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian/" />
@@ -166,7 +166,7 @@ Tecnologías usadas
     <link href="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" rel="alternate" type="text/html" title="Implementación de cloud con contenedores y múltiples entornos (Parte I)" />
     <published>2023-08-22T05:33:00+02:00</published>
   
-    <updated>2023-08-22T05:33:00+02:00</updated>
+    <updated>2023-08-26T06:37:09+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/</id>
     <content src="https://dzamo.gitlab.io/posts/my-internal-cloud-app-docker/" />
