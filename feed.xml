@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-26T14:36:57+02:00</updated>
+  <updated>2023-08-26T14:38:57+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -157,7 +157,7 @@ Tecnologías usadas
     <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
     <published>2023-08-23T05:33:00+02:00</published>
   
-    <updated>2023-08-26T14:36:54+02:00</updated>
+    <updated>2023-08-26T14:38:53+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
     <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
@@ -190,12 +190,10 @@ Tecnologías usadas
 
 
       
-  En esta entrada se instala y configura Kubernetes con la solución de  sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas.
+  En esta entrada se instala y configura Kubernetes con la solución de  sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador , salvo que se indique expresamente.
 
 
-Dependencias cumplidas
-
-El servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus ...
+Dependencias cumplidas, especificación ...
     </summary>
   
 
