@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-26T21:26:13+02:00</updated>
+  <updated>2023-08-31T22:29:57+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,11 +20,168 @@
 
   
   <entry>
+    <title>Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)</title>
+    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9-part-II/" rel="alternate" type="text/html" title="Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)" />
+    <published>2023-08-30T06:33:00+02:00</published>
+  
+    <updated>2023-08-30T06:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9-part-II/</id>
+    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9-part-II/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Kubernetes" />
+    
+    <category term="k8s" />
+    
+    <category term="minikube" />
+    
+    <category term="Linux" />
+    
+    <category term="AlmaLinux" />
+    
+    <category term="Ansible" />
+    
+    <category term="RHEL" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      Dependencias cumplidas, especificación inicial
+
+El servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:
+
+
+  Tipo de hardware: virtual, guest de anfitrión KVM
+  Nombre de hostname: victus-minikube
+  Al menos un IP, con asignación fija: 192.168.122.44
+  RAM: 256 Gb
+  HHDD: 512 Gb
+  SWAP: Sin (deshabilit...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Cluster Minikube en AlmaLinux 9 - Introducción</title>
+    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Cluster Minikube en AlmaLinux 9 - Introducción" />
+    <published>2023-08-30T05:33:00+02:00</published>
+  
+    <updated>2023-08-30T05:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
+    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Kubernetes" />
+    
+    <category term="k8s" />
+    
+    <category term="minikube" />
+    
+    <category term="Linux" />
+    
+    <category term="AlmaLinux" />
+    
+    <category term="Ansible" />
+    
+    <category term="RHEL" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux.
+La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento.
+
+
+
+  Con el despliegue de este cluster (como un host single inicialmente) Kubernetes, se dispuso de un entorno de desar...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
+    <title>Docker-Registry sobre Debian 12 (sin autenticación)</title>
+    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
+    <published>2023-08-30T03:33:00+02:00</published>
+  
+    <updated>2023-08-30T03:33:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/use-registry-in-debian/</id>
+    <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Docker" />
+    
+    <category term="Contenedores" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.
+
+
+Consideraciones cumplidas
+
+
+  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.
+
+
+Tecnologías usadas
+
+
+  ...
+    </summary>
+  
+
+  </entry>
+
+  
+  <entry>
     <title>Kubernetes alternativas para instalar en local y/o desarrollo</title>
     <link href="https://dzamo.gitlab.io/posts/kubernetes-alternatives/" rel="alternate" type="text/html" title="Kubernetes alternativas para instalar en local y/o desarrollo" />
     <published>2023-08-24T08:10:00+02:00</published>
   
-    <updated>2023-08-26T21:25:34+02:00</updated>
+    <updated>2023-08-24T08:10:00+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/kubernetes-alternatives/</id>
     <content src="https://dzamo.gitlab.io/posts/kubernetes-alternatives/" />
@@ -64,7 +221,7 @@ En un entorno en producción no se instala Kubernetes en un solo equipo (nodo), 
     <link href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" rel="alternate" type="text/html" title="USB Ventoy uso de VentoyPlugson y fix para SystemRescue" />
     <published>2023-08-24T05:33:00+02:00</published>
   
-    <updated>2023-08-26T06:37:09+02:00</updated>
+    <updated>2023-08-24T05:33:00+02:00</updated>
   
     <id>https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/</id>
     <content src="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
@@ -97,152 +254,6 @@ Dependencias cumplidas
 
   Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.
   También se da por hecho de que se posee un USB con Ventoy boot ya operativo. Si no es así puede consultar e...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Servidor minikube en AlmaLinux 9 (orq. Ansible)</title>
-    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
-    <published>2023-08-24T05:33:00+02:00</published>
-  
-    <updated>2023-08-26T21:25:34+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
-    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Kubernetes" />
-    
-    <category term="k8s" />
-    
-    <category term="minikube" />
-    
-    <category term="Linux" />
-    
-    <category term="AlmaLinux" />
-    
-    <category term="Ansible" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.
-
-
-Dependencias cumplidas, ...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>USB Ventoy multi boot - desde Desktop Linux</title>
-    <link href="https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/" rel="alternate" type="text/html" title="USB Ventoy multi boot - desde Desktop Linux" />
-    <published>2023-08-23T05:33:00+02:00</published>
-  
-    <updated>2023-08-26T06:37:09+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/</id>
-    <content src="https://dzamo.gitlab.io/posts/ventoy-usb-from-linux-desktop/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Hardware" />
-    
-    <category term="support IT" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.
-
-
-Dependencias cumplidas
-
-
-  Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.
-
-
-Tecnologías usadas
-
-
-  Distribución Linux del sistema: Fedora 38, con KDE...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Docker-Registry sobre Debian 12 (sin autenticación)</title>
-    <link href="https://dzamo.gitlab.io/posts/use-registry-in-debian/" rel="alternate" type="text/html" title="Docker-Registry sobre Debian 12 (sin autenticación)" />
-    <published>2023-08-22T05:33:00+02:00</published>
-  
-    <updated>2023-08-26T06:37:09+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/use-registry-in-debian/</id>
-    <content src="https://dzamo.gitlab.io/posts/use-registry-in-debian/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Docker" />
-    
-    <category term="Contenedores" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.
-
-
-Consideraciones cumplidas
-
-
-  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.
-
-
-Tecnologías usadas
-
-
-  ...
     </summary>
   
 

@@ -1,6 +1,57 @@
 [
   
   {
+    "title": "Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)",
+    "url": "/posts/minikube-in-almalinux9-part-II/",
+    "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible, RHEL",
+    "tags": "kubernetes",
+    "date": "2023-08-30 06:33:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "Dependencias cumplidas, especificación inicialEl servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son: ...",
+    "content": "Dependencias cumplidas, especificación inicialEl servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:  Tipo de hardware: virtual, guest de anfitrión KVM  Nombre de hostname: victus-minikube  Al menos un IP, con asignación fija: 192.168.122.44  RAM: 256 Gb  HHDD: 512 Gb  SWAP: Sin (deshabilitada)  Distribución Linux: AlmaLinux 9 (Derivada y compatible binariamente a RHEL 9).Tecnologías usadasEn este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor  Fichero Kickstart –&gt; La reserva y creación del guest virtual, para host anfitrión KVM será especificado sobre un fichero kickstart, para que su creación efectiva pueda ser automatizada vía script basado en shell para CLI Linux y la instalación del propio sistema operativo sea desatendida.  Solución de Kubernetes desplegada: Minikube.  Distribución binariamente compatible a Red Hat Enterprise Linux (RHEL): AlmaLinux.  Orquestador para tareas de post configuración: Ansible. Las tareas de post configuración iniciales, serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.  Tecnología de virtualización KVM.  Comando virsh-install para la reserva y creación del guest virtual para host anfitrión KVM.Repositorio del proyecto  El contenido de todo el código generado para la puesta en funcionamiento del cluster Kubernetes con Minikube, instalado inicialmente como nodo single (1 nodo solo), queda compartido en el Url del repositorio Minikube sobre AlmaLinux 9 - orquestación Ansible.&lt;– Cluster Minikube en AlmaLinux 9 - Introducción"
+  },
+  
+  {
+    "title": "Cluster Minikube en AlmaLinux 9 - Introducción",
+    "url": "/posts/minikube-in-almalinux9/",
+    "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible, RHEL",
+    "tags": "kubernetes",
+    "date": "2023-08-30 05:33:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux.La documentación de esta implementación será presentada en varias...",
+    "content": "  En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux.La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento.  Con el despliegue de este cluster (como un host single inicialmente) Kubernetes, se dispuso de un entorno de desarrollo para aplicaciones contenerizadas, basadas en imágenes Docker y/o Podman.Repositorio del proyecto  El contenido de todo el código generado para la puesta en funcionamiento del cluster basado Minikube, queda compartido en el Url del repositorio Minikube sobre AlmaLinux 9 - orquestación Ansible.Detalle del despliegueLas publicaciones relacionadas a este despliegue, y compartidas aquí, son:  Minikube en AlmaLinux 9 - Especificación (Parte II): En esta entrada se detalla las principales tecnologías utilizadas para el proyecto y una especificación parcial/mínima inicial.  En Minikube en AlmaLinux 9 - virt-install (Parte II): Se detalla y codifica (para CLI shell bash) la reserva y creación del guest (dominio que es como en la tecnología de virtualización KVM llama a las VM (máquinas virtuales)) para host anfitrión KVM.  En Minikube en AlmaLinux 9 - virt-install (Parte III): Tareas de configuración inicial implementadas con orquestador Ansible."
+  },
+  
+  {
+    "title": "Docker-Registry sobre Debian 12 (sin autenticación)",
+    "url": "/posts/use-registry-in-debian/",
+    "categories": "Docker, Contenedores",
+    "tags": "containers",
+    "date": "2023-08-30 03:33:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este ...",
+    "content": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.Tecnologías usadas  Distribución Linux del sistema: Debian 12.  Host anfitrión con container runtime Docker.Especificaciones iniciales  Nombre de host:          debian12-docker      mydocker      Instalación de docker-registrysudo apt update &amp;&amp; sudo apt -y upgrade &amp;&amp; sudo apt -y install docker-registryConfigurar acceso http sin autenticaciónLa siguiente configuración usa conexión HTTP y sin autenticación.En el fichero /etc/docker/registry/config.yml se comenta las siguientes líneas para deshabilitar auth. Su contenido queda como a continuación:# Fichero /etc/docker/registry/config.ymldzamo@debian12-docker:~$ cat /etc/docker/registry/config.ymlversion: 0.1log:  fields:    service: registrystorage:  cache:    blobdescriptor: inmemory  filesystem:    rootdirectory: /var/lib/docker-registry  delete:    enabled: truehttp:  addr: :5000  headers:    X-Content-Type-Options: [nosniff]#auth:#  htpasswd:#    realm: basic-realm#    path: /etc/docker/registryhealth:  storagedriver:    enabled: true    interval: 10s    threshold: 3Reiniciar servicio.dzamo@debian12-docker:~$ sudo systemctl restart docker-registrydzamo@debian12-docker:~$ cat /etc/docker/daemon.json {  \"insecure-registries\":    [      \"docker.internal:5000\",      \"mydocker:5000\"    ]}dzamo@debian12-docker:~$ sudo systemctl restart dockerPush imágen sobre el localhostdzamo@debian12-docker:~$ sudo docker pull debiandzamo@debian12-docker:~$ sudo docker tag debian mydocker:5000/debian:my-registrydzamo@debian12-docker:~$ sudo docker imagesEn la siguiente captura se muestra una sesión de trabajo realizando las tareas comentadas."
+  },
+  
+  {
     "title": "Kubernetes alternativas para instalar en local y/o desarrollo",
     "url": "/posts/kubernetes-alternatives/",
     "categories": "Kubernetes, k8s",
@@ -35,23 +86,6 @@
   },
   
   {
-    "title": "Servidor minikube en AlmaLinux 9 (orq. Ansible)",
-    "url": "/posts/minikube-in-almalinux9/",
-    "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible",
-    "tags": "kubernetes",
-    "date": "2023-08-24 05:33:00 +0200",
-    
-
-
-
-
-
-    
-    "snippet": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá ...",
-    "content": "  En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.Dependencias cumplidas, especificación inicialEl servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:  Tipo de hardware: virtual, guest de anfitrión KVM  Nombre de hostname: victus-minikube  Al menos un IP, con asignación fija: 192.168.122.39  RAM: 256 Gb  HHDD: 512 Gb  SWAP: Sin (deshabilitada)  Distribución Linux: AlmaLinux 9 (Derivada y compatible binariamente a RHEL 9).Tecnologías usadasEn este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor  Solución de Kubernetes a instalar: Minikube.  Distribución binariamente compatible a Red Hat Enterprise Linux (RHEL): AlmaLinux.  Orquestador para tareas de post configuración: Ansible.  Instalación desatendida del sistema operativo basado en ficheros kickstart.  Tecnología de virtualización KVM.Repositorio del proyecto  Url del repositorio con la especificación (documentación) del proyecto desplegado: Minikube sobre AlmaLinux 9 - orquestación Ansible"
-  },
-  
-  {
     "title": "USB Ventoy multi boot - desde Desktop Linux",
     "url": "/posts/ventoy-usb-from-linux-desktop/",
     "categories": "Hardware, support IT",
@@ -66,23 +100,6 @@
     
     "snippet": "  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.Dependencias ...",
     "content": "  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.Dependencias cumplidas  Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.Tecnologías usadas  Distribución Linux del sistema: Fedora 38, con KDE Plasma  Ventoy, solución para USB booteable y múltiples imágenes.Instalación de VentoyA continuación se muestra la descarga y descomprensión de Ventoy para Linux. Tambien se verifica la letra de la unidad USB donde esta conectado nuestro USB que instalaremos el programa. La secuencia de comandos ejecutados es:[dzamo@victus my-ventoy]$ pwd[dzamo@victus my-ventoy]$ wget https://github.com/ventoy/Ventoy/releases/download/v1.0.95/ventoy-1.0.95-linux.tar.gz[dzamo@victus my-ventoy]$ clear[dzamo@victus my-ventoy]$ ls[dzamo@victus my-ventoy]$ tar xzf ventoy-1.0.95-linux.tar.gz[dzamo@victus my-ventoy]$ cd ventoy-1.0.95La secuencia anterior se muestra en la captura siguiente.Instalando desde la interface gráficaEn este apartado se muestra como generar el USB booteable con Ventoy, desde la interface gráfica mediante el ejecutable VentoyGUI.x86_64. Esto es:[dzamo@victus ventoy-1.0.95]$ ./VentoyGUI.x86_64Y luego se seleccionan las opciones mostradas en la siguiente capturaSi todo a ido correcto, ya tenemos nuestro USB Ventoy que soportará múltiples imágenes ISO para por ejemplo instalar sistemas operativos diferentes o kit de herramientas de mantenimiento varias.Agregando algunas imágenesEn la siguiente captura se muestra como se agregan las imágenes iso a la unidad Ventoy. Todos los ficheros iso solo es colocarlos/copiarlos en el directorio Ventoy de la unidad USB. En la captura se muestra como son agregados los siguientes ficheros:  linux-lite-6.6-rc1-64bit.iso  q4os-5.2-x64.r1.iso  rhel-baseos-9.1-x86_64-dvd.isoEn este caso se usa el gestor de archivos Dolphin pues estamos en un WM KDE Plasma. Se puede ver que solo es copiar los ficheros ISO en la correcta carpeta que el propio Ventoy a creado.Para probar nuestro USB multi boot solo basta con arrancar un equipo y que botee desde el USB.ReferenciasA continuación se indican los principales link consultados.  Repositorio oficial de los ficheros de los desarrolladores de la suite SystemRescue  Success Image Report: System Rescue CD 9.03 x86-64, reporte del fix.  VentoyPlugson."
-  },
-  
-  {
-    "title": "Docker-Registry sobre Debian 12 (sin autenticación)",
-    "url": "/posts/use-registry-in-debian/",
-    "categories": "Docker, Contenedores",
-    "tags": "containers",
-    "date": "2023-08-22 05:33:00 +0200",
-    
-
-
-
-
-
-    
-    "snippet": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este ...",
-    "content": "  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.Consideraciones cumplidas  Las tareas realizadas para este caso de uso, fueron ejecutadas sobre un servidor host anfitrión con runtime Docker, sobre un sistema que posee distribución Linux Debian 12, ya instalado y disponible.Tecnologías usadas  Distribución Linux del sistema: Debian 12.  Host anfitrión con container runtime Docker.Especificaciones iniciales  Nombre de host:          debian12-docker      mydocker      Instalación de docker-registrysudo apt update &amp;&amp; sudo apt -y upgrade &amp;&amp; sudo apt -y install docker-registryConfigurar acceso http sin autenticaciónLa siguiente configuración usa conexión HTTP y sin autenticación.En el fichero /etc/docker/registry/config.yml se comenta las siguientes líneas para deshabilitar auth. Su contenido queda como a continuación:# Fichero /etc/docker/registry/config.ymldzamo@debian12-docker:~$ cat /etc/docker/registry/config.ymlversion: 0.1log:  fields:    service: registrystorage:  cache:    blobdescriptor: inmemory  filesystem:    rootdirectory: /var/lib/docker-registry  delete:    enabled: truehttp:  addr: :5000  headers:    X-Content-Type-Options: [nosniff]#auth:#  htpasswd:#    realm: basic-realm#    path: /etc/docker/registryhealth:  storagedriver:    enabled: true    interval: 10s    threshold: 3Reiniciar servicio.dzamo@debian12-docker:~$ sudo systemctl restart docker-registrydzamo@debian12-docker:~$ cat /etc/docker/daemon.json {  \"insecure-registries\":    [      \"docker.internal:5000\",      \"mydocker:5000\"    ]}dzamo@debian12-docker:~$ sudo systemctl restart dockerPush imágen sobre el localhostdzamo@debian12-docker:~$ sudo docker pull debiandzamo@debian12-docker:~$ sudo docker tag debian mydocker:5000/debian:my-registrydzamo@debian12-docker:~$ sudo docker imagesEn la siguiente captura se muestra una sesión de trabajo realizando las tareas comentadas."
   },
   
   {

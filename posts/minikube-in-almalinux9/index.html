@@ -35,49 +35,31 @@
   
 
   
-    
-
-    
-      
-      
-
-      
-        <!-- it's a cross-origin URL -->
-        
-      
-
-      
-    
-  
 
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
+<meta property="og:title" content="Cluster Minikube en AlmaLinux 9 - Introducción" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
-<meta name="description" content="En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente." />
-<meta property="og:description" content="En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente." />
+<meta name="description" content="En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux. La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento." />
+<meta property="og:description" content="En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux. La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento." />
 <link rel="canonical" href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
 <meta property="og:site_name" content="dZamo docs" />
-<meta property="og:image" content="https://dzamo.gitlab.io/commons/images/kubernetes/20230826-minikube-almalinux.png" />
-<meta property="og:image:alt" content="Cluster kubernetes c/minikube sobre 1 nodo single." />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-08-24T05:33:00+02:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://dzamo.gitlab.io/commons/images/kubernetes/20230826-minikube-almalinux.png" />
-<meta name="twitter:image:alt" content="Cluster kubernetes c/minikube sobre 1 nodo single." />
-<meta property="twitter:title" content="Servidor minikube en AlmaLinux 9 (orq. Ansible)" />
+<meta property="article:published_time" content="2023-08-30T05:33:00+02:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Cluster Minikube en AlmaLinux 9 - Introducción" />
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-26T21:25:34+02:00","datePublished":"2023-08-24T05:33:00+02:00","description":"En esta entrada se instala y configura Kubernetes con la solución de Minikube sobre un sistemas basado en una distribución AlmaLinux. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador Ansible, salvo que se indique expresamente.","headline":"Servidor minikube en AlmaLinux 9 (orq. Ansible)","image":{"alt":"Cluster kubernetes c/minikube sobre 1 nodo single.","url":"https://dzamo.gitlab.io/commons/images/kubernetes/20230826-minikube-almalinux.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-30T05:33:00+02:00","datePublished":"2023-08-30T05:33:00+02:00","description":"En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux. La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento.","headline":"Cluster Minikube en AlmaLinux 9 - Introducción","mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"},"url":"https://dzamo.gitlab.io/posts/minikube-in-almalinux9/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Servidor minikube en AlmaLinux 9 (orq. Ansible) | dZamo docs
+  <title>Cluster Minikube en AlmaLinux 9 - Introducción | dZamo docs
   </title>
 
   <!--
@@ -337,7 +319,7 @@
         
           
             
-              <span>Servidor minikube en AlmaLinux 9 (orq. Ansible)</span>
+              <span>Cluster Minikube en AlmaLinux 9 - Introducción</span>
             
 
           
@@ -417,118 +399,6 @@
 
 
 
-  
-  
-
-  <!-- CDN URL -->
-  
-
-  <!-- Add image path -->
-  
-
-  
-    
-      
-      
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-      
-
-      
-      
-      
-
-      
-    
-
-    <!-- take out classes -->
-    
-
-    
-
-    
-
-    
-
-    <!-- lazy-load images <https://github.com/aFarkas/lazysizes#readme> -->
-    
-    
-
-    <!-- add image placeholder -->
-    
-      
-        <!-- add SVG placehoder -->
-        
-      
-    
-
-    <!-- Bypass the HTML-proofer test -->
-    
-
-    
-      <!-- make sure the `<img>` is wrapped by `<a>` -->
-      
-
-      
-        <!-- create the image wrapper -->
-        
-      
-    
-
-    <!-- combine -->
-    
-
-  
-
-  
-
-
 
 <!-- Add header for code snippets -->
 
@@ -551,18 +421,6 @@
       
         
         
-      
-
-      
-      
-
-      
-      
-      
-
-      
-
-    
       
 
       
@@ -615,7 +473,7 @@
 
 
 
-<h1 data-toc-skip>Servidor minikube en AlmaLinux 9 (orq. Ansible)</h1>
+<h1 data-toc-skip>Cluster Minikube en AlmaLinux 9 - Introducción</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -632,53 +490,20 @@
 
 <em
   class=""
-  data-ts="1692847980"
+  data-ts="1693366380"
   data-df="ll"
   
     data-bs-toggle="tooltip" data-bs-placement="bottom"
   
 >
-  Aug 24, 2023
+  Aug 30, 2023
 </em>
 
     </span>
 
     <!-- lastmod date -->
     
-    <span>
-      Updated
-      <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
 
-
-
-
-
-<em
-  class=""
-  data-ts="1693077934"
-  data-df="ll"
-  
-    data-bs-toggle="tooltip" data-bs-placement="bottom"
-  
->
-  Aug 26, 2023
-</em>
-
-    </span>
-    
-
-  
-    
-    
-    
-
-    
-
-    <div class="mt-3 mb-3">
-      <a href="https://dzamo.gitlab.io/commons/images/kubernetes/20230826-minikube-almalinux.png" class="popup img-link preview-img shimmer"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 630'%3E%3C/svg%3E" data-src="https://dzamo.gitlab.io/commons/images/kubernetes/20230826-minikube-almalinux.png"  alt="Cluster kubernetes c/minikube sobre 1 nodo single." width="1200" height="630"  class="lazyload" data-proofer-ignore></a><figcaption class="text-center pt-2 pb-2">Cluster kubernetes c/minikube sobre 1 nodo single.</figcaption></div>
   
 
   <div class="d-flex justify-content-between">
@@ -720,7 +545,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="194 words"
+  title="199 words"
 >
   <em>1 min</em> read</span>
 
@@ -731,41 +556,30 @@
 </div> <!-- .post-meta -->
 
 <div class="post-content">
-  <blockquote class="prompt-info">
-  <p>En esta entrada se instala y configura <a href="https://kubernetes.io" target="_blank">Kubernetes</a> con la solución de <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a> sobre un sistemas basado en una distribución <a href="https://almalinux.org" target="_blank">AlmaLinux</a>. Con la puesta en funcionamiento del orquestador se dispondrá de un entorno de desarrollo para aplicaciones contenerizadas. Las tareas de configuración serán automátizadas con el orquestador <a href="https://ansible.com" target="_blank">Ansible</a>, salvo que se indique expresamente.</p>
+  <blockquote class="prompt-tip">
+  <p>En este despliegue se instala y configura <a href="https://kubernetes.io" target="_blank">Kubernetes</a> con la solución <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a>, sobre un sistemas basado en distribución <a href="https://almalinux.org" target="_blank">AlmaLinux</a>.
+La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento.</p>
 </blockquote>
 
-<h2 id="dependencias-cumplidas-especificación-inicial"><span class="me-2">Dependencias cumplidas, especificación inicial</span><a href="#dependencias-cumplidas-especificación-inicial" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>El servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux  instalada, a mínimo. Sus especificaciones resumidas son:</p>
-
-<ul>
-  <li>Tipo de hardware: <strong><em>virtual, guest de anfitrión KVM</em></strong></li>
-  <li>Nombre de hostname: <strong><em>victus-minikube</em></strong></li>
-  <li>Al menos un IP, con asignación fija: <strong><em>192.168.122.39</em></strong></li>
-  <li>RAM: <strong><em>256 Gb</em></strong></li>
-  <li>HHDD: <strong><em>512 Gb</em></strong></li>
-  <li>SWAP: <strong><em>Sin</em></strong> (<strong><em>deshabilitada</em></strong>)</li>
-  <li>Distribución Linux: <strong><em>AlmaLinux 9</em></strong> (Derivada y compatible binariamente a <strong><em>RHEL 9</em></strong>).</li>
-</ul>
-
-<h2 id="tecnologías-usadas"><span class="me-2">Tecnologías usadas</span><a href="#tecnologías-usadas" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
-
-<p>En este apartado se enumeran algunas de las tecnologías usadas para el despliegue de este servidor</p>
-
-<ul>
-  <li>Solución de <a href="https://kubernetes.io" target="_blank">Kubernetes</a> a instalar: <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a>.</li>
-  <li>Distribución binariamente compatible a <a href="https://redhat.com" target="_blank">Red Hat Enterprise Linux (RHEL)</a>: <a href="https://almalinux.org" target="_blank">AlmaLinux</a>.</li>
-  <li>Orquestador para tareas de post configuración: <a href="https://ansible.com" target="_blank">Ansible</a>.</li>
-  <li>Instalación desatendida del sistema operativo basado en ficheros kickstart.</li>
-  <li>Tecnología de virtualización KVM.</li>
-</ul>
+<blockquote class="prompt-info">
+  <p>Con el despliegue de este cluster (como un host single inicialmente) Kubernetes, se dispuso de un entorno de desarrollo para aplicaciones contenerizadas, basadas en imágenes Docker y/o Podman.</p>
+</blockquote>
 
 <h2 id="repositorio-del-proyecto"><span class="me-2">Repositorio del proyecto</span><a href="#repositorio-del-proyecto" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
 
 <blockquote class="prompt-tip">
-  <p>Url del repositorio con la especificación (documentación) del proyecto desplegado: <a href="https://gitlab.com/dzamo/kubernetes-cluster-installations/-/tree/main/01-minikube/20230826-minikube-almalinux" target="_blank">Minikube sobre AlmaLinux 9 - orquestación Ansible</a></p>
+  <p>El contenido de todo el código generado para la puesta en funcionamiento del cluster basado <a href="https://minikube.sigs.k8s.io/docs/start/" target="_blank">Minikube</a>, queda compartido en el Url del repositorio <a href="https://gitlab.com/dzamo/kubernetes-cluster-installations/-/tree/main/01-minikube/20230826-minikube-almalinux" target="_blank">Minikube sobre AlmaLinux 9 - orquestación Ansible</a>.</p>
 </blockquote>
+
+<h2 id="detalle-del-despliegue"><span class="me-2">Detalle del despliegue</span><a href="#detalle-del-despliegue" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>Las publicaciones relacionadas a este despliegue, y compartidas aquí, son:</p>
+
+<ul>
+  <li><a href="/posts/minikube-in-almalinux9-part-II/">Minikube en AlmaLinux 9 - Especificación (Parte II)</a>: En esta entrada se detalla las principales tecnologías utilizadas para el proyecto y una especificación parcial/mínima inicial.</li>
+  <li><del>En Minikube en AlmaLinux 9 - virt-install (Parte II): Se detalla y codifica (para CLI shell bash) la reserva y creación del guest (dominio que es como en la tecnología de virtualización KVM llama a las VM (máquinas virtuales)) para host anfitrión KVM.</del></li>
+  <li><del>En Minikube en AlmaLinux 9 - virt-install (Parte III): Tareas de configuración inicial implementadas con orquestador Ansible.</del></li>
+</ul>
 
 </div>
 
@@ -781,7 +595,8 @@
       <a href='/categories/minikube/'>minikube</a>,
       <a href='/categories/linux/'>Linux</a>,
       <a href='/categories/almalinux/'>AlmaLinux</a>,
-      <a href='/categories/ansible/'>Ansible</a>
+      <a href='/categories/ansible/'>Ansible</a>,
+      <a href='/categories/rhel/'>RHEL</a>
   </div>
   
 
@@ -825,7 +640,7 @@
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Servidor%20minikube%20en%20AlmaLinux%209%20(orq.%20Ansible)%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F"
+        href="https://twitter.com/intent/tweet?text=Cluster%20Minikube%20en%20AlmaLinux%209%20-%20Introducci%C3%B3n%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -838,7 +653,7 @@
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Servidor%20minikube%20en%20AlmaLinux%209%20(orq.%20Ansible)%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Cluster%20Minikube%20en%20AlmaLinux%209%20-%20Introducci%C3%B3n%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -851,7 +666,7 @@
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F&text=Servidor%20minikube%20en%20AlmaLinux%209%20(orq.%20Ansible)%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fminikube-in-almalinux9%2F&text=Cluster%20Minikube%20en%20AlmaLinux%209%20-%20Introducci%C3%B3n%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
@@ -906,49 +721,6 @@
 
 
 
-  <div id="access-lastmod" class="post">
-    <div class="panel-heading">Recently Updated</div>
-    <ul class="post-content list-unstyled ps-0 pb-1 ms-1 mt-2">
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/minikube-in-almalinux9/">Servidor minikube en AlmaLinux 9 (orq. Ansible)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/kubernetes-alternatives/">Kubernetes alternativas para instalar en local y/o desarrollo</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/my-internal-cloud-app-docker/">Implementación de cloud con contenedores y múltiples entornos (Parte I)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/use-registry-in-debian/">Docker-Registry sobre Debian 12 (sin autenticación)</a>
-        </li>
-      
-        
-        
-        
-        <li class="text-truncate lh-lg">
-          <a href="/posts/ventoy-usb-from-linux-desktop/">USB Ventoy multi boot - desde Desktop Linux</a>
-        </li>
-      
-    </ul>
-  </div>
-  <!-- #access-lastmod -->
-
 
       <!-- The trending tags list -->
 
@@ -971,6 +743,35 @@
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -991,39 +792,6 @@
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1159,13 +927,13 @@
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/kubernetes/">kubernetes</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/containers/">containers</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hardware/">hardware</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/kubernetes/">kubernetes</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
@@ -1242,19 +1010,31 @@
   
 
   
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
@@ -1357,16 +1137,6 @@
   
     
     
-      
-      
-        
-        
-        
-      
-    
-  
-    
-    
   
     
     
@@ -1384,6 +1154,47 @@
       Further Reading
     </h3>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        
+        
+        <div class="col">
+          <a href="/posts/minikube-in-almalinux9-part-II/" class="card post-preview h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class="small"
+  data-ts="1693369980"
+  data-df="ll"
+  
+>
+  Aug 30, 2023
+</em>
+
+              <h4 class="pt-0 my-2" data-toc-skip>Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)</h4>
+              <div class="text-muted small">
+                <p>
+                  
+
+
+
+
+
+                  Dependencias cumplidas, especificación inicial
+
+El servidor hardware con el que se trabajo ya estaba funcional, y con una Distribución Linux {{ site.almalinux }} instalada, a mínimo. Sus especifica...
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
       
         
         
@@ -1428,7 +1239,7 @@
         
         
         <div class="col">
-          <a href="/posts/systemrescue-in-ventoy/" class="card post-preview h-100">
+          <a href="/posts/use-registry-in-debian/" class="card post-preview h-100">
             <div class="card-body">
               <!--
   Date format snippet
@@ -1441,14 +1252,14 @@
 
 <em
   class="small"
-  data-ts="1692847980"
+  data-ts="1693359180"
   data-df="ll"
   
 >
-  Aug 24, 2023
+  Aug 30, 2023
 </em>
 
-              <h4 class="pt-0 my-2" data-toc-skip>USB Ventoy uso de VentoyPlugson y fix para SystemRescue</h4>
+              <h4 class="pt-0 my-2" data-toc-skip>Docker-Registry sobre Debian 12 (sin autenticación)</h4>
               <div class="text-muted small">
                 <p>
                   
@@ -1458,56 +1269,13 @@
 
 
                   
-  En esta entrada se muestra el uso de VentoyPlugson para modificar parámetros, y poder hacer booteable la suite SystemRescue sobre un USB con Ventoy.
+  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.
 
 
-Dependencias cumplidas
+Consideraciones cumplidas
 
 
-  Las tareas reali...
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      
-        
-        
-        <div class="col">
-          <a href="/posts/ventoy-usb-from-linux-desktop/" class="card post-preview h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em
-  class="small"
-  data-ts="1692761580"
-  data-df="ll"
-  
->
-  Aug 23, 2023
-</em>
-
-              <h4 class="pt-0 my-2" data-toc-skip>USB Ventoy multi boot - desde Desktop Linux</h4>
-              <div class="text-muted small">
-                <p>
-                  
-
-
-
-
-
-                  
-  En esta entrada se prepara un USB booteable, con la utilidad Ventoy, para tener un usb multi arranque, que sirva para ejecutar multiples sistemas operativos o suite de mantenimiento.
-
-
-Dependenc...
+  Las tareas realizadas par...
                 </p>
               </div>
             </div>
@@ -1527,21 +1295,21 @@ Dependenc...
 <div class="post-navigation d-flex justify-content-between">
   
     <a
-      href="/posts/ventoy-usb-from-linux-desktop/"
+      href="/posts/use-registry-in-debian/"
       class="btn btn-outline-primary"
       prompt="Older"
     >
-      <p>USB Ventoy multi boot - desde Desktop Linux</p>
+      <p>Docker-Registry sobre Debian 12 (sin autenticación)</p>
     </a>
   
 
   
     <a
-      href="/posts/systemrescue-in-ventoy/"
+      href="/posts/minikube-in-almalinux9-part-II/"
       class="btn btn-outline-primary"
       prompt="Newer"
     >
-      <p>USB Ventoy uso de VentoyPlugson y fix para SystemRescue</p>
+      <p>Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)</p>
     </a>
   
 </div>
@@ -1582,6 +1350,35 @@ Dependenc...
     
     
     
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
       
         
         
@@ -1602,39 +1399,6 @@ Dependenc...
     
     
     
-    
-  
-    
-    
-    
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1770,13 +1534,13 @@ Dependenc...
     <div class="d-flex flex-wrap mt-3 mb-1 me-3">
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/kubernetes/">kubernetes</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/containers/">containers</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/hardware/">hardware</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/kubernetes/">kubernetes</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
