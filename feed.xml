@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-09-01T22:01:52+02:00</updated>
+  <updated>2023-09-01T22:47:36+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,8 +20,8 @@
 
   
   <entry>
-    <title>Ubuntu 22.04 LTS - netplan conf. 2 interfaces</title>
-    <link href="https://dzamo.gitlab.io/posts/ubuntu-setting-netplan-multiple-single-interface/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - netplan conf. 2 interfaces" />
+    <title>Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)</title>
+    <link href="https://dzamo.gitlab.io/posts/ubuntu-setting-netplan-multiple-single-interface/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)" />
     <published>2023-08-31T17:20:00+02:00</published>
   
     <updated>2023-08-31T17:20:00+02:00</updated>

@@ -1,7 +1,7 @@
 [
   
   {
-    "title": "Ubuntu 22.04 LTS - netplan conf. 2 interfaces",
+    "title": "Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)",
     "url": "/posts/ubuntu-setting-netplan-multiple-single-interface/",
     "categories": "Ubuntu, Linux, networking",
     "tags": "ubuntu lts",
