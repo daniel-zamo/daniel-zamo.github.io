@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-08-31T22:29:57+02:00</updated>
+  <updated>2023-09-01T20:58:40+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -17,6 +17,55 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Ubuntu 22.04 LTS - configurar ip fijo sobre netplan</title>
+    <link href="https://dzamo.gitlab.io/posts/ubuntu-setting-netplan-ip-fixed/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - configurar ip fijo sobre netplan" />
+    <published>2023-08-31T17:10:00+02:00</published>
+  
+    <updated>2023-08-31T17:10:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/ubuntu-setting-netplan-ip-fixed/</id>
+    <content src="https://dzamo.gitlab.io/posts/ubuntu-setting-netplan-ip-fixed/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Ubuntu" />
+    
+    <category term="Linux" />
+    
+    <category term="networking" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.
+
+
+Especificación inicial
+
+La especificación a configurar de la interface de red tiene es:
+
+
+  Nombre de la interface (conectada sobre red de gestión): enp1s0
+  IP interface de gestión: 192.168.122.46
+  Red/más...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -210,50 +259,6 @@ Tecnologías usadas
 
 
 En un entorno en producción no se instala Kubernetes en un solo equipo (nodo), sino que se crea un clúster de nodos que permita garantizar...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>USB Ventoy uso de VentoyPlugson y fix para SystemRescue</title>
-    <link href="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" rel="alternate" type="text/html" title="USB Ventoy uso de VentoyPlugson y fix para SystemRescue" />
-    <published>2023-08-24T05:33:00+02:00</published>
-  
-    <updated>2023-08-24T05:33:00+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/</id>
-    <content src="https://dzamo.gitlab.io/posts/systemrescue-in-ventoy/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Hardware" />
-    
-    <category term="support IT" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En esta entrada se muestra el uso de VentoyPlugson para modificar parámetros, y poder hacer booteable la suite SystemRescue sobre un USB con Ventoy.
-
-
-Dependencias cumplidas
-
-
-  Las tareas realizadas aquí han sido ejecutadas sobre un Desktop Linux basado en Fedora 38, con KDE Plasma.
-  También se da por hecho de que se posee un USB con Ventoy boot ya operativo. Si no es así puede consultar e...
     </summary>
   
 

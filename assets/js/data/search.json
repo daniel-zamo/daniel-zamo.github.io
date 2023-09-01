@@ -1,6 +1,23 @@
 [
   
   {
+    "title": "Ubuntu 22.04 LTS - configurar ip fijo sobre netplan",
+    "url": "/posts/ubuntu-setting-netplan-ip-fixed/",
+    "categories": "Ubuntu, Linux, networking",
+    "tags": "ubuntu",
+    "date": "2023-08-31 17:10:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.Especificac...",
+    "content": "  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.Especificación inicialLa especificación a configurar de la interface de red tiene es:  Nombre de la interface (conectada sobre red de gestión): enp1s0  IP interface de gestión: 192.168.122.46  Red/máscara: 192.168.122.0/24  Gateway: 192.168.122.1  DNS1,DNS2: 192.168.122.1,1.1.1.1Detalle del caso de uso realizadoAquí se sugiere un modo de configurar un ip fijo sobre la interface de red que tiene conectado el servidor, y que esta gestionada por netplan, servicio que habilita el asistente de instalación de Ubuntu 22.04 LTS server.dzamo@cloud-init:~$ sudo mv /etc/netplan/00-installer-config.yaml{,.org}dzamo@cloud-init:~$ cat &lt;&lt; eof | sudo tee -a /etc/netplan/01-netcfg.yamlnetwork:  ethernets:    enp1s0:      dhcp4: false      addresses: [192.168.122.46/24]      routes:        - to: default          via: 192.168.122.1          metric: 100      nameservers:        addresses: [192.168.122.1,1.1.1.1]        search: [my.net,my.home]      dhcp6: false  version: 2dzamo@cloud-init:~$ sudo netplan apply dzamo@cloud-init:~$ ip addr"
+  },
+  
+  {
     "title": "Cluster Minikube en AlmaLinux 9 - Especificación (Parte II)",
     "url": "/posts/minikube-in-almalinux9-part-II/",
     "categories": "Kubernetes, k8s, minikube, Linux, AlmaLinux, Ansible, RHEL",
