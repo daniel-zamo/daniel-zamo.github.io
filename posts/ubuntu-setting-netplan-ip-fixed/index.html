@@ -684,7 +684,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="175 words"
+  title="176 words"
 >
   <em>1 min</em> read</span>
 
@@ -737,9 +737,10 @@
 18
 19
 20
+21
 </pre></td><td class="rouge-code"><pre>dzamo@cloud-init:~<span class="nv">$ </span><span class="nb">sudo mv</span> /etc/netplan/00-installer-config.yaml<span class="o">{</span>,.org<span class="o">}</span>
 
-dzamo@cloud-init:~<span class="nv">$ </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">eof</span><span class="sh"> | sudo tee -a /etc/netplan/01-netcfg.yaml
+dzamo@cloud-init:~<span class="nv">$ </span><span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">eof</span><span class="sh"> | sudo tee /etc/netplan/01-netcfg.yaml
 network:
   ethernets:
     enp1s0:
@@ -754,10 +755,11 @@ network:
         search: [my.net,my.home]
       dhcp6: false
   version: 2
+</span><span class="no">eof
 
-dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">sudo netplan apply 
-dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
-</span></pre></td></tr></tbody></table></code></div></div>
+</span>dzamo@cloud-init:~<span class="nv">$ </span><span class="nb">sudo </span>netplan apply 
+dzamo@cloud-init:~<span class="nv">$ </span>ip addr
+</pre></td></tr></tbody></table></code></div></div>
 
 </div>
 
@@ -779,8 +781,8 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
   <div class="post-tags">
     <i class="fa fa-tags fa-fw me-1"></i>
       
-      <a href="/tags/ubuntu/"
-          class="post-tag no-text-decoration" >ubuntu</a>
+      <a href="/tags/ubuntu-lts/"
+          class="post-tag no-text-decoration" >ubuntu lts</a>
       
   </div>
   
@@ -981,6 +983,49 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1089,53 +1134,6 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1162,6 +1160,9 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
         <a class="post-tag btn btn-outline-primary" href="/tags/hardware/">hardware</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/ubuntu-lts/">ubuntu lts</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
       
         
@@ -1169,9 +1170,6 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/ubuntu/">ubuntu</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/writing/">writing</a>
@@ -1223,6 +1221,18 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
 
 
 
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
 
   
 
@@ -1369,31 +1379,6 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
 
 
 
-  
-    
-    
-  
-    
-    
-      
-      
-    
-  
-    
-    
-      
-      
-    
-  
-    
-    
-      
-      
-        
-        
-        
-          
-
 
 
   <div id="related-posts" class="mb-2 mb-sm-4">
@@ -1401,6 +1386,46 @@ dzamo@cloud-init:~</span><span class="nv">$ </span><span class="sh">ip addr
       Further Reading
     </h3>
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4">
+      
+        
+        
+        <div class="col">
+          <a href="/posts/ubuntu-setting-netplan-multiple-single-interface/" class="card post-preview h-100">
+            <div class="card-body">
+              <!--
+  Date format snippet
+  See: ${JS_ROOT}/utils/locale-dateime.js
+-->
+
+
+
+
+
+<em
+  class="small"
+  data-ts="1693495200"
+  data-df="ll"
+  
+>
+  Aug 31, 2023
+</em>
+
+              <h4 class="pt-0 my-2" data-toc-skip>Ubuntu 22.04 LTS - netplan conf. 2 interfaces</h4>
+              <div class="text-muted small">
+                <p>
+                  
+
+
+
+
+
+                  
+  En esta publicación se configura 2 interfacess de red, asignandose a las mismas ip fijos y rutas de diferentes prioridades (nivel de métricas) en Netplan, sobre un servidor basado en distribució...
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
       
         
         
@@ -1484,52 +1509,6 @@ El servidor hardware con el que se trabajo ya estaba funcional, y con una Distri
           </a>
         </div>
       
-        
-        
-        <div class="col">
-          <a href="/posts/use-registry-in-debian/" class="card post-preview h-100">
-            <div class="card-body">
-              <!--
-  Date format snippet
-  See: ${JS_ROOT}/utils/locale-dateime.js
--->
-
-
-
-
-
-<em
-  class="small"
-  data-ts="1693359180"
-  data-df="ll"
-  
->
-  Aug 30, 2023
-</em>
-
-              <h4 class="pt-0 my-2" data-toc-skip>Docker-Registry sobre Debian 12 (sin autenticación)</h4>
-              <div class="text-muted small">
-                <p>
-                  
-
-
-
-
-
-                  
-  En esta entrada se instala Docker-Registry, creando así un host/servidor que se puede utilizar como registro privado de imágenes Docker.
-
-
-Consideraciones cumplidas
-
-
-  Las tareas realizadas par...
-                </p>
-              </div>
-            </div>
-          </a>
-        </div>
-      
     </div>
     <!-- .card-deck -->
   </div>
@@ -1552,12 +1531,13 @@ Consideraciones cumplidas
   
 
   
-    <div
-      class="btn btn-outline-primary disabled"
+    <a
+      href="/posts/ubuntu-setting-netplan-multiple-single-interface/"
+      class="btn btn-outline-primary"
       prompt="Newer"
     >
-      <p>-</p>
-    </div>
+      <p>Ubuntu 22.04 LTS - netplan conf. 2 interfaces</p>
+    </a>
   
 </div>
 
@@ -1661,6 +1641,49 @@ Consideraciones cumplidas
     
     
     
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+  
+    
+    
+    
+    
+      
+        
+        
+
+  
+    
+    
+    
+    
   
     
     
@@ -1769,53 +1792,6 @@ Consideraciones cumplidas
     
     
     
-    
-      
-        
-        
-
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-  
-    
-    
-    
-    
-      
-    
-  
-    
-    
-    
-    
-      
     
   
     
@@ -1842,6 +1818,9 @@ Consideraciones cumplidas
         <a class="post-tag btn btn-outline-primary" href="/tags/hardware/">hardware</a>
       
         
+        <a class="post-tag btn btn-outline-primary" href="/tags/ubuntu-lts/">ubuntu lts</a>
+      
+        
         <a class="post-tag btn btn-outline-primary" href="/tags/favicon/">favicon</a>
       
         
@@ -1849,9 +1828,6 @@ Consideraciones cumplidas
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/typography/">typography</a>
-      
-        
-        <a class="post-tag btn btn-outline-primary" href="/tags/ubuntu/">ubuntu</a>
       
         
         <a class="post-tag btn btn-outline-primary" href="/tags/writing/">writing</a>

@@ -1,10 +1,27 @@
 [
   
   {
+    "title": "Ubuntu 22.04 LTS - netplan conf. 2 interfaces",
+    "url": "/posts/ubuntu-setting-netplan-multiple-single-interface/",
+    "categories": "Ubuntu, Linux, networking",
+    "tags": "ubuntu lts",
+    "date": "2023-08-31 17:20:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta publicación se configura 2 interfacess de red, asignandose a las mismas ip fijos y rutas de diferentes prioridades (nivel de métricas) en Netplan, sobre un servidor basado en distribución...",
+    "content": "  En esta publicación se configura 2 interfacess de red, asignandose a las mismas ip fijos y rutas de diferentes prioridades (nivel de métricas) en Netplan, sobre un servidor basado en distribución Linux Ubuntu 22.04 LTS.Especificación inicialLa especificación a configurar sobre las interfaces de red son las siguientes:            nombre de la interface      ip      identificación LAN conectada      red/máscara      gateway      DNS      métrica                  enp1s0      192.168.122.46      192.168.122.0/24      192.168.122.1      192.168.122.1      100                     enp7s0      10.0.0.46      10.0.0.0/24      10.0.0.1      --      200             Nota: Donde métrica es un entero, recordando que a mas bajo valor mayor prioridad.Detalle del caso de uso realizadoAquí se sugiere un modo de configurar un ip fijo sobre la interface de red que tiene conectado el servidor, y que esta gestionada por netplan, servicio que habilita el asistente de instalación de Ubuntu 22.04 LTS server.dzamo@cloud-init:~$ sudo mv /etc/netplan/00-installer-config.yaml{,.org}dzamo@cloud-init:~$ cat &lt;&lt; eof | sudo tee /etc/netplan/01-netcfg.yamlnetwork:  ethernets:    enp1s0:      dhcp4: false      addresses: [192.168.122.46/24]      routes:        - to: 0.0.0.0/0          via: 192.168.122.1          metric: 100      nameservers:        addresses: [192.168.122.1,1.1.1.1]        search: [my.net,my.home]      dhcp6: false    enp7s0:      dhcp4: false      addresses: [10.0.0.46/24]      routes:        - to: 0.0.0.0/0          via: 10.0.0.1          metric: 200      dhcp6: false  version: 2eofdzamo@cloud-init:~$ sudo netplan apply dzamo@cloud-init:~$ ip addr"
+  },
+  
+  {
     "title": "Ubuntu 22.04 LTS - configurar ip fijo sobre netplan",
     "url": "/posts/ubuntu-setting-netplan-ip-fixed/",
     "categories": "Ubuntu, Linux, networking",
-    "tags": "ubuntu",
+    "tags": "ubuntu lts",
     "date": "2023-08-31 17:10:00 +0200",
     
 
@@ -14,7 +31,7 @@
 
     
     "snippet": "  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.Especificac...",
-    "content": "  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.Especificación inicialLa especificación a configurar de la interface de red tiene es:  Nombre de la interface (conectada sobre red de gestión): enp1s0  IP interface de gestión: 192.168.122.46  Red/máscara: 192.168.122.0/24  Gateway: 192.168.122.1  DNS1,DNS2: 192.168.122.1,1.1.1.1Detalle del caso de uso realizadoAquí se sugiere un modo de configurar un ip fijo sobre la interface de red que tiene conectado el servidor, y que esta gestionada por netplan, servicio que habilita el asistente de instalación de Ubuntu 22.04 LTS server.dzamo@cloud-init:~$ sudo mv /etc/netplan/00-installer-config.yaml{,.org}dzamo@cloud-init:~$ cat &lt;&lt; eof | sudo tee -a /etc/netplan/01-netcfg.yamlnetwork:  ethernets:    enp1s0:      dhcp4: false      addresses: [192.168.122.46/24]      routes:        - to: default          via: 192.168.122.1          metric: 100      nameservers:        addresses: [192.168.122.1,1.1.1.1]        search: [my.net,my.home]      dhcp6: false  version: 2dzamo@cloud-init:~$ sudo netplan apply dzamo@cloud-init:~$ ip addr"
+    "content": "  En esta publicación se configura una asignación de ip fijo en Netplan de la interface conectada a la red de gestión de un servidor basado en una distribución Linux de Ubuntu 22.04 LTS.Especificación inicialLa especificación a configurar de la interface de red tiene es:  Nombre de la interface (conectada sobre red de gestión): enp1s0  IP interface de gestión: 192.168.122.46  Red/máscara: 192.168.122.0/24  Gateway: 192.168.122.1  DNS1,DNS2: 192.168.122.1,1.1.1.1Detalle del caso de uso realizadoAquí se sugiere un modo de configurar un ip fijo sobre la interface de red que tiene conectado el servidor, y que esta gestionada por netplan, servicio que habilita el asistente de instalación de Ubuntu 22.04 LTS server.dzamo@cloud-init:~$ sudo mv /etc/netplan/00-installer-config.yaml{,.org}dzamo@cloud-init:~$ cat &lt;&lt; eof | sudo tee /etc/netplan/01-netcfg.yamlnetwork:  ethernets:    enp1s0:      dhcp4: false      addresses: [192.168.122.46/24]      routes:        - to: default          via: 192.168.122.1          metric: 100      nameservers:        addresses: [192.168.122.1,1.1.1.1]        search: [my.net,my.home]      dhcp6: false  version: 2eofdzamo@cloud-init:~$ sudo netplan apply dzamo@cloud-init:~$ ip addr"
   },
   
   {
