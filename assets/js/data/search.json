@@ -1,7 +1,7 @@
 [
   
   {
-    "title": "Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install",
+    "title": "Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install",
     "url": "/posts/provisioning-vms-using-cloud-images-and-virt-install/",
     "categories": "Ubuntu, Linux, Virtualización, cloud-init, Cloud, KVM, Libvirt",
     "tags": "virtualización",

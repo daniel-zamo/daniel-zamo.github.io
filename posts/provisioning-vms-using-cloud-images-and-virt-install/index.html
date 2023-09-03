@@ -53,7 +53,7 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install" />
+<meta property="og:title" content="Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install." />
@@ -68,16 +68,16 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png" />
 <meta name="twitter:image:alt" content="Provisión de VMs con cloud images (cloud-init) y virt-install." />
-<meta property="twitter:title" content="Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install" />
+<meta property="twitter:title" content="Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install" />
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-31T17:20:00+02:00","datePublished":"2023-08-31T17:20:00+02:00","description":"En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.","headline":"Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install","image":{"alt":"Provisión de VMs con cloud images (cloud-init) y virt-install.","url":"https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"},"url":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-31T17:20:00+02:00","datePublished":"2023-08-31T17:20:00+02:00","description":"En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.","headline":"Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install","image":{"alt":"Provisión de VMs con cloud images (cloud-init) y virt-install.","url":"https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"},"url":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install | dZamo docs
+  <title>Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install | dZamo docs
   </title>
 
   <!--
@@ -337,7 +337,7 @@
         
           
             
-              <span>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install</span>
+              <span>Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install</span>
             
 
           
@@ -591,7 +591,7 @@
 
 
 
-<h1 data-toc-skip>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install</h1>
+<h1 data-toc-skip>Aprovisionamiento de VMs basadas en la nube (cloud-init), con virt-install</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -1062,7 +1062,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
+        href="https://twitter.com/intent/tweet?text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20(cloud-init),%20con%20virt-install%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -1075,7 +1075,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20(cloud-init),%20con%20virt-install%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -1088,7 +1088,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F&text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F&text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20(cloud-init),%20con%20virt-install%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"
