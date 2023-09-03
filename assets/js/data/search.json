@@ -2,6 +2,23 @@
   
   {
     "title": "Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)",
+    "url": "/posts/provisioning-vms-using-cloud-images-and-virt-install/",
+    "categories": "Ubuntu, Linux, Virtualización, cloud-init, Cloud, KVM, Libvirt",
+    "tags": "virtualización",
+    "date": "2023-08-31 17:20:00 +0200",
+    
+
+
+
+
+
+    
+    "snippet": "  En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install...",
+    "content": "  En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.Especificación inicialLa especificación a configurar sobre las interfaces de red son las siguientes:"
+  },
+  
+  {
+    "title": "Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)",
     "url": "/posts/ubuntu-setting-netplan-multiple-single-interface/",
     "categories": "Ubuntu, Linux, networking",
     "tags": "ubuntu lts",
