@@ -53,7 +53,7 @@
   
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <meta name="generator" content="Jekyll v4.3.2" />
-<meta property="og:title" content="Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)" />
+<meta property="og:title" content="Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install" />
 <meta name="author" content="Daniel Oscar Zamo" />
 <meta property="og:locale" content="en" />
 <meta name="description" content="En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install." />
@@ -68,16 +68,16 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png" />
 <meta name="twitter:image:alt" content="Provisión de VMs con cloud images (cloud-init) y virt-install." />
-<meta property="twitter:title" content="Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)" />
+<meta property="twitter:title" content="Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install" />
 <meta name="twitter:site" content="@daniel_zamo" />
 <meta name="twitter:creator" content="@daniel_zamo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-31T17:20:00+02:00","datePublished":"2023-08-31T17:20:00+02:00","description":"En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.","headline":"Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)","image":{"alt":"Provisión de VMs con cloud images (cloud-init) y virt-install.","url":"https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"},"url":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Daniel Oscar Zamo","url":"https://gitlab.com/dzamo/"},"dateModified":"2023-08-31T17:20:00+02:00","datePublished":"2023-08-31T17:20:00+02:00","description":"En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.","headline":"Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install","image":{"alt":"Provisión de VMs con cloud images (cloud-init) y virt-install.","url":"https://dzamo.gitlab.io/commons/images/cloud-init/cloud-init-with-virt-install.png","@type":"imageObject"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"},"url":"https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/"}</script>
 <!-- End Jekyll SEO tag -->
 
   
 
-  <title>Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics) | dZamo docs
+  <title>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install | dZamo docs
   </title>
 
   <!--
@@ -337,7 +337,7 @@
         
           
             
-              <span>Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)</span>
+              <span>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install</span>
             
 
           
@@ -591,7 +591,7 @@
 
 
 
-<h1 data-toc-skip>Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)</h1>
+<h1 data-toc-skip>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install</h1>
 
 <div class="post-meta text-muted">
     <!-- published date -->
@@ -672,9 +672,9 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="42 words"
+  title="613 words"
 >
-  <em>1 min</em> read</span>
+  <em>3 min</em> read</span>
 
     </div>
 
@@ -687,11 +687,278 @@
   <p>En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.</p>
 </blockquote>
 
-<h2 id="especificación-inicial"><span class="me-2">Especificación inicial</span><a href="#especificación-inicial" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+<blockquote class="prompt-info">
+  <p>En el repositorio <a href="https://gitlab.com/dzamo/provisioning-cloud-base-vms-using-cli-and-virt-install/-/tree/main?ref_type=heads">https://gitlab.com/dzamo/provisioning-cloud-base-vms-using-cli-and-virt-install</a> se comparten algunos aprovisionamientos de <strong><em>VM Cloud images</em></strong>, realizadas sobre un host anfitrión de virtualización Libvirt/KVM, mediante el CLI de virt-install</p>
+</blockquote>
 
-<p>La especificación a configurar sobre las interfaces de red son las siguientes:</p>
+<blockquote class="prompt-tip">
+  <p>En particular el caso de uso <a href="https://gitlab.com/dzamo/provisioning-cloud-base-vms-using-cli-and-virt-install/-/tree/main/04.ubuntu-jammy?ref_type=heads">…04.ubuntu-jammy</a> es el despliegue de una VM basada en la distribución <strong><em>Ubuntu 22.04 LTS</em></strong>.</p>
+</blockquote>
+
+<h2 id="especificación-del-script-implementado"><span class="me-2">Especificación del script implementado</span><a href="#especificación-del-script-implementado" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
+
+<p>Se deja la implementación del script principal, que realiza la propia tarea de definición de los ficheros:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">./${vm_name}-meta-data</code></li>
+  <li><code class="language-plaintext highlighter-rouge">./${vm_name}-user-data</code></li>
+</ul>
+
+<p>El código del script <code class="language-plaintext highlighter-rouge">ubuntu-jammy.sh</code> es:</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+</pre></td><td class="rouge-code"><pre><span class="c">#!/usr/bin/env bash</span>
+
+<span class="nv">url_images</span><span class="o">=</span><span class="s1">'https://cloud-images.ubuntu.com/jammy/current'</span>
+<span class="nv">img_name</span><span class="o">=</span><span class="s1">'jammy-server-cloudimg-amd64.img'</span>
+<span class="nv">my_cloud_base_images_path</span><span class="o">=</span><span class="s1">'../cloud-base-images'</span>
+<span class="nv">libvirt_storage</span><span class="o">=</span><span class="s1">'/var/vg_main/extra/kvm/images'</span>
+<span class="nv">pre_fix</span><span class="o">=</span><span class="s2">"ubuntu-jammy"</span>
+<span class="nv">num_id</span><span class="o">=</span><span class="s2">"76"</span>  <span class="c"># WARNING: Este numero es utilizado como ultimo octeto de la asignación IP de la VM a crear</span>
+<span class="nv">vm_name</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">pre_fix</span><span class="k">}</span><span class="s2">-</span><span class="k">${</span><span class="nv">num_id</span><span class="k">}</span><span class="s2">"</span>
+<span class="nv">lan_domain</span><span class="o">=</span><span class="s2">"my.net"</span>
+<span class="nv">user1</span><span class="o">=</span><span class="s1">'ubuntu'</span>
+<span class="c"># Inicialmente se utiliza el mismo password, tanto para root como para ${user1}</span>
+<span class="c">#pwd_initial='bastioninseguro'</span>
+<span class="nv">os_variant</span><span class="o">=</span><span class="s1">'ubuntujammy'</span>
+
+<span class="c"># Se utiliza las mismas claves tanto para el root como para el usuario ${user1}</span>
+<span class="nv">ssh_authorized_keys</span><span class="o">=</span><span class="s1">'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCufbBWLvwpdjac/DSvRaGH6zQLhNNMR1qsrAMFNSxCEskYzflmDPec48birWKfFrS5rWsRI15PsnnmGTd52H38ZUw8jSttvocfmxW/euZwEmeBlB3UI0KG8Tt74PoDIOomX1NQ3CS6gLsZuNWGww6CatQ3RXWK1CoNyK9FNRQaDZ5Kza9L+RKwadmya8vRAjHO6/ioV/TZpjMpbKUthg6VnmUgfZZJ/cQ274i9jktXCDqDin5FITeVSxtkOL0W9B+AGnhEpT0QCCx+LK6eJqq2C+D8JuTaKoB7ieA0Z0OGlyLzJMFNa0cUZlPEdvuKBan6GuT3/hDL6vKLGujgLVTuaI4gUsfV4oaILDr7M8+s9fMvesr4o+CifjDuIyffjOd4mTV/Y2aGC0N5rAVKdRH0NAdIYLxswB8BmYNcv+dsO7gUtMeHr3E0aGkHlorelwCl++VuvxUYW9wQ8mew7cw/4O4/RjQwllq9QzUvRvUvrxtER06hYbQ02YzFeMpJV9U= dzamo@victus.home'</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nt">-f</span> <span class="k">${</span><span class="nv">my_cloud_base_images_path</span><span class="k">}</span>/<span class="k">${</span><span class="nv">img_name</span><span class="k">}</span> <span class="o">]</span><span class="p">;</span> <span class="k">then
+    </span><span class="nb">echo</span> <span class="s2">"La imágen cloud base ya existe en </span><span class="k">${</span><span class="nv">my_cloud_base_images_path</span><span class="k">}</span><span class="s2">/</span><span class="k">${</span><span class="nv">img_name</span><span class="k">}</span><span class="s2">, no se descarga ahora"</span>
+<span class="k">else
+    </span>wget <span class="k">${</span><span class="nv">url_images</span><span class="k">}</span>/<span class="k">${</span><span class="nv">img_name</span><span class="k">}</span> <span class="nt">-O</span> <span class="k">${</span><span class="nv">my_cloud_base_images_path</span><span class="k">}</span>/<span class="k">${</span><span class="nv">img_name</span><span class="k">}</span>
+<span class="k">fi</span>
+
+<span class="c">#cat &lt;&lt; eof | sudo tee /var/lib/libvirt/boot/cloud-init/${vm_name}-meta-data</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">eof</span><span class="sh"> | sudo tee ./</span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="sh">-meta-data
+instance-id: </span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="sh">
+network-interfaces: |
+  iface enp1s0 inet static
+  address 192.168.122.</span><span class="k">${</span><span class="nv">num_id</span><span class="k">}</span><span class="sh">
+  netmask 255.255.255.0
+  gateway 192.168.122.1
+</span><span class="no">
+eof
+
+</span><span class="c">#cat &lt;&lt; EOF | sudo tee /var/lib/libvirt/boot/cloud-init/${vm_name}-user-data</span>
+<span class="nb">cat</span> <span class="o">&lt;&lt;</span> <span class="no">EOF</span><span class="sh"> | sudo tee ./</span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="sh">-user-data
+#cloud-config
+
+# (1) setting hostname
+preserve_hostname: False
+hostname: </span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="sh">
+fqdn: </span><span class="k">${</span><span class="nv">mv_name</span><span class="k">}</span><span class="sh">.</span><span class="k">${</span><span class="nv">lan_domain</span><span class="k">}</span><span class="sh">
+
+#  sshd will be configured to accept password authentication
+#ssh_pwauth: yes
+chpasswd:
+    expire: false
+
+# (2) set up root and fallback account including rsa key copied into this file
+users:
+  - name: ubuntu
+    chpasswd:
+      expire: False
+    ssh-authorized-keys:
+      - </span><span class="k">${</span><span class="nv">ssh_authorized_keys</span><span class="k">}</span><span class="sh">
+    shell: /bin/bash
+  - name: root
+    ssh-authorized-keys:
+      - </span><span class="k">${</span><span class="nv">ssh_authorized_keys</span><span class="k">}</span><span class="sh">
+    shell: /bin/bash
+  - name: dzamo
+    gecos: dzamo
+    primary_group: dzamo
+    groups: users, sudo, adm, admin, cdrom, floppy, audio, dip, video, plugdev, netdev, lxd
+    ssh-authorized-keys:
+      - </span><span class="k">${</span><span class="nv">ssh_authorized_keys</span><span class="k">}</span><span class="sh">
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+#    lock_passwd: false
+#    passwd: </span><span class="nv">$6$rounds</span><span class="sh">=4096</span><span class="nv">$jEOYi3YBivWIrgps$e3x2SUwcCz3HSAdhTrTL3zVHxZ9WaWabZxWSTw3n</span><span class="sh">.Jv2rpXPF4lmo3DP5Y3cOOz6sw07JiEkgEdxiLEwg.FrH.
+
+# (3) set up a first-time password for both accounts
+#chpasswd:
+#  list: |
+#    </span><span class="k">${</span><span class="nv">user1</span><span class="k">}</span><span class="sh">:</span><span class="k">${</span><span class="nv">pwd_initial</span><span class="k">}</span><span class="sh">
+#    dzamo:</span><span class="k">${</span><span class="nv">pwd_initial</span><span class="k">}</span><span class="sh">
+#  expire: false
+
+# (4) install additional required packages
+packages:
+  - tmux
+  - rsync
+  - vim
+  - vim-nox
+  - exuberant-ctags
+  - vim-scripts
+  - neovim
+
+# (5) some packages need additional configuration files
+#write_files:
+
+# (6) perform a package upgrade
+package_upgrade: true
+
+# (7) several configuration commands are executed on first boot
+runcmd:
+  # (a.) Here command....
+  # (b.) finally disable cloud-init
+  - systemctl  disable  cloud-init
+# done
+</span><span class="no">
+EOF
+
+</span><span class="nb">sudo mkdir</span> <span class="nt">-p</span> /var/lib/libvirt/boot/cloud-init
+<span class="nb">sudo cp</span> <span class="nt">-vf</span> ./<span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span>-<span class="o">{</span>meta,user<span class="o">}</span><span class="nt">-data</span> /var/lib/libvirt/boot/cloud-init/
+
+<span class="c">#none_extension_name=$(basename ${my_cloud_base_images_path}/${img_name} .img)</span>
+<span class="nb">sudo cp</span> <span class="nt">-fv</span> <span class="k">${</span><span class="nv">my_cloud_base_images_path</span><span class="k">}</span>/<span class="k">${</span><span class="nv">img_name</span><span class="k">}</span> <span class="k">${</span><span class="nv">libvirt_storage</span><span class="k">}</span>/<span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span>.qcow2
+<span class="c"># Creación de la VM</span>
+<span class="nb">sudo </span>virt-install <span class="nt">--name</span> <span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span> <span class="se">\</span>
+    <span class="nt">--memory</span> 3072  <span class="nt">--cpu</span> host <span class="nt">--vcpus</span> 3 <span class="se">\</span>
+    <span class="nt">--os-type</span> linux <span class="nt">--os-variant</span> <span class="k">${</span><span class="nv">os_variant</span><span class="k">}</span> <span class="nt">--import</span> <span class="se">\</span>
+    <span class="nt">--disk</span> <span class="k">${</span><span class="nv">libvirt_storage</span><span class="k">}</span>/<span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span>.qcow2,format<span class="o">=</span>qcow2,bus<span class="o">=</span>virtio,size<span class="o">=</span>20  <span class="se">\</span>
+    <span class="nt">--network</span> <span class="nv">network</span><span class="o">=</span>default,model<span class="o">=</span>virtio <span class="se">\</span>
+    <span class="nt">--cloud-init</span> user-data<span class="o">=</span><span class="s2">"/var/lib/libvirt/boot/cloud-init/</span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="s2">-user-data"</span>,meta-data<span class="o">=</span><span class="s2">"/var/lib/libvirt/boot/cloud-init/</span><span class="k">${</span><span class="nv">vm_name</span><span class="k">}</span><span class="s2">-meta-data"</span>
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>Para lanzar el aprovisionamiento y por ende la creación de la VM basta con ejecutar:</p>
+
+<div class="language-bash highlighter-rouge"><div class="code-header">
+        <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
+      <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="nb">chmod </span>755 ubuntu-jammy.sh
+./ubuntu-jammy.sh
+</pre></td></tr></tbody></table></code></div></div>
+
+<p>Esta creación fue realizada sobre un host anfitrión de KVM basado en distribución Linux Fedora 38.</p>
 
 <!--
+## Especificación inicial
+
+La especificación a configurar sobre las interfaces de red son las siguientes:
+
 |`nombre de la interface` | `ip` | identificación LAN conectada | `red/máscara`    | `gateway`      | `DNS` | `métrica` |
 |:--                      |:--   |:--                           |:--               |:--             |:--    |:--      |
 |`enp1s0`                 |`192.168.122.46`                     |`192.168.122.0/24`|`192.168.122.1`|`192.168.122.1`|`100`|
@@ -795,7 +1062,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://twitter.com/intent/tweet?text=Ubuntu%2022.04%20LTS%20-%20conf.%20netplan%20c/m%C3%BAltiples%20interfaces%20(y%20metrics)%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
+        href="https://twitter.com/intent/tweet?text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs&url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Twitter"
@@ -808,7 +1075,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://www.facebook.com/sharer/sharer.php?title=Ubuntu%2022.04%20LTS%20-%20conf.%20netplan%20c/m%C3%BAltiples%20interfaces%20(y%20metrics)%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
+        href="https://www.facebook.com/sharer/sharer.php?title=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs&u=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Facebook"
@@ -821,7 +1088,7 @@ dzamo@cloud-init:~$ ip addr
     
       
       <a
-        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F&text=Ubuntu%2022.04%20LTS%20-%20conf.%20netplan%20c/m%C3%BAltiples%20interfaces%20(y%20metrics)%20-%20dZamo%20docs"
+        href="https://t.me/share/url?url=https%3A%2F%2Fdzamo.gitlab.io%2Fposts%2Fprovisioning-vms-using-cloud-images-and-virt-install%2F&text=Aprovisionamiento%20de%20VMs%20basadas%20en%20la%20nube%20mediante%20CLI%20y%20virt-install%20-%20dZamo%20docs"
         data-bs-toggle="tooltip"
         data-bs-placement="top"
         title="Telegram"

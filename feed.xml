@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-09-03T02:21:51+02:00</updated>
+  <updated>2023-09-03T03:01:33+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,8 +20,8 @@
 
   
   <entry>
-    <title>Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)</title>
-    <link href="https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - conf. netplan c/múltiples interfaces (y metrics)" />
+    <title>Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install</title>
+    <link href="https://dzamo.gitlab.io/posts/provisioning-vms-using-cloud-images-and-virt-install/" rel="alternate" type="text/html" title="Aprovisionamiento de VMs basadas en la nube mediante CLI y virt-install" />
     <published>2023-08-31T17:20:00+02:00</published>
   
     <updated>2023-08-31T17:20:00+02:00</updated>
@@ -62,12 +62,8 @@
   En esta publicación se muestra como desplegar una VMs (instancia de Ubuntu 22.04 LTS), utilizando Cloud Image sobre un host anfitrión de virtualización Libvirt/KVM, utilizando el CLI virt-install.
 
 
-Especificación inicial
 
-La especificación a configurar sobre las interfaces de red son las siguientes:
-
-
-
+  En el repositorio https://gitlab.com/dzamo/provisioning-cloud-base-vms-using-cli-and-virt-install se comparten algunos aprovisionamientos de VM Cloud images, realizadas sobre un host anfitrión...
     </summary>
   
 
