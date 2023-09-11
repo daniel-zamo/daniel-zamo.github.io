@@ -731,7 +731,7 @@
   class="readtime"
   data-bs-toggle="tooltip"
   data-bs-placement="bottom"
-  title="180 words"
+  title="190 words"
 >
   <em>1 min</em> read</span>
 
@@ -752,8 +752,14 @@
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
+3
+4
+5
 </pre></td><td class="rouge-code"><pre><span class="c"># Desabilito servicios   </span>
-<span class="nb">sudo </span>systemctl disable <span class="nt">--now</span> apparmor.service cloud-config.service cloud-final.service cloud-init-local.service cloud-init.service ModemManager.service packagekit.service snapd.apparmor.service snapd.seeded.service snapd.service snapd.socket ufw
+<span class="nb">sudo </span>systemctl disable <span class="nt">--now</span> apparmor.service cloud-config.service <span class="se">\</span>
+  cloud-final.service cloud-init-local.service cloud-init.service <span class="se">\</span>
+  ModemManager.service packagekit.service snapd.apparmor.service <span class="se">\</span>
+  snapd.seeded.service snapd.service snapd.socket ufw
 </pre></td></tr></tbody></table></code></div></div>
 
 <h2 id="actualizar-sistema"><span class="me-2">Actualizar sistema</span><a href="#actualizar-sistema" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2>
@@ -786,8 +792,12 @@
         <span data-label-text="Shell"><i class="fas fa-code fa-fw small"></i></span>
       <button aria-label="copy" data-title-succeed="Copied!"><i class="far fa-clipboard"></i></button></div><div class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 2
+3
+4
 </pre></td><td class="rouge-code"><pre><span class="c"># Instalo otros paquetes (compiladores, desarrollo) extras</span>
-<span class="nb">sudo </span>apt <span class="nb">install </span>gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-multilib autoconf automake libtool flex bison gdb  gcc-11-multilib bzr libgd-tools build-essential
+<span class="nb">sudo </span>apt <span class="nb">install </span>gcc-11-locales debian-keyring g++-multilib g++-11-multilib <span class="se">\</span>
+  gcc-multilib autoconf automake libtool flex bison gdb  gcc-11-multilib bzr <span class="se">\</span>
+  libgd-tools build-essential
 </pre></td></tr></tbody></table></code></div></div>
 
 <h3 id="configuración--path-python-por-defecto"><span class="me-2">Configuración  path python (por defecto)</span><a href="#configuración--path-python-por-defecto" class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3>
