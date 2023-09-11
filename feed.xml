@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-09-03T03:03:35+02:00</updated>
+  <updated>2023-09-11T21:56:12+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -17,6 +17,57 @@
   <icon>/assets/img/favicons/favicon.ico</icon>
   <logo>/assets/img/favicons/favicon-96x96.png</logo>
 
+
+  
+  <entry>
+    <title>Ubuntu 22.04 LTS - instalar Python</title>
+    <link href="https://dzamo.gitlab.io/posts/ubuntu22-04-install-python/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - instalar Python" />
+    <published>2023-09-11T16:20:00+02:00</published>
+  
+    <updated>2023-09-11T16:20:00+02:00</updated>
+  
+    <id>https://dzamo.gitlab.io/posts/ubuntu22-04-install-python/</id>
+    <content src="https://dzamo.gitlab.io/posts/ubuntu22-04-install-python/" />
+    <author>
+      <name>dzamo</name>
+    </author>
+
+  
+    
+    <category term="Ubuntu" />
+    
+    <category term="Linux" />
+    
+    <category term="desarrollo" />
+    
+    <category term="developer" />
+    
+    <category term="Python" />
+    
+    <category term="Debian" />
+    
+  
+
+  
+    <summary>
+      
+
+
+
+
+
+      
+  En esta publicación se instala y configura el interprete de Python versión 3. sobre una distribución Linux basada en Ubuntu 22.04 LTS. También se realizan algunas tareas de instalación y configuración inicial mínima, para dejar un sistema con la menor cantidad de paquetes extras instalados y servicios que no serán utilizados.
+
+
+Deshabilitar servicios sin utilizar
+
+# Desabilito servicios   
+s...
+    </summary>
+  
+
+  </entry>
 
   
   <entry>
@@ -220,58 +271,6 @@ El servidor hardware con el que se trabajo ya estaba funcional, y con una Distri
   RAM: 256 Gb
   HHDD: 512 Gb
   SWAP: Sin (deshabilit...
-    </summary>
-  
-
-  </entry>
-
-  
-  <entry>
-    <title>Cluster Minikube en AlmaLinux 9 - Introducción</title>
-    <link href="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" rel="alternate" type="text/html" title="Cluster Minikube en AlmaLinux 9 - Introducción" />
-    <published>2023-08-30T05:33:00+02:00</published>
-  
-    <updated>2023-08-30T05:33:00+02:00</updated>
-  
-    <id>https://dzamo.gitlab.io/posts/minikube-in-almalinux9/</id>
-    <content src="https://dzamo.gitlab.io/posts/minikube-in-almalinux9/" />
-    <author>
-      <name>dzamo</name>
-    </author>
-
-  
-    
-    <category term="Kubernetes" />
-    
-    <category term="k8s" />
-    
-    <category term="minikube" />
-    
-    <category term="Linux" />
-    
-    <category term="AlmaLinux" />
-    
-    <category term="Ansible" />
-    
-    <category term="RHEL" />
-    
-  
-
-  
-    <summary>
-      
-
-
-
-
-
-      
-  En este despliegue se instala y configura Kubernetes con la solución Minikube, sobre un sistemas basado en distribución AlmaLinux.
-La documentación de esta implementación será presentada en varias entradas de este mismo blog, separando en etapas su puesta en funcionamiento.
-
-
-
-  Con el despliegue de este cluster (como un host single inicialmente) Kubernetes, se dispuso de un entorno de desar...
     </summary>
   
 
