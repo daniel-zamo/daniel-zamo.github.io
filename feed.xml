@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-09-11T22:16:59+02:00</updated>
+  <updated>2023-09-11T22:18:54+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -36,7 +36,9 @@
     
     <category term="Ubuntu" />
     
-    <category term="Linux" />
+    <category term="Ubuntu server" />
+    
+    <category term="Linux server" />
     
     <category term="desarrollo" />
     
