@@ -1,7 +1,7 @@
 [
   
   {
-    "title": "Ubuntu 22.04 LTS - instalar Python",
+    "title": "Ubuntu 22.04 LTS - Python 3.10 - instalación",
     "url": "/posts/ubuntu22-04-install-python/",
     "categories": "Ubuntu, Linux, desarrollo, developer, Python, Debian",
     "tags": "ubuntu lts",
@@ -13,8 +13,8 @@
 
 
     
-    "snippet": "  En esta publicación se instala y configura el interprete de Python versión 3. sobre una distribución Linux basada en Ubuntu 22.04 LTS. También se realizan algunas tareas de instalación y configur...",
-    "content": "  En esta publicación se instala y configura el interprete de Python versión 3. sobre una distribución Linux basada en Ubuntu 22.04 LTS. También se realizan algunas tareas de instalación y configuración inicial mínima, para dejar un sistema con la menor cantidad de paquetes extras instalados y servicios que no serán utilizados.Deshabilitar servicios sin utilizar# Desabilito servicios   sudo systemctl disable --now apparmor.service cloud-config.service cloud-final.service cloud-init-local.service cloud-init.service ModemManager.service packagekit.service snapd.apparmor.service snapd.seeded.service snapd.service snapd.socket ufwActualizar sistema# Actualizo sistemasudo apt updatesudo apt -y upgradeInstalar Python# Instalo Pythonsudo apt install python3.10 python3.10-venv python3-pipInstalación de paquetes (sugeridos, no obligatorios)Los siguientes paquetes son opcionales y NO son directamente necesarios para el interprete Python.# Instalo otros paquetes (compiladores, desarrollo) extrassudo apt install gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-multilib autoconf automake libtool flex bison gdb  gcc-11-multilib bzr libgd-tools build-essentialConfiguración  path python (por defecto)# Configuro path defecto para pythonwhich pythonll /usr/bin/python3*sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1which pythonpython -V"
+    "snippet": "  En esta publicación se instala y configura el interprete de  versión 3.10. sobre una distribución Linux basada en . También se realizan algunas tareas de instalación y configuración inicial mínim...",
+    "content": "  En esta publicación se instala y configura el interprete de  versión 3.10. sobre una distribución Linux basada en . También se realizan algunas tareas de instalación y configuración inicial mínima, para dejar un sistema con la menor cantidad de paquetes extras instalados y servicios que no serán utilizados.Deshabilitar servicios sin utilizar# Desabilito servicios   sudo systemctl disable --now apparmor.service cloud-config.service cloud-final.service cloud-init-local.service cloud-init.service ModemManager.service packagekit.service snapd.apparmor.service snapd.seeded.service snapd.service snapd.socket ufwActualizar sistema# Actualizo sistemasudo apt updatesudo apt -y upgradeInstalar Python# Instalo Pythonsudo apt install python3.10 python3.10-venv python3-pipInstalación de paquetes (sugeridos, no obligatorios)Los siguientes paquetes son opcionales y NO son directamente necesarios para el interprete Python.# Instalo otros paquetes (compiladores, desarrollo) extrassudo apt install gcc-11-locales debian-keyring g++-multilib g++-11-multilib gcc-multilib autoconf automake libtool flex bison gdb  gcc-11-multilib bzr libgd-tools build-essentialConfiguración  path python (por defecto)# Configuro path defecto para pythonwhich pythonll /usr/bin/python3*sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1which pythonpython -V"
   },
   
   {

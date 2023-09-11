@@ -4,7 +4,7 @@
   <id>https://dzamo.gitlab.io/</id>
   <title>dZamo docs</title>
   <subtitle>A minimal, responsive and feature-rich Jekyll theme for technical writing.</subtitle>
-  <updated>2023-09-11T22:03:37+02:00</updated>
+  <updated>2023-09-11T22:16:11+02:00</updated>
   <author>
     <name>Daniel Oscar Zamo</name>
     <uri>https://dzamo.gitlab.io/</uri>
@@ -20,8 +20,8 @@
 
   
   <entry>
-    <title>Ubuntu 22.04 LTS - instalar Python</title>
-    <link href="https://dzamo.gitlab.io/posts/ubuntu22-04-install-python/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - instalar Python" />
+    <title>Ubuntu 22.04 LTS - Python 3.10 - instalación</title>
+    <link href="https://dzamo.gitlab.io/posts/ubuntu22-04-install-python/" rel="alternate" type="text/html" title="Ubuntu 22.04 LTS - Python 3.10 - instalación" />
     <published>2023-09-11T16:20:00+02:00</published>
   
     <updated>2023-09-11T16:20:00+02:00</updated>
@@ -57,13 +57,13 @@
 
 
       
-  En esta publicación se instala y configura el interprete de Python versión 3. sobre una distribución Linux basada en Ubuntu 22.04 LTS. También se realizan algunas tareas de instalación y configuración inicial mínima, para dejar un sistema con la menor cantidad de paquetes extras instalados y servicios que no serán utilizados.
+  En esta publicación se instala y configura el interprete de  versión 3.10. sobre una distribución Linux basada en . También se realizan algunas tareas de instalación y configuración inicial mínima, para dejar un sistema con la menor cantidad de paquetes extras instalados y servicios que no serán utilizados.
 
 
 Deshabilitar servicios sin utilizar
 
 # Desabilito servicios   
-s...
+sudo systemctl disab...
     </summary>
   
 
