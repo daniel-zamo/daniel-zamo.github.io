@@ -3,3 +3,4 @@ cli-codes/*.sh
 legacy
 *.tgz
 deploy.sh
+README.md
