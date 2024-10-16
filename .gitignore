@@ -1,6 +1,0 @@
-cli-codes/*.sh
-!cli-codes/_1*.sh
-legacy
-*.tgz
-deploy.sh
-README.md
