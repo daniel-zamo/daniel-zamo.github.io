@@ -13,9 +13,6 @@
         <loc>https://abridge.netlify.app/blog/</loc>
     </url>
     <url>
-        <loc>https://abridge.netlify.app/contact/</loc>
-    </url>
-    <url>
         <loc>https://abridge.netlify.app/es/</loc>
     </url>
     <url>
@@ -26,9 +23,6 @@
     </url>
     <url>
         <loc>https://abridge.netlify.app/es/blog/</loc>
-    </url>
-    <url>
-        <loc>https://abridge.netlify.app/es/contact/</loc>
     </url>
     <url>
         <loc>https://abridge.netlify.app/es/page/1/</loc>
@@ -51,9 +45,6 @@
     </url>
     <url>
         <loc>https://abridge.netlify.app/fr/blog/</loc>
-    </url>
-    <url>
-        <loc>https://abridge.netlify.app/fr/contact/</loc>
     </url>
     <url>
         <loc>https://abridge.netlify.app/fr/offline/</loc>
@@ -157,9 +148,6 @@
     </url>
     <url>
         <loc>https://abridge.netlify.app/pt/about/</loc>
-    </url>
-    <url>
-        <loc>https://abridge.netlify.app/pt/contact/</loc>
     </url>
     <url>
         <loc>https://abridge.netlify.app/pt/privacy/</loc>
