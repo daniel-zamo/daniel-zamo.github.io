@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on SSG blog</title>
-    <link>https://dzamo.gitlab.io/categories/</link>
-    <description>Recent content in Categories on SSG blog</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <atom:link href="https://dzamo.gitlab.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <title>Categories on Hugo generator site</title>
+    <link>https://dzamo.github.io/categories/</link>
+    <description>Recent content in Categories on Hugo generator site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Aug 2021 21:29:20 +0200</lastBuildDate>
+    <atom:link href="https://dzamo.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lorem</title>
+      <link>https://dzamo.github.io/categories/lorem/</link>
+      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
+      <guid>https://dzamo.github.io/categories/lorem/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://dzamo.github.io/categories/programming/</link>
+      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
+      <guid>https://dzamo.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pseudo</title>
+      <link>https://dzamo.github.io/categories/pseudo/</link>
+      <pubDate>Sun, 01 Aug 2021 21:29:20 +0200</pubDate>
+      <guid>https://dzamo.github.io/categories/pseudo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Starting</title>
+      <link>https://dzamo.github.io/categories/starting/</link>
+      <pubDate>Wed, 24 Jun 2015 13:50:46 +0200</pubDate>
+      <guid>https://dzamo.github.io/categories/starting/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>
