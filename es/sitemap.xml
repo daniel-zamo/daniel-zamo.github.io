@@ -2,72 +2,145 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dzamo.gitlab.io/es/categories/</loc>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+    <priority>0.1</priority>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dzamo.gitlab.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://dzamo.gitlab.io/pt/categories/"
+                href="https://dzamo.gitlab.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://dzamo.gitlab.io/es/categories/"
-                />
-  </url><url>
-    <loc>https://dzamo.gitlab.io/es/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
                 href="https://dzamo.gitlab.io/"
                 />
+  </url><url>
+    <loc>https://dzamo.gitlab.io/notes/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/search/</loc>
+    <lastmod>2010-06-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="pt"
-                href="https://dzamo.gitlab.io/pt/"
+                hreflang="en"
+                href="https://dzamo.gitlab.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://dzamo.gitlab.io/es/"
+                href="https://dzamo.gitlab.io/categories/"
                 />
   </url><url>
-    <loc>https://dzamo.gitlab.io/es/series/</loc>
+    <loc>https://dzamo.gitlab.io/posts/</loc>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dzamo.gitlab.io/series/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://dzamo.gitlab.io/pt/series/"
+                href="https://dzamo.gitlab.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://dzamo.gitlab.io/es/series/"
-                />
-  </url><url>
-    <loc>https://dzamo.gitlab.io/es/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
                 href="https://dzamo.gitlab.io/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://dzamo.gitlab.io/pt/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://dzamo.gitlab.io/es/tags/"
                 />
   </url>
 </urlset>
