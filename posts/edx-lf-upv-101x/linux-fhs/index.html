@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Estándar de Jerarquía del Sistema de Archivos Linux</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.327e47fcaecca1fdf066047c35fc6216637d9e1cb7af249909462ccc2f23d800.css" integrity="sha256-Mn5H/K7Mof3wZgR8NfxiFmN9nhy3rySZCUYszC8j2AA=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu4027251476479951876.png" />
+
+<meta property="og:url" content="https://dzamo.gitlab.io/posts/edx-lf-upv-101x/linux-fhs/">
+  <meta property="og:site_name" content="Sitio en Gitlab Page">
+  <meta property="og:title" content="Estándar de Jerarquía del Sistema de Archivos Linux">
+  <meta property="og:description" content="El Filesystem Hierarchy Standard (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.
+%%{init: {&#34;flowchart&#34;: {&#34;htmlLabels&#34;: false}} }%% flowchart TD root[&#34;`/`&#34;] --&gt; bin[&#34;`bin`&#34;] root[&#34;`/`&#34;] --&gt; boot[&#34;`boot`&#34;] root[&#34;`/`&#34;] --&gt; dev[&#34;`dev`&#34;] root[&#34;`/`&#34;] --&gt; etc[&#34;`etc`&#34;] root[&#34;`/`&#34;] --&gt; lib[&#34;`lib`&#34;] root[&#34;`/`&#34;] --&gt; media[&#34;`media`&#34;] root[&#34;`/`&#34;] --&gt; mnt[&#34;`mnt`&#34;] root[&#34;`/`&#34;] --&gt; opt[&#34;`opt`&#34;] root[&#34;`/`&#34;] --&gt; run[&#34;`run`&#34;] root[&#34;`/`&#34;] --&gt; sbin[&#34;`sbin`&#34;] root[&#34;`/`&#34;] --&gt; srv[&#34;`srv`&#34;] root[&#34;`/`&#34;] --&gt; tmp[&#34;`tmp`&#34;] root[&#34;`/`&#34;] --&gt; usr[&#34;`usr`&#34;] root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;] Los siguientes directorios, o link simbólicos a directorios, son necesarios en el / del sistema.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-11-02T06:00:20+06:00">
+    <meta property="article:modified_time" content="2024-11-02T06:00:20+06:00">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Estándar de Jerarquía del Sistema de Archivos Linux">
+  <meta name="twitter:description" content="El Filesystem Hierarchy Standard (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.
+%%{init: {&#34;flowchart&#34;: {&#34;htmlLabels&#34;: false}} }%% flowchart TD root[&#34;`/`&#34;] --&gt; bin[&#34;`bin`&#34;] root[&#34;`/`&#34;] --&gt; boot[&#34;`boot`&#34;] root[&#34;`/`&#34;] --&gt; dev[&#34;`dev`&#34;] root[&#34;`/`&#34;] --&gt; etc[&#34;`etc`&#34;] root[&#34;`/`&#34;] --&gt; lib[&#34;`lib`&#34;] root[&#34;`/`&#34;] --&gt; media[&#34;`media`&#34;] root[&#34;`/`&#34;] --&gt; mnt[&#34;`mnt`&#34;] root[&#34;`/`&#34;] --&gt; opt[&#34;`opt`&#34;] root[&#34;`/`&#34;] --&gt; run[&#34;`run`&#34;] root[&#34;`/`&#34;] --&gt; sbin[&#34;`sbin`&#34;] root[&#34;`/`&#34;] --&gt; srv[&#34;`srv`&#34;] root[&#34;`/`&#34;] --&gt; tmp[&#34;`tmp`&#34;] root[&#34;`/`&#34;] --&gt; usr[&#34;`usr`&#34;] root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;] Los siguientes directorios, o link simbólicos a directorios, son necesarios en el / del sistema.">
+
+    
+    
+<meta name="description" content="Estándar de Jerarquía del Sistema de Archivos Linux" />
+
+
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9821184694329847432.png" id="logo" alt="Logo">
+      Sitio en Gitlab Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Inicio</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Habilidades</a>
+                </li>
+              
+            
+            
+            
+            
+            
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+            
+            
+            
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9821184694329847432.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu12098007237321227804.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Búsqueda" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/ssg-hugo/"> Generador Hugo</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ssg-hugo/theme-toha/" title="Tema Toha">Tema Toha</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfcs-preparation/"> Preparación para LFCS</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfcs-preparation/my-study-laboratory/" title="Alma Linux 8 - Lab.">Alma Linux 8 - Lab.</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/edx-lf-upv-101x/"> Introducción a Linux</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/edx-lf-upv-101x/edx-lf-upv-101x-review/" title="LF-UPV-101x">LF-UPV-101x</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/edx-lf-upv-101x/chapter-3/" title="Capítulo 3">Capítulo 3</a></li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/edx-lf-upv-101x/linux-fhs/" title="Estándar FHS">Estándar FHS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href=""> theme-toha</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ssg-hugo/theme-toha/shortcodes/" title="Ej. de Shortcodes">Ej. de Shortcodes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/images/posts/linux-fhs.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        <div class="author-profile ms-auto align-self-lg-center">
+          <img class="rounded-circle" src='/images/author/dzamo_hu538309232218454908.jpeg' alt="Author Image">
+          <h5 class="author-name">Daniel O. Zamo</h5>
+          <p class="text-muted">sábado, 2 de noviembre de 2024</p>
+        </div>
+        
+        
+        <div class="title">
+          <h1>Estándar de Jerarquía del Sistema de Archivos Linux</h1>
+        </div>
+
+        
+
+        
+          <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <p>El <a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" title="PDF del estandar FHS" target="_blank" rel="noopener">Filesystem Hierarchy Standard</a> (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.</p>
+
+
+
+
+
+    
+
+
+<div class="mermaid" align="center" style="background-color: none; border-radius: 5px;">
+    
+%%{init: {"flowchart": {"htmlLabels": false}} }%%
+flowchart TD
+root["`/`"] --> bin["`bin`"]
+root["`/`"] --> boot["`boot`"]
+root["`/`"] --> dev["`dev`"]
+root["`/`"] --> etc["`etc`"]
+root["`/`"] --> lib["`lib`"]
+root["`/`"] --> media["`media`"]
+root["`/`"] --> mnt["`mnt`"]
+root["`/`"] --> opt["`opt`"]
+root["`/`"] --> run["`run`"]
+root["`/`"] --> sbin["`sbin`"]
+root["`/`"] --> srv["`srv`"]
+root["`/`"] --> tmp["`tmp`"]
+root["`/`"] --> usr["`usr`"]
+root["`/`"] --> var["`var`"]
+
+</div>
+
+<p>Los siguientes directorios, o link simbólicos a directorios, son necesarios en el <code>/</code> del sistema.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Directorio</th>
+          <th style="text-align: left">Descripción</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>bin</code></td>
+          <td style="text-align: left">Essential command binaries</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>boot</code></td>
+          <td style="text-align: left">Static files of the boot loader</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>dev</code></td>
+          <td style="text-align: left">Device files</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>etc</code></td>
+          <td style="text-align: left">Host-specific system configuration</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>home</code></td>
+          <td style="text-align: left">User home directories (optional)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>lib</code></td>
+          <td style="text-align: left">Essential shared libraries and kernel modules</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>lib&lt;qual&gt;</code></td>
+          <td style="text-align: left">Alternate format essential shared libraries (optional)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>media</code></td>
+          <td style="text-align: left">Mount point for removable media</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>mnt</code></td>
+          <td style="text-align: left">Mount point for mounting a filesystem temporarily</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>opt</code></td>
+          <td style="text-align: left">Add-on application software packages</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>root</code></td>
+          <td style="text-align: left">Home directory for the root user (optional)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>run</code></td>
+          <td style="text-align: left">Data relevant to running processes</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>sbin</code></td>
+          <td style="text-align: left">Essential system binaries</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>srv</code></td>
+          <td style="text-align: left">Data for services provided by this system</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>tmp</code></td>
+          <td style="text-align: left">Temporary files</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>usr</code></td>
+          <td style="text-align: left">Secondary hierarchy</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>var</code></td>
+          <td style="text-align: left">Variable data</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" title="PDF del estandar FHS" target="_blank" rel="noopener">Filesystem Hierarchy Standard</a></li>
+</ul>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+            <strong>Compartir en:</strong>
+            
+            
+            
+            
+            
+            
+                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f&title=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+            
+            
+             
+            
+                 <a class="btn icon-button bg-whatsapp" href="https://api.whatsapp.com/send?text=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
+                  <i class="fab fa-whatsapp"></i>
+                </a>
+            
+            
+                <a class="btn icon-button" href="mailto:?subject=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+            
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://gitlab.com/dzamo/dzamo.github.io/edit/main/content/posts/edx-lf-upv-101x/linux-FHS.md" title="Mejorar esta página" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Mejorar esta página
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/edx-lf-upv-101x/chapter-3/" title="Capítulo 3 - Conceptos Básicos de Linux e inicio del sistema" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Anterior</div>
+        <div class="next-prev-text">Capítulo 3 - Conceptos Básicos de Linux e inicio del sistema</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/ssg-hugo/theme-toha/shortcodes/" title="Ejemplos de Shortcodes" class="btn filled-button">
+          <div>Siguiente <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">Ejemplos de Shortcodes</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center ps-3">Contenido</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navegación</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#skills">Habilidades</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <hr />
+    <div class="container">
+      <p id="disclaimer"><strong>Aviso de responsabilidad:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
+    </div>
+    
+    
+  </footer>
+
+
+    <script src="/application.ffe27d5650938f988438a30e0b3fd7a571e4243b051a9e25bd0e05b1b5994806.js" integrity="sha256-/&#43;J9VlCTj5iEOKMOCz/XpXHkJDsFGp4lvQ4FsbWZSAY=" defer></script>
+
+
+    
+     
+
+    
+
+    huevo
+    
+    <script src="https://dzamo.gitlab.io/scripts/features/flowchart/mermaid.min.js"></script>
+  
+  </body>
+</html>

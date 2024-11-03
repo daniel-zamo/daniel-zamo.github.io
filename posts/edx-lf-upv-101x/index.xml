@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LF-UPV-101x: Intro. Linux on Sitio en Gitlab Page</title>
+    <link>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/</link>
+    <description>Recent content in LF-UPV-101x: Intro. Linux on Sitio en Gitlab Page</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>es</language>
+    <lastBuildDate>Sat, 02 Nov 2024 06:00:20 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/edx-lf-upv-101x/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Estándar de Jerarquía del Sistema de Archivos Linux</title>
+      <link>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/linux-fhs/</link>
+      <pubDate>Sat, 02 Nov 2024 06:00:20 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/linux-fhs/</guid>
+      <description>&lt;p&gt;El &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;PDF del estandar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Filesystem Hierarchy Standard&lt;/a&gt; (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.&lt;/p&gt;
+
+
+
+
+
+    
+
+
+&lt;div class=&#34;mermaid&#34; align=&#34;center&#34; style=&#34;background-color: none; border-radius: 5px;&#34;&gt;
+    
+%%{init: {&#34;flowchart&#34;: {&#34;htmlLabels&#34;: false}} }%%
+flowchart TD
+root[&#34;`/`&#34;] --&gt; bin[&#34;`bin`&#34;]
+root[&#34;`/`&#34;] --&gt; boot[&#34;`boot`&#34;]
+root[&#34;`/`&#34;] --&gt; dev[&#34;`dev`&#34;]
+root[&#34;`/`&#34;] --&gt; etc[&#34;`etc`&#34;]
+root[&#34;`/`&#34;] --&gt; lib[&#34;`lib`&#34;]
+root[&#34;`/`&#34;] --&gt; media[&#34;`media`&#34;]
+root[&#34;`/`&#34;] --&gt; mnt[&#34;`mnt`&#34;]
+root[&#34;`/`&#34;] --&gt; opt[&#34;`opt`&#34;]
+root[&#34;`/`&#34;] --&gt; run[&#34;`run`&#34;]
+root[&#34;`/`&#34;] --&gt; sbin[&#34;`sbin`&#34;]
+root[&#34;`/`&#34;] --&gt; srv[&#34;`srv`&#34;]
+root[&#34;`/`&#34;] --&gt; tmp[&#34;`tmp`&#34;]
+root[&#34;`/`&#34;] --&gt; usr[&#34;`usr`&#34;]
+root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;]
+
+&lt;/div&gt;
+
+&lt;p&gt;Los siguientes directorios, o link simbólicos a directorios, son necesarios en el &lt;code&gt;/&lt;/code&gt; del sistema.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Capítulo 3 - Conceptos Básicos de Linux e inicio del sistema</title>
+      <link>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/chapter-3/</link>
+      <pubDate>Fri, 01 Nov 2024 06:00:20 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/chapter-3/</guid>
+      <description>&lt;p&gt;Capítulo 3 - Conceptos básicos de Linux e inicio del sistema&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Identificar los sistemas de archivos Linux.&lt;/li&gt;
+&lt;li&gt;Identificar las diferencias entre particiones y sistemas de archivos.&lt;/li&gt;
+&lt;li&gt;Describir el proceso de arranque.&lt;/li&gt;
+&lt;li&gt;Instalar Linux en un equipo.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fhs&#34;&gt;FHS&lt;/h2&gt;
+&lt;p&gt;El &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;PDF del estandar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Filesystem Hierarchy Standard&lt;/a&gt; (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>LinuxFoundationX_UPValenciaX LF-UPV-101x</title>
+      <link>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/edx-lf-upv-101x-review/</link>
+      <pubDate>Mon, 08 Jun 2020 06:00:20 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/edx-lf-upv-101x-review/</guid>
+      <description>&lt;p&gt;Esta entrada es un resumen del curso de Introduction to Linux (LFS101) que se puede encontrar en la plataforma &lt;a href=&#34;https://learning.edx.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;edX&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;capítulos&#34;&gt;Capítulos&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Capítulo 2: Filosofía y conceptos de Linux.&lt;/li&gt;
+&lt;li&gt;Capítulo 3: Conceptos básico de Linux
+&lt;ul&gt;
+&lt;li&gt;Proceso de arranque de Linux.&lt;/li&gt;
+&lt;li&gt;Planificación de instalación de Linux.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;fundación-linux&#34;&gt;Fundación Linux&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;La Fundación Linux es la organización que abarca muchos proyectos críticos de código abierto que impulsan a empresas de todos los sectores industriales. Su trabajo actual se extiende mucho más allá de Linux, fomentando la innovación en todas las capas de la pila de software.
+La formación de la Fundación Linux es para la comunidad y esta hecha por la comunidad. Esta es flexible en cuanto a la distribución, está técnicamente avanzada y se crea con los líderes de la comunidad de desarrollo de Linux.&lt;/p&gt;</description>
+    </item>
+    
+    
+  </channel>
+</rss>
