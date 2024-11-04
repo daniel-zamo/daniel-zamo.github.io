@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basic on Sitio en Gitlab Page</title>
-    <link>https://dzamo.gitlab.io/categories/basic/</link>
+    <link>http://localhost:1313/categories/basic/</link>
     <description>Recent content in Basic on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 08 Oct 2024 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/categories/basic/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Tue, 08 Oct 2024 08:06:25 +0600</lastBuildDate><atom:link href="http://localhost:1313/categories/basic/index.xml" rel="self" type="application/rss+xml" /><item>
       <title>Ejemplos de Shortcodes</title>
-      <link>https://dzamo.gitlab.io/posts/ssg-hugo/theme-toha/shortcodes/</link>
+      <link>http://localhost:1313/posts/ssg-hugo/theme-toha/shortcodes/</link>
       <pubDate>Tue, 08 Oct 2024 08:06:25 +0600</pubDate>
       
-      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/theme-toha/shortcodes/</guid>
+      <guid>http://localhost:1313/posts/ssg-hugo/theme-toha/shortcodes/</guid>
       <description>&lt;p&gt;This is a sample post intended to test the followings:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Default hero image.&lt;/li&gt;
@@ -92,7 +92,7 @@
 
 &lt;h2 id=&#34;image&#34;&gt;Image&lt;/h2&gt;
 &lt;h4 id=&#34;a-sample-image-without-any-attribute&#34;&gt;A sample image without any attribute.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/posts/shortcodes/boat.jpg&#34;
     
         alt=&#34;A boat at the sea&#34;
     
@@ -104,7 +104,7 @@
 
 &lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
 &lt;h4 id=&#34;a-sample-image-with-height-and-width-attributes&#34;&gt;A sample image with &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; attributes.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/posts/ssg-hugo/theme-toha/shortcode/boat.jpg&#34;
     
         alt=&#34;A boat at the sea&#34;
     
@@ -120,7 +120,7 @@
 
 &lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
 &lt;h4 id=&#34;a-center-aligned-image-with-height-and-width-attributes&#34;&gt;A center aligned image with &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; attributes.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/posts/shortcodes/boat.jpg&#34;
     
         alt=&#34;A boat at the sea&#34;
     
@@ -138,7 +138,7 @@
 
 &lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
 &lt;h4 id=&#34;a-image-with-float-attribute&#34;&gt;A image with &lt;code&gt;float&lt;/code&gt; attribute.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/posts/shortcodes/boat.jpg&#34;
     
         alt=&#34;A boat at the sea&#34;
     

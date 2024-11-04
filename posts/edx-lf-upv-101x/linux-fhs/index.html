@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Estándar de Jerarquía del Sistema de Archivos Linux</title>
+    <title>Estándar FHS de Linux</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<link rel="stylesheet" href="/application.327e47fcaecca1fdf066047c35fc6216637d9e1cb7af249909462ccc2f23d800.css" integrity="sha256-Mn5H/K7Mof3wZgR8NfxiFmN9nhy3rySZCUYszC8j2AA=" />
+<link rel="stylesheet" href="/application.78c17accc3971f53e7a8acee7787db4a3f35430e05c15723cd15ab4869a92768.css" integrity="sha256-eMF6zMOXH1PnqKzud4fbSj81Qw4FwVcjzRWrSGmpJ2g=" />
 
 
 
@@ -25,7 +25,7 @@
 
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/edx-lf-upv-101x/linux-fhs/">
   <meta property="og:site_name" content="Sitio en Gitlab Page">
-  <meta property="og:title" content="Estándar de Jerarquía del Sistema de Archivos Linux">
+  <meta property="og:title" content="Estándar FHS de Linux">
   <meta property="og:description" content="El Filesystem Hierarchy Standard (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.
 %%{init: {&#34;flowchart&#34;: {&#34;htmlLabels&#34;: false}} }%% flowchart TD root[&#34;`/`&#34;] --&gt; bin[&#34;`bin`&#34;] root[&#34;`/`&#34;] --&gt; boot[&#34;`boot`&#34;] root[&#34;`/`&#34;] --&gt; dev[&#34;`dev`&#34;] root[&#34;`/`&#34;] --&gt; etc[&#34;`etc`&#34;] root[&#34;`/`&#34;] --&gt; lib[&#34;`lib`&#34;] root[&#34;`/`&#34;] --&gt; media[&#34;`media`&#34;] root[&#34;`/`&#34;] --&gt; mnt[&#34;`mnt`&#34;] root[&#34;`/`&#34;] --&gt; opt[&#34;`opt`&#34;] root[&#34;`/`&#34;] --&gt; run[&#34;`run`&#34;] root[&#34;`/`&#34;] --&gt; sbin[&#34;`sbin`&#34;] root[&#34;`/`&#34;] --&gt; srv[&#34;`srv`&#34;] root[&#34;`/`&#34;] --&gt; tmp[&#34;`tmp`&#34;] root[&#34;`/`&#34;] --&gt; usr[&#34;`usr`&#34;] root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;] Los siguientes directorios, o link simbólicos a directorios, son necesarios en el / del sistema.">
   <meta property="og:locale" content="es">
@@ -36,13 +36,13 @@
 
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Estándar de Jerarquía del Sistema de Archivos Linux">
+  <meta name="twitter:title" content="Estándar FHS de Linux">
   <meta name="twitter:description" content="El Filesystem Hierarchy Standard (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation y define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.
 %%{init: {&#34;flowchart&#34;: {&#34;htmlLabels&#34;: false}} }%% flowchart TD root[&#34;`/`&#34;] --&gt; bin[&#34;`bin`&#34;] root[&#34;`/`&#34;] --&gt; boot[&#34;`boot`&#34;] root[&#34;`/`&#34;] --&gt; dev[&#34;`dev`&#34;] root[&#34;`/`&#34;] --&gt; etc[&#34;`etc`&#34;] root[&#34;`/`&#34;] --&gt; lib[&#34;`lib`&#34;] root[&#34;`/`&#34;] --&gt; media[&#34;`media`&#34;] root[&#34;`/`&#34;] --&gt; mnt[&#34;`mnt`&#34;] root[&#34;`/`&#34;] --&gt; opt[&#34;`opt`&#34;] root[&#34;`/`&#34;] --&gt; run[&#34;`run`&#34;] root[&#34;`/`&#34;] --&gt; sbin[&#34;`sbin`&#34;] root[&#34;`/`&#34;] --&gt; srv[&#34;`srv`&#34;] root[&#34;`/`&#34;] --&gt; tmp[&#34;`tmp`&#34;] root[&#34;`/`&#34;] --&gt; usr[&#34;`usr`&#34;] root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;] Los siguientes directorios, o link simbólicos a directorios, son necesarios en el / del sistema.">
 
     
     
-<meta name="description" content="Estándar de Jerarquía del Sistema de Archivos Linux" />
+<meta name="description" content="Estándar FHS de Linux" />
 
 
     
@@ -256,31 +256,6 @@
   
     
     <li>
-      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/ssg-hugo/"> Generador Hugo</a>
-      
-      <ul class="">
-        
-  
-  
-  
-  
-  
-    
-    <li><a class=" list-link" href="/posts/ssg-hugo/theme-toha/" title="Tema Toha">Tema Toha</a></li>
-  
-
-
-      </ul>
-    </li>
-  
-
-  
-  
-  
-  
-  
-    
-    <li>
       <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfcs-preparation/"> Preparación para LFCS</a>
       
       <ul class="">
@@ -355,7 +330,7 @@
   
     
     <li>
-      <i data-feather="plus-circle"></i><a class=" list-link" href=""> theme-toha</a>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/ssg-hugo/"> SSG Hugo</a>
       
       <ul class="">
         
@@ -365,7 +340,16 @@
   
   
     
-    <li><a class=" list-link" href="/posts/ssg-hugo/theme-toha/shortcodes/" title="Ej. de Shortcodes">Ej. de Shortcodes</a></li>
+    <li><a class=" list-link" href="/posts/ssg-hugo/toha-shortcodes/" title="Toha - Shortcodes">Toha - Shortcodes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ssg-hugo/toha-mermaid/" title="Toha - Mermaid">Toha - Mermaid</a></li>
   
 
 
@@ -397,12 +381,12 @@
         <div class="author-profile ms-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/dzamo_hu538309232218454908.jpeg' alt="Author Image">
           <h5 class="author-name">Daniel O. Zamo</h5>
-          <p class="text-muted">sábado, 2 de noviembre de 2024</p>
+          <p class="text-muted">sábado, 2 de noviembre de 2024 | 2 minutos</p>
         </div>
         
         
         <div class="title">
-          <h1>Estándar de Jerarquía del Sistema de Archivos Linux</h1>
+          <h1>Estándar FHS de Linux</h1>
         </div>
 
         
@@ -544,19 +528,19 @@ root["`/`"] --> var["`var`"]
             
             
             
-                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f&title=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux" target="_blank">
+                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f&title=Est%c3%a1ndar%20FHS%20de%20Linux" target="_blank">
                   <i class="fab fa-linkedin"></i>
                 </a>
             
             
              
             
-                 <a class="btn icon-button bg-whatsapp" href="https://api.whatsapp.com/send?text=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
+                 <a class="btn icon-button bg-whatsapp" href="https://api.whatsapp.com/send?text=Est%c3%a1ndar%20FHS%20de%20Linux https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
                   <i class="fab fa-whatsapp"></i>
                 </a>
             
             
-                <a class="btn icon-button" href="mailto:?subject=Est%c3%a1ndar%20de%20Jerarqu%c3%ada%20del%20Sistema%20de%20Archivos%20Linux&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
+                <a class="btn icon-button" href="mailto:?subject=Est%c3%a1ndar%20FHS%20de%20Linux&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fedx-lf-upv-101x%2flinux-fhs%2f" target="_blank">
                   <i class="fas fa-envelope-open-text"></i>
                 </a>
             
@@ -607,11 +591,11 @@ root["`/`"] --> var["`var`"]
   
 
   
+    
+    
+  
   
 
-  
-    
-    
   
   
 
@@ -634,9 +618,9 @@ root["`/`"] --> var["`var`"]
         
       
       <div class="col-md-6 next-article">
-        <a href="/posts/ssg-hugo/theme-toha/shortcodes/" title="Ejemplos de Shortcodes" class="btn filled-button">
+        <a href="/posts/ssg-hugo/toha-shortcodes/" title="Tema Toha - Shortcodes" class="btn filled-button">
           <div>Siguiente <i class="fas fa-chevron-circle-right"></i></div>
-          <div class="next-prev-text">Ejemplos de Shortcodes</div>
+          <div class="next-prev-text">Tema Toha - Shortcodes</div>
         </a>
       </div>
     
@@ -801,7 +785,7 @@ root["`/`"] --> var["`var`"]
   </footer>
 
 
-    <script src="/application.ffe27d5650938f988438a30e0b3fd7a571e4243b051a9e25bd0e05b1b5994806.js" integrity="sha256-/&#43;J9VlCTj5iEOKMOCz/XpXHkJDsFGp4lvQ4FsbWZSAY=" defer></script>
+    <script src="/application.83b79da0d53b6b9b87f1c6d6e8cb6322fa79ae7fdec41a2422a25c6b723ee7d3.js" integrity="sha256-g7edoNU7a5uH8cbW6MtjIvp5rn/exBokIqJca3I&#43;59M=" defer></script>
 
 
     

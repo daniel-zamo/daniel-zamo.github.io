@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
     <lastBuildDate>Sat, 02 Nov 2024 06:00:20 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Estándar de Jerarquía del Sistema de Archivos Linux</title>
+      <title>Estándar FHS de Linux</title>
       <link>https://dzamo.gitlab.io/posts/edx-lf-upv-101x/linux-fhs/</link>
       <pubDate>Sat, 02 Nov 2024 06:00:20 +0600</pubDate>
       
@@ -63,18 +63,24 @@ root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;]
     </item>
     
     <item>
-      <title>Ejemplos de Shortcodes</title>
-      <link>https://dzamo.gitlab.io/posts/ssg-hugo/theme-toha/shortcodes/</link>
-      <pubDate>Tue, 08 Oct 2024 08:06:25 +0600</pubDate>
+      <title>Tema Toha - Shortcodes</title>
+      <link>https://dzamo.gitlab.io/posts/ssg-hugo/toha-shortcodes/</link>
+      <pubDate>Tue, 08 Oct 2024 06:00:20 +0600</pubDate>
       
-      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/theme-toha/shortcodes/</guid>
-      <description>&lt;p&gt;This is a sample post intended to test the followings:&lt;/p&gt;
+      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/toha-shortcodes/</guid>
+      <description>&lt;p&gt;Esta es una publicación de ejemplo, con el objetivo de mostrar lo siguiente:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Default hero image.&lt;/li&gt;
-&lt;li&gt;Different shortcodes.&lt;/li&gt;
+&lt;li&gt;Imagen de hero determinada.&lt;/li&gt;
+&lt;li&gt;Los distintos shortcodes.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;alert&#34;&gt;Alert&lt;/h2&gt;
-&lt;p&gt;The following alerts are available in this theme.&lt;/p&gt;
+&lt;h2 id=&#34;alerta&#34;&gt;Alerta&lt;/h2&gt;
+&lt;p&gt;Las siguientes alertas están disponibles en este tema.&lt;/p&gt;
+&lt;h4 id=&#34;éxito&#34;&gt;Éxito&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Código:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;success&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Esto es un ejemplo de alerta con &lt;span style=&#34;color:#e6db74&#34;&gt;`type=&amp;#34;success&amp;#34;`&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; /&lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Resultado:&lt;/strong&gt;&lt;/p&gt;
 
 
 
@@ -83,134 +89,38 @@ root[&#34;`/`&#34;] --&gt; var[&#34;`var`&#34;]
 
 &lt;div class=&#34;alert success&#34;&gt;
     &lt;span&gt;&lt;i data-feather=&#34;check-circle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;success&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
+    &lt;span&gt;&lt;strong&gt;Esto es un ejemplo de alerta con &lt;code&gt;type=&amp;quot;success&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
 &lt;/div&gt;
 
-
-
-
+&lt;h4 id=&#34;peligro&#34;&gt;Peligro&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Código:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;danger&amp;#34;&lt;/span&gt; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Esto es un ejemplo de alerta con &lt;span style=&#34;color:#e6db74&#34;&gt;`type=&amp;#34;danger&amp;#34;`&lt;/span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; /&lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Resultado:&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
     
-
-
-&lt;div class=&#34;alert danger&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;alert-octagon&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;danger&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-
-
-    
-
-
-&lt;div class=&#34;alert warning&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;alert-triangle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;warning&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-
-
-    
-
-
-&lt;div class=&#34;alert info&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;info&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;info&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-
-
-
-&lt;div class=&#34;alert dark&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;alert-circle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;dark&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-
-
-
-&lt;div class=&#34;alert primary&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;alert-circle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;primary&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-
-
-
-
-&lt;div class=&#34;alert secondary&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;alert-circle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;This is sample alert with &lt;code&gt;type=&amp;quot;secondary&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&#34;image&#34;&gt;Image&lt;/h2&gt;
-&lt;h4 id=&#34;a-sample-image-without-any-attribute&#34;&gt;A sample image without any attribute.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
-    
-        alt=&#34;A boat at the sea&#34;
-    
-    
-    
-    
-    
-&gt;
-
-&lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
-&lt;h4 id=&#34;a-sample-image-with-height-and-width-attributes&#34;&gt;A sample image with &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; attributes.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
-    
-        alt=&#34;A boat at the sea&#34;
-    
-    
-        width=&#34;600&#34;
-    
-    
-        height=&#34;400&#34;
-    
-    
-    
-&gt;
-
-&lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
-&lt;h4 id=&#34;a-center-aligned-image-with-height-and-width-attributes&#34;&gt;A center aligned image with &lt;code&gt;height&lt;/code&gt; and &lt;code&gt;width&lt;/code&gt; attributes.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
-    
-        alt=&#34;A boat at the sea&#34;
-    
-    
-        width=&#34;600&#34;
-    
-    
-        height=&#34;400&#34;
-    
-    
-    
-        class=&#34;center&#34;
-    
-&gt;
-
-&lt;div style=&#34;margin-top: 3rem;&#34;&gt;&lt;/div&gt;
-&lt;h4 id=&#34;a-image-with-float-attribute&#34;&gt;A image with &lt;code&gt;float&lt;/code&gt; attribute.&lt;/h4&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/shortcodes/boat.jpg&#34;
-    
-        alt=&#34;A boat at the sea&#34;
-    
-    
-        width=&#34;500&#34;
-    
-    
-        height=&#34;200&#34;
-    
-    
-        style=&#34;float: right;&#34;
-    
-    
-&gt;
-
-&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras egestas lectus sed leo ultricies ultricies. Praesent tellus risus, eleifend vel efficitur ac, venenatis sit amet sem. Ut ut egestas erat. Fusce ut leo turpis. Morbi consectetur sed lacus vitae vehicula. Cras gravida turpis id eleifend volutpat. Suspendisse nec ipsum eu erat finibus dictum. Morbi volutpat nulla purus, vel maximus ex molestie id. Nullam posuere est urna, at fringilla eros venenatis quis.&lt;/p&gt;</description>
+    <item>
+      <title>Tema Toha - Mermaid</title>
+      <link>https://dzamo.gitlab.io/posts/ssg-hugo/toha-mermaid/</link>
+      <pubDate>Thu, 14 Mar 2024 06:15:35 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/toha-mermaid/</guid>
+      <description>&lt;p&gt;Este tema soporta mermaid, desarrollado por &lt;a href=&#34;https://mermaid-js.github.io/mermaid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mermaid-js&lt;/a&gt;. Para habilitar mermaid para una página, tienes que poner &lt;code&gt;mermaid: true&lt;/code&gt; en tu página de front-matter. Por ejemplo, esta página tiene el siguiente front-matter:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Soporte Mermaid&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;date&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;2022-03-14T06:15:35&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;+06&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;00&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;menu&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;sidebar&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Mermaid&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;identifier&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;writing-post-mermaid&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;parent&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;writing-post&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;weight&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;mermaid&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Después, puede usar el shortcode &lt;code&gt;mermaid&lt;/code&gt; para añadir contenido de mermaid. Por ejemplo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;&amp;lt; mermaid align&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# su contenido de mermaid aquí&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;&amp;lt; /mermaid &amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El shortcode de &lt;code&gt;mermaid&lt;/code&gt; acepta los siguientes parámetros:&lt;/p&gt;</description>
     </item>
     
     <item>
