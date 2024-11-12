@@ -372,7 +372,7 @@ El estándar de jerarquía de sistemas de archivos El estándar de jerarquía de
         <div class="author-profile ms-auto align-self-lg-center">
           <img class="rounded-circle" src='/images/author/dzamo_hu538309232218454908.jpeg' alt="Author Image">
           <h5 class="author-name">Daniel O. Zamo</h5>
-          <p class="text-muted">martes, 12 de noviembre de 2024 | 2 minutos</p>
+          <p class="text-muted">martes, 12 de noviembre de 2024 | 3 minutos</p>
         </div>
         
         
@@ -439,72 +439,84 @@ root["`/`"] --> var["`var`"]
           <td style="text-align: left">Primary directory of the entire filesystem hierarchy</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>bin</code></td>
+          <td style="text-align: left"><code>/bin</code></td>
           <td style="text-align: left">Essential command binaries. Executable programs that must be available in <strong>single user mode</strong></td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>boot</code></td>
+          <td style="text-align: left"><code>/boot</code></td>
           <td style="text-align: left">Static files of the boot loader. Files needed to <strong>boot the system</strong>, such as the <strong>kernel</strong>, <strong>initrd</strong> or <strong>initramfs</strong> images, and <strong>boot configuration files</strong> and <em>bootloader</em> programs</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>dev</code></td>
-          <td style="text-align: left">Device files. Device nodesm used to interact with hardware and software devices</td>
+          <td style="text-align: left"><code>/dev</code></td>
+          <td style="text-align: left">Device files. Device nodesm used to interact with hardware and software devices.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>etc</code></td>
-          <td style="text-align: left">Host-specific system configuration. System-wide configuration files</td>
+          <td style="text-align: left"><code>/etc</code></td>
+          <td style="text-align: left">Host-specific system configuration. System-wide configuration files.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>home</code></td>
-          <td style="text-align: left">User home directories (optional)</td>
+          <td style="text-align: left"><code>/home</code></td>
+          <td style="text-align: left">User home directories (optional). User home directories, including personal settings, files, etc.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>lib</code></td>
-          <td style="text-align: left">Essential shared libraries and kernel modules</td>
+          <td style="text-align: left"><code>/lib</code></td>
+          <td style="text-align: left">Essential shared libraries and kernel modules.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>lib&lt;qual&gt;</code></td>
-          <td style="text-align: left">Alternate format essential shared libraries (optional)</td>
+          <td style="text-align: left"><code>/lib</code></td>
+          <td style="text-align: left">Alternate format essential shared libraries (optional). Libraries required by executable binaries in <code>/bin</code> and <code>/sbin</code>.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>media</code></td>
-          <td style="text-align: left">Mount point for removable media</td>
+          <td style="text-align: left"><code>/lib64</code></td>
+          <td style="text-align: left">64-bit libraries required by executable binaries in <code>/bin</code> and <code>/sbin</code>, for systems which can run both 32-bit and 64-bit programs.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>mnt</code></td>
-          <td style="text-align: left">Mount point for mounting a filesystem temporarily</td>
+          <td style="text-align: left"><code>/media</code></td>
+          <td style="text-align: left">Mount point for removable media. Mount points for removable media such as CDs, DVDs, USB sticks, etc.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>opt</code></td>
-          <td style="text-align: left">Add-on application software packages</td>
+          <td style="text-align: left"><code>/mnt</code></td>
+          <td style="text-align: left">Mount point for mounting a filesystem temporarily.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>root</code></td>
-          <td style="text-align: left">Home directory for the root user (optional)</td>
+          <td style="text-align: left"><code>/proc</code></td>
+          <td style="text-align: left">Virtual pseudo-filesystem giving information about the system and processes running on it. Can be used to alter system parameters.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>run</code></td>
-          <td style="text-align: left">Data relevant to running processes</td>
+          <td style="text-align: left"><code>/opt</code></td>
+          <td style="text-align: left">Add-on application software packages.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>sbin</code></td>
+          <td style="text-align: left"><code>/root</code></td>
+          <td style="text-align: left">Home directory for the <code>root</code> user (optional)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>/run</code></td>
+          <td style="text-align: left">Data relevant to running processes. Run-time variable data, containing information describing the system since it was booted. Replaces the older <code>/var/run</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>/sbin</code></td>
           <td style="text-align: left">Essential system binaries</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>srv</code></td>
-          <td style="text-align: left">Data for services provided by this system</td>
+          <td style="text-align: left"><code>/srv</code></td>
+          <td style="text-align: left">Data for services provided by this system. Seldom used.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>tmp</code></td>
-          <td style="text-align: left">Temporary files</td>
+          <td style="text-align: left"><code>/sys</code></td>
+          <td style="text-align: left">Virtual pseudo-filesystem giving information about the system and processes running on it. Can be used to alter system parameters. Similar to a device tree and is part of the Unified Device Model.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>usr</code></td>
-          <td style="text-align: left">Secondary hierarchy</td>
+          <td style="text-align: left"><code>/tmp</code></td>
+          <td style="text-align: left">Temporary files; on many distributions lost across a reboot and may be a ramdisk in memory.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><code>var</code></td>
-          <td style="text-align: left">Variable data</td>
+          <td style="text-align: left"><code>/usr</code></td>
+          <td style="text-align: left">Multi-user applications, utilities and data; theoretically read-only.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>/var</code></td>
+          <td style="text-align: left">Variable data that changes during system operation.</td>
       </tr>
   </tbody>
 </table>
