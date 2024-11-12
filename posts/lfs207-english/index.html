@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Resumen del LFS207</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.78c17accc3971f53e7a8acee7787db4a3f35430e05c15723cd15ab4869a92768.css" integrity="sha256-eMF6zMOXH1PnqKzud4fbSj81Qw4FwVcjzRWrSGmpJ2g=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu4027251476479951876.png" />
+
+<meta property="og:url" content="https://dzamo.gitlab.io/posts/lfs207-english/">
+  <meta property="og:site_name" content="Sitio en Gitlab Page">
+  <meta property="og:title" content="Resumen del LFS207">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="website">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Resumen del LFS207">
+
+    
+     
+
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-section" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu9821184694329847432.png" id="logo" alt="Logo">
+      Sitio en Gitlab Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Inicio</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Habilidades</a>
+                </li>
+              
+            
+            
+            
+            
+            
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+            
+            
+            
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu9821184694329847432.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu12098007237321227804.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  
+  
+
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Búsqueda" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/lfs207-english/"> Resumen del LFS207</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-lessons/" title="LFS207 - Lecciones">LFS207 - Lecciones</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-fhs/" title="Estándar FHS">Estándar FHS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfcs-preparation/"> Preparación para LFCS</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfcs-preparation/my-study-laboratory/" title="Alma Linux 8 - Lab.">Alma Linux 8 - Lab.</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/ssg-hugo/"> SSG Hugo</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ssg-hugo/toha-shortcodes/" title="Toha - Shortcodes">Toha - Shortcodes</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/ssg-hugo/toha-mermaid/" title="Toha - Mermaid">Toha - Mermaid</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content container-fluid" id="content">
+    <div class="container-fluid post-card-holder" id="post-card-holder">
+      
+      
+      
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/lfs207-english/lfs207-lessons/" class="post-card-link">
+        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
+      </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/lfs207-english/lfs207-lessons/" class="post-card-link">
+        <h5 class="card-title">LFS207</h5>
+        <p class="card-text post-summary"> Lecciones/contenidos LFS207
+01. Course Introduction Course Information
+Course Overview, Objectives, and Timing Course Details and System Requirements Course Support and Other Resources Meet Your Instructors Which Distribution to Choose Demo: Using Linux Distributions Installation: What to Use for this Course &mdash;&gt; Acá elijo distribución, por orden elijo: RHEL (Alma Linux 8), Debian y Ubuntu (URL con los laboratorios ver LFS207 recurso inicial) Lab 1.1. Configuring the System for &lsquo;sudo&rsquo; 02. Linux Filesystem Tree Layout Overview
+</p>
+      </a>
+      
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      <span class="float-start">
+          martes, 12 de noviembre de 2024
+           | 1 minuto </span>
+      <a
+      href="/posts/lfs207-english/lfs207-lessons/"
+      class="float-end btn btn-outline-info btn-sm">Leer</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+        
+          <div class="post-card">
+  <div class="card">
+    <div class="card-head">
+      <a href="/posts/lfs207-english/lfs207-fhs/" class="post-card-link">
+        <img class="card-img-top" src='/images/posts/linux-fhs.png' alt="Hero Image">
+      </a>
+    </div>
+    <div class="card-body">
+      <a href="/posts/lfs207-english/lfs207-fhs/" class="post-card-link">
+        <h5 class="card-title">The Filesystem Hierarchy Standard / Estándar FHS de Linux</h5>
+        <p class="card-text post-summary">El Filesystem Hierarchy Standard (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la Linux Foundation, este define la estructura y los contenidos principales de los directorios en sistemas operativos Linux y similares a UNIX. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.
+El estándar de jerarquía de sistemas de archivos El estándar de jerarquía de sistemas de archivos (FHS), administrado originalmente por el Free Standards Group y ahora por The Linux Foundation, especifica los directorios principales que deben estar presentes y describe sus propósitos. El documento del estándar de jerarquía de sistemas de archivos se puede obtener en línea.
+</p>
+      </a>
+      
+        <div class="tags">
+  <ul style="padding-left: 0;">
+    
+  </ul>
+</div>
+
+      
+    </div>
+    <div class="card-footer">
+      <span class="float-start">
+          martes, 12 de noviembre de 2024
+           | 2 minutos </span>
+      <a
+      href="/posts/lfs207-english/lfs207-fhs/"
+      class="float-end btn btn-outline-info btn-sm">Leer</a>
+    </div>
+  </div>
+</div>
+
+        
+      
+    </div>
+    <div class="paginator">
+      
+    </div>
+  </div>
+</section>
+
+
+      
+       
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navegación</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#skills">Habilidades</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <hr />
+    <div class="container">
+      <p id="disclaimer"><strong>Aviso de responsabilidad:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
+    </div>
+    
+    
+  </footer>
+
+
+    <script src="/application.83b79da0d53b6b9b87f1c6d6e8cb6322fa79ae7fdec41a2422a25c6b723ee7d3.js" integrity="sha256-g7edoNU7a5uH8cbW6MtjIvp5rn/exBokIqJca3I&#43;59M=" defer></script>
+
+
+    
+     
+
+    
+
+    huevo
+    
+    <script src="https://dzamo.gitlab.io/scripts/features/flowchart/mermaid.min.js"></script>
+  
+  </body>
+</html>
