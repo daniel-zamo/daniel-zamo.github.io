@@ -6,7 +6,24 @@
     <description>Recent content on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 12 Nov 2024 06:00:20 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Thu, 14 Nov 2024 06:15:45 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>My gitea v1</title>
+      <link>https://dzamo.gitlab.io/posts/my-containers/my-gitea/</link>
+      <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/my-containers/my-gitea/</guid>
+      <description>&lt;p&gt;Esta aplicación contenerizada es un servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI Docker Compose, en un host con motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;tecnologías-usadas&#34;&gt;Tecnologías usadas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistema operativo: &lt;a href=&#34;https://www.openmediavault.org/&#34; target=&#34;_blank&#34;&gt;openmediavault 7&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Motor de contenedores: &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Postgres&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nginx.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Nginx&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>LFS207</title>
       <link>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-lessons/</link>
       <pubDate>Tue, 12 Nov 2024 06:00:20 +0600</pubDate>
@@ -137,6 +154,55 @@
     
     
     
+    
+    <item>
+      <title>Bash Variables</title>
+      <link>https://dzamo.gitlab.io/notes/bash/basic/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/notes/bash/basic/</guid>
+      <description>&lt;!-- Variable --&gt;
+&lt;div class=&#34;note-card &#34;&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;Variables&lt;/span&gt;&lt;/h5&gt;
+        
+            &lt;div class=&#34;card&#34;&gt;
+                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dzamo&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo $NAME
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$NAME&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Condition --&gt;
+&lt;div class=&#34;note-card &#34;&gt;
+    &lt;div class=&#34;item&#34;&gt;
+        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;Condiciones&lt;/span&gt;&lt;/h5&gt;
+        
+            &lt;div class=&#34;card&#34;&gt;
+                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; -z &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$string&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;String is empty&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$string&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;String is not empty&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        
+    &lt;/div&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
+      <title>Glosario de Términos</title>
+      <link>https://dzamo.gitlab.io/glossary/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/glossary/</guid>
+      <description>Glosario de términos usados en este sitio</description>
+    </item>
     
     
   </channel>

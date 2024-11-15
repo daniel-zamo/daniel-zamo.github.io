@@ -6,7 +6,24 @@
     <description>Recent content in Posts on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Tue, 12 Nov 2024 06:00:20 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Thu, 14 Nov 2024 06:15:45 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>My gitea v1</title>
+      <link>https://dzamo.gitlab.io/posts/my-containers/my-gitea/</link>
+      <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/my-containers/my-gitea/</guid>
+      <description>&lt;p&gt;Esta aplicación contenerizada es un servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI Docker Compose, en un host con motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;tecnologías-usadas&#34;&gt;Tecnologías usadas&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Sistema operativo: &lt;a href=&#34;https://www.openmediavault.org/&#34; target=&#34;_blank&#34;&gt;openmediavault 7&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Motor de contenedores: &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Postgres&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://nginx.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Nginx&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>LFS207</title>
       <link>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-lessons/</link>
       <pubDate>Tue, 12 Nov 2024 06:00:20 +0600</pubDate>
