@@ -541,7 +541,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker compose --env-file .env up
 </span></span></code></pre></div><h3 id="instalarconfigurar-gitea">Instalar/configurar Gitea</h3>
 <p>En el URL <code>https://&lt;IP_O_FQDN&gt;:&lt;$GITEA_PORT1_HOST&gt;</code> instalar/configurar Gitea.</p>
-<img src="/posts/my-containers/my-gitea/gitea-install.png"
+<img src="/posts/my-containers/gitea-w-docker/gitea-install.png"
     
         alt="Gitea - Instalación"
     
@@ -555,7 +555,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 
 <h4 id="registrar-usuario">Registrar usuario</h4>
 <p>Una vez instalado <a href="https://about.gitea.com" target="_blank">Gitea</a> queda disponible, en la siguiente captura se muestra donde registrar un primer usuario.</p>
-<img src="/posts/my-containers/my-gitea/gitea-user-register.png"
+<img src="/posts/my-containers/gitea-w-docker/gitea-user-register.png"
     
         alt="Gitea - registrar usuario"
     
@@ -571,7 +571,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 <ul>
 <li>Configuraciones del usuario</li>
 </ul>
-<img src="/posts/my-containers/my-gitea/gitea-signed-user-settings.png"
+<img src="/posts/my-containers/gitea-w-docker/gitea-signed-user-settings.png"
     
         alt="Gitea - usuario configuraciones"
     
@@ -586,7 +586,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 <ul>
 <li>Copiar clave pública</li>
 </ul>
-<img src="/posts/my-containers/my-gitea/gitea-signed-user-settings-add-key.png"
+<img src="/posts/my-containers/gitea-w-docker/gitea-signed-user-settings-add-key.png"
     
         alt="Gitea - copiar clave pública"
     
@@ -606,7 +606,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 <li>El usuario crea un fichero (<code>README.md</code>), lo agrega en su area de stage y repositorio local, y lo envia al repositorio remoto.</li>
 </ul>
 <p>La secuencia de trabajo se muestra en la siguiente captura. Esta es:</p>
-<img src="/posts/my-containers/my-gitea/gitea-crear-y-verificar-repo.png"
+<img src="/posts/my-containers/gitea-w-docker/gitea-crear-y-verificar-repo.png"
     
         alt="Gitea - crear y modificar ficheros en repositorio"
     
@@ -618,7 +618,13 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
     
 >
 
-<p><strong><em>Nota importante:</em></strong> En la captura observar <strong>2</strong> del lado del servidor de Gitea y <strong>8</strong> del lado del Desktop donde el URL de ejecutar <code>git clone</code> es <code>git clone ssh://git@almalinux9:&lt;PORT_SSH_EXPUESTO&gt;/dzamo/repo1.git</code>, esto es porque debemos aún de configurar <strong>Gitea</strong> para que válide correctamente las conexiones/autenticaciones vía ssh que el host de Docker debe redirigir al contenedor de Gitea.</p>
+<br>
+<p><strong><em>Nota importante:</em></strong> Observar en la captura que:</p>
+<ul>
+<li><strong>2</strong> del lado del servidor de Gitea el URL del repositorio es: <code>SSH:</code> &ndash;&gt; <code>git@almalinux9-docker:dzamo/repo1.git</code></li>
+<li><strong>8</strong> del lado del Desktop (host cliente que se conecta) ejecuta el <code>git clone</code> como <code>git clone ssh://git@almalinux9:&lt;PORT_SSH_EXPUESTO&gt;/dzamo/repo1.git</code></li>
+</ul>
+<p>Lo anterior es porque debemos aún de configurar <strong>Gitea</strong> para que válide correctamente las conexiones y/o autenticaciones que vía ssh el host de Docker debe redirigir al contenedor de Gitea, esto se deja para la implementación de la próxima versión del contenedor.</p>
 <p><em>Nota extra:</em> el <code>&lt;PORT_SSH_EXPUESTO&gt;</code> es el <code>$GITEA_PORT2_HOST</code> inicializado en el <code>.env</code> inicial, este es el puerto expuesto por el host anfitrión de Docker, recuerde de ajustar según corresponda.</p>
 
         </div>
