@@ -4,6 +4,10 @@
   <url>
     <loc>https://dzamo.gitlab.io/notes/bash/basic/</loc>
   </url><url>
+    <loc>https://dzamo.gitlab.io/notes/containers/docker/</loc>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/notes/linux-cli/partitions-filesystem/</loc>
+  </url><url>
     <loc>https://dzamo.gitlab.io/search/</loc>
     <lastmod>2010-06-08T08:06:25+06:00</lastmod>
     <priority>0.1</priority>
@@ -146,7 +150,11 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/categories/</loc>
   </url><url>
+    <loc>https://dzamo.gitlab.io/notes/containers/</loc>
+  </url><url>
     <loc>https://dzamo.gitlab.io/glossary/</loc>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/notes/linux-cli/</loc>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/</loc>
   </url>

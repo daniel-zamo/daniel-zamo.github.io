@@ -732,8 +732,8 @@
     <div class="card-body">
       <a href="/posts/my-containers/my-gitea/" class="post-card-link">
         <h5 class="card-title">My gitea v1</h5>
-        <p class="card-text post-summary">Esta aplicación contenerizada es un servicio de Gitea implementado y desplegado con CLI Docker Compose, en un host con motor Docker.
-Tecnologías usadas Sistema operativo: openmediavault 7. Motor de contenedores: Docker. Gitea. Postgres. Nginx. </p>
+        <p class="card-text post-summary">Esta aplicación contenerizada es el servicio de Gitea implementado y desplegado con CLI Docker Compose, en un host motor Docker.
+Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Docker. Gitea. Postgres. Nginx. Supuestos cumplidos Motor de contenedores: Docker Usuario no root en el host anfitrión: &lt;login&gt; &lt;UID&gt; &lt;GID&gt; $PATH del docker-compose.yml y/o extras: &lt;$MY_PATH_COMPOSE_FILES&gt; $PATH appdata: &lt;$PATH_APPDATA&gt; Estructura filesystem &lt;$MY_PATH_COMPOSE_FILES&gt; $ tree -a . ├── .config ├── docker-compose.yml └── .env .env CONTAINER_NAME=&#34;gitea-initial&#34; GITEA_IMAGE=&#34;gitea/gitea:1.22.3&#34; GITEA_UID=&#34;&lt;UID&gt;&#34; GITEA_GID=&#34;&lt;GID&gt;&#34; GITEA_PATH_HOST=&#34;gitea&#34; GITEA_PATH_CONTAINER=&#34;/data&#34; GITEA_PORT1_HOST=&#34;3000&#34; GITEA_PORT1_CONTAINER=&#34;3000&#34; GITEA_PORT2_HOST=&#34;222&#34; GITEA_PORT2_CONTAINER=&#34;22&#34; IP_LOCALHOST=&#34;127.0.0.1&#34; GITEA_LOCALHOST_PORT=&#34;2223&#34; GITEA_SSH_PATH=&#34;.config/&lt;USER_GIT&gt;/.ssh&#34; GITEA_SSH_PATH_CONTAINER=&#34;/data/git/.ssh&#34; IMAGE_PG=&#34;postgres:14&#34; PG_VOL_PATH_HOST=&#34;postgres&#34; PG_VOL_PATH_CONTAINER=&#34;/var/lib/postgresql/data&#34; RDBMS=&#34;postgres&#34; SERVICE_DB_HOST=&#34;db&#34; SERVICE_DB_PORT=&#34;5432&#34; GITEA_DB_NAME=&#34;...&#34; GITEA_DB_USR=&#34;...&#34; GITEA_DB_PWD=&#34;...&#34; docker-compose.yml Instalar/configurar contenedor Gitea Instalación Registrar usuario Copiar clave Crear repositorio/verificar</p>
       </a>
       
         <div class="tags">

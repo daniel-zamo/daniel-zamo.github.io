@@ -12,15 +12,68 @@
       <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
       
       <guid>https://dzamo.gitlab.io/posts/my-containers/my-gitea/</guid>
-      <description>&lt;p&gt;Esta aplicación contenerizada es un servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI Docker Compose, en un host con motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
+      <description>&lt;p&gt;Esta aplicación contenerizada es el servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI &lt;a href=&#34;https://docs.docker.com/compose/&#34; target=&#34;_blank&#34;&gt;Docker Compose&lt;/a&gt;, en un host motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id=&#34;tecnologías-usadas&#34;&gt;Tecnologías usadas&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;Sistema operativo: &lt;a href=&#34;https://www.openmediavault.org/&#34; target=&#34;_blank&#34;&gt;openmediavault 7&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Sistema operativo: &lt;a href=&#34;https://almalinux.org/&#34; target=&#34;_blank&#34;&gt;Alma Linux 9&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Motor de contenedores: &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.postgresql.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Postgres&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://nginx.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Nginx&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</description>
+&lt;/ul&gt;
+&lt;h3 id=&#34;supuestos-cumplidos&#34;&gt;Supuestos cumplidos&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Motor de contenedores: Docker&lt;/li&gt;
+&lt;li&gt;Usuario &lt;code&gt;no root&lt;/code&gt; en el host anfitrión:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;login&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;UID&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;lt;GID&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;$PATH del docker-compose.yml y/o extras: &lt;code&gt;&amp;lt;$MY_PATH_COMPOSE_FILES&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;$PATH appdata: &lt;code&gt;&amp;lt;$PATH_APPDATA&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Estructura filesystem &lt;code&gt;&amp;lt;$MY_PATH_COMPOSE_FILES&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tree -a
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── .config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── .env
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;env&#34;&gt;.env&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;CONTAINER_NAME=&amp;#34;gitea-initial&amp;#34;
+GITEA_IMAGE=&amp;#34;gitea/gitea:1.22.3&amp;#34;
+GITEA_UID=&amp;#34;&amp;lt;UID&amp;gt;&amp;#34;
+GITEA_GID=&amp;#34;&amp;lt;GID&amp;gt;&amp;#34;
+
+GITEA_PATH_HOST=&amp;#34;gitea&amp;#34;
+GITEA_PATH_CONTAINER=&amp;#34;/data&amp;#34;
+
+GITEA_PORT1_HOST=&amp;#34;3000&amp;#34;
+GITEA_PORT1_CONTAINER=&amp;#34;3000&amp;#34;
+GITEA_PORT2_HOST=&amp;#34;222&amp;#34;
+GITEA_PORT2_CONTAINER=&amp;#34;22&amp;#34;
+IP_LOCALHOST=&amp;#34;127.0.0.1&amp;#34;
+GITEA_LOCALHOST_PORT=&amp;#34;2223&amp;#34;
+GITEA_SSH_PATH=&amp;#34;.config/&amp;lt;USER_GIT&amp;gt;/.ssh&amp;#34;
+GITEA_SSH_PATH_CONTAINER=&amp;#34;/data/git/.ssh&amp;#34;
+
+IMAGE_PG=&amp;#34;postgres:14&amp;#34;
+PG_VOL_PATH_HOST=&amp;#34;postgres&amp;#34;
+PG_VOL_PATH_CONTAINER=&amp;#34;/var/lib/postgresql/data&amp;#34;
+
+RDBMS=&amp;#34;postgres&amp;#34;
+SERVICE_DB_HOST=&amp;#34;db&amp;#34;
+SERVICE_DB_PORT=&amp;#34;5432&amp;#34;
+GITEA_DB_NAME=&amp;#34;...&amp;#34;
+GITEA_DB_USR=&amp;#34;...&amp;#34;
+GITEA_DB_PWD=&amp;#34;...&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;docker-composeyml&#34;&gt;docker-compose.yml&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;instalarconfigurar-contenedor-gitea&#34;&gt;Instalar/configurar contenedor Gitea&lt;/h3&gt;
+&lt;h4 id=&#34;instalación&#34;&gt;Instalación&lt;/h4&gt;
+&lt;h4 id=&#34;registrar-usuario&#34;&gt;Registrar usuario&lt;/h4&gt;
+&lt;h5 id=&#34;copiar-clave&#34;&gt;Copiar clave&lt;/h5&gt;
+&lt;h3 id=&#34;crear-repositorioverificar&#34;&gt;Crear repositorio/verificar&lt;/h3&gt;</description>
     </item>
     
     
