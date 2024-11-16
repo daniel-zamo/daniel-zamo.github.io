@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Gitea v1 - app Docker</title>
+    <title>Gitea v1 - Docker</title>
     <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -25,7 +25,7 @@
 
 <meta property="og:url" content="https://dzamo.gitlab.io/posts/my-containers/my-gitea/">
   <meta property="og:site_name" content="Sitio en Gitlab Page">
-  <meta property="og:title" content="Gitea v1 - app Docker">
+  <meta property="og:title" content="Gitea v1 - Docker">
   <meta property="og:description" content="Esta aplicación contenerizada es el servicio de Gitea implementado y desplegado con CLI Docker Compose, en un host motor Docker.
 Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Docker. Gitea. Postgres. Nginx. Supuestos cumplidos Motor de contenedores: Docker Usuario no root en el host anfitrión: &lt;login&gt; &lt;UID&gt; &lt;GID&gt; $PATH del docker-compose.yml y/o extras: &lt;$MY_PATH_COMPOSE_FILES&gt; $PATH appdata: &lt;$PATH_APPDATA&gt; Estructura filesystem &lt;$MY_PATH_COMPOSE_FILES&gt; # Filesystem/estructura y ficheros actuales/iniciales $ tree -a . ├── docker-compose.yml └── .env $ ls -al total 8 drwxr-xr-x. 3 dzamo dzamo 59 Nov 16 01:55 . drwxr-xr-x. 5 dzamo dzamo 74 Nov 16 01:38 .. -rw-r--r--. 1 dzamo dzamo 1527 Nov 16 01:55 docker-compose.yml -rw-r--r--. 1 dzamo dzamo 830 Nov 16 01:53 .env Nota del autor: algunos datos son ofuscados, en caso de utilización revisar/ajustar según corresponda.">
   <meta property="og:locale" content="es">
@@ -36,13 +36,13 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
 
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Gitea v1 - app Docker">
+  <meta name="twitter:title" content="Gitea v1 - Docker">
   <meta name="twitter:description" content="Esta aplicación contenerizada es el servicio de Gitea implementado y desplegado con CLI Docker Compose, en un host motor Docker.
 Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Docker. Gitea. Postgres. Nginx. Supuestos cumplidos Motor de contenedores: Docker Usuario no root en el host anfitrión: &lt;login&gt; &lt;UID&gt; &lt;GID&gt; $PATH del docker-compose.yml y/o extras: &lt;$MY_PATH_COMPOSE_FILES&gt; $PATH appdata: &lt;$PATH_APPDATA&gt; Estructura filesystem &lt;$MY_PATH_COMPOSE_FILES&gt; # Filesystem/estructura y ficheros actuales/iniciales $ tree -a . ├── docker-compose.yml └── .env $ ls -al total 8 drwxr-xr-x. 3 dzamo dzamo 59 Nov 16 01:55 . drwxr-xr-x. 5 dzamo dzamo 74 Nov 16 01:38 .. -rw-r--r--. 1 dzamo dzamo 1527 Nov 16 01:55 docker-compose.yml -rw-r--r--. 1 dzamo dzamo 830 Nov 16 01:53 .env Nota del autor: algunos datos son ofuscados, en caso de utilización revisar/ajustar según corresponda.">
 
     
     
-<meta name="description" content="Gitea v1 - app Docker" />
+<meta name="description" content="Gitea v1 - Docker" />
 
 
     
@@ -322,7 +322,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
   
     
     <li>
-      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/my-containers/"> Mis contenedores</a>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/my-containers/"> Apps. Contenedores</a>
       
       <ul class="active">
         
@@ -335,7 +335,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
   
   
     
-    <li><a class="active list-link" href="/posts/my-containers/my-gitea/" title="Gitea v1 - app Docker">Gitea v1 - app Docker</a></li>
+    <li><a class="active list-link" href="/posts/my-containers/my-gitea/" title="Gitea v1 - Docker">Gitea v1 - Docker</a></li>
   
 
 
@@ -406,7 +406,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
         
         
         <div class="title">
-          <h1>Gitea v1 - app Docker</h1>
+          <h1>Gitea v1 - Docker</h1>
         </div>
 
         
@@ -548,7 +548,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
     
 >
 
-<h3 id="registrar-usuario">Registrar usuario</h3>
+<h4 id="registrar-usuario">Registrar usuario</h4>
 <p>Una vez instalado <a href="https://about.gitea.com" target="_blank">Gitea</a> queda disponible, en la siguiente captura se muestra donde registrar un primer usuario.</p>
 <img src="/posts/my-containers/my-gitea/gitea-user-register.png"
     
@@ -562,8 +562,56 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
     
 >
 
-<h5 id="copiar-clave">Copiar clave</h5>
-<h3 id="crear-repositorioverificar">Crear repositorio/verificar</h3>
+<h4 id="copiar-clave">Copiar clave</h4>
+<ul>
+<li>Configuraciones del usuario</li>
+</ul>
+<img src="/posts/my-containers/my-gitea/gitea-signed-user-settings.png"
+    
+        alt="Gitea - usuario configuraciones"
+    
+    
+    
+    
+    
+        class="center"
+    
+>
+
+<ul>
+<li>Copiar clave pública</li>
+</ul>
+<img src="/posts/my-containers/my-gitea/gitea-signed-user-settings-add-key.png"
+    
+        alt="Gitea - copiar clave pública"
+    
+    
+    
+    
+    
+        class="center"
+    
+>
+
+<h4 id="crear-repositorioverificar">Crear repositorio/verificar</h4>
+<p>En esta ultima parte se realiza:</p>
+<ol>
+<li>Se crea un repositorio con el usuario autenticado</li>
+<li>Desde un host remoto se ejecuta <code>git clone</code> del repositorio para revisar como es la actual conexión/autenticación utilizando ssh (revisar la sesión siguiente) ajustando el comando.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone ssh://git@almalinux9:&lt;PORT_SSH_EXPUESTO&gt;/dzamo/repo1.git
+</span></span></code></pre></div><img src="/posts/my-containers/my-gitea/gitea-crear-y-verificar-repo.png"
+    
+        alt="Gitea - crear y modificar ficheros en repositorio"
+    
+    
+    
+    
+    
+        class="center"
+    
+>
+
 
         </div>
 
@@ -579,7 +627,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
             
             
             
-                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fmy-containers%2fmy-gitea%2f&title=Gitea%20v1%20-%20app%20Docker" target="_blank">
+                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fmy-containers%2fmy-gitea%2f&title=Gitea%20v1%20-%20Docker" target="_blank">
                   <i class="fab fa-linkedin"></i>
                 </a>
             
@@ -587,7 +635,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
              
             
             
-                <a class="btn icon-button" href="mailto:?subject=Gitea%20v1%20-%20app%20Docker&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fmy-containers%2fmy-gitea%2f" target="_blank">
+                <a class="btn icon-button" href="mailto:?subject=Gitea%20v1%20-%20Docker&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fmy-containers%2fmy-gitea%2f" target="_blank">
                   <i class="fas fa-envelope-open-text"></i>
                 </a>
             
@@ -601,7 +649,7 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
           
           <div class="col-md-6 btn-improve-page">
              
-               <a href="https://gitlab.com/dzamo/dzamo.github.io/edit/main/content/posts/my-containers/my-gitea/index.md" title="Mejorar esta página" target="_blank" rel="noopener">
+               <a href="https://gitlab.com/dzamo/dzamo.github.io/edit/main/content/posts/my-containers/my-gitea/index.es.md" title="Mejorar esta página" target="_blank" rel="noopener">
             
                 <i class="fas fa-code-branch"></i>
                 Mejorar esta página
@@ -708,17 +756,13 @@ Tecnologías usadas Sistema operativo: Alma Linux 9. Motor de contenedores: Dock
         <li><a href="#env">.env</a></li>
         <li><a href="#docker-composeyml">docker-compose.yml</a></li>
         <li><a href="#construir-y-ejecutar-contenedor">Construir y ejecutar contenedor</a></li>
-        <li><a href="#instalarconfigurar-gitea">Instalar/configurar Gitea</a></li>
-        <li><a href="#registrar-usuario">Registrar usuario</a>
+        <li><a href="#instalarconfigurar-gitea">Instalar/configurar Gitea</a>
           <ul>
-            <li>
-              <ul>
-                <li><a href="#copiar-clave">Copiar clave</a></li>
-              </ul>
-            </li>
+            <li><a href="#registrar-usuario">Registrar usuario</a></li>
+            <li><a href="#copiar-clave">Copiar clave</a></li>
+            <li><a href="#crear-repositorioverificar">Crear repositorio/verificar</a></li>
           </ul>
         </li>
-        <li><a href="#crear-repositorioverificar">Crear repositorio/verificar</a></li>
       </ul>
     </li>
   </ul>
