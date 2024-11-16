@@ -8,10 +8,10 @@
     <language>es</language>
     <lastBuildDate>Thu, 14 Nov 2024 06:15:45 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
       <title>Gitea con Docker</title>
-      <link>https://dzamo.gitlab.io/posts/my-containers/gitea-with-docker/</link>
+      <link>https://dzamo.gitlab.io/posts/my-containers/gitea-w-docker/</link>
       <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
       
-      <guid>https://dzamo.gitlab.io/posts/my-containers/gitea-with-docker/</guid>
+      <guid>https://dzamo.gitlab.io/posts/my-containers/gitea-w-docker/</guid>
       <description>&lt;p&gt;Esta aplicación contenerizada es el servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI &lt;a href=&#34;https://docs.docker.com/compose/&#34; target=&#34;_blank&#34;&gt;Docker Compose&lt;/a&gt;, en un host motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Para esta configuración se ha consultado principalmente el URL &lt;a href=&#34;https://docs.gitea.com/installation/install-with-docker&#34; target=&#34;_blank&#34;&gt;Gitea: Installation with Docker&lt;/a&gt;&lt;/p&gt;
