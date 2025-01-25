@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Archetypes en Hugo</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.78c17accc3971f53e7a8acee7787db4a3f35430e05c15723cd15ab4869a92768.css" integrity="sha256-eMF6zMOXH1PnqKzud4fbSj81Qw4FwVcjzRWrSGmpJ2g=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu_6a1c3ff0fc83cff7.png" />
+
+<meta property="og:url" content="https://dzamo.gitlab.io/posts/hugo/archetypes-templates/">
+  <meta property="og:site_name" content="Sitio en Gitlab Page">
+  <meta property="og:title" content="Archetypes en Hugo">
+  <meta property="og:description" content="Plantillas Arquetipo en Hugo (Archetypes)">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-08T08:06:25+06:00">
+    <meta property="article:modified_time" content="2025-01-08T08:06:25+06:00">
+    <meta property="article:tag" content="SSG">
+    <meta property="article:tag" content="Hugo">
+    <meta property="article:tag" content="Markdown">
+    <meta property="article:tag" content="Generadores De Sitios Estáticos">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Archetypes en Hugo">
+  <meta name="twitter:description" content="Plantillas Arquetipo en Hugo (Archetypes)">
+
+    
+    
+<meta name="description" content="Plantillas Arquetipo en Hugo (Archetypes)" />
+
+
+
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_c4f90e85c6906288.png" id="logo" alt="Logo">
+      Sitio en Gitlab Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Inicio</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Habilidades</a>
+                </li>
+              
+            
+            
+            
+            
+            
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+            
+            
+            
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notas</a>
+          </li>
+        
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu_c4f90e85c6906288.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu_6d7d4c4026ba9569.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Búsqueda" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfs207-english/"> Resumen del LFS207</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-lessons/" title="LFS207 - Lecciones">LFS207 - Lecciones</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-fhs/" title="Estándar FHS">Estándar FHS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/linux/"> Linux</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/linux/distributions/" title="Distribuciones Linux">Distribuciones Linux</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfcs-preparation/"> Preparación para LFCS</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfcs-preparation/my-study-laboratory/" title="Alma Linux 8 - Lab.">Alma Linux 8 - Lab.</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/my-containers/"> Apps. Contenedores</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/my-containers/gitea-w-docker/" title="Gitea con Docker">Gitea con Docker</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/hugo/"> SSG Hugo</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/hugo/archetypes-templates/" title="Hugo - Plantillas Archetypes">Hugo - Plantillas Archetypes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/hugo/archetypes-templates/images/hugo_logo.jpg);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        <div style="margin-bottom: 80px;">&nbsp;</div>
+        
+        <div class="title">
+          <h1>Archetypes en Hugo</h1>
+        </div>
+        
+          <div class="author-profile ms-auto align-self-lg-center">
+            <p class="text-muted">
+              
+                <span>&nbsp;&nbsp;</span>
+              
+            </p>
+          </div>
+        
+
+        
+          <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li class="rounded"><a href="/tags/ssg/" class="btn btn-sm btn-info">SSG</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/hugo/" class="btn btn-sm btn-info">Hugo</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/markdown/" class="btn btn-sm btn-info">Markdown</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/generadores-de-sitios-est%C3%A1ticos/" class="btn btn-sm btn-info">Generadores de Sitios Estáticos</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <blockquote>
+<p><strong>Hugo</strong> incluye de forma nativa la funcionalidad de poder predefinir el contenido inicial (incluido el <em>front matter</em>) de las entradas que se crean con el comando <code>hugo new</code>
+este tipo de elementos son los templates Archetypes del generador de contenido estático <strong>Hugo</strong>.</p>
+</blockquote>
+<h2 id="configuración-de-una-plantilla-archetypes">Configuración de una plantilla Archetypes</h2>
+<h3 id="crear-un-archivo-de-arquetipo-personalizado">Crear un archivo de arquetipo personalizado</h3>
+<p>En el proyecto <strong>Hugo</strong> en que se este trabajando, este tipo de plantillas se ubican en la carpeta <code>ROOT_SITE/archetypes</code>. En este ejemplo, y como este sitio que se esta desarrollando utiliza el <strong>Theme Toha</strong> es que la mayoría del contenido son o se ubican en <code>ROOT_SITE/content/posts</code> es que se crea la plantilla <code>ROOT_SITE/archetype/posts.md</code>.</p>
+<h3 id="definir-el-front-matter-en-el-archivo-arquetipo">Definir el front matter en el archivo arquetipo</h3>
+<p>Dentro del archivo <code>posts.md</code>, se agrega la definición del <strong>front matter</strong> que se pretenda usar como plantilla. En este ejemplo el <em>front matter</em> se define como:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#f92672">date</span>: <span style="color:#e6db74">&#39;{{ .Date }}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">draft</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#e6db74">&#39;{{ replace .File.ContentBaseName `-` ` ` | title }}&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Variables mias</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">showMyAuthor</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">showMyTime</span>: <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">menu</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">sidebar</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">identifier</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">parent</span>: 
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">weight</span>: 
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hero</span>: <span style="color:#ae81ff">images/...</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">tags</span>: []
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#categories:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#- Basic</span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>- <span style="color:#ae81ff">Entrada creada desde plantilla Archeotype creada para el theme Toha</span>
+</span></span></code></pre></div><p><em>Donde:</em></p>
+<ul>
+<li><code>{{ .Name }}</code>: Es el nombre usado al crear la entrada (contenido o post, en este caso).</li>
+<li><code>{{ .Date }}</code>: Es la fecha actual.</li>
+<li>Se puedes agregar campos personalizados según las necesidades, como por ejemplo <code>show_author</code> o <code>hide_date</code>.</li>
+</ul>
+
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+            <strong>Compartir en:</strong>
+            
+            
+            
+            
+            
+            
+                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fhugo%2farchetypes-templates%2f&title=Archetypes%20en%20Hugo" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+            
+            
+             
+            
+            
+                <a class="btn icon-button" href="mailto:?subject=Archetypes%20en%20Hugo&body=https%3a%2f%2fdzamo.gitlab.io%2fposts%2fhugo%2farchetypes-templates%2f" target="_blank">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+            
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://gitlab.com/dzamo/dzamo.github.io/edit/main/content/posts/hugo/archetypes-templates/index.es.md" title="Mejorar esta página" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Mejorar esta página
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/my-containers/gitea-w-docker/" title="Gitea con Docker" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Anterior</div>
+        <div class="next-prev-text">Gitea con Docker</div>
+      </a>
+    </div>
+  
+  
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center ps-3">Contenido</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#configuración-de-una-plantilla-archetypes">Configuración de una plantilla Archetypes</a>
+      <ul>
+        <li><a href="#crear-un-archivo-de-arquetipo-personalizado">Crear un archivo de arquetipo personalizado</a></li>
+        <li><a href="#definir-el-front-matter-en-el-archivo-arquetipo">Definir el front matter en el archivo arquetipo</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navegación</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#skills">Habilidades</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="https://dzamo.gitlab.io/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <hr />
+    <div class="container">
+      <p id="disclaimer"><strong>Aviso de responsabilidad:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
+    </div>
+    
+    
+  </footer>
+
+
+    <script src="/application.f4116df446f9b41d6ac3d9db2023819e5c808d144a1703857de34b2e606c4c9b.js" integrity="sha256-9BFt9Eb5tB1qw9nbICOBnlyAjRRKFwOFfeNLLmBsTJs=" defer></script>
+
+
+    
+     
+
+    
+</body>
+</html>

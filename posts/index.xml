@@ -6,7 +6,68 @@
     <description>Recent content in Posts on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Thu, 14 Nov 2024 06:15:45 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Wed, 08 Jan 2025 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Archetypes en Hugo</title>
+      <link>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</link>
+      <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Hugo&lt;/strong&gt; incluye de forma nativa la funcionalidad de poder predefinir el contenido inicial (incluido el &lt;em&gt;front matter&lt;/em&gt;) de las entradas que se crean con el comando &lt;code&gt;hugo new&lt;/code&gt;
+este tipo de elementos son los templates Archetypes del generador de contenido estático &lt;strong&gt;Hugo&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;configuración-de-una-plantilla-archetypes&#34;&gt;Configuración de una plantilla Archetypes&lt;/h2&gt;
+&lt;h3 id=&#34;crear-un-archivo-de-arquetipo-personalizado&#34;&gt;Crear un archivo de arquetipo personalizado&lt;/h3&gt;
+&lt;p&gt;En el proyecto &lt;strong&gt;Hugo&lt;/strong&gt; en que se este trabajando, este tipo de plantillas se ubican en la carpeta &lt;code&gt;ROOT_SITE/archetypes&lt;/code&gt;. En este ejemplo, y como este sitio que se esta desarrollando utiliza el &lt;strong&gt;Theme Toha&lt;/strong&gt; es que la mayoría del contenido son o se ubican en &lt;code&gt;ROOT_SITE/content/posts&lt;/code&gt; es que se crea la plantilla &lt;code&gt;ROOT_SITE/archetype/posts.md&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Distribuciones Linux</title>
+      <link>https://dzamo.gitlab.io/posts/linux/distributions/</link>
+      <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/linux/distributions/</guid>
+      <description>&lt;p&gt;This sample post tests the followings:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Category, sub-category nesting in the sidebar.&lt;/li&gt;
+&lt;li&gt;Hero image and other images are in &lt;code&gt;images&lt;/code&gt; folder inside this post directory.&lt;/li&gt;
+&lt;li&gt;Different media rendering like image, tweet, YouTube video, Vimeo video etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;image-sample&#34;&gt;Image Sample&lt;/h3&gt;
+&lt;img src=&#34;https://dzamo.gitlab.io/posts/linux-learn/distributions/images/distributions.jpg&#34;
+    
+        alt=&#34;Distribuciones&#34;
+    
+    
+    
+    
+    
+        class=&#34;center&#34;
+    
+&gt;
+
+&lt;div style=&#34;margin-top: rem;&#34;&gt;&lt;/div&gt;
+&lt;h3 id=&#34;tweet-sample&#34;&gt;Tweet Sample&lt;/h3&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Owl bet you&amp;#39;ll lose this staring contest 🦉 &lt;a href=&#34;https://t.co/eJh4f2zncC&#34;&gt;pic.twitter.com/eJh4f2zncC&lt;/a&gt;&lt;/p&gt;&amp;mdash; San Diego Zoo Wildlife Alliance (@sandiegozoo) &lt;a href=&#34;https://twitter.com/sandiegozoo/status/1453110110599868418?ref_src=twsrc%5Etfw&#34;&gt;October 26, 2021&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;div style=&#34;margin-top: rem;&#34;&gt;&lt;/div&gt;
+&lt;h3 id=&#34;youtube-video-sample&#34;&gt;YouTube Video Sample&lt;/h3&gt;
+
+    &lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; allowfullscreen=&#34;allowfullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/ZJthWmvUzzc?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;div style=&#34;margin-top: rem;&#34;&gt;&lt;/div&gt;
+&lt;h3 id=&#34;vimeo-video-sample&#34;&gt;Vimeo Video Sample&lt;/h3&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://player.vimeo.com/video/48912912&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;vimeo video&#34; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+    <item>
       <title>Gitea con Docker</title>
       <link>https://dzamo.gitlab.io/posts/my-containers/gitea-w-docker/</link>
       <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
@@ -89,67 +150,6 @@
       <description>&lt;p&gt;El &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;Estándar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Filesystem Hierarchy Standard&lt;/a&gt; (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la &lt;a href=&#34;https://www.linuxfoundation.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Foundation&lt;/a&gt;, este define la estructura y los contenidos principales de los directorios en sistemas operativos &lt;a href=&#34;https://www.redhat.com/es/topics/linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt; y similares a &lt;a href=&#34;https://edu.gcfglobal.org/es/informatica-basica/sistemas-operativos-la-familia-unix/1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UNIX&lt;/a&gt;. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.&lt;/p&gt;
 &lt;h2 id=&#34;el-estándar-de-jerarquía-de-sistemas-de-archivos&#34;&gt;El estándar de jerarquía de sistemas de archivos&lt;/h2&gt;
 &lt;p&gt;El estándar de jerarquía de sistemas de archivos (FHS), administrado originalmente por el &lt;a href=&#34;https://en.wikipedia.org/wiki/Free_Standards_Group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Free Standards Group&lt;/a&gt; y ahora por &lt;a href=&#34;https://www.linuxfoundation.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Linux Foundation&lt;/a&gt;, especifica los directorios principales que deben estar presentes y describe sus propósitos. El documento del &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;Estándar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;estándar de jerarquía de sistemas de archivos&lt;/a&gt; se puede obtener en línea.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Tema Toha - Shortcodes</title>
-      <link>https://dzamo.gitlab.io/posts/ssg-hugo/toha-shortcodes/</link>
-      <pubDate>Tue, 08 Oct 2024 06:00:20 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/toha-shortcodes/</guid>
-      <description>&lt;p&gt;Esta es una publicación de ejemplo, con el objetivo de mostrar lo siguiente:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Imagen de hero determinada.&lt;/li&gt;
-&lt;li&gt;Los distintos shortcodes.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;alerta&#34;&gt;Alerta&lt;/h2&gt;
-&lt;p&gt;Las siguientes alertas están disponibles en este tema.&lt;/p&gt;
-&lt;h4 id=&#34;éxito&#34;&gt;Éxito&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Código:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;success&amp;#34;&lt;/span&gt; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Esto es un ejemplo de alerta con &lt;span style=&#34;color:#e6db74&#34;&gt;`type=&amp;#34;success&amp;#34;`&lt;/span&gt;.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; /&lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Resultado:&lt;/strong&gt;&lt;/p&gt;
-
-
-
-    
-
-
-&lt;div class=&#34;alert success&#34;&gt;
-    &lt;span&gt;&lt;i data-feather=&#34;check-circle&#34;&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span&gt;&lt;strong&gt;Esto es un ejemplo de alerta con &lt;code&gt;type=&amp;quot;success&amp;quot;&lt;/code&gt;.&lt;/strong&gt;&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&#34;peligro&#34;&gt;Peligro&lt;/h4&gt;
-&lt;p&gt;&lt;strong&gt;Código:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; &lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;danger&amp;#34;&lt;/span&gt; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Esto es un ejemplo de alerta con &lt;span style=&#34;color:#e6db74&#34;&gt;`type=&amp;#34;danger&amp;#34;`&lt;/span&gt;.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{{&amp;lt; /&lt;span style=&#34;color:#f92672&#34;&gt;alert&lt;/span&gt; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Resultado:&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Tema Toha - Mermaid</title>
-      <link>https://dzamo.gitlab.io/posts/ssg-hugo/toha-mermaid/</link>
-      <pubDate>Thu, 14 Mar 2024 06:15:35 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/ssg-hugo/toha-mermaid/</guid>
-      <description>&lt;p&gt;Este tema soporta mermaid, desarrollado por &lt;a href=&#34;https://mermaid-js.github.io/mermaid&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;mermaid-js&lt;/a&gt;. Para habilitar mermaid para una página, tienes que poner &lt;code&gt;mermaid: true&lt;/code&gt; en tu página de front-matter. Por ejemplo, esta página tiene el siguiente front-matter:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;title&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Soporte Mermaid&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;date&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;2022-03-14T06:15:35&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;+06&lt;/span&gt;:&lt;span style=&#34;color:#ae81ff&#34;&gt;00&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;menu&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;sidebar&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;name&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;Mermaid&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;identifier&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;writing-post-mermaid&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;parent&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;writing-post&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#f92672&#34;&gt;weight&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;mermaid&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Después, puede usar el shortcode &lt;code&gt;mermaid&lt;/code&gt; para añadir contenido de mermaid. Por ejemplo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;&amp;lt; mermaid align&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;center&amp;#34;&lt;/span&gt;&amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# su contenido de mermaid aquí&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;{{&lt;/span&gt;&amp;lt; /mermaid &amp;gt;&lt;span style=&#34;color:#f92672&#34;&gt;}}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;El shortcode de &lt;code&gt;mermaid&lt;/code&gt; acepta los siguientes parámetros:&lt;/p&gt;</description>
     </item>
     
     <item>
