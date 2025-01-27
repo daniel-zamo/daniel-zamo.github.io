@@ -257,7 +257,12 @@
           
             
           
-          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/distributions/" data-taxonomy-term="distributions"><span class="taxonomy-label">Distributions</span></a></li>
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/debian/" data-taxonomy-term="debian"><span class="taxonomy-label">Debian</span></a></li>
+        
+          
+            
+          
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/debian/ubuntu-y-derivados/" data-taxonomy-term="debian/ubuntu-y-derivados"><span class="taxonomy-label">Debian/Ubuntu Y Derivados</span></a></li>
         
           
             
@@ -282,7 +287,27 @@
           
             
           
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/nfs/" data-taxonomy-term="nfs"><span class="taxonomy-label">NFS</span></a></li>
+        
+          
+            
+          
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/protocolos/" data-taxonomy-term="protocolos"><span class="taxonomy-label">Protocolos</span></a></li>
+        
+          
+            
+          
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/servicios/" data-taxonomy-term="servicios"><span class="taxonomy-label">Servicios</span></a></li>
+        
+          
+            
+          
           <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/ssg/" data-taxonomy-term="ssg"><span class="taxonomy-label">SSG</span></a></li>
+        
+          
+            
+          
+          <li><a class="taxonomy-term " href="https://dzamo.gitlab.io/tags/ubuntu/" data-taxonomy-term="ubuntu"><span class="taxonomy-label">Ubuntu</span></a></li>
         
   
 
@@ -308,16 +333,15 @@
           <div class="post-card">
   <div class="card">
     <div class="card-head">
-      <a href="/posts/linux/distributions/" class="post-card-link">
-        <img class="card-img-top" src='/images/default-hero.jpg' alt="Hero Image">
+      <a href="/posts/linux-services-tcp_ip/nfs/debian-nfs-server/" class="post-card-link">
+        <img class="card-img-top" src='/posts/linux-services-tcp_ip/nfs/debian-nfs-server/images/nfs-protocol.png' alt="Hero Image">
       </a>
     </div>
     <div class="card-body">
-      <a href="/posts/linux/distributions/" class="post-card-link">
-        <h5 class="card-title">Distribuciones Linux</h5>
-        <p class="card-text post-summary">This sample post tests the followings:
-Category, sub-category nesting in the sidebar. Hero image and other images are in images folder inside this post directory. Different media rendering like image, tweet, YouTube video, Vimeo video etc. Image Sample Tweet Sample Owl bet you&#39;ll lose this staring contest 🦉 pic.twitter.com/eJh4f2zncC
-&mdash; San Diego Zoo Wildlife Alliance (@sandiegozoo) October 26, 2021 YouTube Video Sample Vimeo Video Sample </p>
+      <a href="/posts/linux-services-tcp_ip/nfs/debian-nfs-server/" class="post-card-link">
+        <h5 class="card-title">Servidor NFS Debian</h5>
+        <p class="card-text post-summary">En esta entrada se instala un servidor NFS sobre un sistema Debian. Esta misma configuración es funcional para cualquier derivado Linux de esta distribución, por ejemplo Ubuntu LTS o Linux Mint.
+Especificación Nombre de dominio: my.domain.lan IP LAN: &lt;MY_LAN_IP/MASK&gt; (CIDR IPv4 LAN) Directorio a compartir: /home/nfs-share Instalación servidor NFS sudo apt -y update sudo apt -y install nfs-kernel-server Configuración inicial/básica sudo sed -i.org \ -e &#39;s/^# Domain = localdomain$/&amp;\nDomain = my.domain.lan/&#39; \ /etc/idmapd.conf sudo mkdir -pv /home/nfs-share echo &#39;/home/nfs-share &lt;MY_LAN_IP/MASK&gt;(rw,no_root_squash)&#39; \ | sudo tee /etc/exports sudo systemctl restart nfs-server Algunos comandos de verificación (simple) sudo exportfs sudo systemctl status nfs-server </p>
       </a>
       
         <div class="tags">
@@ -327,7 +351,22 @@ Category, sub-category nesting in the sidebar. Hero image and other images are i
     <li class="rounded"><a href="/tags/linux/" class="btn btn-sm btn-info">Linux</a></li>
     
     
-    <li class="rounded"><a href="/tags/distributions/" class="btn btn-sm btn-info">Distributions</a></li>
+    <li class="rounded"><a href="/tags/servicios/" class="btn btn-sm btn-info">Servicios</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/protocolos/" class="btn btn-sm btn-info">Protocolos</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/nfs/" class="btn btn-sm btn-info">NFS</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/debian/" class="btn btn-sm btn-info">Debian</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/ubuntu/" class="btn btn-sm btn-info">Ubuntu</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/debian/ubuntu-y-derivados/" class="btn btn-sm btn-info">Debian/Ubuntu y derivados</a></li>
     
   </ul>
 </div>
@@ -339,7 +378,7 @@ Category, sub-category nesting in the sidebar. Hero image and other images are i
           miércoles, 8 de enero de 2025
            | 1 minuto </span>
       <a
-      href="/posts/linux/distributions/"
+      href="/posts/linux-services-tcp_ip/nfs/debian-nfs-server/"
       class="float-end btn btn-outline-info btn-sm">Leer</a>
     </div>
   </div>

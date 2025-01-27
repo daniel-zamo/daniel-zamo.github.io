@@ -113,10 +113,10 @@
     <loc>https://dzamo.gitlab.io/categories/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/posts/linux/distributions/</loc>
+    <loc>https://dzamo.gitlab.io/tags/debian/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/tags/distributions/</loc>
+    <loc>https://dzamo.gitlab.io/tags/debian/ubuntu-y-derivados/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/generadores-de-sitios-est%C3%A1ticos/</loc>
@@ -128,13 +128,28 @@
     <loc>https://dzamo.gitlab.io/tags/linux/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/posts/linux/</loc>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/markdown/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
+    <loc>https://dzamo.gitlab.io/tags/nfs/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
     <loc>https://dzamo.gitlab.io/posts/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/protocolos/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/servicios/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/debian-nfs-server/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/</loc>
@@ -147,6 +162,9 @@
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/</loc>
+    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/ubuntu/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/posts/my-containers/</loc>

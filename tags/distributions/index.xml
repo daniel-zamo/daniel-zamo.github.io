@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Distributions on Sitio en Gitlab Page</title>
-    <link>https://dzamo.gitlab.io/tags/distributions/</link>
+    <link>http://localhost:1313/tags/distributions/</link>
     <description>Recent content in Distributions on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 08 Jan 2025 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/tags/distributions/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Wed, 08 Jan 2025 08:06:25 +0600</lastBuildDate><atom:link href="http://localhost:1313/tags/distributions/index.xml" rel="self" type="application/rss+xml" /><item>
       <title>Distribuciones Linux</title>
-      <link>https://dzamo.gitlab.io/posts/linux/distributions/</link>
+      <link>http://localhost:1313/posts/linux-services-tcp_ip/nfs/</link>
       <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
       
-      <guid>https://dzamo.gitlab.io/posts/linux/distributions/</guid>
+      <guid>http://localhost:1313/posts/linux-services-tcp_ip/nfs/</guid>
       <description>&lt;p&gt;This sample post tests the followings:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Category, sub-category nesting in the sidebar.&lt;/li&gt;
@@ -19,7 +19,7 @@
 &lt;li&gt;Different media rendering like image, tweet, YouTube video, Vimeo video etc.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;image-sample&#34;&gt;Image Sample&lt;/h3&gt;
-&lt;img src=&#34;https://dzamo.gitlab.io/posts/linux-learn/distributions/images/distributions.jpg&#34;
+&lt;img src=&#34;http://localhost:1313/posts/linux-learn/distributions/images/distributions.jpg&#34;
     
         alt=&#34;Distribuciones&#34;
     
