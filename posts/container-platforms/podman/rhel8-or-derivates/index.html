@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <title>Servidor NFS Debian</title>
+    <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<link rel="stylesheet" href="/application.33bcbbb082c2979bab9d347c723a51cfcc60283b7b165a4a2d5517e2edbb7add.css" integrity="sha256-M7y7sILCl5urnTR8cjpRz8xgKDt7FlpKLVUX4u27et0=" />
+
+
+
+
+
+  
+
+  
+  
+  
+    
+  
+  
+
+  <link rel="icon" type="image/png" href="/images/site/favicon_hu_6a1c3ff0fc83cff7.png" />
+
+<meta property="og:url" content="http://localhost:1313/posts/container-platforms/podman/rhel8-or-derivates/">
+  <meta property="og:site_name" content="Sitio en Gitlab Page">
+  <meta property="og:title" content="Servidor NFS Debian">
+  <meta property="og:description" content="Servidor de NFS en Debian y/o derivados.">
+  <meta property="og:locale" content="es">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-08T08:06:25+06:00">
+    <meta property="article:modified_time" content="2025-01-08T08:06:25+06:00">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Servicios">
+    <meta property="article:tag" content="Protocolos">
+    <meta property="article:tag" content="NFS">
+    <meta property="article:tag" content="Debian">
+    <meta property="article:tag" content="Ubuntu">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Servidor NFS Debian">
+  <meta name="twitter:description" content="Servidor de NFS en Debian y/o derivados.">
+
+    
+    
+<meta name="description" content="Servidor de NFS en Debian y/o derivados." />
+
+
+
+    
+
+
+
+
+<script>
+      theme = localStorage.getItem('theme-scheme') || localStorage.getItem('darkmode:color-scheme') || 'light';
+      if (theme == 'system') {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          theme = 'dark';
+        } else {
+          theme = 'light';
+        }
+      }
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+  </head>
+
+  <body class="type-posts kind-page" data-bs-spy="scroll" data-bs-target="#TableOfContents" data-bs-offset="80">
+    <div class="container-fluid bg-secondary wrapper">
+      
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+  
+  
+    
+  
+  
+
+
+
+  
+  
+    
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+
+
+<nav class="navbar navbar-expand-xl top-navbar shadow " id="top-navbar">
+  <div class="container">
+    
+    <button class="navbar-toggler navbar-light" id="sidebar-toggler" type="button">
+      <i data-feather="sidebar"></i>
+    </button>
+    
+    <a class="navbar-brand" href="/">
+      
+        <img src="/images/site/main-logo_hu_c4f90e85c6906288.png" id="logo" alt="Logo">
+      Sitio en Gitlab Page</a>
+    <button
+      class="navbar-toggler navbar-light"
+      id="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#top-nav-items"
+      aria-label="menu"
+    >
+      <i data-feather="menu"></i>
+    </button>
+
+    <div class="collapse navbar-collapse dynamic-navbar" id="top-nav-items">
+      <ul class="nav navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/#home">Inicio</a>
+        </li>
+        
+          
+          
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#about">About</a>
+                </li>
+              
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#skills">Habilidades</a>
+                </li>
+              
+            
+            
+            
+            
+            
+            
+            
+              
+              
+                <li class="nav-item">
+                  <a class="nav-link" href="/#recent-posts">Recent Posts</a>
+                </li>
+              
+            
+            
+            
+          
+        
+        
+          <div id="top-navbar-divider"></div>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="blog-link" href="/posts">Posts</a>
+          </li>
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" id="note-link" href="/notes">Notas</a>
+          </li>
+        
+        
+        
+        
+          
+
+
+
+  
+  
+
+
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle"  href="#" id="themeSelector" role="button"
+  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <img id="navbar-theme-icon-svg" class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+</a>
+<div id="themeMenu" class="dropdown-menu dropdown-menu-icons-only" aria-labelledby="themeSelector">
+  
+  
+  <a class="dropdown-item nav-link" href="#" data-scheme="dark">
+    <img class="theme-icon" src="/icons/moon-svgrepo-com.svg" width=20 alt="Dark Theme">
+  </a>
+  
+  
+</div>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+  
+  
+    <img src="/images/site/main-logo_hu_c4f90e85c6906288.png" class="d-none" id="main-logo" alt="Logo">
+  
+  
+    <img src="/images/site/inverted-logo_hu_6d7d4c4026ba9569.png" class="d-none" id="inverted-logo" alt="Inverted Logo">
+  
+</nav>
+
+
+
+      
+      
+  <section class="sidebar-section" id="sidebar-section">
+    <div class="sidebar-holder">
+      <div class="sidebar" id="sidebar">
+        <form class="mx-auto" method="get" action="/search">
+          <input type="text" name="keyword" value="" placeholder="Búsqueda" data-search="" id="search-box" />
+        </form>
+        <div class="sidebar-tree">
+          <ul class="tree" id="tree">
+            <li id="list-heading"><a href="/posts/" data-filter="all">Posts</a></li>
+            <div class="subtree">
+                
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfs207-english/"> Resumen del LFS207</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-lessons/" title="LFS207 - Lecciones">LFS207 - Lecciones</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfs207-english/lfs207-fhs/" title="Estándar FHS">Estándar FHS</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/linux-services-tcp_ip/"> Linux servicios TCP/IP</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li>
+      <i data-feather="minus-circle"></i><a class="active list-link" href="/posts/container-platforms/podman/"> NFS</a>
+      
+      <ul class="active">
+        
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/container-platforms/podman/rhel8-or-derivates/" title="Servidor Debian">Servidor Debian</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/lfcs-preparation/"> Preparación para LFCS</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/lfcs-preparation/my-study-laboratory/" title="Alma Linux 8 - Lab.">Alma Linux 8 - Lab.</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/my-containers/"> Apps. Contenedores</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/my-containers/gitea-w-docker/" title="Gitea con Docker">Gitea con Docker</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+  
+  
+  
+  
+    
+    
+  
+  
+    
+    <li><a class="active list-link" href="/posts/container-platforms/" title="Plataforma de contenedores">Plataforma de contenedores</a></li>
+  
+
+  
+  
+  
+  
+  
+    
+    <li>
+      <i data-feather="plus-circle"></i><a class=" list-link" href="/posts/hugo/"> SSG Hugo</a>
+      
+      <ul class="">
+        
+  
+  
+  
+  
+  
+    
+    <li><a class=" list-link" href="/posts/hugo/archetypes-templates/" title="Hugo - Plantillas Archetypes">Hugo - Plantillas Archetypes</a></li>
+  
+
+
+      </ul>
+    </li>
+  
+
+
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+      
+      
+<section class="content-section" id="content-section">
+  <div class="content">
+    <div class="container p-0 read-area">
+      
+      <div class="hero-area col-sm-12" id="hero-area" style='background-image: url(/posts/container-platforms/podman/rhel8-or-derivates/images/nfs-protocol.png);'>
+      </div>
+
+      
+      <div class="page-content">
+        
+        
+        <div style="margin-bottom: 80px;">&nbsp;</div>
+        
+        <div class="title">
+          <h1>Servidor NFS Debian</h1>
+        </div>
+        
+          <div class="author-profile ms-auto align-self-lg-center">
+            <p class="text-muted">
+              
+                <span>&nbsp;&nbsp;</span>
+              
+            </p>
+          </div>
+        
+
+        
+          <div class="tags">
+  <ul style="padding-left: 0;">
+    
+    
+    <li class="rounded"><a href="/tags/linux/" class="btn btn-sm btn-info">Linux</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/servicios/" class="btn btn-sm btn-info">Servicios</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/protocolos/" class="btn btn-sm btn-info">Protocolos</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/nfs/" class="btn btn-sm btn-info">NFS</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/debian/" class="btn btn-sm btn-info">Debian</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/ubuntu/" class="btn btn-sm btn-info">Ubuntu</a></li>
+    
+    
+    <li class="rounded"><a href="/tags/debian/ubuntu-y-derivados/" class="btn btn-sm btn-info">Debian/Ubuntu y derivados</a></li>
+    
+  </ul>
+</div>
+
+        
+        <div class="post-content" id="post-content">
+          <p>En esta entrada se instala un servidor NFS sobre un sistema Debian. Esta misma configuración es funcional para cualquier derivado Linux de esta distribución, por ejemplo Ubuntu LTS o Linux Mint.</p>
+<h3 id="especificación">Especificación</h3>
+<ul>
+<li>Nombre de dominio: <code>my.domain.lan</code></li>
+<li>IP LAN: <code>&lt;MY_LAN_IP/MASK&gt;</code> (CIDR IPv4 LAN)</li>
+<li>Directorio a compartir: <code>/home/nfs-share</code></li>
+</ul>
+<h3 id="instalación-servidor-nfs">Instalación servidor NFS</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt -y update
+</span></span><span style="display:flex;"><span>sudo apt -y install nfs-kernel-server
+</span></span></code></pre></div><h3 id="configuración-inicialbásica">Configuración inicial/básica</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo sed -i.org <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -e <span style="color:#e6db74">&#39;s/^# Domain = localdomain$/&amp;\nDomain = my.domain.lan/&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  /etc/idmapd.conf
+</span></span><span style="display:flex;"><span>sudo mkdir -pv /home/nfs-share
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;/home/nfs-share &lt;MY_LAN_IP/MASK&gt;(rw,no_root_squash)&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  | sudo tee /etc/exports
+</span></span><span style="display:flex;"><span>sudo systemctl restart nfs-server
+</span></span></code></pre></div><h1 id="algunos-comandos-de-verificación-simple">Algunos comandos de verificación (simple)</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo exportfs
+</span></span><span style="display:flex;"><span>sudo systemctl status nfs-server
+</span></span></code></pre></div>
+        </div>
+
+        
+        <div class="row ps-3 pe-3">
+        
+          <div class="col-md-6 share-buttons">
+          
+            <strong>Compartir en:</strong>
+            
+            
+            
+            
+            
+            
+                <a class="btn icon-button bg-linkedin" href="https://www.linkedin.com/shareArticle?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fcontainer-platforms%2fpodman%2frhel8-or-derivates%2f&title=Servidor%20NFS%20Debian" target="_blank">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+            
+            
+             
+            
+            
+                <a class="btn icon-button" href="mailto:?subject=Servidor%20NFS%20Debian&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fcontainer-platforms%2fpodman%2frhel8-or-derivates%2f" target="_blank">
+                  <i class="fas fa-envelope-open-text"></i>
+                </a>
+            
+          
+          </div>
+
+        
+        
+          
+            
+          
+          <div class="col-md-6 btn-improve-page">
+             
+               <a href="https://gitlab.com/dzamo/dzamo.github.io/edit/main/content/posts/container-platforms/podman/RHEL8-or-derivates/index.es.md" title="Mejorar esta página" target="_blank" rel="noopener">
+            
+                <i class="fas fa-code-branch"></i>
+                Mejorar esta página
+              </a>
+          </div>
+        
+        </div>
+
+
+
+      
+      <hr />
+        
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+    
+    
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+<div class="row next-prev-navigator">
+  
+    <div class="col-md-6 previous-article">
+      <a href="/posts/lfs207-english/lfs207-fhs/" title="The Filesystem Hierarchy Standard / Estándar FHS de Linux" class="btn filled-button">
+        <div><i class="fas fa-chevron-circle-left"></i> Anterior</div>
+        <div class="next-prev-text">The Filesystem Hierarchy Standard / Estándar FHS de Linux</div>
+      </a>
+    </div>
+  
+  
+      
+      
+        
+      
+      <div class="col-md-6 next-article">
+        <a href="/posts/lfcs-preparation/my-study-laboratory/" title="Lab. de estudio" class="btn filled-button">
+          <div>Siguiente <i class="fas fa-chevron-circle-right"></i></div>
+          <div class="next-prev-text">Lab. de estudio</div>
+        </a>
+      </div>
+    
+</div>
+
+      <hr />
+
+      
+      
+
+      
+      
+
+      </div>
+    </div>
+  </div>
+  
+  <a id="scroll-to-top" class="btn" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to top">
+    <i class="fas fa-chevron-circle-up"></i>
+  </a>
+</section>
+
+
+      
+      
+  <section class="toc-section" id="toc-section">
+    
+    <div class="toc-holder">
+      <h5 class="text-center ps-3">Contenido</h5>
+      <hr>
+      <div class="toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#especificación">Especificación</a></li>
+        <li><a href="#instalación-servidor-nfs">Instalación servidor NFS</a></li>
+        <li><a href="#configuración-inicialbásica">Configuración inicial/básica</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    </div>
+    
+  </section>
+
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+    
+    
+      
+    
+  
+
+
+  
+  
+  
+    
+  
+
+  
+  
+  
+
+  
+  
+  
+    
+  
+  
+
+  
+  
+  
+
+  <footer id="footer" class="container-fluid text-center align-content-center footer pb-2">
+    <div class="container pt-5">
+      <div class="row text-start">
+        
+        <div class="col-md-4 col-sm-12">
+          <h5>Navegación</h5>
+          
+          <ul>
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#about">About</a>
+                </li>
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#skills">Habilidades</a>
+                </li>
+              
+              
+              
+              
+              
+              
+              
+                
+                
+                  
+                
+                <li class="nav-item">
+                  <a class="smooth-scroll" href="http://localhost:1313/#recent-posts">Recent Posts</a>
+                </li>
+              
+              
+              
+            
+              
+            
+          </ul>
+          
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+    
+    <hr />
+    <div class="container">
+      <p id="disclaimer"><strong>Aviso de responsabilidad:</strong> This theme is under MIT license. So, you can use it for non-commercial, commercial, or private uses. You can modify or distribute the theme without requiring any permission from the theme author. However, the theme author does not provide any warranty or takes any liability for any issue with the theme.</p>
+    </div>
+    
+    
+  </footer>
+
+
+    <script src="/application.b9c024d34d5083e22e3e555539a77fa615a07378fe11da6fb9474b4a8505d7e3.js" integrity="sha256-ucAk001Qg&#43;IuPlVVOad/phWgc3j&#43;EdpvuUdLSoUF1&#43;M=" defer></script>
+
+
+    
+     
+
+    
+</body>
+</html>
