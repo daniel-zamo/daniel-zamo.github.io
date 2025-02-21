@@ -104,13 +104,46 @@
     <lastmod>2010-06-08T08:06:25+06:00</lastmod>
     <priority>0.1</priority>
   </url><url>
-    <loc>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
     <loc>https://dzamo.gitlab.io/categories/basic/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/categories/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/iventoy/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/iso/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/linux/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/protocolos/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/pxe-boot/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/servicios/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/tags/</loc>
+    <lastmod>2025-02-21T08:06:25+06:00</lastmod>
+  </url><url>
+    <loc>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/debian/</loc>
@@ -125,12 +158,6 @@
     <loc>https://dzamo.gitlab.io/tags/hugo/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/tags/linux/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
     <loc>https://dzamo.gitlab.io/tags/markdown/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
@@ -140,28 +167,13 @@
     <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
-    <loc>https://dzamo.gitlab.io/posts/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/tags/protocolos/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/tags/servicios/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
     <loc>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/debian-nfs-server/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/ssg/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/posts/hugo/</loc>
-    <lastmod>2025-01-08T08:06:25+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/tags/</loc>
     <lastmod>2025-01-08T08:06:25+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/tags/ubuntu/</loc>
@@ -181,12 +193,6 @@
   </url><url>
     <loc>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-fhs/</loc>
     <lastmod>2024-11-12T06:00:20+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/posts/lfcs-preparation/my-study-laboratory/</loc>
-    <lastmod>2020-06-08T06:00:20+06:00</lastmod>
-  </url><url>
-    <loc>https://dzamo.gitlab.io/posts/lfcs-preparation/</loc>
-    <lastmod>2020-06-08T06:00:20+06:00</lastmod>
   </url><url>
     <loc>https://dzamo.gitlab.io/notes/</loc>
     <lastmod>2010-06-08T08:06:25+06:00</lastmod>

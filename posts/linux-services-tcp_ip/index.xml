@@ -6,7 +6,29 @@
     <description>Recent content in Linux servicios TCP/IP on Sitio en Gitlab Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>es</language>
-    <lastBuildDate>Wed, 08 Jan 2025 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/linux-services-tcp_ip/index.xml" rel="self" type="application/rss+xml" /><item>
+    <lastBuildDate>Fri, 21 Feb 2025 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/posts/linux-services-tcp_ip/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Instalación de sis. op. desde red utilizando iVentoy </title>
+      <link>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/iventoy/</link>
+      <pubDate>Fri, 21 Feb 2025 08:06:25 +0600</pubDate>
+      
+      <guid>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/iventoy/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;En esta entrada se instala dos sistemas operativos mostrando la utilización de iVentoy, el cual utiliza el entorno PXE de TCP/IP.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;En este caso se utilizará un Desktop/CLI basado en Linux, pero la aplicación al estar basada en TCP/IP también esta implementada para otros sistemas operativos como Windows.&lt;/p&gt;
+&lt;h3 id=&#34;descargar-iventoy&#34;&gt;Descargar Iventoy&lt;/h3&gt;
+&lt;p&gt;Desde el URL&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Bajar y ubicar las ISO&lt;/li&gt;
+&lt;li&gt;Ejecutar Iventoy y configurar la red en la que que se quiere publicar el servicio&lt;/li&gt;
+&lt;li&gt;Arrancar el host e instalar el sistema operativo deseado&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;referencias&#34;&gt;Referencias&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.iventoy.com/en/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iVentoy - A new netboot solution&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
       <title>Servidor NFS Debian</title>
       <link>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/debian-nfs-server/</link>
       <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
