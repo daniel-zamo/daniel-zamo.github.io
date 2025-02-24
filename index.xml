@@ -1,321 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss
+  version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Sitio en Gitlab Page</title>
+    <title>docs</title>
     <link>https://dzamo.gitlab.io/</link>
-    <description>Recent content on Sitio en Gitlab Page</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>es</language>
-    <lastBuildDate>Fri, 21 Feb 2025 08:06:25 +0600</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
-      <title>Instalación de sis. op. desde red utilizando iVentoy </title>
-      <link>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/iventoy/</link>
-      <pubDate>Fri, 21 Feb 2025 08:06:25 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/pxe/iventoy/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;En esta entrada se instala dos sistemas operativos mostrando la utilización de iVentoy, el cual utiliza el entorno PXE de TCP/IP.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;En este caso se utilizará un Desktop/CLI basado en Linux, pero la aplicación al estar basada en TCP/IP también esta implementada para otros sistemas operativos como Windows.&lt;/p&gt;
-&lt;h3 id=&#34;descargar-iventoy&#34;&gt;Descargar Iventoy&lt;/h3&gt;
-&lt;p&gt;Desde el URL&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Bajar y ubicar las ISO&lt;/li&gt;
-&lt;li&gt;Ejecutar Iventoy y configurar la red en la que que se quiere publicar el servicio&lt;/li&gt;
-&lt;li&gt;Arrancar el host e instalar el sistema operativo deseado&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;referencias&#34;&gt;Referencias&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.iventoy.com/en/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iVentoy - A new netboot solution&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description>
-    </item>
-    
-    <item>
-      <title>Archetypes en Hugo</title>
-      <link>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</link>
-      <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/hugo/archetypes-templates/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Hugo&lt;/strong&gt; incluye de forma nativa la funcionalidad de poder predefinir el contenido inicial (incluido el &lt;em&gt;front matter&lt;/em&gt;) de las entradas que se crean con el comando &lt;code&gt;hugo new&lt;/code&gt;
-este tipo de elementos son los templates Archetypes del generador de contenido estático &lt;strong&gt;Hugo&lt;/strong&gt;.&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h2 id=&#34;configuración-de-una-plantilla-archetypes&#34;&gt;Configuración de una plantilla Archetypes&lt;/h2&gt;
-&lt;h3 id=&#34;crear-un-archivo-de-arquetipo-personalizado&#34;&gt;Crear un archivo de arquetipo personalizado&lt;/h3&gt;
-&lt;p&gt;En el proyecto &lt;strong&gt;Hugo&lt;/strong&gt; en que se este trabajando, este tipo de plantillas se ubican en la carpeta &lt;code&gt;ROOT_SITE/archetypes&lt;/code&gt;. En este ejemplo, y como este sitio que se esta desarrollando utiliza el &lt;strong&gt;Theme Toha&lt;/strong&gt; es que la mayoría del contenido son o se ubican en &lt;code&gt;ROOT_SITE/content/posts&lt;/code&gt; es que se crea la plantilla &lt;code&gt;ROOT_SITE/archetype/posts.md&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Servidor NFS Debian</title>
-      <link>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/debian-nfs-server/</link>
-      <pubDate>Wed, 08 Jan 2025 08:06:25 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/linux-services-tcp_ip/nfs/debian-nfs-server/</guid>
-      <description>&lt;p&gt;En esta entrada se instala un servidor NFS sobre un sistema Debian. Esta misma configuración es funcional para cualquier derivado Linux de esta distribución, por ejemplo Ubuntu LTS o Linux Mint.&lt;/p&gt;
-&lt;h3 id=&#34;especificación&#34;&gt;Especificación&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Nombre de dominio: &lt;code&gt;my.domain.lan&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;IP LAN: &lt;code&gt;&amp;lt;MY_LAN_IP/MASK&amp;gt;&lt;/code&gt; (CIDR IPv4 LAN)&lt;/li&gt;
-&lt;li&gt;Directorio a compartir: &lt;code&gt;/home/nfs-share&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;instalación-servidor-nfs&#34;&gt;Instalación servidor NFS&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt -y update
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo apt -y install nfs-kernel-server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configuración-inicialbásica&#34;&gt;Configuración inicial/básica&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo sed -i.org &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  -e &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/^# Domain = localdomain$/&amp;amp;\nDomain = my.domain.lan/&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  /etc/idmapd.conf
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir -pv /home/nfs-share
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/home/nfs-share &amp;lt;MY_LAN_IP/MASK&amp;gt;(rw,no_root_squash)&amp;#39;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt;  | sudo tee /etc/exports
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl restart nfs-server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;algunos-comandos-de-verificación-simple&#34;&gt;Algunos comandos de verificación (simple)&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo exportfs
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo systemctl status nfs-server
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Gitea con Docker</title>
-      <link>https://dzamo.gitlab.io/posts/my-containers/gitea-w-docker/</link>
-      <pubDate>Thu, 14 Nov 2024 06:15:45 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/my-containers/gitea-w-docker/</guid>
-      <description>&lt;p&gt;Esta aplicación contenerizada es el servicio de &lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt; implementado y desplegado con CLI &lt;a href=&#34;https://docs.docker.com/compose/&#34; target=&#34;_blank&#34;&gt;Docker Compose&lt;/a&gt;, en un host motor &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Para esta configuración se ha consultado principalmente el URL &lt;a href=&#34;https://docs.gitea.com/installation/install-with-docker&#34; target=&#34;_blank&#34;&gt;Gitea: Installation with Docker&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;h3 id=&#34;tecnologías-usadas&#34;&gt;Tecnologías usadas&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Sistema operativo: &lt;a href=&#34;https://almalinux.org/&#34; target=&#34;_blank&#34;&gt;Alma Linux 9&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Motor de contenedores: &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Docker&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://about.gitea.com&#34; target=&#34;_blank&#34;&gt;Gitea&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.postgresql.org&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Postgres&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://nginx.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Nginx&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;supuestos-cumplidos&#34;&gt;Supuestos cumplidos&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Motor de contenedores: Docker&lt;/li&gt;
-&lt;li&gt;Usuario &lt;code&gt;no root&lt;/code&gt; en el host anfitrión:
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;login&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;UID&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;&amp;lt;GID&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;$PATH del docker-compose.yml y/o extras: &lt;code&gt;&amp;lt;$MY_PATH_COMPOSE_FILES&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;$PATH appdata: &lt;code&gt;&amp;lt;$PATH_APPDATA&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Estructura filesystem &lt;code&gt;&amp;lt;$MY_PATH_COMPOSE_FILES&amp;gt;&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Filesystem/estructura y ficheros actuales/iniciales&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tree -a
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;├── docker-compose.yml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;└── .env
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ls -al
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;total &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x. &lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; dzamo dzamo   &lt;span style=&#34;color:#ae81ff&#34;&gt;59&lt;/span&gt; Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; 01:55 .
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;drwxr-xr-x. &lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt; dzamo dzamo   &lt;span style=&#34;color:#ae81ff&#34;&gt;74&lt;/span&gt; Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; 01:38 ..
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--. &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; dzamo dzamo &lt;span style=&#34;color:#ae81ff&#34;&gt;1527&lt;/span&gt; Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; 01:55 docker-compose.yml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-rw-r--r--. &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; dzamo dzamo  &lt;span style=&#34;color:#ae81ff&#34;&gt;830&lt;/span&gt; Nov &lt;span style=&#34;color:#ae81ff&#34;&gt;16&lt;/span&gt; 01:53 .env
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;Nota del autor:&lt;/em&gt; algunos datos son ofuscados, en caso de utilización revisar/ajustar según corresponda.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>LFS207</title>
-      <link>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-lessons/</link>
-      <pubDate>Tue, 12 Nov 2024 06:00:20 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-lessons/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Lecciones/contenidos LFS207&lt;/p&gt;&lt;/blockquote&gt;
-&lt;!-- --&gt;
-&lt;h2 id=&#34;01-course-introduction&#34;&gt;01. Course Introduction&lt;/h2&gt;
-&lt;p&gt;Course Information&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Course Overview, Objectives, and Timing&lt;/li&gt;
-&lt;li&gt;Course Details and System Requirements&lt;/li&gt;
-&lt;li&gt;Course Support and Other Resources&lt;/li&gt;
-&lt;li&gt;Meet Your Instructors&lt;/li&gt;
-&lt;li&gt;Which Distribution to Choose&lt;/li&gt;
-&lt;li&gt;Demo: Using Linux Distributions&lt;/li&gt;
-&lt;li&gt;Installation: What to Use for this Course &amp;mdash;&amp;gt; Acá elijo distribución, por orden elijo: RHEL (Alma Linux 8), Debian y Ubuntu (URL con los laboratorios ver &lt;a href=&#34;https://cm.lf.training/LFS207/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LFS207&lt;/a&gt; recurso inicial)&lt;/li&gt;
-&lt;li&gt;Lab 1.1. Configuring the System for &amp;lsquo;sudo&amp;rsquo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;02-linux-filesystem-tree-layout&#34;&gt;02. Linux Filesystem Tree Layout&lt;/h2&gt;
-&lt;p&gt;Overview&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>The Filesystem Hierarchy Standard / Estándar FHS de Linux</title>
-      <link>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-fhs/</link>
-      <pubDate>Tue, 12 Nov 2024 06:00:20 +0600</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/posts/lfs207-english/lfs207-fhs/</guid>
-      <description>&lt;p&gt;El &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;Estándar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Filesystem Hierarchy Standard&lt;/a&gt; (FHS; Estándar de Jerarquía del Sistema de Archivos) es un estándar formal. Es mantenido por la &lt;a href=&#34;https://www.linuxfoundation.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux Foundation&lt;/a&gt;, este define la estructura y los contenidos principales de los directorios en sistemas operativos &lt;a href=&#34;https://www.redhat.com/es/topics/linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Linux&lt;/a&gt; y similares a &lt;a href=&#34;https://edu.gcfglobal.org/es/informatica-basica/sistemas-operativos-la-familia-unix/1/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UNIX&lt;/a&gt;. Su propósito es proporcionar una estructura de sistema de archivos coherente para facilitar la interoperabilidad y la compatibilidad entre sistemas y aplicaciones.&lt;/p&gt;
-&lt;h2 id=&#34;el-estándar-de-jerarquía-de-sistemas-de-archivos&#34;&gt;El estándar de jerarquía de sistemas de archivos&lt;/h2&gt;
-&lt;p&gt;El estándar de jerarquía de sistemas de archivos (FHS), administrado originalmente por el &lt;a href=&#34;https://en.wikipedia.org/wiki/Free_Standards_Group&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Free Standards Group&lt;/a&gt; y ahora por &lt;a href=&#34;https://www.linuxfoundation.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;The Linux Foundation&lt;/a&gt;, especifica los directorios principales que deben estar presentes y describe sus propósitos. El documento del &lt;a href=&#34;https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf&#34; title=&#34;Estándar FHS&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;estándar de jerarquía de sistemas de archivos&lt;/a&gt; se puede obtener en línea.&lt;/p&gt;</description>
-    </item>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <item>
-      <title>Bash intro.</title>
-      <link>https://dzamo.gitlab.io/notes/bash/basic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/notes/bash/basic/</guid>
-      <description>&lt;!-- Variable --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;Variables&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Inicialización de variable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;NAME&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;dzamo&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Inicializa variable y concatena otra variable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;STRING&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;STRING&lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$NAME&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Imprimir valor de una variable&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo $NAME
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$NAME&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;${&lt;/span&gt;NAME&lt;span style=&#34;color:#e6db74&#34;&gt;}&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- Condition --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;Condiciones&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Consultar si la variable esta inicializada&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; -z &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$string&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;La variable \$string esta vacia&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;elif&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[[&lt;/span&gt; -n &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;$string&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;]]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;La variable \$string no esta vacia&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>https://dzamo.gitlab.io/notes/containers/docker/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/notes/containers/docker/</guid>
-      <description>&lt;!-- docker CLI --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;docker CLI&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker version
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- docker compose / docker-compose --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;docker compose / docker-compose&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker compose version
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Particiones/sis. de archivos</title>
-      <link>https://dzamo.gitlab.io/notes/linux-cli/partitions-filesystem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/notes/linux-cli/partitions-filesystem/</guid>
-      <description>&lt;!-- LVM --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;LVM&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Muestra información de los grupos de volúmenes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vgdisplay
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Muestra información del grupo de volúmen &amp;lt;NAME_VG&amp;gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vgdisplay &amp;lt;NAME_VG&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Muestra información de los grupos de volúmenes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo vgs
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Muestra información de los volúmenes lógicos&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo lvs
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Agregar un volumen físico (PV)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo parted --script
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;!-- ext4 --&gt;
-&lt;div class=&#34;note-card &#34;&gt;
-    &lt;div class=&#34;item&#34;&gt;
-        &lt;h5 class=&#34;note-title&#34;&gt;&lt;span&gt;ext4&lt;/span&gt;&lt;/h5&gt;
-        
-            &lt;div class=&#34;card&#34;&gt;
-                &lt;div class=&#34;card-body&#34;&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkfs.ext4 /dev/&amp;lt;PARTICION&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-            &lt;/div&gt;
-        
-    &lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Glosario de Términos</title>
-      <link>https://dzamo.gitlab.io/glossary/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dzamo.gitlab.io/glossary/</guid>
-      <description>Glosario de términos usados en este sitio</description>
-    </item>
-    
-    
-  </channel>
+    <description>Recent content on docs</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 02 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dzamo.gitlab.io/index.xml" rel="self" type="application/rss+xml" /><item>
+      <title>Filesystem Linux &#43; rclone (montaje FUSE/Bidireccional)</title>
+      <link>https://dzamo.gitlab.io/posts/rclone-fuse/</link>
+      <pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate><guid>https://dzamo.gitlab.io/posts/rclone-fuse/</guid>
+      <description>&lt;p&gt;En este artículo se monta una unidad de Google Drive en el filesystem del sistema Linux, mediante el uso de rclone + FUSE.&lt;/p&gt;</description><content:encoded><![CDATA[<p>En este artículo se monta una unidad de Google Drive en el filesystem del sistema Linux, mediante el uso de rclone + FUSE.</p>
+<h2 id="instalación-de-rclone-y-configuración-de-la-conexión">Instalación de rclone y configuración de la conexión</h2>
+<h3 id="instalación-en-debian-yo-derivados">Instalación en Debian (y/o derivados)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt -y install rclone
+</span></span></code></pre></div><h3 id="instalación-en-rhel-yo-fedora-yo-derivados">Instalación en RHEL y/o Fedora (y/o derivados)</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Versiones actuales</span>
+</span></span><span class="line"><span class="cl">sudo dnf update --refresh
+</span></span><span class="line"><span class="cl">sudo dnf -y install rclone
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Versiones con paquetería yum solamente</span>
+</span></span><span class="line"><span class="cl">sudo yum -y install rclone
+</span></span></code></pre></div><h2 id="configuración-para-unidad-de-google-drive">Configuración para unidad de Google Drive</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rclone config
+</span></span></code></pre></div><p>En las siguientes imágenes se muestran (comentadas) parcialmente algunas de las pantallas capturadas en el asistente (o wizzart) de la configuración para el montaje de la unidad Google Drive.</p>
+<p><em><strong>Storage (identificación)</strong> Revisar que opción corresponde según el recurso que se necesite configurar</em></p>
+<p><img src="/images/rclone-config-google-drive.png" alt="Wizzard rclone config"></p>
+<p><em><strong>Ingresar (identificador)</strong> para Google Drive en este caso</em></p>
+<p><img src="/images/rclone-config-google-drive-wizzard.png" alt="Google Drive rclone config"></p>
+<p><em><strong>Auténticar</strong> rclone sobre la cuenta de Google Drive que se utilizará</em></p>
+<p><img src="/images/rclone-config-google-drive-login.png" alt="Autenticación rclone en cuenta de Google Drive"></p>]]></content:encoded></item><item>
+      <title>About</title>
+      <link>https://dzamo.gitlab.io/about/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://dzamo.gitlab.io/about/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Hugo es un generador de sitios estáticos de código abierto escrito en Go y disponible bajo la &lt;a href=&#34;https://github.com/gohugoio/hugo/blob/master/LICENSE&#34;&gt;licencia Apache 2.0&lt;/a&gt;. Este admite archivos de datos de tipo TOML, YAML y JSON, archivos de contenido Markdown y HTML, y utiliza códigos cortos para agregar contenido enriquecido.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Otras características notables son las taxonomías, el modo multilingüe, el procesamiento de imágenes, los formatos de salida personalizados, la minimización de HTML/CSS/JS y la compatibilidad con flujos de trabajo Sass SCSS.&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Hugo hace uso de una variedad de proyectos de código abierto, incluidos:&lt;/p&gt;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/russross/blackfriday&#34;&gt;Blackfriday&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;Chroma&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;Smartcrop&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;Cobra&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;Viper&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Hugo es ideal para blogs, sitios web corporativos, portafolios creativos, revistas en línea, aplicaciones de una sola página o incluso un sitio web con miles de páginas.&lt;/p&gt;</description><content:encoded><![CDATA[<blockquote>
+<p>Hugo es un generador de sitios estáticos de código abierto escrito en Go y disponible bajo la <a href="https://github.com/gohugoio/hugo/blob/master/LICENSE">licencia Apache 2.0</a>. Este admite archivos de datos de tipo TOML, YAML y JSON, archivos de contenido Markdown y HTML, y utiliza códigos cortos para agregar contenido enriquecido.</p></blockquote>
+<blockquote>
+<p>Otras características notables son las taxonomías, el modo multilingüe, el procesamiento de imágenes, los formatos de salida personalizados, la minimización de HTML/CSS/JS y la compatibilidad con flujos de trabajo Sass SCSS.</p></blockquote>
+<blockquote>
+<p>Hugo hace uso de una variedad de proyectos de código abierto, incluidos:</p></blockquote>
+<ul>
+<li><a href="https://github.com/russross/blackfriday">Blackfriday</a></li>
+<li><a href="https://github.com/alecthomas/chroma">Chroma</a></li>
+<li><a href="https://github.com/muesli/smartcrop">Smartcrop</a></li>
+<li><a href="https://github.com/spf13/cobra">Cobra</a></li>
+<li><a href="https://github.com/spf13/viper">Viper</a></li>
+</ul>
+<p>Hugo es ideal para blogs, sitios web corporativos, portafolios creativos, revistas en línea, aplicaciones de una sola página o incluso un sitio web con miles de páginas.</p>
+<p>Hugo es para personas que desean codificar a mano su propio sitio web sin preocuparse por configurar entornos de ejecución, dependencias y bases de datos complicados.</p>
+<p>Los sitios web creados con Hugo son extremadamente rápidos, seguros y se pueden implementar en cualquier lugar, incluidos AWS, GitHub Pages, Heroku, Netlify y cualquier otro proveedor de alojamiento.</p>
+<p>Obtenga más información y contribuya en <a href="https://github.com/gohugoio">GitHub</a>.</p>
+]]></content:encoded></item></channel>
 </rss>
