@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="https://dzamo.gitlab.io/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://dzamo.gitlab.io/abridge.css?h=98ebdf6fd3d59dfb2edf" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://dzamo.gitlab.io" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://dzamo.gitlab.io/manifest.min.json" />
+  <link rel="mask-icon" href="https://dzamo.gitlab.io/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="icon" type="image/svg+xml" href="https://dzamo.gitlab.io/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://dzamo.gitlab.io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://dzamo.gitlab.io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://dzamo.gitlab.io/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Abridge Atom Feed" href="https://dzamo.gitlab.io/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>CLI y PowerShell | Abridge</title>
+  <meta name="author" content="d@Zamo" />
+  <meta name="copyright" content="Abridge" />
+  <meta name="description" content="PowerShell de Windows; CLI de Unix&#x2F;Linux&#x2F;MacOS." />
+  <link rel="canonical" href="https://dzamo.gitlab.io/power-shell-cli/" />
+  <meta name="keywords" content="Sistemas operativos, Consolas, Interprete de comandos, Documentación de tecnologías IT" />
+  <script defer src="https://dzamo.gitlab.io/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <script defer src="https://dzamo.gitlab.io/js/lunr.stemmer.support.min.js" integrity="sha384-f0MKdC/9ZSGTpDiuWusC0SbLXNCBp6NgzDZpjR/4UdHXAQBqvTEKyinnsa1wQ7oA"></script>
+  <script defer src="https://dzamo.gitlab.io/js/lunr.es.min.js" integrity="sha384-13X5VesLVgdM43kFd8gfrw5Jp3OnK7RJNwZl+n1MMtQychTYcXNHLxxDAfVJOSfE"></script>
+  <noscript><link rel="stylesheet" href="https://dzamo.gitlab.io/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://dzamo.gitlab.io" title="Abridge"><font color="#f90">D</font>ocs</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://dzamo.gitlab.io/archive/"> Posts </a></li><li><a class="s110" href="https://dzamo.gitlab.io/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Buscar" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://dzamo.gitlab.io/power-shell-cli/">CLI y PowerShell</a></h1>
+
+      <span class="s95"> d@Zamo <span class="rpad"></span> enero 03, 2025 <span class="rpad"></span> #<a href="https://dzamo.gitlab.io/tags/linux/">Linux</a>  #<a href="https://dzamo.gitlab.io/tags/windows/">Windows</a>  #<a href="https://dzamo.gitlab.io/tags/cli/">CLI</a>  #<a href="https://dzamo.gitlab.io/tags/powershell/">Powershell</a>  #<a href="https://dzamo.gitlab.io/tags/unix/">Unix</a>  #<a href="https://dzamo.gitlab.io/tags/shell/">Shell</a> </span>
+
+    
+
+
+<p><em>PowerShell</em> - basado en objetos. Este maneja <em>objetos estructurados</em> de <em>.NET</em>. El <em>CLI</em> de <em>Linux</em>/<em>Unix</em>/<em>macOS</em> - <em>basado en texto</em> y <em>flujos de datos</em>.</p>
+<span id="continue-reading"></span>
+<p>📜 Filosofía y Enfoque</p>
+<ul>
+<li>PowerShell: Basado en objetos. En lugar de trabajar con texto plano, PowerShell maneja objetos estructurados de .NET, lo que facilita la manipulación de datos, y en principio sin necesidad de herramientas externas.</li>
+<li>CLI de Linux/Unix/macOS: Basado en textos y flujos de datos. Usa tuberías (|) para encadenar comandos que procesan texto mediante herramientas como grep, awk y sed.</li>
+</ul>
+<p>🏗 Estructura del Lenguaje</p>
+<ul>
+<li>PowerShell: Usa cmdlets (comandos estructurados como Get-Process o Stop-Service) y sigue un patrón Verbo-Sustantivo. También soporta aliases para hacerlos más familiares (ls es un alias de Get-ChildItem).</li>
+<li>CLI de Linux: Usa comandos individuales (ls, cat, grep) con opciones y argumentos. La sintaxis suele ser más compacta pero menos estructurada.</li>
+</ul>
+<p>🔀 Pipelines y Salida</p>
+<ul>
+<li>PowerShell: Pasa objetos, lo que permite trabajar con datos estructurados (no se parsean texto).</li>
+</ul>
+<pre data-lang="powershell" class="language-powershell z-code"><code class="language-powershell" data-lang="powershell"><span class="z-source z-powershell"><span class="z-support z-function z-powershell">Get-Process</span> <span class="z-keyword z-operator z-other z-powershell">|</span> <span class="z-support z-function z-powershell">Where-Object</span> <span class="z-meta z-scriptblock z-powershell"><span class="z-punctuation z-section z-braces z-begin z-powershell">{</span><span class="z-support z-variable z-automatic z-powershell"><span class="z-punctuation z-definition z-variable z-powershell">$</span>_<span class="z-variable z-other z-member z-powershell">.CPU</span></span> <span class="z-keyword z-operator z-comparison z-powershell">-gt</span> <span class="z-constant z-numeric z-integer z-powershell">50</span><span class="z-punctuation z-section z-braces z-end z-powershell">}</span></span>
+</span></code></pre>
+<ul>
+<li>CLI de Linux: Pasa texto, e invoca taresa a herramientas como <code>grep</code> y <code>awk</code> para filtrar.</li>
+</ul>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ps</span></span><span class="z-meta z-function-call z-arguments z-shell"> aux</span> <span class="z-keyword z-operator z-logical z-pipe z-shell">|</span> <span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">awk</span></span><span class="z-meta z-function-call z-arguments z-shell"> <span class="z-string z-quoted z-single z-shell"><span class="z-punctuation z-definition z-string z-begin z-shell">&#39;</span>$3 &gt; 50 {print $0}<span class="z-punctuation z-definition z-string z-end z-shell">&#39;</span></span></span>
+</span></code></pre>
+<p>🔄 Automatización y Scripts</p>
+<ul>
+<li>PowerShell: Lenguaje de scripting más cercano a lenguajes de programación como C# y Python. Soporta funciones, módulos y estructuras de control avanzadas.</li>
+<li>Bash/Zsh: Menos estructurado y más centrado en scripts pequeños y eficaces, aunque puede integrarse con Python, Perl, etc.</li>
+</ul>
+<p>🌍 Portabilidad y Compatibilidad</p>
+<ul>
+<li>PowerShell: Originalmente exclusivo de Windows, pero con PowerShell Core (pwsh) ahora es multiplataforma (Windows, Linux, macOS).</li>
+<li>CLI de Linux/macOS: Diseñada para sistemas Unix-like, pero puede ejecutarse en Windows con WSL o herramientas como Git Bash.</li>
+</ul>
+<p>🔑 Gestión del Sistema</p>
+<ul>
+<li>PowerShell: Tiene acceso profundo a Windows Management Instrumentation (WMI) y APIs de Windows. Ideal para administración de servidores Windows.</li>
+<li>CLI de Linux: Se basa en comandos específicos del sistema (systemctl, journalctl, ip, netstat, etc.), con acceso a /proc y /sys para información del sistema.</li>
+</ul>
+<p><em>En resumen:</em></p>
+<blockquote>
+<p>PowerShell se enfoca en automatización estructurada, principalmente para Windows.</p>
+<p>La CLI de Linux es más ligera, flexible y enfocada en procesamiento principalmente en texto o sistemas operativos orientados a texto.</p>
+</blockquote>
+<p>😃</p>
+
+      <nav>
+        <div>
+          <a href="https://dzamo.gitlab.io/linux-cli/">&#8249; CLI en Linux</a>
+        </div>
+        <div>
+          <a href="https://dzamo.gitlab.io/powershell/"> Windows PowerShell &#8250;</a>
+        </div>
+      </nav>
+    </article>
+  </main>
+  <footer>
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://dzamo.gitlab.io/atom.xml" target="_blank" title="Abridge Atom Feed"><i type="Button" class="svg rss" title="Abridge Atom Feed"></i></a><a class="js m-protected" href="#bmFtZUBleGFtcGxlLmNvbQ==" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.example.com/@username" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://github.com/your-user-name/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://www.instagram.com/your-user-name/" target="_blank" title="Instagram"><i type="Button" class="svg instagram" title="Instagram"></i></a><a href="https://www.youtube.com/channel&#x2F;your-channel-id" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/your-user-name/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/your-user-name/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://dzamo.gitlab.io/about/"> About </a>
+        <a class="rpad s90" href="https://dzamo.gitlab.io/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://dzamo.gitlab.io/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2025</span> Abridge</p>
+      <p class="s80">Impulsado por <a href="https://www.getzola.org/" target="_blank">Zola</a> y <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>

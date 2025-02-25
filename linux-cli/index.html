@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="https://dzamo.gitlab.io/js/theme.min.js" integrity="sha384-pb++s6uBRKaQv+iAXpgA/H3IlpLZdO14tTwuCI7uXmz4aaZdByoCcM+6BhynMq/1"></script>
+  <link rel="stylesheet" href="https://dzamo.gitlab.io/abridge.css?h=98ebdf6fd3d59dfb2edf" />
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="base" content="https://dzamo.gitlab.io" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="theme-color" content="#333333" />
+  <meta name="msapplication-TileColor" content="#333333" />
+  <link rel="manifest" href="https://dzamo.gitlab.io/manifest.min.json" />
+  <link rel="mask-icon" href="https://dzamo.gitlab.io/safari-pinned-tab.svg" color="#ff9900" />
+  <link rel="icon" type="image/svg+xml" href="https://dzamo.gitlab.io/favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://dzamo.gitlab.io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://dzamo.gitlab.io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://dzamo.gitlab.io/favicon-16x16.png" />
+  <link rel="alternate" type="application/atom+xml" title="Abridge Atom Feed" href="https://dzamo.gitlab.io/atom.xml" />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <title>CLI en Linux | Abridge</title>
+  <meta name="author" content="d@Zamo" />
+  <meta name="copyright" content="Abridge" />
+  <meta name="description" content="Comandos, utilidades, uso, etc del CLI de Linux y&#x2F;o Unix." />
+  <link rel="canonical" href="https://dzamo.gitlab.io/linux-cli/" />
+  <meta name="keywords" content="Linux, Sistemas operativos, CLI, Unix, Documentación de tecnologías IT" />
+  <script defer src="https://dzamo.gitlab.io/js/abridge.min.js?h=e0f9a881a665c86cce9c" integrity="sha384-QF67y7RnPkuDrJNQqn3/7nYxqxWkW/qHI7zN0WTES1aXbf+TotoByRBb835fUE6U"></script>
+  <script defer src="https://dzamo.gitlab.io/js/lunr.stemmer.support.min.js" integrity="sha384-f0MKdC/9ZSGTpDiuWusC0SbLXNCBp6NgzDZpjR/4UdHXAQBqvTEKyinnsa1wQ7oA"></script>
+  <script defer src="https://dzamo.gitlab.io/js/lunr.es.min.js" integrity="sha384-13X5VesLVgdM43kFd8gfrw5Jp3OnK7RJNwZl+n1MMtQychTYcXNHLxxDAfVJOSfE"></script>
+  <noscript><link rel="stylesheet" href="https://dzamo.gitlab.io/nojs.css" /></noscript>
+</head>
+<body>
+  <header>
+    <nav>
+      <div><big><a href="https://dzamo.gitlab.io" title="Abridge"><font color="#f90">D</font>ocs</a></big></div>
+      <div>
+
+        <div>
+          <ul><li><a class="s110" href="https://dzamo.gitlab.io/archive/"> Posts </a></li><li><a class="s110" href="https://dzamo.gitlab.io/tags/"> Tags </a></li><li><i type="reset" id="mode" class="js svgs adjust"></i></ul>
+        </div>
+
+        <div>
+          <div>
+            <form autocomplete=off class="js" name="goSearch" id="searchbox">
+              <div class="searchd">
+                <input id="searchinput" type="text" placeholder="Buscar" title="Search" />
+                <button type="submit" title="Search" class="svgs svgm search"></button>
+              </div>
+              <div class="results"><div id="suggestions"></div></div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h1><a href="https://dzamo.gitlab.io/linux-cli/">CLI en Linux</a></h1>
+
+      <span class="s95"> d@Zamo <span class="rpad"></span> enero 30, 2025 <span class="rpad"></span> #<a href="https://dzamo.gitlab.io/tags/linux/">Linux</a>  #<a href="https://dzamo.gitlab.io/tags/cli/">CLI</a>  #<a href="https://dzamo.gitlab.io/tags/sistemas-operativos/">sistemas-operativos</a> </span>
+
+    
+
+
+<p>En sistemas Linux y Unix, la CLI (Command Line Interface) es la herramienta principal para interactuar con el sistema a través de comandos escritos. A diferencia de un entorno gráfico (GUI), la CLI permite un control más preciso y eficiente del sistema, especialmente útil para administración, automatización y scripting, principalmente en sistemas operativos orientados al comando.</p>
+<span id="continue-reading"></span><h2 id="que-es-un-shell-en-linux-unix">¿Qué es un Shell en Linux/Unix?</h2>
+<blockquote>
+<p>Un shell es un programa que actúa como intermediario entre el usuario y el sistema operativo. Su función es interpretar los comandos que ingresamos y ejecutarlos.</p>
+</blockquote>
+<p>Existen varios tipos de shells en Linux/Unix, pero uno de los más comunes y ampliamente utilizados es Bash (Bourne Again Shell).</p>
+<h2 id="que-es-bash-y-por-que-es-importante">¿Qué es Bash y por qué es importante?</h2>
+<p><em>Bash es un shell muy popular en sistemas Linux y macOS, y es el sucesor mejorado del shell original de Unix, el Bourne Shell (sh).</em></p>
+<blockquote>
+<p>✔️ Se usa para ejecutar comandos interactivos.</p>
+<p>✔️ Permite la automatización mediante scripts (.sh).</p>
+<p>✔️ Soporta variables, funciones y estructuras de control (if, for, while).</p>
+<p>✔️ Administra procesos, redirección de entrada/salida y permisos.</p>
+</blockquote>
+<p>Ejemplo de un comando básico en Bash:</p>
+<pre data-lang="bash" class="language-bash z-code"><code class="language-bash" data-lang="bash"><span class="z-source z-shell z-bash"><span class="z-meta z-function-call z-shell"><span class="z-variable z-function z-shell">ls</span></span><span class="z-meta z-function-call z-arguments z-shell"><span class="z-variable z-parameter z-option z-shell"><span class="z-punctuation z-definition z-parameter z-shell"> -</span>l</span> /home</span>
+</span></code></pre>
+<p>El comando anterior lista los archivos y directorios en <code>/home</code> con detalles extendidos.</p>
+
+      <nav>
+        <div>
+        </div>
+        <div>
+          <a href="https://dzamo.gitlab.io/power-shell-cli/"> CLI y PowerShell &#8250;</a>
+        </div>
+      </nav>
+    </article>
+
+    <div class="sblock">
+      <div class="blockdiv sticky">
+        <a class="b s150" href="#">Índice</a>
+        <div>
+          <a href="#que-es-un-shell-en-linux-unix">¿Qué es un Shell en Linux&#x2F;Unix?</a>
+        </div>
+        <div>
+          <a href="#que-es-bash-y-por-que-es-importante">¿Qué es Bash y por qué es importante?</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="c">
+      <nav class="tpad"><div><a type="application/atom+xml" href="https://dzamo.gitlab.io/atom.xml" target="_blank" title="Abridge Atom Feed"><i type="Button" class="svg rss" title="Abridge Atom Feed"></i></a><a class="js m-protected" href="#bmFtZUBleGFtcGxlLmNvbQ==" target="_blank" title="Mail"><i type="Button" class="svg mail" title="Mail"></i></a><a href="https://mastodon.example.com/@username" target="_blank" title="Mastodon" rel="me"><i type="Button" class="svg mastodon" title="Mastodon"></i></a><a href="https://matrix.example.com/" target="_blank" title="Element"><i type="Button" class="svg element" title="Element"></i></a><a href="https://github.com/your-user-name/" target="_blank" title="Github"><i type="Button" class="svg github" title="Github"></i></a><a href="https://www.instagram.com/your-user-name/" target="_blank" title="Instagram"><i type="Button" class="svg instagram" title="Instagram"></i></a><a href="https://www.youtube.com/channel&#x2F;your-channel-id" target="_blank" title="YouTube"><i type="Button" class="svg youtube" title="YouTube"></i></a><a href="https://www.twitch.tv/your-user-name/" target="_blank" title="Twitch"><i type="Button" class="svg twitch" title="Twitch"></i></a><a href="https://www.ko-fi.com/your-user-name/" target="_blank" title="Support me on Ko-fi"><i type="Button" class="svg kofi" title="Support me on Ko-fi"></i></a></div></nav>
+      <nav class="vpad">
+        <a class="rpad s90" href="https://dzamo.gitlab.io/about/"> About </a>
+        <a class="rpad s90" href="https://dzamo.gitlab.io/privacy/"> Privacy </a>
+        <a class="rpad s90" href="https://dzamo.gitlab.io/sitemap.xml" target="_blank"> Sitemap </a>
+      </nav>
+      <p class="s80"> &copy; <span id="year">2025</span> Abridge</p>
+      <p class="s80">Impulsado por <a href="https://www.getzola.org/" target="_blank">Zola</a> y <a href="https://github.com/jieiku/abridge/" target="_blank">Abridge</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="es">
+    <title>Abridge</title>
+    <subtitle>Abridge is a fast, lightweight, and modern Zola theme (class-light, semantic HTML). Perfect Lighthouse, YellowLabTools, and Observatory scores.</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://dzamo.gitlab.io/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://dzamo.gitlab.io"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-02-02T15:00:00+00:00</updated>
+    <id>https://dzamo.gitlab.io/atom.xml</id>
+    <entry xml:lang="es">
+        <title>CLI en Linux</title>
+        <published>2025-01-30T15:00:00+00:00</published>
+        <updated>2025-01-30T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dzamo.gitlab.io/linux-cli/"/>
+        <id>https://dzamo.gitlab.io/linux-cli/</id>
+        
+        <summary type="html">&lt;p&gt;En sistemas Linux y Unix, la CLI (Command Line Interface) es la herramienta principal para interactuar con el sistema a través de comandos escritos. A diferencia de un entorno gráfico (GUI), la CLI permite un control más preciso y eficiente del sistema, especialmente útil para administración, automatización y scripting, principalmente en sistemas operativos orientados al comando.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="es">
+        <title>CLI y PowerShell</title>
+        <published>2025-01-03T15:00:00+00:00</published>
+        <updated>2025-01-03T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dzamo.gitlab.io/power-shell-cli/"/>
+        <id>https://dzamo.gitlab.io/power-shell-cli/</id>
+        
+        <summary type="html">&lt;p&gt;&lt;em&gt;PowerShell&lt;&#x2F;em&gt; - basado en objetos. Este maneja &lt;em&gt;objetos estructurados&lt;&#x2F;em&gt; de &lt;em&gt;.NET&lt;&#x2F;em&gt;. El &lt;em&gt;CLI&lt;&#x2F;em&gt; de &lt;em&gt;Linux&lt;&#x2F;em&gt;&#x2F;&lt;em&gt;Unix&lt;&#x2F;em&gt;&#x2F;&lt;em&gt;macOS&lt;&#x2F;em&gt; - &lt;em&gt;basado en texto&lt;&#x2F;em&gt; y &lt;em&gt;flujos de datos&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+    <entry xml:lang="es">
+        <title>Windows PowerShell</title>
+        <published>2025-01-01T15:00:00+00:00</published>
+        <updated>2025-02-02T15:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://dzamo.gitlab.io/powershell/"/>
+        <id>https://dzamo.gitlab.io/powershell/</id>
+        
+        <summary type="html">&lt;p&gt;PowerShell es un intérprete de línea de comandos y un lenguaje de scripting avanzado desarrollado por Microsoft. A diferencia del clásico Símbolo del sistema (cmd.exe), que está basado en comandos heredados de MS-DOS, PowerShell está construido sobre .NET y trabaja con objetos en lugar de solo texto, lo que lo hace mucho más potente para la administración de sistemas.&lt;&#x2F;p&gt;</summary>
+        
+    </entry>
+</feed>
