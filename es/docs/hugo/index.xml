@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSG Hugo on MyDocsy</title>
+    <link>https://dzamo.gitlab.io/es/docs/hugo/</link>
+    <description>Recent content in SSG Hugo on MyDocsy</description>
+    <generator>Hugo</generator>
+    <language>es</language>
+    <lastBuildDate>Mon, 21 Apr 2025 15:09:47 +0200</lastBuildDate>
+    <atom:link href="https://dzamo.gitlab.io/es/docs/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Custom Shortcode</title>
+      <link>https://dzamo.gitlab.io/es/docs/hugo/custom-shortcode/</link>
+      <pubDate>Mon, 21 Apr 2025 15:09:47 +0200</pubDate>
+      <guid>https://dzamo.gitlab.io/es/docs/hugo/custom-shortcode/</guid>
+      <description>&lt;p&gt;En esta publicación se codifica un &lt;em&gt;&amp;ldquo;custom shortcode&amp;rdquo;&lt;/em&gt; (shortcode personalizado) para centralizar los datos de enlaces (texto, URL, clases CSS, etc.) en un archivo YAML o JSON, para que luego este genere dinámicamente los elementos HTML que son presentados sobre la página web. Esta es una práctica recomendada para que el contenido del sitio sea limpio, DRY (Don&amp;rsquo;t Repeat Yourself) y de fácil mantenimiento.&lt;/p&gt;&#xA;&lt;h2 id=&#34;introducción&#34;&gt;Introducción&lt;/h2&gt;&#xA;&lt;p&gt;Con el desarrollo de este &lt;em&gt;&amp;ldquo;shortcode personalizado&amp;rdquo;&lt;/em&gt; se tendrá:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
