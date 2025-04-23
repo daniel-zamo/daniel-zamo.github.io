@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Test on MyDocsy</title>
-    <link>https://dzamo.gitlab.io/es/tags/test/</link>
+    <link>http://localhost:1313/es/tags/test/</link>
     <description>Recent content in Test on MyDocsy</description>
     <generator>Hugo</generator>
     <language>es</language>
     <lastBuildDate>Mon, 21 Apr 2025 15:09:47 +0200</lastBuildDate>
-    <atom:link href="https://dzamo.gitlab.io/es/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/es/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SSG Hugo</title>
-      <link>https://dzamo.gitlab.io/es/docs/hugo/</link>
+      <link>http://localhost:1313/es/docs/hugo/</link>
       <pubDate>Mon, 21 Apr 2025 15:09:47 +0200</pubDate>
-      <guid>https://dzamo.gitlab.io/es/docs/hugo/</guid>
+      <guid>http://localhost:1313/es/docs/hugo/</guid>
       <description>&lt;div class=&#34;pageinfo pageinfo-primary&#34;&gt;&#xA;&lt;p&gt;Sección del Generador de sitios estáticos (SSG) Hugo.&lt;/p&gt;&#xA;&#xA;&lt;/div&gt;</description>
     </item>
   </channel>
