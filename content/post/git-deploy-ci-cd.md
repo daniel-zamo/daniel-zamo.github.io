@@ -13,13 +13,13 @@ categories = [
     "Gitlab Page",
 ]
 series = ["CI/CD"]
-image = "/images/devops-001.png"
+image = "/images/devops-header-post.png"
 draft = false
 +++
 
-# Automatización de Despliegues con Git (CI/CD)
+## Automatización de Despliegues con Git (CI/CD)
 
-La automatización de despliegues con Git <!--more-->es una práctica fundamental en el desarrollo de software moderno conocida como **CI/CD**, que significa **Integración Continua y Despliegue Continuo** (o Entrega Continua).
+La automatización de despliegues con Git es una práctica fundamental en el desarrollo de software moderno <!--more-->conocida como **CI/CD**, que significa **Integración Continua y Despliegue Continuo** (o Entrega Continua).
 
 ## ¿Qué es CI/CD?
 
