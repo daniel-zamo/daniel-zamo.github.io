@@ -1,0 +1,131 @@
+# Fichero de configuración principal de Hugo en formato YAML
+
+baseURL: 'https://dzamo.gitlab.io/'
+languageCode: 'es-es'
+title: 'Artículos Markdown'
+theme: "stack"
+copyright: ""
+
+# --- CONFIGURACIÓN PARA UN SOLO IDIOMA (ESPAÑOL) ---
+DefaultContentLanguage: "es"
+
+cascade:
+  - _target:
+      path: "/post/**" # Se aplica a todo el contenido dentro de la carpeta /post/
+    params:
+      toc: true # Activa el TOC para todos los posts por defecto
+      layout: "default" # <-- AÑADE ESTO: Usa el layout con espacio para el TOC
+
+# hugo.yaml
+
+# --- PARÁMETROS DEL TEMA (PARAMS) ---
+params:
+  mainSections:
+    - post
+  
+  featuredImageField: image
+  rssFullContent: true
+  favicon:
+
+  # Configuración de la apariencia
+  colorScheme:
+    default: "auto"
+    toggle: true
+
+  # Configuración de la barra lateral (Sidebar)
+  sidebar:
+    subtitle: "Un blog sobre tecnología y desarrollo"
+    avatar:
+      src: "/images/avatar.png"
+      alt: "Mi avatar"
+  
+  # --- AÑADE ESTAS SECCIONES (copiadas del exampleSite) ---
+
+  # Configuración por defecto para los artículos (tus posts)
+  article:
+    showReadingTime: true
+    showWordCount: true
+    showPostNavLinks: true
+    toc: true  # <--- Habilita el TOC por defecto para todos los posts
+
+  # Definición de los WIDGETS para las barras laterales
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+            limit: 5
+      - type: categories
+        params:
+            limit: 10
+      - type: tag-cloud
+        params:
+            limit: 10
+    page:
+      - type: toc # <--- LE DICE AL TEMA QUE MUESTRE EL WIDGET TOC EN LOS POSTS
+
+# --- CONFIGURACIÓN DE MENÚS ---
+# Lista de enlaces para el menú principal
+menu:
+    main: []
+
+#  main:
+#    - identifier: home
+#      name: Inicio
+#      url: "/"
+#      weight: 1
+#    - identifier: about
+#      name: Sobre mí
+#      url: "/about" # Deberás crear la página `content/about.md`
+#      weight: 2
+
+    social:
+        - identifier: github
+          name: GitHub danielzamo
+          url: https://github.com/danielzamo
+          params:
+              icon: brand-github
+
+        - identifier: twitter
+          name: Twitter
+          url: https://twitter.com
+          params:
+              icon: brand-twitter
+
+                #ignoreLogs:
+                #  - warning-goldmark-raw-html
+
+markup:
+  tableOfContents:
+    startLevel: 2  # Nivel de encabezado inicial (h2)
+    endLevel: 4    # Nivel de encabezado final (h4)
+    ordered: false # false para listas con puntos (<ul>), true para listas numeradas (<ol>)
+
+# --- CONFIGURACIÓN DE LA PAGINACIÓN ---
+# Cuántos artículos mostrar por página
+pagination:                                                                                                       
+    pagerSize: 3
+
+# --- CONFIGURACIÓN DE ENLACES PERMANENTES (PERMALINKS) ---
+permalinks:
+#  post: "/articulo/:slug/"
+  post: "/p/:slug/"
+  page: "/:slug/"
+
+# --- SERVICIOS EXTERNOS (OPCIONAL) ---
+services:
+  disqus:
+    # shortname: "tu-shortname-de-disqus"
+  googleAnalytics:
+    # id: "G-XXXXXXXXXX"
+
+# --- CONFIGURACIÓN DE MÓDULOS DE HUGO ---
+# Esto le dice a Hugo que nuestra carpeta 'layouts' de la raíz tiene prioridad
+module:
+  mounts:
+    # Monta nuestra carpeta /layouts en la raíz del proyecto
+    # sobre el sistema de ficheros virtual de Hugo
+    - source: my-components/layouts
+      # ...en el destino virtual 'layouts'.
+      # Esto tiene la máxima prioridad, sobreescribiendo el tema.
+      target: layouts

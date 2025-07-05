@@ -1,0 +1,21 @@
+# Ficheros y directorios propios (no push or local only)
+dz_drafts/
+*.v*
+
+# Ficheros y directorios generados por Hugo
+/public/
+/resources/
+.hugo_build.lock
+
+# Ficheros del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Ficheros de configuración del editor
+.vscode/
+.idea/
+
+# Logs y dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
