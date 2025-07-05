@@ -13,7 +13,7 @@ categories = [
     "Gitlab Page",
 ]
 series = ["CI/CD"]
-#image = "/images/devops-001.png"
+image = "/images/devops-001.png"
 draft = false
 +++
 
