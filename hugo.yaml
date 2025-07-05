@@ -2,7 +2,7 @@
 
 baseURL: 'https://dzamo.gitlab.io/'
 languageCode: 'es-es'
-title: 'Artículos Markdown'
+title: 'mis notas'
 theme: "stack"
 copyright: ""
 
@@ -34,7 +34,7 @@ params:
 
   # Configuración de la barra lateral (Sidebar)
   sidebar:
-    subtitle: "Un blog sobre tecnología y desarrollo"
+    subtitle: "Un blog de mis notas Markdown"
     avatar:
       src: "/images/avatar.png"
       alt: "Mi avatar"
