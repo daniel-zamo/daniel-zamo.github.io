@@ -12,8 +12,8 @@ categories = [
     "CI/CD",
     "Gitlab Page",
 ]
-series = ["Sitios de contenido estático"]
-image = "/images/go-hugo-featured.png"
+series = ["CI/CD"]
+#image = "/images/go-hugo-featured.png"
 draft = false
 +++
 
