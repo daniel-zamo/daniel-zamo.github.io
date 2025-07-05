@@ -1,6 +1,7 @@
 # Ficheros y directorios propios (no push or local only)
 dz_drafts/
 *.v*
+*.old
 
 # Ficheros y directorios generados por Hugo
 /public/
