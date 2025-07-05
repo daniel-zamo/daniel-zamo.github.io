@@ -1,8 +1,8 @@
 +++
 author = "Daniel O. Zamo"
-title = "Automatización de despliegues con Git"
+title = "Automatización con Git"
 date = "2025-07-05"
-#description = "Automatización de despliegues con Git (CI/CD)"
+description = "Automatización de despliegues con Git (CI/CD)"
 tags = [
     "markdown",
     "git",
@@ -13,7 +13,7 @@ categories = [
     "Gitlab Page",
 ]
 series = ["CI/CD"]
-#image = "/images/go-hugo-featured.png"
+#image = "/images/devops-001.png"
 draft = false
 +++
 
