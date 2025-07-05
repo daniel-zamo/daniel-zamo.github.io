@@ -2,7 +2,7 @@
 
 baseURL: 'https://dzamo.gitlab.io/'
 languageCode: 'es-es'
-title: 'mis notas'
+title: 'Mi blog'
 theme: "stack"
 copyright: ""
 
