@@ -1,9 +1,0 @@
-Hola mundo!
-{{- $page := .Page }}
-{{- with $page.TableOfContents }}
-    <div class="widget-toc">
-        <nav id="TableOfContents">
-            {{ . }}
-        </nav>
-    </div>
-{{- end }}

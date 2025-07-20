@@ -1,24 +1,16 @@
-# Uso la imagen oficial de Hugo para GitLab Pages.
-# Incluye Hugo Extended, que es necesario para muchos temas que usan SASS/SCSS.
-image: registry.gitlab.com/pages/hugo/hugo_extended:latest
+# Usa una imagen oficial de Node.js
+image: node:18
 
-# Define el trabajo (job) que se ejecutará. 
-# GitLab reconoce el nombre "pages" para desplegar en GitLab Pages.
 pages:
+  stage: deploy
+  # Instala las dependencias y construye el sitio
   script:
-    # Ejecuta el comando de Hugo para construir el sitio.
-    # -b $CI_PAGES_URL: Usa la URL base que proporciona GitLab.
-    # -d public/: Especifica que el sitio generado debe ir a la carpeta 'public'.
-    - hugo -b $CI_PAGES_URL -d public/
-
+    - npm install           # Instala las dependencias de Astro
+    - npm run build         # Ejecuta el comando de construcción de Astro (que genera la carpeta 'dist')
+    - mv dist public        # GitLab Pages requiere que la carpeta se llame 'public'. Astro la crea como 'dist'.
   artifacts:
-    # Le dice a GitLab que guarde y exponga el contenido de la carpeta 'public'.
     paths:
-      - public
-
-  rules:
-    # Esta regla es muy importante:
-    # Solo ejecuta este trabajo cuando se hace un push a la rama por defecto del repositorio (usualmente "main" o "master").
-    # Esto evita que se publique el sitio desde ramas de desarrollo.
-    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
-
+      - public              # Le dice a GitLab qué carpeta contiene el sitio finalizado
+  # Define cuándo se debe ejecutar este trabajo (solo en la rama 'main')
+  only:
+    - main

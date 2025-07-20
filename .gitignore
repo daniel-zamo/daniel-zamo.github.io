@@ -1,22 +1,24 @@
-# Ficheros y directorios propios (no push or local only)
-dz_drafts/
-*.v*
-*.old
+# build output
+dist/
+# generated types
+.astro/
 
-# Ficheros y directorios generados por Hugo
-/public/
-/resources/
-.hugo_build.lock
-
-# Ficheros del sistema operativo
-.DS_Store
-Thumbs.db
-
-# Ficheros de configuración del editor
-.vscode/
-.idea/
-
-# Logs y dependencias
+# dependencies
 node_modules/
-npm-debug.log
-yarn-error.log
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/

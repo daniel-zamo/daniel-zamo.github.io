@@ -1,55 +1,47 @@
-# Artículos Markdown - Fuente del Sitio dzamo.gitlab.io
+# Astro Starter Kit: Minimal
 
-![Pipeline Status](https://gitlab.com/dzamo/dzamo.gitlab.io/badges/main/pipeline.svg)
+```sh
+npm create astro@latest -- --template minimal
+```
 
-Este repositorio contiene todo el código fuente de mi sitio personal/blog, **[dzamo.gitlab.io](https://dzamo.gitlab.io)**. El sitio está construido con el generador de sitios estáticos [Hugo](https://gohugo.io/) y el tema [Stack](https://github.com/CaiJimmy/hugo-theme-stack).
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
 
-El contenido se escribe en formato Markdown y se despliega automáticamente en GitLab Pages a través de un pipeline de CI/CD.
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## Objetivo del Repositorio
+## 🚀 Project Structure
 
-El propósito principal de este repositorio es servir como la **única fuente de verdad** para todo el contenido y la configuración de mi sitio web. Almacena:
+Inside of your Astro project, you'll see the following folders and files:
 
-*   Artículos y páginas en formato Markdown.
-*   La configuración de Hugo (`hugo.yaml`).
-*   Personalizaciones del tema (widgets, shortcodes, etc.).
-*   La configuración de despliegue automático (`.gitlab-ci.yml`).
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## Requisitos para Desarrollo Local
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-Para ejecutar el sitio en un entorno de desarrollo local, necesitas tener instalado lo siguiente:
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-1.  **Git:** Para clonar el repositorio.
-2.  **Hugo (versión Extended):** Es fundamental que sea la versión "extended" para que el tema, que usa SASS/SCSS, funcione correctamente. Puedes verificar tu versión con `hugo version`.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Cómo Empezar (Desarrollo Local)
+## 🧞 Commands
 
-1.  **Clonar el repositorio:**
-    ```bash
-    git clone git@gitlab.com:dzamo/dzamo.gitlab.io.git
-    cd dzamo.gitlab.io
-    ```
+All commands are run from the root of the project, from a terminal:
 
-2.  **Iniciar el servidor de desarrollo de Hugo:**
-    Este comando iniciará un servidor web local, generalmente en `http://localhost:1313/`. El sitio se reconstruirá automáticamente cada vez que guardes un cambio en un fichero.
-    ```bash
-    hugo server -D
-    ```
-    *   La opción `-D` (o `--buildDrafts`) es útil para visualizar los borradores (`draft: true`) mientras trabajas en ellos.
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Proceso de Despliegue
+## 👀 Want to learn more?
 
-El despliegue en producción es **totalmente automático** gracias a **GitLab CI/CD**.
-
-El flujo de trabajo es el siguiente:
-1.  Se realizan cambios en el código fuente (por ejemplo, se escribe un nuevo artículo).
-2.  Los cambios se suben (`push`) a la rama `main` de este repositorio.
-3.  GitLab detecta el `push` y activa automáticamente un pipeline definido en el fichero `.gitlab-ci.yml`.
-4.  El pipeline ejecuta un trabajo que:
-    *   Utiliza una imagen de Docker con Hugo preinstalado.
-    *   Construye el sitio estático en una carpeta `public`.
-    *   Publica el contenido de esa carpeta en GitLab Pages.
-
-No se requiere ninguna intervención manual para publicar el sitio.
-
----
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
