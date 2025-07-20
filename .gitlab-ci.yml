@@ -7,7 +7,7 @@ pages:
   script:
     - npm install           # Instala las dependencias de Astro
     - npm run build         # Ejecuta el comando de construcción de Astro (que genera la carpeta 'dist')
-    - mv dist public        # GitLab Pages requiere que la carpeta se llame 'public'. Astro la crea como 'dist'.
+    - mv dist/* public/        # GitLab Pages requiere que la carpeta se llame 'public'. Astro la crea como 'dist'.
   artifacts:
     paths:
       - public              # Le dice a GitLab qué carpeta contiene el sitio finalizado
