@@ -1,5 +1,5 @@
 # Usa una imagen oficial de Node.js
-image: node:18
+image: node
 
 pages:
   stage: deploy
