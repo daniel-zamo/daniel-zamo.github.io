@@ -4,23 +4,24 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
+    site: 'https://dzamo.gitlab.io',
+    integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
-			sidebar: [
+			title: 'D@cz',
+			social: [{ icon: 'gitlab', label: 'Gitlab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
+/*			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Guía Starlight',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Guía de ejemplo', slug: 'guides/example' },
 					],
 				},
 				{
-					label: 'Reference',
+					label: 'Referencia',
 					autogenerate: { directory: 'reference' },
 				},
-			],
+			],*/
 		}),
 	],
 });
