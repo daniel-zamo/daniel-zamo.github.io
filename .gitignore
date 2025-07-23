@@ -1,4 +1,6 @@
 *.org
+/dz_drafts
+
 # build output
 dist/
 # generated types
