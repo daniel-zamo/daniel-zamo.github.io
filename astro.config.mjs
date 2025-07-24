@@ -1,36 +1,38 @@
-// @ts-check
+// astro.config.mjs
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
-// https://astro.build/config
 export default defineConfig({
-	integrations: [
-		starlight({
-			title: 'D@cz',
-            // Configuración de idioma
-            defaultLocale: 'root', // Define el español como idioma por defecto
+    site: 'http://localhost:4321',
+    integrations: [
+        starlight({
+            title: 'D@cz | IT Notes',
+            social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
+            
+            defaultLocale: 'root',
             locales: {
-            root: {
-                label: 'Español',
-                lang: 'es-ES', // Opcional, para el atributo lang en el HTML
-			    },
-		    },
-			social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
-			sidebar: [
-
-				{ label: 'Certificaciones',
+                root: { label: 'English', lang: 'en' },
+                es: { label: 'Español', lang: 'es' },
+            },
+            
+            // --- SIDEBAR MANUAL (AHORA SÍ FUNCIONARÁ) ---
+            sidebar: [
+                // Es buena idea tener un enlace a la página de inicio.
+                { label: 'Welcome', link: '/' },
+                {
+                    label: 'Certifications',
+                    collapsed: false, // Lo pongo abierto para que se vea al cargar
+                    items: [
+                        { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
+                        { label: 'Azure', autogenerate: { directory: 'certifications/azure' } }
+                    ]
+                },
+                {
+                    label: 'Articles',
                     collapsed: true,
-					items: [
-				    { label: 'Linux', collapsed: true, autogenerate: { directory: 'certifications/linux' } },
-					{ label: 'Azure', collapsed: true, autogenerate: { directory: 'certifications/azure' } }
-				   ]
-			    },
-				{
-					label: 'Artículos sueltos',
-                    collapsed: true,
-					autogenerate: { directory: 'articles' },
-				},
-			],
-		}),
-	],
+                    autogenerate: { directory: 'articles' },
+                },
+            ],
+        }),
+    ],
 });
