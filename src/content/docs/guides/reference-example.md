@@ -1,5 +1,7 @@
 ---
 title: Example Reference
+sidebar:
+    order: 200
 description: A reference page in my new Starlight docs site.
 ---
 
