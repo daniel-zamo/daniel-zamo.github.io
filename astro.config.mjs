@@ -27,11 +27,11 @@ export default defineConfig({
                         { label: 'Azure', autogenerate: { directory: 'certifications/azure' } }
                     ]
                 },
-                {
-                    label: 'Articles',
-                    collapsed: true,
-                    autogenerate: { directory: 'articles' },
-                },
+                //                {
+                //                    label: 'Articles',
+                //                    collapsed: true,
+                //                    autogenerate: { directory: 'articles' },
+                //                },
             ],
         }),
     ],
