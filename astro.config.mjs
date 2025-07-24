@@ -4,24 +4,33 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://dzamo.gitlab.io',
-    integrations: [
+	integrations: [
 		starlight({
 			title: 'D@cz',
-			social: [{ icon: 'gitlab', label: 'Gitlab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
-/*			sidebar: [
-				{
-					label: 'Guía Starlight',
+            // Configuración de idioma
+            defaultLocale: 'root', // Define el español como idioma por defecto
+            locales: {
+            root: {
+                label: 'Español',
+                lang: 'es-ES', // Opcional, para el atributo lang en el HTML
+			    },
+		    },
+			social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
+			sidebar: [
+
+				{ label: 'Certificaciones',
+                    collapsed: true,
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Guía de ejemplo', slug: 'guides/example' },
-					],
-				},
+				    { label: 'Linux', collapsed: true, autogenerate: { directory: 'certifications/linux' } },
+					{ label: 'Azure', collapsed: true, autogenerate: { directory: 'certifications/azure' } }
+				   ]
+			    },
 				{
-					label: 'Referencia',
-					autogenerate: { directory: 'reference' },
+					label: 'Artículos sueltos',
+                    collapsed: true,
+					autogenerate: { directory: 'articles' },
 				},
-			],*/
+			],
 		}),
 	],
 });

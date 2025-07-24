@@ -1,5 +1,7 @@
 *.org
 /dz_drafts
+*.v*
+*.beta*
 
 # build output
 dist/
