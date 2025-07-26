@@ -1,0 +1,27 @@
+---
+// RUTA: src/components/QuizLoader.astro
+import { getCollection } from 'astro:content';
+import Quiz from './Quiz.astro';
+
+// 1. Leemos el ID de la pregunta desde la URL (?id=...)
+const questionId = Astro.url.searchParams.get('id');
+
+// 2. Obtenemos todas las preguntas
+const allQuestions = await getCollection('questions');
+
+// 3. Buscamos la pregunta específica
+const question = allQuestions.find(q => q.id === questionId);
+---
+
+{/* 4. Bloque condicional para mostrar el quiz o un error */}
+{question ? (
+  <Quiz question={question.data} />
+) : (
+  <div>
+    <h3>Question not found</h3>
+    <p>
+      The question ID "{questionId}" was not found. Please return to the 
+      <a href="/practice/">practice index</a>.
+    </p>
+  </div>
+)}
