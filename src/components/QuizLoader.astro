@@ -1,27 +1,48 @@
 ---
-// RUTA: src/components/QuizLoader.astro
+// RUTA: src/components/QuizLoader.astro (VERSIÓN FINAL)
 import { getCollection } from 'astro:content';
 import Quiz from './Quiz.astro';
 
-// 1. Leemos el ID de la pregunta desde la URL (?id=...)
-const questionId = Astro.url.searchParams.get('id');
-
-// 2. Obtenemos todas las preguntas
+// 1. En el servidor, obtenemos TODAS las preguntas.
 const allQuestions = await getCollection('questions');
-
-// 3. Buscamos la pregunta específica
-const question = allQuestions.find(q => q.id === questionId);
 ---
 
-{/* 4. Bloque condicional para mostrar el quiz o un error */}
-{question ? (
-  <Quiz question={question.data} />
-) : (
-  <div>
+<!-- 2. Renderizamos TODOS los quizzes, pero ocultos por defecto.
+     Cada quiz está dentro de un div con su ID único. -->
+<div id="quiz-container-wrapper">
+  {allQuestions.map(question => (
+    <div id={question.id} class="quiz-instance" style="display: none;">
+      <Quiz question={question.data} />
+    </div>
+  ))}
+
+  <!-- También renderizamos un mensaje de error, oculto por defecto -->
+  <div id="quiz-not-found" style="display: none;">
     <h3>Question not found</h3>
-    <p>
-      The question ID "{questionId}" was not found. Please return to the 
-      <a href="/practice/">practice index</a>.
-    </p>
+    <p>The requested question ID was not found in our database.</p>
+    <p>Please return to the <a href="/practice/">practice index</a>.</p>
   </div>
-)}
+</div>
+
+<!-- 3. Este script se ejecutará EN EL NAVEGADOR del usuario -->
+<script>
+  // Obtenemos los parámetros de la URL actual del navegador
+  const params = new URLSearchParams(window.location.search);
+  const questionId = params.get('id');
+
+  if (questionId) {
+    // Buscamos el div del quiz que tiene el ID correspondiente
+    const quizElement = document.getElementById(questionId);
+
+    if (quizElement) {
+      // Si lo encontramos, lo mostramos
+      quizElement.style.display = 'block';
+    } else {
+      // Si el ID está en la URL pero no encontramos el div, mostramos el error
+      document.getElementById('quiz-not-found').style.display = 'block';
+    }
+  } else {
+    // Si no hay ningún ID en la URL, también mostramos el error
+    document.getElementById('quiz-not-found').style.display = 'block';
+  }
+</script>

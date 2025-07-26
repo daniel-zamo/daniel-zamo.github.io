@@ -24,14 +24,10 @@ export default defineConfig({
                     collapsed: false, // Lo pongo abierto para que se vea al cargar
                     items: [
                         { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
-                        { label: 'Azure', autogenerate: { directory: 'certifications/azure' } }
+                        { label: 'Azure', autogenerate: { directory: 'certifications/azure' } },
+                        { label: 'Practice AI-900', link: '/practice/' },
                     ]
                 },
-                //                {
-                //                    label: 'Articles',
-                //                    collapsed: true,
-                //                    autogenerate: { directory: 'articles' },
-                //                },
             ],
         }),
     ],

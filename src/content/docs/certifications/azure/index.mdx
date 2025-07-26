@@ -1,0 +1,32 @@
+---
+# El título que se mostrará en la página y en la barra lateral.
+# Al ser diferente de la etiqueta 'Azure' de la categoría, evitamos la duplicidad.
+title: Azure Certifications
+description: A collection of study guides for various Microsoft Azure certifications.
+sidebar:
+  # Asegura que esta página de índice sea siempre la primera en la sección.
+  order: 1
+prev: false
+next: false
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+This section is dedicated to my comprehensive study notes for various Microsoft Azure certifications. Here you will find structured guides to help you prepare for the exams, from fundamental to associate levels.
+
+## Available Certifications
+
+<CardGrid>
+    <Card title="AZ-900: Azure Fundamentals" icon="cloud">
+        The foundational certification for understanding cloud concepts and core Azure services.
+    </Card>
+    <Card title="AI-900: Azure AI Fundamentals" icon="rocket">
+        An introduction to artificial intelligence (AI) and machine learning (ML) concepts on Azure.
+        <br />
+        {/* Este enlace apunta a tu archivo existente */}
+        <a href="/certifications/azure/ai-900/">Start the Guide →</a>
+    </Card>
+    <Card title="AZ-104: Azure Administrator Associate" icon="settings">
+        For administrators responsible for implementing, managing, and monitoring Azure environments. (Coming Soon)
+    </Card>
+</CardGrid>

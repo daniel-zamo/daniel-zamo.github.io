@@ -1,0 +1,21 @@
+---
+// RUTA: src/components/QuestionList.astro
+import { getCollection } from 'astro:content';
+const allQuestions = await getCollection('questions');
+---
+
+<ul>
+  {allQuestions.map(question => (
+    <li>
+      <a href={`/practice/quiz?id=${question.id}`}>
+        Question about: {question.data.topic} ({question.data.difficulty})
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  li {
+    margin-bottom: 0.5rem;
+  }
+</style>
