@@ -1,0 +1,50 @@
+{
+  "id": "ai900-data-split-01",
+  "exam": "AI-900",
+  "topic": "Machine Learning Fundamentals",
+  "difficulty": "easy",
+  "question": {
+    "scenario": "",
+    "prompt": "For a machine learning process, how should you split data for training and evaluation?"
+  },
+  "options": [
+    {
+      "id": "A",
+      "text": "Use features for training and labels for evaluation."
+    },
+    {
+      "id": "B",
+      "text": "Randomly split the data into rows for training and rows for evaluation."
+    },
+    {
+      "id": "C",
+      "text": "Use labels for training and features for evaluation."
+    },
+    {
+      "id": "D",
+      "text": "Randomly split the data into columns for training and columns for evaluation."
+    }
+  ],
+  "correctAnswerId": "B",
+  "explanation": {
+    "summary": "The correct method is to randomly split the dataset by rows (observations), creating one set to train the model and another, completely new set for the model, to objectively evaluate its performance.",
+    "breakdown": [
+      {
+        "optionId": "A",
+        "reasoning": "Incorrect. The model needs both features and labels to learn during training."
+      },
+      {
+        "optionId": "B",
+        "reasoning": "Correct. This is the standard practice that ensures the model is evaluated on data it has not seen before, simulating a real-world scenario."
+      },
+      {
+        "optionId": "C",
+        "reasoning": "Incorrect. This is logically the inverse of option A and has the same fundamental flaw."
+      },
+      {
+        "optionId": "D",
+        "reasoning": "Incorrect. Columns are the features. The model must be trained and evaluated using the same set of features."
+      }
+    ]
+  }
+}

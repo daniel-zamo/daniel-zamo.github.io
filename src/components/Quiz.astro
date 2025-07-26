@@ -1,0 +1,65 @@
+---
+// RUTA: src/components/Quiz.astro (VERSIÓN FINAL CON MEJORAS)
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  question: CollectionEntry<'questions'>['data'];
+  questionId: string;
+  prevId: string | null;
+  nextId: string | null;
+}
+const { question, questionId, prevId, nextId } = Astro.props;
+const formId = `quiz-form-${questionId}`;
+---
+
+<div class="quiz-container">
+  {question.question.scenario && <p class="scenario"><em>{question.question.scenario}</em></p>}
+  <p class="prompt">{question.question.prompt}</p>
+
+  <form 
+    class="options-form" 
+    id={formId}
+    data-correct-answer-id={question.correctAnswerId}
+    data-explanation={JSON.stringify(question.explanation)}
+  >
+    {question.options.map(option => (
+      <div class="option">
+        <input type="radio" id={`option-${option.id}-${questionId}`} name={`quiz_option_${questionId}`} value={option.id}>
+        <label for={`option-${option.id}-${questionId}`}>{option.text}</label>
+      </div>
+    ))}
+
+    <div class="button-group">
+      <button type="submit">Check Answer</button>
+      <button type="reset" class="reset-button">Clear</button>
+      
+      <div class="navigation-buttons">
+        {prevId && <a href={`/practice/quiz?id=${prevId}`} class="nav-button"><< Prev</a>}
+        {nextId && <a href={`/practice/quiz?id=${nextId}`} class="nav-button">Next >></a>}
+      </div>
+    </div>
+  </form>
+
+  <div class="feedback-container" style="display: none;">
+    <h3 class="feedback-title"></h3>
+    <p class="feedback-summary"></p>
+    <h4>Breakdown:</h4>
+    <ul class="feedback-breakdown"></ul>
+  </div>
+</div>
+
+<style>
+  .quiz-container { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; background-color: var(--sl-color-gray-6); }
+  .scenario { border-left: 3px solid var(--sl-color-accent); padding-left: 1rem; color: var(--sl-color-gray-3); }
+  .prompt { font-size: 1.2em; font-weight: bold; }
+  .options-form .option { margin: 0.8rem 0; }
+  .options-form button { margin-top: 1rem; padding: 0.5rem 1rem; border-radius: 4px; border: none; background-color: var(--sl-color-accent); color: white; cursor: pointer; }
+  .feedback-container { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #ccc; }
+  .button-group { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .reset-button { background-color: var(--sl-color-gray-4); color: var(--sl-color-text); border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; }
+  .navigation-buttons { margin-left: auto; display: flex; gap: 0.5rem; }
+  .nav-button { display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--sl-color-gray-4); border-radius: 4px; text-decoration: none; color: var(--sl-color-text); transition: background-color 0.2s; }
+  .nav-button:hover { background-color: var(--sl-color-gray-5); }
+  
+/* .nav-button { display: inline-block; padding: 0.5rem 1rem; border: 1px solid var(--sl-color-gray-4); border-radius: 4px; text-decoration: none; color: var(--sl-color-text); transition: background-color 0.2s; } */
+</style>
