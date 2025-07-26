@@ -1,70 +1,92 @@
 ---
-// RUTA: src/components/QuizLoader.astro (VERSIÓN FINAL CON SCRIPT ÚNICO)
+// RUTA: src/components/QuizLoader.astro (REFACTORIZADO PARA BOTONES)
 import { getCollection } from 'astro:content';
 import Quiz from './Quiz.astro';
 const allQuestions = await getCollection('questions');
 ---
 
 <div id="quiz-loader-wrapper">
-  {allQuestions.map(question => (
-    <div id={question.id} class="quiz-instance-wrapper" style="display: none;">
-      <Quiz question={question.data} />
-    </div>
-  ))}
+  {allQuestions.map((question, index) => {
+    // --- LÓGICA NUEVA: Calculamos los IDs de navegación ---
+    const prevQuestionId = index > 0 ? allQuestions[index - 1].id : null;
+    const nextQuestionId = index < allQuestions.length - 1 ? allQuestions[index + 1].id : null;
+
+    return (
+      <div id={question.id} class="quiz-instance-wrapper" style="display: none;">
+        {/* Pasamos los nuevos props a Quiz.astro */}
+        <Quiz 
+          question={question.data} 
+          questionId={question.id} 
+          prevId={prevQuestionId} 
+          nextId={nextQuestionId} 
+        />
+      </div>
+    );
+  })}
   <div id="quiz-not-found" style="display: none;">
     <h3>Question not found</h3>
     <p>Return to the <a href="/practice/">practice index</a>.</p>
   </div>
 </div>
 
-<!-- ESTE ES EL ÚNICO SCRIPT QUE SE EJECUTARÁ EN LA PÁGINA -->
+<!-- --- INICIO DEL SCRIPT ACTUALIZADO --- -->
 <script>
-  function handleQuizSubmit(event) {
-    // Nos aseguramos de que solo actuamos si se envía un formulario de quiz
-    if (!event.target.matches('.options-form')) {
-      return;
-    }
-    event.preventDefault();
-    const form = event.target;
+  // Una única función para manejar todos los eventos del formulario
+  function handleQuizEvent(event) {
+    const form = event.target.closest('.options-form');
+    if (!form) return;
 
-    // Leemos los datos directamente del formulario que se envió
-    const correctAnswerId = form.dataset.correctAnswerId;
-    const explanation = JSON.parse(form.dataset.explanation);
-
-    const quizContainer = form.closest('.quiz-container');
-    const selectedOption = form.querySelector(`input[name^='quiz_option_']:checked`);
-    
-    if (!selectedOption) {
-      alert('Please select an answer.');
-      return;
+    // --- LÓGICA NUEVA: Manejar el evento de reseteo ---
+    if (event.type === 'reset') {
+      const quizContainer = form.closest('.quiz-container');
+      const feedbackContainer = quizContainer.querySelector('.feedback-container');
+      feedbackContainer.style.display = 'none'; // Ocultamos el feedback
+      // No hace falta preventDefault, el reset ya limpia el formulario
+      return; 
     }
 
-    const feedbackContainer = quizContainer.querySelector('.feedback-container');
-    const feedbackTitle = feedbackContainer.querySelector('.feedback-title');
-    const feedbackSummary = feedbackContainer.querySelector('.feedback-summary');
-    const feedbackBreakdown = feedbackContainer.querySelector('.feedback-breakdown');
+    // --- LÓGICA EXISTENTE: Manejar el envío del formulario ---
+    if (event.type === 'submit') {
+      event.preventDefault();
 
-    if (selectedOption.value === correctAnswerId) {
-      feedbackTitle.textContent = '✅ Correct!';
-      feedbackTitle.style.color = 'green';
-    } else {
-      feedbackTitle.textContent = '❌ Incorrect';
-      feedbackTitle.style.color = 'red';
+      const correctAnswerId = form.dataset.correctAnswerId;
+      const explanation = JSON.parse(form.dataset.explanation);
+      const quizContainer = form.closest('.quiz-container');
+      const selectedOption = form.querySelector(`input[name^='quiz_option_']:checked`);
+      
+      if (!selectedOption) {
+        alert('Please select an answer.');
+        return;
+      }
+
+      const feedbackContainer = quizContainer.querySelector('.feedback-container');
+      const feedbackTitle = feedbackContainer.querySelector('.feedback-title');
+      const feedbackSummary = feedbackContainer.querySelector('.feedback-summary');
+      const feedbackBreakdown = feedbackContainer.querySelector('.feedback-breakdown');
+
+      if (selectedOption.value === correctAnswerId) {
+        feedbackTitle.textContent = '✅ Correct!';
+        feedbackTitle.style.color = 'green';
+      } else {
+        feedbackTitle.textContent = '❌ Incorrect';
+        feedbackTitle.style.color = 'red';
+      }
+
+      feedbackSummary.textContent = explanation.summary;
+      feedbackBreakdown.innerHTML = '';
+      explanation.breakdown.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.optionId}: ${item.reasoning}`;
+        if (item.optionId === correctAnswerId) li.style.fontWeight = 'bold';
+        if (item.optionId === selectedOption.value && selectedOption.value !== correctAnswerId) li.style.color = 'darkred';
+        feedbackBreakdown.appendChild(li);
+      });
+
+      feedbackContainer.style.display = 'block';
     }
-
-    feedbackSummary.textContent = explanation.summary;
-    feedbackBreakdown.innerHTML = '';
-    explanation.breakdown.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = `${item.optionId}: ${item.reasoning}`;
-      if (item.optionId === correctAnswerId) li.style.fontWeight = 'bold';
-      if (item.optionId === selectedOption.value && selectedOption.value !== correctAnswerId) li.style.color = 'darkred';
-      feedbackBreakdown.appendChild(li);
-    });
-
-    feedbackContainer.style.display = 'block';
   }
 
+  // --- LÓGICA EXISTENTE: Mostrar el quiz correcto al cargar la página ---
   function showQuizFromUrl() {
     const params = new URLSearchParams(window.location.search);
     const questionId = params.get('id');
@@ -81,8 +103,9 @@ const allQuestions = await getCollection('questions');
     }
   }
 
-  // Añadimos un único 'listener' al documento
-  document.addEventListener('submit', handleQuizSubmit);
-  // Ejecutamos la función para mostrar el quiz correcto al cargar la página
+  // --- LÓGICA NUEVA: Añadimos 'reset' a la lista de eventos que escuchamos ---
+  document.addEventListener('submit', handleQuizEvent);
+  document.addEventListener('reset', handleQuizEvent);
   document.addEventListener('DOMContentLoaded', showQuizFromUrl);
 </script>
+<!-- --- FIN DEL SCRIPT ACTUALIZADO --- -->
