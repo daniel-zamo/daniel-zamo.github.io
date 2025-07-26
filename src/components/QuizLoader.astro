@@ -1,48 +1,88 @@
 ---
-// RUTA: src/components/QuizLoader.astro (VERSIÓN FINAL)
+// RUTA: src/components/QuizLoader.astro (VERSIÓN FINAL CON SCRIPT ÚNICO)
 import { getCollection } from 'astro:content';
 import Quiz from './Quiz.astro';
-
-// 1. En el servidor, obtenemos TODAS las preguntas.
 const allQuestions = await getCollection('questions');
 ---
 
-<!-- 2. Renderizamos TODOS los quizzes, pero ocultos por defecto.
-     Cada quiz está dentro de un div con su ID único. -->
-<div id="quiz-container-wrapper">
+<div id="quiz-loader-wrapper">
   {allQuestions.map(question => (
-    <div id={question.id} class="quiz-instance" style="display: none;">
+    <div id={question.id} class="quiz-instance-wrapper" style="display: none;">
       <Quiz question={question.data} />
     </div>
   ))}
-
-  <!-- También renderizamos un mensaje de error, oculto por defecto -->
   <div id="quiz-not-found" style="display: none;">
     <h3>Question not found</h3>
-    <p>The requested question ID was not found in our database.</p>
-    <p>Please return to the <a href="/practice/">practice index</a>.</p>
+    <p>Return to the <a href="/practice/">practice index</a>.</p>
   </div>
 </div>
 
-<!-- 3. Este script se ejecutará EN EL NAVEGADOR del usuario -->
+<!-- ESTE ES EL ÚNICO SCRIPT QUE SE EJECUTARÁ EN LA PÁGINA -->
 <script>
-  // Obtenemos los parámetros de la URL actual del navegador
-  const params = new URLSearchParams(window.location.search);
-  const questionId = params.get('id');
+  function handleQuizSubmit(event) {
+    // Nos aseguramos de que solo actuamos si se envía un formulario de quiz
+    if (!event.target.matches('.options-form')) {
+      return;
+    }
+    event.preventDefault();
+    const form = event.target;
 
-  if (questionId) {
-    // Buscamos el div del quiz que tiene el ID correspondiente
-    const quizElement = document.getElementById(questionId);
+    // Leemos los datos directamente del formulario que se envió
+    const correctAnswerId = form.dataset.correctAnswerId;
+    const explanation = JSON.parse(form.dataset.explanation);
 
-    if (quizElement) {
-      // Si lo encontramos, lo mostramos
-      quizElement.style.display = 'block';
+    const quizContainer = form.closest('.quiz-container');
+    const selectedOption = form.querySelector(`input[name^='quiz_option_']:checked`);
+    
+    if (!selectedOption) {
+      alert('Please select an answer.');
+      return;
+    }
+
+    const feedbackContainer = quizContainer.querySelector('.feedback-container');
+    const feedbackTitle = feedbackContainer.querySelector('.feedback-title');
+    const feedbackSummary = feedbackContainer.querySelector('.feedback-summary');
+    const feedbackBreakdown = feedbackContainer.querySelector('.feedback-breakdown');
+
+    if (selectedOption.value === correctAnswerId) {
+      feedbackTitle.textContent = '✅ Correct!';
+      feedbackTitle.style.color = 'green';
     } else {
-      // Si el ID está en la URL pero no encontramos el div, mostramos el error
+      feedbackTitle.textContent = '❌ Incorrect';
+      feedbackTitle.style.color = 'red';
+    }
+
+    feedbackSummary.textContent = explanation.summary;
+    feedbackBreakdown.innerHTML = '';
+    explanation.breakdown.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.optionId}: ${item.reasoning}`;
+      if (item.optionId === correctAnswerId) li.style.fontWeight = 'bold';
+      if (item.optionId === selectedOption.value && selectedOption.value !== correctAnswerId) li.style.color = 'darkred';
+      feedbackBreakdown.appendChild(li);
+    });
+
+    feedbackContainer.style.display = 'block';
+  }
+
+  function showQuizFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const questionId = params.get('id');
+
+    if (questionId) {
+      const quizWrapper = document.getElementById(questionId);
+      if (quizWrapper) {
+        quizWrapper.style.display = 'block';
+      } else {
+        document.getElementById('quiz-not-found').style.display = 'block';
+      }
+    } else {
       document.getElementById('quiz-not-found').style.display = 'block';
     }
-  } else {
-    // Si no hay ningún ID en la URL, también mostramos el error
-    document.getElementById('quiz-not-found').style.display = 'block';
   }
+
+  // Añadimos un único 'listener' al documento
+  document.addEventListener('submit', handleQuizSubmit);
+  // Ejecutamos la función para mostrar el quiz correcto al cargar la página
+  document.addEventListener('DOMContentLoaded', showQuizFromUrl);
 </script>

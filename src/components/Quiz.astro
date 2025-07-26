@@ -1,75 +1,44 @@
 ---
-// RUTA: src/components/Quiz.astro (VERSIÓN CORREGIDA)
+// RUTA: src/components/Quiz.astro (VERSIÓN CON DATA ATTRIBUTES)
 import type { CollectionEntry } from 'astro:content';
-
 interface Props {
   question: CollectionEntry<'questions'>['data'];
 }
 const { question } = Astro.props;
+const formId = `quiz-form-${question.id}`;
 ---
 
 <div class="quiz-container">
   {question.question.scenario && <p class="scenario"><em>{question.question.scenario}</em></p>}
   <p class="prompt">{question.question.prompt}</p>
 
-  <form class="options-form" id="quiz-form">
+  <!-- La magia está aquí: almacenamos los datos en el formulario -->
+  <form 
+    class="options-form" 
+    id={formId}
+    data-correct-answer-id={question.correctAnswerId}
+    data-explanation={JSON.stringify(question.explanation)}
+  >
     {question.options.map(option => (
       <div class="option">
-        <input type="radio" id={option.id} name="quiz_option" value={option.id}>
-        <label for={option.id}>{option.text}</label>
+        <input type="radio" id={`option-${option.id}-${question.id}`} name={`quiz_option_${question.id}`} value={option.id}>
+        <label for={`option-${option.id}-${question.id}`}>{option.text}</label>
       </div>
     ))}
     <button type="submit">Check Answer</button>
   </form>
 
-  <div id="feedback" class="feedback-container" style="display: none;">
-    <h3 id="feedback-title"></h3>
-    <p id="feedback-summary"></p>
+  <!-- El contenedor del feedback sigue igual -->
+  <div class="feedback-container" style="display: none;">
+    <h3 class="feedback-title"></h3>
+    <p class="feedback-summary"></p>
     <h4>Breakdown:</h4>
-    <ul id="feedback-breakdown"></ul>
+    <ul class="feedback-breakdown"></ul>
   </div>
 </div>
 
-<script define:vars={{ correctAnswerId: question.correctAnswerId, explanation: question.explanation }}>
-  document.getElementById('quiz-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    const selectedOption = document.querySelector('input[name="quiz_option"]:checked');
-    if (!selectedOption) {
-      alert('Please select an answer.');
-      return;
-    }
-
-    const feedbackContainer = document.getElementById('feedback');
-    const feedbackTitle = document.getElementById('feedback-title');
-    const feedbackSummary = document.getElementById('feedback-summary');
-    const feedbackBreakdown = document.getElementById('feedback-breakdown');
-
-    if (selectedOption.value === correctAnswerId) {
-      feedbackTitle.textContent = '✅ Correct!';
-      feedbackTitle.style.color = 'green';
-    } else {
-      feedbackTitle.textContent = '❌ Incorrect';
-      feedbackTitle.style.color = 'red';
-    }
-
-    feedbackSummary.textContent = explanation.summary;
-    
-    feedbackBreakdown.innerHTML = '';
-    explanation.breakdown.forEach(item => {
-      const li = document.createElement('li');
-      li.textContent = `${item.optionId}: ${item.reasoning}`;
-      if (item.optionId === correctAnswerId) li.style.fontWeight = 'bold';
-      if (item.optionId === selectedOption.value && selectedOption.value !== correctAnswerId) li.style.color = 'darkred';
-      feedbackBreakdown.appendChild(li);
-    });
-
-    feedbackContainer.style.display = 'block';
-  });
-</script>
-
 <style>
-  /* Estilos sin cambios */
+  /* Los estilos no cambian */
   .quiz-container { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; margin-top: 2rem; background-color: var(--sl-color-gray-6); }
   .scenario { border-left: 3px solid var(--sl-color-accent); padding-left: 1rem; color: var(--sl-color-gray-3); }
   .prompt { font-size: 1.2em; font-weight: bold; }

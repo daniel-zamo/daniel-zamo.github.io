@@ -15,17 +15,27 @@ export default defineConfig({
                 es: { label: 'Español', lang: 'es' },
             },
             
-            // --- SIDEBAR MANUAL (AHORA SÍ FUNCIONARÁ) ---
             sidebar: [
-                // Es buena idea tener un enlace a la página de inicio.
                 { label: 'Welcome', link: '/' },
                 {
                     label: 'Certifications',
-                    collapsed: false, // Lo pongo abierto para que se vea al cargar
+                    collapsed: false,
                     items: [
                         { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
-                        { label: 'Azure', autogenerate: { directory: 'certifications/azure' } },
-                        { label: 'Practice AI-900', link: '/practice/' },
+                        
+                        // --- ESTA ES LA SECCIÓN MANUAL Y DEFINITIVA ---
+                        { 
+                          label: 'Azure', 
+                          items: [
+                            // Define manualmente los enlaces a tus páginas de Azure existentes
+                            { label: 'Azure Certifications', link: '/certifications/azure/' },
+                            { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
+                            
+                            // Y ahora, añade tu enlace de práctica
+                            { label: 'Practice AI-900', link: '/practice/' }
+                          ]
+                        },
+                        // --- FIN DE LA SECCIÓN MANUAL ---
                     ]
                 },
             ],
