@@ -17,6 +17,12 @@ export default defineConfig({
 
             sidebar: [
                 { label: 'Welcome', link: '/' },
+                // --- INICIO DE LA NUEVA SECCIÓN ---
+                {
+                    label: 'DevOps', // O "Guides", "How-To's", etc.
+                    autogenerate: { directory: 'devops' }
+                },
+                // --- FIN DE LA NUEVA SECCIÓN ---
                 {
                     label: 'Certifications',
                     collapsed: false,
@@ -38,12 +44,6 @@ export default defineConfig({
                         // --- FIN DE LA SECCIÓN MANUAL ---
                     ]
                 },
-                // --- INICIO DE LA NUEVA SECCIÓN ---
-                {
-                    label: 'Practical Guides', // O "Guides", "How-To's", etc.
-                    autogenerate: { directory: 'guides' }
-                }
-                // --- FIN DE LA NUEVA SECCIÓN ---
             ],
         }),
     ],
