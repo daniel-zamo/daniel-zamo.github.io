@@ -19,7 +19,7 @@ export default defineConfig({
                 { label: 'Welcome', link: '/' },
                 // --- INICIO DE LA NUEVA SECCIÓN ---
                 {
-                    label: 'DevOps', // O "Guides", "How-To's", etc.
+                    label: 'DevOps Tools', // O "Guides", "How-To's", etc.
                     autogenerate: { directory: 'devops' }
                 },
                 // --- FIN DE LA NUEVA SECCIÓN ---
