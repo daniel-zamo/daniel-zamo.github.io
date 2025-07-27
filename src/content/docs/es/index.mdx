@@ -1,6 +1,6 @@
 ---
 title: ¡Bienvenido a D@cz!
-description: D@cz - personal documentation site, my space for sharing IT notes.
+description: D@cz - sitio de documentación personal, mi espacio de notas de TI compartido.
 template: splash
 hero:
   tagline: Una colección personal de notas de estudio de TI, guías y análisis técnicos.
@@ -16,21 +16,27 @@ next: false
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Explore Topics
+## Tecnologías exploradas
 
 <CardGrid stagger>
-	<Card title="Linux Certification" icon="linux">
-		In-depth notes and guides for Linux certifications like LFCS.
+	<Card title="Cloud & DevOps" icon="document">
+        Mi viaje y notas sobre plataformas en la nube y herramientas DevOps.
         <br />
-        <a href="/certifications/linux/">Start learning →</a>
+        <a href="/devops/git/gitignore-strategies/">Estrátegias de codificación del archivo .gitignore →</a>
 	</Card>
-	<Card title="Kubernetes (K8s)" icon="rocket">
+	<Card title="Certificación LFCS" icon="linux">
+		In-depth notes and guides for Linux certifications like LFCS.
+        Notas, mis guía para la certificación de Linux LFCS.
+        <br />
+        <a href="/certifications/linux/">Qué es la LFCS →</a>
+	</Card>
+    {/* --- COMENTARIO ---
+    <Card title="Kubernetes (K8s)" icon="rocket">
 		From basic concepts to advanced cluster management.
 	</Card>
-	<Card title="Networking" icon="network">
+    <Card title="Networking" icon="network">
 		Core concepts, protocols, and practical configurations.
 	</Card>
-	<Card title="Cloud & DevOps" icon="cloud">
-		My journey and notes on cloud platforms and DevOps tools.
-	</Card>
+	--- FIN COMENTARIO --- */}
 </CardGrid>
+
