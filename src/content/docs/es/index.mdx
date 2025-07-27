@@ -1,13 +1,38 @@
-      
 ---
 title: ¡Bienvenido a D@cz!
-description: Un espacio personal para documentación y notas de estudio de TI.
+description: D@cz - personal documentation site, my space for sharing IT notes.
 template: splash
 hero:
-  tagline: Este sitio se encuentra principalmente en inglés, pero la traducción al español está en progreso. ¡Gracias por tu visita!
+  tagline: Una colección personal de notas de estudio de TI, guías y análisis técnicos.
+  image:
+    file: ../../../assets/open-book.png
   actions:
-    - text: Ir a la versión en Inglés
-      link: /
-      icon: external
+    - text: Start the LFCS Guide
+      link: /certifications/linux/01-introduction/
+      icon: right-arrow
+prev: false
+next: false
 ---
 
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Explore Topics
+
+<CardGrid stagger>
+	<Card title="Linux Certification" icon="linux">
+		In-depth notes and guides for Linux certifications like LFCS.
+        <br />
+        <a href="/certifications/linux/">Start learning →</a>
+	</Card>
+<!--
+	<Card title="Kubernetes (K8s)" icon="rocket">
+		From basic concepts to advanced cluster management.
+	</Card>
+	<Card title="Networking" icon="network">
+		Core concepts, protocols, and practical configurations.
+	</Card>
+-->
+	<Card title="Cloud & DevOps" icon="cloud">
+		My journey and notes on cloud platforms and DevOps tools.
+	</Card>
+</CardGrid>

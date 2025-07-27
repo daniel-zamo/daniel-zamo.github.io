@@ -8,13 +8,13 @@ export default defineConfig({
         starlight({
             title: 'D@cz | IT Notes',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
-            
+
             defaultLocale: 'root',
             locales: {
                 root: { label: 'English', lang: 'en' },
                 es: { label: 'Español', lang: 'es' },
             },
-            
+
             sidebar: [
                 { label: 'Welcome', link: '/' },
                 {
@@ -22,22 +22,28 @@ export default defineConfig({
                     collapsed: false,
                     items: [
                         { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
-                        
+
                         // --- ESTA ES LA SECCIÓN MANUAL Y DEFINITIVA ---
-                        { 
-                          label: 'Azure', 
-                          items: [
-                            // Define manualmente los enlaces a tus páginas de Azure existentes
-                            { label: 'Azure Certifications', link: '/certifications/azure/' },
-                            { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
-                            
-                            // Y ahora, añade tu enlace de práctica
-                            { label: 'Practice AI-900', link: '/practice/' }
-                          ]
+                        {
+                            label: 'Azure',
+                            items: [
+                                // Define manualmente los enlaces a tus páginas de Azure existentes
+                                { label: 'Azure Certifications', link: '/certifications/azure/' },
+                                { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
+
+                                // Y ahora, añade tu enlace de práctica
+                                { label: 'Practice AI-900', link: '/practice/' }
+                            ]
                         },
                         // --- FIN DE LA SECCIÓN MANUAL ---
                     ]
                 },
+                // --- INICIO DE LA NUEVA SECCIÓN ---
+                {
+                    label: 'Practical Guides', // O "Guides", "How-To's", etc.
+                    autogenerate: { directory: 'guides' }
+                }
+                // --- FIN DE LA NUEVA SECCIÓN ---
             ],
         }),
     ],
