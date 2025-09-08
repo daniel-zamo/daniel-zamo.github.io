@@ -10,23 +10,40 @@ hero:
     - text: .gitignore coding strategies
       link: /devops/git/gitignore-strategies/
       icon: right-arrow
-#    - text: Read the Starlight docs
-#      link: https://starlight.astro.build
-#      icon: external
-#      variant: minimal
-#template: splash  # Para páginas tipo landing
 prev: false
 next: false
-# Elimina esta línea:
-# image: /social-share-image.png
-# Agrega esto para inyectar directamente la metaetiqueta
+
+editUrl: false
+lastUpdated: 2025-09-08
 head:
   - tag: meta
-    property: og:image
-    content: https://dzamo.gitlab.io/social-share-image.png # ¡Ruta absoluta y completa!
+    attrs:
+      property: og:title
+      content: "D@cz | IT Notes - DevOps, Virtualization & Certifications"
   - tag: meta
-    name: twitter:image
-    content: https://dzamo.gitlab.io/social-share-image.png # También para Twitter
+    attrs:
+      property: og:description
+      content: "Technical documentation and tutorials covering DevOps tools, virtualization technologies, and IT certifications. Your go-to resource for system administration and cloud technologies."
+  - tag: meta
+    attrs:
+      property: og:image
+      content: "https://dzamo.gitlab.io/images/og-homepage.jpg"
+  - tag: meta
+    attrs:
+      property: og:url
+      content: "https://dzamo.gitlab.io/"
+  - tag: meta
+    attrs:
+      name: twitter:image
+      content: "https://dzamo.gitlab.io/images/og-homepage.jpg"
+  - tag: meta
+    attrs:
+      name: twitter:title
+      content: "D@cz | IT Notes - DevOps, Virtualization & Certifications"
+  - tag: meta
+    attrs:
+      name: twitter:description
+      content: "Technical documentation and tutorials covering DevOps tools, virtualization technologies, and IT certifications. Your go-to resource for system administration and cloud technologies."
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
