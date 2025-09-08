@@ -17,7 +17,16 @@ hero:
 #template: splash  # Para páginas tipo landing
 prev: false
 next: false
-image: /social-share-image.png
+# Elimina esta línea:
+# image: /social-share-image.png
+# Agrega esto para inyectar directamente la metaetiqueta
+head:
+  - tag: meta
+    property: og:image
+    content: https://dzamo.gitlab.io/social-share-image.png # ¡Ruta absoluta y completa!
+#  - tag: meta
+#    name: twitter:image
+#    content: https://dzamo.gitlab.io/social-share-image.png # También para Twitter
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
