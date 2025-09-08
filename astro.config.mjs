@@ -50,6 +50,38 @@ export default defineConfig({
                         content: '@tu_usuario_twitter', // Cambia por tu usuario de Twitter si lo tienes
                     },
                 },
+
+    {
+        tag: 'meta',
+        attrs: {
+            name: 'author',
+            content: 'Daniel Oscar Zamo',
+        },
+    },
+    {
+        tag: 'meta',
+        attrs: {
+            property: 'article:author',
+            content: 'Daniel Oscar Zamo',
+        },
+    },
+    // Para LinkedIn específicamente
+    {
+        tag: 'meta',
+        attrs: {
+            property: 'profile:first_name',
+            content: 'Daniel Oscar',
+        },
+    },
+    {
+        tag: 'meta',
+        attrs: {
+            property: 'profile:last_name',
+            content: 'Zamo',
+        },
+    },
+
+
             ],
 
             sidebar: [
