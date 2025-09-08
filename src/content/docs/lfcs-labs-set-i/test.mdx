@@ -1,14 +1,40 @@
 ---
-title: "test"
+title: "Question 1"
 description: "Kernel and System Info"
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Question 1 | Kernel and System Info
 
-<Aside type="note">
-Solo una nota simple para probar un componente.
+<Aside type="note" title="Task Requirements">
+Write the Linux Kernel release into `/opt/course/1/kernel`.
+Write the current value of Kernel parameter `ip_forward` into `/opt/course/1/ip_forward`.
+Write the system `timezone` into `/opt/course/1/timezone`.
 </Aside>
 
-Si esto funciona, entonces el problema está en múltiples importaciones o sintaxis específica.
+## File Contents
+
+<Tabs>
+<TabItem label="/opt/course/1/kernel">
+```bash
+uname -r
+5.15.0-69-generic
+```
+
+</TabItem>
+<TabItem label="/opt/course/1/ip_forward">
+```bash
+cat /proc/sys/net/ipv4/ip_forward
+1
+```
+
+</TabItem>
+<TabItem label="/opt/course/1/timezone">
+```bash
+date +%Z
+UTC
+```
+or: `cat /etc/timezone`
+</TabItem>
+</Tabs>

@@ -1,4 +1,4 @@
-// astro.config.mjs - Solución simple y escalable
+// astro.config.mjs - Solución simple y escalable con customCss
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
@@ -8,9 +8,12 @@ export default defineConfig({
         starlight({
             title: 'D@cz | IT Notes',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
+
+            // CSS personalizado para modo claro por defecto
             customCss: [
                 './src/styles/custom.css'
             ],
+
             defaultLocale: 'root',
             locales: {
                 root: { label: 'English', lang: 'en' },
@@ -38,7 +41,7 @@ export default defineConfig({
                         },
                         { label: 'ai', autogenerate: { directory: '/ai/'} },
                         
-                        // Volver a la versión simple que funcionaba
+                        // Corregir el directorio para que coincida con tu estructura
                         { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
                     ]
                 },

@@ -6,9 +6,11 @@ sidebar:
   order: 10
 ---
 
+import { Aside } from '@astrojs/starlight/components';
+
 ## Question 1 | Kernel and System Info
 
-:::note[Task Requirements]
+<Aside type="note" title="Task Requirements">
 Write the Linux Kernel release into `/opt/course/1/kernel`.
 
 Write the current value of Kernel parameter `ip_forward` into `/opt/course/1/ip_forward`.
@@ -16,14 +18,14 @@ Write the current value of Kernel parameter `ip_forward` into `/opt/course/1/ip_
 Write the system `timezone` into `/opt/course/1/timezone`.
 
 ℹ️ If no server is mentioned in the question text, you'll need to create your solution on the default terminal
-:::
+</Aside>
 
 ## Answer
 
 <details>
 <summary>Click to see the solution</summary>
 
-:::tip[Solution Commands]
+<Aside type="tip" title="Solution Commands">
 
 ```bash
 # display kernel version
@@ -38,7 +40,7 @@ Write the system `timezone` into `/opt/course/1/timezone`.
 cat /etc/timezone # also possible
 ```
 
-:::
+</Aside>
 
 The files should look like:
 
