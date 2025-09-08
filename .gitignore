@@ -1,6 +1,6 @@
 *.org
-/dz_drafts
 *.v*
+PKM-ACE
 
 # build output
 dist/

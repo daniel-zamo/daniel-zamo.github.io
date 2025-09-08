@@ -1,21 +1,18 @@
 ---
 title: "Question 8"
-titleLink: "S1-Q8"
 description: "Disk Management"
-categories: ["LFCS", "Laboratory", "Linux"]
-tags: ["Linux CLI"]
-weight: 25
+sidebar:
+  label: "Q8 - Disk Management"
+  order: 45
 ---
 
 ## Question
 
-{{< alert color="primary" >}}
 Your team selected you for this task because of your deep filesystem and disk/devices expertise. Solve the following steps to not let your team down:
 
 1. Format `/dev/vdb` with `ext4`, mount it to `/mnt/backup-black` and create empty file `/mnt/backup-black/completed`.
-1. Find which of the two disks, `/dev/vdc` or `/dev/vdd`, has higher storage usage.
+2. Find which of the two disks, `/dev/vdc` or `/dev/vdd`, has higher storage usage.
     - Then empty the `.trash` folder on it.
-1. There are two processes running: `dark-matter-v1` and `dark-matter-v2`.
+3. There are two processes running: `dark-matter-v1` and `dark-matter-v2`.
     - Find the one that consumes more memory or virtual memory.
     - Then `unmount` the disk where the process executable is located on.
-{{< /alert >}}
