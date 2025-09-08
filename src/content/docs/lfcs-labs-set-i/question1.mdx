@@ -2,15 +2,16 @@
 title: "Question 1"
 description: "Kernel and System Info"
 sidebar:
-  label: "Question 1"
+  label: "Q1 - Kernel and System Info"
   order: 10
 ---
 
-import { Aside } from '@astrojs/starlight/components';
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
-## Question 1 | Kernel and System Info
+## Question
 
-<Aside type="note" title="Task Requirements">
+<Aside type="note" title="Task Requirements | Kernel and System Info">
+
 Write the Linux Kernel release into `/opt/course/1/kernel`.
 
 Write the current value of Kernel parameter `ip_forward` into `/opt/course/1/ip_forward`.
@@ -44,15 +45,24 @@ cat /etc/timezone # also possible
 
 The files should look like:
 
+<Tabs>
+<TabItem label="/opt/course/1/kernel">
 ```bash
-# /opt/course/1/kernel
 5.15.0-69-generic
+```
 
-# /opt/course/1/ip_forward
+</TabItem>
+<TabItem label="/opt/course/1/ip_forward">
+```bash
 1
+```
 
-# /opt/course/1/timezone
+</TabItem>
+<TabItem label="/opt/course/1/timezone">
+```bash
 UTC
 ```
+</TabItem>
+</Tabs>
 
 </details>

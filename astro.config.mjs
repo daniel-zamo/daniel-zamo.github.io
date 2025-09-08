@@ -26,22 +26,30 @@ export default defineConfig({
                     label: 'DevOps Tools',
                     autogenerate: { directory: 'devops' }
                 },
+    {
+        label: 'Virtualization',
+        collapsed: true,
+        items: [
+            { label: 'Overview', link: '/virtualization/' },
+            { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
+        ]
+    },
                 {
                     label: 'Certifications',
-                    collapsed: false,
+                    collapsed: true,
                     items: [
-                        { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
-                        {
+                        /* { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },*/
+                        /*{
                             label: 'Azure',
                             items: [
                                 { label: 'Azure Certifications', link: '/certifications/azure/' },
                                 { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
                                 { label: 'Practice AI-900', link: '/practice/' }
                             ]
-                        },
-                        { label: 'ai', autogenerate: { directory: '/ai/'} },
+                        },*/
+                        /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
                         
-                        // Corregir el directorio para que coincida con tu estructura
+                        // Corregir el directorio para que coincida con la estructura
                         { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
                     ]
                 },

@@ -1,15 +1,17 @@
 ---
 title: "Question 2"
-titleLink: "S1-Q2"
-description: "CronJobs"
-categories: ["LFCS", "Laboratory", "Linux"]
-tags: ["Linux CLI"]
-weight: 13
+description: "CrontJobs"
+sidebar:
+  label: "Q2 - CrontJobs"
+  order: 20
 ---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
 
 ## Question
 
-{{< alert color="primary" >}}
+<Aside type="note" title="Task Requirements | CrontJobs">
+
 On server `data-001`, user `asset-manager` is responsible for timed operations on existing data. Some changes and additions are necessary.
 
 Currently there is one system-wide cronjob configured that runs every day at 8:30pm. Convert it from being a system-wide cronjob to one owned and executed by user asset-manager. This means that user should see it when running `crontab -l`.
@@ -17,14 +19,12 @@ Currently there is one system-wide cronjob configured that runs every day at 8:3
 Create a new cronjob owned and executed by user asset-manager that runs `bash /home/asset-manager/clean.sh` every week on Monday and Thursday at 11:15am.
 
 ℹ️ You can connect to servers using ssh, for example ssh data-001
-{{< /alert >}}
+</Aside>
 
-## Answer
+### Answer
 
 <details>
 <summary> Click to see the solution</summary>
-
-{{< alert color="success" >}}
 
 **Step 1**
 
@@ -136,5 +136,4 @@ For guidance check the comments in /etc/crontab, they're really useful. Instead 
 
 The files for user crontabs are stored at location /var/spool/cron/crontabs and user root can access those.
 
-{{< /alert >}}
 </details>
