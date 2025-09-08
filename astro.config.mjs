@@ -8,7 +8,9 @@ export default defineConfig({
         starlight({
             title: 'D@cz | IT Notes',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo.gitlab.io' }],
-
+            customCss: [
+                './src/styles/custom.css'
+            ],
             defaultLocale: 'root',
             locales: {
                 root: { label: 'English', lang: 'en' },
@@ -37,7 +39,7 @@ export default defineConfig({
                         { label: 'ai', autogenerate: { directory: '/ai/'} },
                         
                         // Volver a la versión simple que funcionaba
-                        { label: 'LFCS Labs I', autogenerate: { directory: 'lfcs-labs-i' } },
+                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
                     ]
                 },
             ],
