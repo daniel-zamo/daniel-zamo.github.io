@@ -1,4 +1,4 @@
-// astro.config.mjs
+// astro.config.mjs - Solución simple y escalable
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
@@ -17,31 +17,27 @@ export default defineConfig({
 
             sidebar: [
                 { label: 'Welcome', link: '/' },
-                // --- INICIO DE LA NUEVA SECCIÓN ---
                 {
-                    label: 'DevOps Tools', // O "Guides", "How-To's", etc.
+                    label: 'DevOps Tools',
                     autogenerate: { directory: 'devops' }
                 },
-                // --- FIN DE LA NUEVA SECCIÓN ---
                 {
                     label: 'Certifications',
                     collapsed: false,
                     items: [
                         { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },
-
-                        // --- ESTA ES LA SECCIÓN MANUAL Y DEFINITIVA ---
                         {
                             label: 'Azure',
                             items: [
-                                // Define manualmente los enlaces a tus páginas de Azure existentes
                                 { label: 'Azure Certifications', link: '/certifications/azure/' },
                                 { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
-
-                                // Y ahora, añade tu enlace de práctica
                                 { label: 'Practice AI-900', link: '/practice/' }
                             ]
                         },
-                        // --- FIN DE LA SECCIÓN MANUAL ---
+                        { label: 'ai', autogenerate: { directory: '/ai/'} },
+                        
+                        // SIMPLE: Solo autogenerate - se mantiene automáticamente
+                        { label: 'LFCS Labs I', autogenerate: { directory: 'lfcs-labs-i' } },
                     ]
                 },
             ],

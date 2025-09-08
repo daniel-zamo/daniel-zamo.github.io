@@ -1,0 +1,241 @@
+---
+title: paso 2
+description: paso 2
+---
+
+### Paso 2: Elige tu Herramienta (Recomendación: Python)
+
+Aunque es posible con todas las opciones que mencionaste, **Python es la ruta más fácil y robusta** para empezar, gracias a la librería oficial `google-generativeai`.
+
+#### Opción 1: Python (La más recomendada)
+
+**Ventajas:**
+*   Librería oficial muy fácil de usar.
+*   Manejo de imágenes y bucles muy sencillo.
+*   Código limpio y legible.
+
+**Preparación del entorno:**
+
+1.  Asegúrate de tener Python 3 instalado.
+2.  Instala la librería de Google:
+    ```bash
+    pip install -q -U google-generativeai
+    ```
+3.  Para manejar las imágenes más fácilmente, también podrías necesitar `Pillow`:
+    ```bash
+    pip install pillow
+    ```
+4.  **Guarda tu API Key de forma segura.** La mejor práctica es usar una variable de entorno. En tu terminal, antes de ejecutar el script, haz:
+    ```bash
+    export GOOGLE_API_KEY='TU_API_KEY_AQUI'
+    ```
+
+**El Script (`ocr_script.py`):**
+
+Crea un archivo llamado `ocr_script.py` y pega el siguiente código. Coloca tus imágenes (por ejemplo, `imagen1.png`, `foto_texto.jpg`) en una carpeta llamada `imagenes_a_procesar`.
+
+```python
+import google.generativeai as genai
+import os
+import glob
+from PIL import Image
+
+# --- Configuración ---
+# Carga la API Key desde una variable de entorno para mayor seguridad.
+try:
+    api_key = os.environ["GOOGLE_API_KEY"]
+    genai.configure(api_key=api_key)
+except KeyError:
+    print("Error: La variable de entorno GOOGLE_API_KEY no está configurada.")
+    print("Por favor, ejecute: export GOOGLE_API_KEY='su_api_key'")
+    exit()
+
+# Carpeta donde se encuentran las imágenes
+image_folder = "imagenes_a_procesar"
+# Tipos de archivo de imagen a buscar
+image_types = ("*.png", "*.jpg", "*.jpeg", "*.webp")
+
+# --- Modelo ---
+# Seleccionamos el modelo 'gemini-pro-vision', que es capaz de entender imágenes y texto.
+model = genai.GenerativeModel('gemini-pro-vision')
+
+# --- Instrucción para el OCR ---
+# El prompt que le daremos al modelo. Es claro y directo.
+prompt = "Extract all the text from this image. The text is in English. Return only the extracted text."
+
+# --- Procesamiento en Bucle ---
+def process_images_in_folder(folder_path):
+    print(f"# Iniciando Reconocimiento de Texto en la carpeta: {folder_path}\n")
+    
+    image_files = []
+    for ext in image_types:
+        # glob busca archivos que coincidan con el patrón
+        image_files.extend(glob.glob(os.path.join(folder_path, ext)))
+
+    if not image_files:
+        print(f"No se encontraron imágenes en la carpeta '{folder_path}'.")
+        return
+
+    for image_path in image_files:
+        print(f"--- \n")
+        print(f"## Procesando imagen: `{image_path}`")
+        
+        try:
+            # Abrimos la imagen
+            img = Image.open(image_path)
+            
+            # Hacemos la llamada a la API con la imagen y el prompt
+            response = model.generate_content([prompt, img])
+            
+            # Imprimimos la respuesta en formato Markdown
+            print("\n### Texto Reconocido:\n")
+            print(response.text)
+            print("\n")
+
+        except Exception as e:
+            print(f"**Error al procesar la imagen {image_path}:** {e}")
+
+# --- Ejecución ---
+if __name__ == "__main__":
+    if not os.path.isdir(image_folder):
+        print(f"Error: La carpeta '{image_folder}' no existe.")
+        print("Por favor, crea la carpeta y coloca tus imágenes dentro.")
+    else:
+        process_images_in_folder(image_folder)
+
+```
+
+**Cómo usarlo:**
+
+1.  Crea una carpeta llamada `imagenes_a_procesar`.
+2.  Mete ahí todas las imágenes con texto en inglés que quieres analizar.
+3.  Abre tu terminal, navega al directorio donde guardaste `ocr_script.py`.
+4.  Configura tu API key: `export GOOGLE_API_KEY='TU_API_KEY_AQUI'`
+5.  Ejecuta el script: `python3 ocr_script.py`
+
+La salida en tu terminal será algo así, ya en formato Markdown:
+
+```markdown
+# Iniciando Reconocimiento de Texto en la carpeta: imagenes_a_procesar
+
+--- 
+## Procesando imagen: `imagenes_a_procesar/invoice.png`
+
+### Texto Reconocido:
+
+INVOICE
+Date: 2023-10-26
+Invoice #12345
+...y todo el texto de la imagen...
+
+
+--- 
+## Procesando imagen: `imagenes_a_procesar/sign.jpg`
+
+### Texto Reconocido:
+
+CAUTION
+WET FLOOR
+...etc...
+
+```
+
+---
+
+#### Opción 2: Shell de Bash con `curl` y `jq`
+
+Esta opción es más "purista" de la línea de comandos y no requiere Python, pero es un poco más compleja porque tienes que construir la petición a la API manualmente.
+
+**Prerrequisitos:**
+*   `curl`: Para hacer peticiones HTTP (normalmente ya instalado).
+*   `jq`: Para procesar las respuestas JSON de forma sencilla. Instálalo con `sudo apt-get install jq` (en Debian/Ubuntu) o `sudo yum install jq` (en CentOS/Fedora).
+*   `base64`: Para codificar las imágenes (normalmente ya instalado).
+
+**El Script (`ocr_bash.sh`):**
+
+```bash
+#!/bin/bash
+
+# --- Configuración ---
+API_KEY="$GOOGLE_API_KEY"
+IMAGE_FOLDER="imagenes_a_procesar"
+
+# Verifica que la API Key esté configurada
+if [[ -z "$API_KEY" ]]; then
+    echo "Error: La variable de entorno GOOGLE_API_KEY no está configurada."
+    echo "Por favor, ejecute: export GOOGLE_API_KEY='su_api_key'"
+    exit 1
+fi
+
+# Verifica que la carpeta de imágenes exista
+if [[ ! -d "$IMAGE_FOLDER" ]]; then
+    echo "Error: La carpeta '$IMAGE_FOLDER' no existe."
+    exit 1
+fi
+
+echo "# Iniciando Reconocimiento de Texto con Bash"
+
+# --- Bucle para procesar cada imagen ---
+# Usamos find para buscar archivos de imagen de forma recursiva
+find "$IMAGE_FOLDER" -type f \( -iname \*.jpg -o -iname \*.jpeg -o -iname \*.png -o -iname \*.webp \) | while read IMAGE_PATH; do
+    
+    echo "---"
+    echo "## Procesando imagen: \`$IMAGE_PATH\`"
+
+    # Obtener el tipo MIME de la imagen
+    MIME_TYPE=$(file --mime-type -b "$IMAGE_PATH")
+    # Codificar la imagen en Base64
+    BASE64_IMAGE=$(base64 -w 0 "$IMAGE_PATH")
+
+    # Crear el cuerpo (payload) del JSON para la API
+    JSON_PAYLOAD=$(cat <<EOF
+{
+  "contents":[
+    {
+      "parts":[
+        {"text": "Extract all the text from this image. The text is in English. Return only the extracted text."},
+        {
+          "inline_data": {
+            "mime_type":"$MIME_TYPE",
+            "data": "$BASE64_IMAGE"
+          }
+        }
+      ]
+    }
+  ]
+}
+EOF
+)
+
+    # Llamada a la API con curl
+    RESPONSE=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro-vision:generateContent?key=$API_KEY" \
+        -H "Content-Type: application/json" \
+        -d "$JSON_PAYLOAD")
+
+    # Extraer y limpiar el texto de la respuesta JSON usando jq
+    # El camino .candidates[0].content.parts[0].text puede variar si la API devuelve un error
+    EXTRACTED_TEXT=$(echo "$RESPONSE" | jq -r '.candidates[0].content.parts[0].text // "Error: No se pudo extraer texto. Revisa la respuesta de la API."')
+    
+    echo -e "\n### Texto Reconocido:\n"
+    echo "$EXTRACTED_TEXT"
+    echo -e "\n"
+
+done
+```
+
+**Cómo usarlo:**
+1.  Guarda el código como `ocr_bash.sh`.
+2.  Dale permisos de ejecución: `chmod +x ocr_bash.sh`
+3.  Configura tu API Key: `export GOOGLE_API_KEY='TU_API_KEY_AQUI'`
+4.  Ejecútalo: `./ocr_bash.sh`
+
+### Conclusión
+
+Sí, te explicaste perfectamente y tu objetivo es totalmente realizable.
+
+*   **Mi recomendación principal es usar Python** por su simplicidad y el poder de la librería oficial.
+*   La clave de todo el proceso es obtener tu **API key gratuita de Google AI Studio**.
+*   El modelo a utilizar es **`gemini-pro-vision`**, que está diseñado específicamente para entender tanto texto como imágenes.
+
+¡Espero que esto te sea de gran ayuda para tu proyecto
+
