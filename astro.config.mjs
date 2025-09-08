@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-    site: 'http://localhost:4321',
+    site: 'https://dzamo.gitlab.io',
     integrations: [
         starlight({
             title: 'D@cz | IT Notes',
