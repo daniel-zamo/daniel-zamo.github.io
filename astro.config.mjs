@@ -36,7 +36,7 @@ export default defineConfig({
                         },
                         { label: 'ai', autogenerate: { directory: '/ai/'} },
                         
-                        // SIMPLE: Solo autogenerate - se mantiene automáticamente
+                        // Volver a la versión simple que funcionaba
                         { label: 'LFCS Labs I', autogenerate: { directory: 'lfcs-labs-i' } },
                     ]
                 },
