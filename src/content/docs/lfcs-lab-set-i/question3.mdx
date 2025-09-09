@@ -1,0 +1,121 @@
+---
+title: "Question 3"
+description: "Time synchronisation Configuration"
+sidebar:
+  label: "Q3 - Time synchronisation Configuration"
+  order: 20
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+<Aside type="note" title="Task Requirements | Time synchronisation Configuration">
+
+Time synchronisation configuration needs to be updated:
+
+1. Set `0.pool.ntp.org` and `1.pool.ntp.org` as main NTP servers
+2. Set `ntp.ubuntu.com` and `0.debian.pool.ntp.org` as fallback NTP servers
+3. The maximum poll interval should be `1000` seconds and the connection retry `20` seconds
+
+</Aside>
+
+## Answer
+
+### 1. Analyzing NTP Configuration Scenarios for LFCS
+
+<details>
+<summary>Click to see the eduction analysis</summary>
+
+As an experienced Linux sysadmin, when faced with a time synchronization scenario like the one described for the LFCS exam, my first step is always to identify **which NTP service is currently installed and active** on the system. This is crucial because the configuration methods differ significantly between them.
+
+
+</details>
+
+#### ⏰ Common NTP Services in Linux
+
+<details>
+<summary>Click to see</summary>
+
+You'll typically encounter one of these services:
+
+<Tabs>
+  <TabItem label="systemd-timesyncd">
+    *   **Description**: This is a lightweight NTP client, often the default for modern systemd-based distributions (Ubuntu, Fedora, recent Debian). It's designed for simple time synchronization with external servers.
+    *   **Use Case**: Ideal when the system only needs to set its own clock and not serve time to others.
+  </TabItem>
+    <TabItem label="NTP (ntpd)">
+    *   **Description**: The "classic" and full-featured NTP daemon. It's robust and can act as both a client and a server.
+    *   **Use Case**: Suitable for complex scenarios, including serving time to a local network, or when very high precision and detailed logging are required.
+</TabItem>
+  <TabItem label="Chrony (chronyd)">
+    *   **Description**: A modern alternative to `ntpd`, known for its efficiency and better performance in environments with intermittent network connectivity or virtual machines that suspend/hibernate. It's the default in RHEL/CentOS 8+ and increasingly popular elsewhere.
+    *   **Use Case**: Excellent for most modern deployments, especially for clients that need accurate time without the overhead of `ntpd`, or in cloud/virtualized environments.
+</TabItem>
+</Tabs>
+</details>
+
+#### 🤔 How to Determine the Active NTP Service
+
+<details>
+<summary>Click to see</summary>
+
+Here's my systematic approach to figure out which service is in use:
+
+**Step 1: Check `systemd-timesyncd` Status**
+
+If the system uses `systemd`, this is a quick first check.
+
+```bash
+timedatectl status
+```
+*   **Indication**: Look for `NTP service: active` and `NTP synchronized: yes`.
+*   **Deduction**: If it's active, `systemd-timesyncd` is likely handling time. If it shows `inactive` or a similar state, another service is probably in charge.
+
+**Step 2: Look for `chronyd` or `ntpd` Processes**
+
+Search for the running daemons.
+
+```bash
+ps aux | grep -E "chrony|ntp"
+```
+Or more directly:
+```bash
+pgrep chronyd
+pgrep ntpd
+```
+*   **Indication**: If either command returns a process ID, that service is running.
+
+**Step 3: Verify Service Status with `systemctl`**
+Confirm if the services are active and enabled.
+
+```bash
+systemctl status chrony
+systemctl status ntp
+```
+*   **Indication**: Check the `Active:` line. It will tell you if the service is running, and if it's enabled to start on boot.
+
+**Step 4: Inspect Common Configuration Files**
+The presence and content of these files are strong clues.
+
+<Tabs>
+  <TabItem label="Chrony">
+    ```bash
+    cat /etc/chrony/chrony.conf
+    ```
+  </TabItem>
+  <TabItem label="NTPD">
+    ```bash
+    cat /etc/ntp.conf
+    ```
+  </TabItem>
+  <TabItem label="systemd-timesyncd">
+    ```bash
+    cat /etc/systemd/timesyncd.conf
+    ```
+  </TabItem>
+</Tabs>
+
+*   **Indication**: Finding a configuration file for one service (and not the others) is a strong hint about which one is active.
+
+</details>

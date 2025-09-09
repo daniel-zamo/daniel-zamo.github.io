@@ -7,6 +7,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'D@cz | IT Notes',
+            favicon: '/favicon.ico',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
 
             // CSS personalizado para modo claro por defecto
@@ -114,7 +115,7 @@ export default defineConfig({
                         /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
                         
                         // Corregir el directorio para que coincida con la estructura
-                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
+                        { label: 'LFCS Lab Set I', autogenerate: { directory: 'lfcs-lab-set-i' } },
                     ]
                 },
             ],
