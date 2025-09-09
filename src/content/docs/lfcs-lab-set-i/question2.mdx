@@ -35,9 +35,7 @@ Here we should move a cronjob from system-wide to user asset-manager. First we c
 
 ➜ root@data-001:~$ vim /etc/crontab
 # /etc/crontab: system-wide crontab
-# Unlike any other crontab you don't have to run the `crontab'
-# command to install the new version when you edit this file
-# and files in /etc/cron.d. These files also have username fields,
+# (...continue...)
 # that none of the other crontabs do.
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -68,8 +66,7 @@ We go ahead and cut this line from that file, or copy it and remove it later! Ne
 no crontab for asset-manager
 
 ➜ asset-manager@data-001:~$ crontab -e # edit cronjobs
-# ...
-# For example, you can run a backup of all your user accounts
+# (...continue...)
 # at 5 a.m every week with:
 # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
 # 
@@ -87,8 +84,7 @@ After saving the file we should be able to:
 ```bash
 ➜ asset-manager@data-001:~$ crontab -l
 # Edit this file to introduce tasks to be run by cron.
-# ...
-# For example, you can run a backup of all your user accounts
+# (...continue...)
 # at 5 a.m every week with:
 # 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
 # 

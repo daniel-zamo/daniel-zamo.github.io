@@ -37,6 +37,8 @@ As an experienced Linux sysadmin, when faced with a time synchronization scenari
 <details>
 <summary>Click to see</summary>
 
+ℹ️ Use `man timesyncd.conf` for help
+
 You'll typically encounter one of these services:
 
 <Tabs>
@@ -84,6 +86,13 @@ Or more directly:
 pgrep chronyd
 pgrep ntpd
 ```
+
+Or to search (if Debian and/or Ubuntu) installed packages:
+
+```bash
+dpkg -l|grep -iE 'timesyncd|chrony|ntp'
+```
+
 *   **Indication**: If either command returns a process ID, that service is running.
 
 **Step 3: Verify Service Status with `systemctl`**
@@ -117,5 +126,53 @@ The presence and content of these files are strong clues.
 </Tabs>
 
 *   **Indication**: Finding a configuration file for one service (and not the others) is a strong hint about which one is active.
+
+</details>
+
+#### 2. Solution
+
+<details>
+<summary>Click to see the solution</summary>
+
+<Aside type="tip" title="Solution Commands">
+
+A good idea would probably to take a look at the current situation:
+
+```bash
+➜ timedatectl 
+               Local time: mar 2025-09-09 09:06:41 CEST
+           Universal time: mar 2025-09-09 07:06:41 UTC
+                 RTC time: mar 2025-09-09 07:06:41
+                Time zone: Europe/Madrid (CEST, +0200)
+System clock synchronized: yes
+              NTP service: inactive
+          RTC in local TZ: no
+```
+</Aside>
+
+
+Here we see for example the current local time and timezone. Let's open the configuration:
+
+```bash
+➜ sudo vim /etc/systemd/timesyncd.conf
+
+[Time]
+NTP=0.de.pool.ntp.org 1.de.pool.ntp.org 2.de.pool.ntp.org
+```
+
+We see three german NTP servers currently configured via setting NTP.
+
+**Test NTP servers**
+
+We can test single NTP servers manually for a sense of certainty:
+
+```bash
+➜ ntpdate -q 0.de.pool.ntp.org # just query, don't update
+2025-09-09 09:15:16.436717 (+0200) +0.008827 +/- 0.016668 0.de.pool.ntp.org 94.130.184.193 s2 no-leap
+➜ ntpdate -q www.google.de # that one won't work
+ntpdig: no eligible servers
+```
+
+Above we see one successful request and one to www.google.de that failed. This is correct because the Google web-domain doesn't provide a NTP service.
 
 </details>
