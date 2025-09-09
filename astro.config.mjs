@@ -115,7 +115,7 @@ export default defineConfig({
                         /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
                         
                         // Corregir el directorio para que coincida con la estructura
-                        { label: 'LFCS Lab Set I', autogenerate: { directory: 'lfcs-lab-set-i' } },
+                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
                     ]
                 },
             ],

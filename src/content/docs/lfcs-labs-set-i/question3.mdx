@@ -22,7 +22,7 @@ Time synchronisation configuration needs to be updated:
 
 ### Answer
 
-#### 1. Analyzing NTP Configuration Scenarios for LFCS
+#### Analyzing NTP Configuration Scenarios for LFCS
 
 <details>
 <summary>Click to see the eduction analysis</summary>
@@ -129,7 +129,7 @@ The presence and content of these files are strong clues.
 
 </details>
 
-#### 2. Solution
+#### Solution
 
 <details>
 <summary>Click to see the solution</summary>
@@ -148,8 +148,6 @@ System clock synchronized: yes
               NTP service: inactive
           RTC in local TZ: no
 ```
-</Aside>
-
 
 Here we see for example the current local time and timezone. Let's open the configuration:
 
@@ -174,5 +172,7 @@ ntpdig: no eligible servers
 ```
 
 Above we see one successful request and one to www.google.de that failed. This is correct because the Google web-domain doesn't provide a NTP service.
+
+</Aside>
 
 </details>
