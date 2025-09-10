@@ -1,0 +1,16 @@
+---
+title: "Question 19"
+description: "Regex, filter out log lines."
+sidebar:
+  label: "Q19 - Regex, filter out log lines"
+  order: 88
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+On server `web-srv1` there are two log files that need to be worked with:
+
+1. File `/var/log-collector/003/nginx.log`: extract all log lines where URLs start with `/app/user` and that were accessed by browser identity `hacker-bot/1.2`. Write only those lines into `/var/log-collector/003/nginx.log.extracted`
+1. File `/var/log-collector/003/server.log`: replace all lines starting with `container.web`, ending with `24h` and that have the word Running anywhere in-between with: `SENSITIVE LINE REMOVED`

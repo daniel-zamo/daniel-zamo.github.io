@@ -1,0 +1,20 @@
+---
+title: "Question 16"
+description: "LoadBalancer."
+sidebar: 
+  label: "Q16 - LoadBalancer"
+  order: 85
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+Server `web-srv1` is hosting two applications, one accessible on port `1111` and one on `2222`. These are served using Nginx and it's not allowed to change their config. The ip of `web-srv1` is `192.168.10.60`.
+
+Create a new HTTP LoadBalancer on that server which:
+
+- Listens on port `8001` and redirects all traffic to `192.168.10.60:2222/special`
+- Listens on port `8000` and balances traffic between `192.168.10.60:1111` and `192.168.10.60:2222` in a Random or Round Robin fashion
+
+Nginx is already preinstalled and is recommended to be used for the implementation. Though it's also possible to use any other technologies (like Apache or HAProxy) because only the end result will be verified.

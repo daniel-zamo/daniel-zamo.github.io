@@ -1,0 +1,19 @@
+---
+title: "Question 17"
+description: "OpenSSH Configuration."
+sidebar:
+  label: "Q17 - OpenSSH Configuration"
+  order: 86
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+You need to perform OpenSSH server configuration changes on data-002. Users marta and cilla exist on that server and can be used for testing. Passwords are their username and shouldn't be changed. Please go ahead and:
+
+1. Disable `X11Forwarding`
+1. Disable `PasswordAuthentication` for everyone but user `marta`
+1. Enable Banner with file `/etc/ssh/sshd-banner` for users `marta` and `cilla`
+
+ℹ️ In case of misconfiguration you can still access the instance using `sudo lxc exec data-002 bash`
