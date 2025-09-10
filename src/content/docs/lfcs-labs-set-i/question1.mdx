@@ -21,48 +21,17 @@ Write the system `timezone` into `/opt/course/1/timezone`.
 ℹ️ If no server is mentioned in the question text, you'll need to create your solution on the default terminal
 </Aside>
 
-## Answer
+### Answer
 
 <details>
-<summary>Click to see the solution</summary>
-
-<Aside type="tip" title="Solution Commands">
+<summary>Click to expand</summary>
 
 ```bash
-# display kernel version
-➜ uname -r
-
-# output value of kernel parameter
-➜ cat /proc/sys/net/ipv4/ip_forward
-
-# get current timezone
-➜ date +%Z
-
-cat /etc/timezone # also possible
+$ whoami
+$ ls -al /opt/course/1
+$ sudo chown -R $(whoami): /opt/course/1
+$ cat /proc/sys/net/ipv4/ip_forward > /opt/course/1/ip_forward
+$ uname -r > /opt/course/1/kernel
+$ date +%Z > /opt/course/1/timezone
 ```
-
-</Aside>
-
-The files should look like:
-
-<Tabs>
-<TabItem label="/opt/course/1/kernel">
-```bash
-5.15.0-69-generic
-```
-
-</TabItem>
-<TabItem label="/opt/course/1/ip_forward">
-```bash
-1
-```
-
-</TabItem>
-<TabItem label="/opt/course/1/timezone">
-```bash
-UTC
-```
-</TabItem>
-</Tabs>
-
 </details>
