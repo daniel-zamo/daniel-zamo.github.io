@@ -1,0 +1,26 @@
+---
+title: "Question 11"
+description: "Docker Management"
+sidebar:
+  label: "Q11 - Docker Management"
+  order: 60
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+Someone overheard that you're a Containerisation Specialist, so the following should be easy for you! Please:
+
+1. Stop the Docker container named `frontend_v1`
+1. Gather information from Docker container named `frontend_v2`:
+   
+  - Write its assigned ip address into `/opt/course/11/ip-address`
+  - It has one volume mount. Write the volume mount destination directory into `/opt/course/11/mount-destination`
+
+1. Start a new detached Docker container:
+   
+  - Name: `frontend_v3`
+  - Image: `nginx:alpine`
+  - Memory limit: `30m` (30 Megabytes)
+  - TCP Port map: `1234/host` => `80/container`

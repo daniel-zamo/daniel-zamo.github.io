@@ -1,0 +1,19 @@
+---
+title: "Question 20"
+description: "User and Group limits"
+sidebar:
+  label: "Q20 - User and Group limits"
+  order: 888
+---
+
+## Question
+
+User Jackie caused an issue with her account on server `web-srv1`. She did run a program which created too many subprocesses for the server to handle. A coworker of yours already solved it temporarily and limited the number of processes user `jackie` can run.
+
+For this the coworker added a command into `.bashrc` in the home directory of `jackie`. But the command just sets the soft limit and not the hard limit. Jackie's password is brown in case needed.
+
+Configure the number-of-processes limitation as a hard limit for user `jackie`. Use the same number currently set as a soft limit for that user. Do it in the proper way, not via `.bashrc`.
+
+On the same server you should enforce that group operators can only ever log in once at the same time, use maxlogins for this.
+
+ℹ️ It's not possible to test/verify the maxlogins after configuration due to how the server has been configured

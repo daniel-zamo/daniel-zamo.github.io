@@ -1,0 +1,23 @@
+---
+title: "Question 9"
+description: "Find files with properties and perform actions"
+sidebar:
+  label: "Q - Find files with properties and perform actions"
+  order: 50
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+There is a backup folder on server data-001 at /var/backup/backup-015, it needs to be cleaned up.
+
+First:
+
+- Delete all files modified before 01/01/2020
+
+Then for the remaining:
+
+- Find all files smaller than 3KiB and move these to /var/backup/backup-015/small/
+- Find all files larger than 10KiB and move these to /var/backup/backup-015/large/
+- Find all files with permission 777 and move these to /var/backup/backup-015/compromised/
