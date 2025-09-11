@@ -22,6 +22,9 @@ Time synchronisation configuration needs to be updated:
 
 ### Answer
 
+<details>
+<summary>Click to expand</summary>
+
 ```bash
 dzamo@terminal-lab1:~$ dpkg -l | grep -E 'ntp|chrony|systemd-timesyncd|ntpd'
 dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service 
@@ -39,14 +42,14 @@ dzamo@terminal-lab1:~$ ntpdate -q ntp.ubuntu.com
 dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service
 # Check logs
 dzamo@terminal-lab1:~$ sudo grep systemd-timesyncd /var/log/syslog
-# Check configuration
+# Check/view configuration
 dzamo@terminal-lab1:~$ cat /etc/systemd/timesyncd.conf
 [Time]
 NTP=0.pool.ntp.org 1.pool.ntp.org
 FallbackNTP=ntp.ubuntu.com 0.debian.pool.ntp.org
-#RootDistanceMaxSec=5
-#PollIntervalMinSec=32
 PollIntervalMaxSec=1000
 ConnectionRetrySec=20
 
 ```
+
+</details>

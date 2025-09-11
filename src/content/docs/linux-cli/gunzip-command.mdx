@@ -1,0 +1,109 @@
+---
+title: 'gunzip Command'
+description: 'The gunzip command in Linux CLI.'
+hero:
+  image:
+      file: './linux-cli-monitor.png' # Relative path to the image
+  alt: 'gunzip command'
+sidebar:
+  order: 20
+---
+import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip" title="gunzip Command">
+`gunzip` is a Linux command-line utility (which might not be pre-installed on every Linux system) used to decompress files that have been compressed with `gzip`. `gzip` files typically have the `.gz` extension.
+
+This guide provides a breakdown of how to use it, along with several practical examples.
+</Aside>
+
+## gunzip
+
+### Basic Syntax
+
+The simplest syntax is:
+
+```bash
+gunzip [options] filename.gz
+```
+
+When you use `gunzip` on a file, by default it will:
+*   Decompress the file.
+*   Delete the original compressed file.
+*   The decompressed file will have the same name as the original, but without the `.gz` extension.
+
+### Common Examples
+
+1.  **Decompress a single file:**
+
+    If you have a file named `document.txt.gz`, you can decompress it like this:
+
+    ```bash
+    gunzip document.txt.gz
+    ```
+    After running this, `document.txt.gz` will be removed, and you will have a new file named `document.txt`.
+
+2.  **Keep the original compressed file (`-k` or `--keep` option):**
+
+    Sometimes you might want to retain both the compressed and decompressed versions. For this, use the `-k` option:
+
+    ```bash
+    gunzip -k document.txt.gz
+    ```
+    This will create `document.txt` and also keep `document.txt.gz`.
+
+3.  **Decompress to a different directory (output redirection):**
+
+    `gunzip` doesn't have a direct option to specify an output directory. However, you can achieve this by redirecting the output to a new file in your desired directory. This assumes the compressed file contains only a single file.
+
+    ```bash
+    gunzip -c archive.txt.gz > /path/to/new/directory/archive.txt
+    ```
+    The `-c` (or `--stdout` or `--to-stdout`) option makes `gunzip` write the decompressed output to standard output (stdout), instead of creating a file. Then, `>` redirects that output to a new file.
+
+4.  **Decompress multiple files:**
+
+    You can specify multiple `.gz` files in the same command:
+
+    ```bash
+    gunzip file1.txt.gz file2.log.gz
+    ```
+    This will decompress both files, removing the original `.gz` ones.
+
+5.  **Decompress all `.gz` files in a directory:**
+
+    You can use a wildcard (`*`) to decompress all `.gz` files in the current directory:
+
+    ```bash
+    gunzip *.gz
+    ```
+
+6.  **View the content of a `.gz` file without decompressing it (`-c` option with `less` or `more`):**
+
+    If you just want to peek inside a `.gz` file without permanently decompressing it, you can use `gunzip -c` and pipe it to a pager like `less`:
+
+    ```bash
+    gunzip -c document.txt.gz | less
+    ```
+    This is extremely useful for large log files.
+
+7.  **Decompress files recursively in subdirectories (`-r` or `--recursive` option):**
+
+    If you have subdirectories containing `.gz` files that you also want to decompress, you can use the `-r` option:
+
+    ```bash
+    gunzip -r my_directory/
+    ```
+    This will search for `.gz` files in `my_directory` and its subdirectories and decompress them.
+
+### Additional Useful Options
+
+*   `-f` or `--force`: Forces decompression. If the decompressed file already exists, `gunzip` would normally ask if you want to overwrite it. With `-f`, it overwrites automatically. It also allows decompressing a file even if it doesn't have the `.gz` extension.
+*   `-l` or `--list`: Displays information about the compressed file without decompressing it (name, original size, compressed size, compression ratio).
+*   `-v` or `--verbose`: Displays a detailed message for each file being decompressed.
+*   `-h` or `--help`: Shows `gunzip`'s help message.
+*   `-V` or `--version`: Displays the `gunzip` version.
+
+### Quick Summary
+
+`gunzip` is a simple yet essential tool for working with `.gz` files in Linux. Remember that, by default, it deletes the original compressed file, so use `-k` if you wish to keep it.
