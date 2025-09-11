@@ -89,21 +89,21 @@ export default defineConfig({
                 { label: 'Welcome', link: '/' },
                 {
                     label: 'DevOps Tools',
-                    collapsed: false,
+                    collapsed: true,
                     autogenerate: { directory: 'devops' }
                 },
                 {
                     label: 'Virtualization',
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                         { label: 'Overview', link: '/virtualization/' },
                         { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
                     ]
                 },
-                { label: 'CLI Linux', collapsed: false, autogenerate: { directory: 'linux-cli' } },
+                { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
                 {
                     label: 'Certifications',
-                    collapsed: false,
+                    collapsed: true,
                     items: [
                         /* { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },*/
                         /*{
@@ -117,7 +117,7 @@ export default defineConfig({
                         /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
                         
                         // Corregir el directorio para que coincida con la estructura
-                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs' } },
+                        { label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } },
                     ]
                 }, 
             ],
