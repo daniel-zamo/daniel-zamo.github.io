@@ -89,17 +89,18 @@ export default defineConfig({
                 { label: 'Welcome', link: '/' },
                 {
                     label: 'DevOps Tools',
+                    collapsed: false,
                     autogenerate: { directory: 'devops' }
                 },
                 {
                     label: 'Virtualization',
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                         { label: 'Overview', link: '/virtualization/' },
                         { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
                     ]
                 },
-                { label: 'CLI Linux', autogenerate: { directory: 'linux-cli' } },
+                { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
                 {
                     label: 'Certifications',
                     collapsed: true,
