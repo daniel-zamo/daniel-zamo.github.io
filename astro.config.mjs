@@ -99,6 +99,7 @@ export default defineConfig({
                         { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
                     ]
                 },
+                { label: 'CLI Linux', autogenerate: { directory: 'linux-cli' } },
                 {
                     label: 'Certifications',
                     collapsed: true,
@@ -115,9 +116,9 @@ export default defineConfig({
                         /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
                         
                         // Corregir el directorio para que coincida con la estructura
-                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs-set-i' } },
+                        { label: 'LFCS Labs Set I', autogenerate: { directory: 'lfcs-labs' } },
                     ]
-                },
+                }, 
             ],
         }),
     ],

@@ -21,4 +21,19 @@ There is an existing env variable for user `candidate@terminal`: `VARIABLE1=rand
 
 ## Answer
 
+```bash
+candidate@terminal-lab1:~$ ls -al /opt/course/4
+candidate@terminal-lab1:~$ grep VARIABLE1 ~/.bashrc 
+candidate@terminal-lab1:~$ vim /opt/course/4/script.sh
+candidate@terminal-lab1:~$ source /opt/course/4/script.sh 
+candidate@terminal-lab1:~$ source ~/.bashrc 
+candidate@terminal-lab1:~$ source /opt/course/4/script.sh
 
+# Content of /opt/course/4/script.sh
+candidate@terminal-lab1:~$ cat /opt/course/4/script.sh 
+VARIABLE2="v2"
+echo "VARIABLE2 = ${VARIABLE2}"
+
+export VARIABLE3="${VARIABLE1}-extended"
+echo "VARIABLE3 = ${VARIABLE3}"
+```

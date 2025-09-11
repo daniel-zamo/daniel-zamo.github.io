@@ -57,8 +57,9 @@ $ vim /etc/crontab
 ```bash
 $ su - asset-manager
 $ crontab -l
+## Add to crontjob
 $ crontab -e
-## Add to crontjob:
+...
 30 20 * * * bash /home/asset-manager/generate.sh
 15 11 * * 1,4 bash /home/asset-manager/clean.sh
 # check crontab

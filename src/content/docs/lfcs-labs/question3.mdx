@@ -1,0 +1,52 @@
+---
+title: "Question 3"
+description: "Time synchronisation Configuration"
+sidebar:
+  label: "Q3 - Time synchronisation Configuration"
+  order: 20
+---
+
+import { Aside, Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Question
+
+<Aside type="note" title="Task Requirements | Time synchronisation Configuration">
+
+Time synchronisation configuration needs to be updated:
+
+1. Set `0.pool.ntp.org` and `1.pool.ntp.org` as main NTP servers
+2. Set `ntp.ubuntu.com` and `0.debian.pool.ntp.org` as fallback NTP servers
+3. The maximum poll interval should be `1000` seconds and the connection retry `20` seconds
+
+</Aside>
+
+### Answer
+
+```bash
+dzamo@terminal-lab1:~$ dpkg -l | grep -E 'ntp|chrony|systemd-timesyncd|ntpd'
+dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service 
+dzamo@terminal-lab1:~$ man ntpdate
+dzamo@terminal-lab1:~$ ntpdate -q 0.de.pool.ntp.org
+dzamo@terminal-lab1:~$ ntpdate -q www.google.com
+dzamo@terminal-lab1:~$ sudo systemctl stop systemd-timesyncd.service 
+dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service 
+dzamo@terminal-lab1:~$ man systemd-timesyncd
+dzamo@terminal-lab1:~$ man timesyncd.conf
+dzamo@terminal-lab1:~$ sudo vim /etc/systemd/timesyncd.conf 
+dzamo@terminal-lab1:~$ sudo systemctl start systemd-timesyncd.service 
+dzamo@terminal-lab1:~$ ntpdate -q ntp.ubuntu.com
+# Check status
+dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service
+# Check logs
+dzamo@terminal-lab1:~$ sudo grep systemd-timesyncd /var/log/syslog
+# Check configuration
+dzamo@terminal-lab1:~$ cat /etc/systemd/timesyncd.conf
+[Time]
+NTP=0.pool.ntp.org 1.pool.ntp.org
+FallbackNTP=ntp.ubuntu.com 0.debian.pool.ntp.org
+#RootDistanceMaxSec=5
+#PollIntervalMinSec=32
+PollIntervalMaxSec=1000
+ConnectionRetrySec=20
+
+```
