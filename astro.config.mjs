@@ -100,10 +100,10 @@ export default defineConfig({
                         { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
                     ]
                 },
-                { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
+                { label: 'CLI Linux', collapsed: false, autogenerate: { directory: 'linux-cli' } },
                 {
                     label: 'Certifications',
-                    collapsed: true,
+                    collapsed: false,
                     items: [
                         /* { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },*/
                         /*{
