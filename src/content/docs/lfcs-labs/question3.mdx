@@ -26,24 +26,24 @@ Time synchronisation configuration needs to be updated:
 <summary>Click to expand</summary>
 
 ```bash
-dzamo@terminal-lab1:~$ dpkg -l | grep -E 'ntp|chrony|systemd-timesyncd|ntpd'
-dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service 
-dzamo@terminal-lab1:~$ man ntpdate
-dzamo@terminal-lab1:~$ ntpdate -q 0.de.pool.ntp.org
-dzamo@terminal-lab1:~$ ntpdate -q www.google.com
-dzamo@terminal-lab1:~$ sudo systemctl stop systemd-timesyncd.service 
-dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service 
-dzamo@terminal-lab1:~$ man systemd-timesyncd
-dzamo@terminal-lab1:~$ man timesyncd.conf
-dzamo@terminal-lab1:~$ sudo vim /etc/systemd/timesyncd.conf 
-dzamo@terminal-lab1:~$ sudo systemctl start systemd-timesyncd.service 
-dzamo@terminal-lab1:~$ ntpdate -q ntp.ubuntu.com
+$ dpkg -l | grep -E 'ntp|chrony|systemd-timesyncd|ntpd'
+$ systemctl status systemd-timesyncd.service 
+$ man ntpdate
+$ ntpdate -q 0.de.pool.ntp.org
+$ ntpdate -q www.google.com
+$ sudo systemctl stop systemd-timesyncd.service 
+$ systemctl status systemd-timesyncd.service 
+$ man systemd-timesyncd
+$ man timesyncd.conf
+$ sudo vim /etc/systemd/timesyncd.conf 
+$ sudo systemctl start systemd-timesyncd.service 
+$ ntpdate -q ntp.ubuntu.com
 # Check status
-dzamo@terminal-lab1:~$ systemctl status systemd-timesyncd.service
+$ systemctl status systemd-timesyncd.service
 # Check logs
-dzamo@terminal-lab1:~$ sudo grep systemd-timesyncd /var/log/syslog
+$ sudo grep systemd-timesyncd /var/log/syslog
 # Check/view configuration
-dzamo@terminal-lab1:~$ cat /etc/systemd/timesyncd.conf
+$ cat /etc/systemd/timesyncd.conf
 [Time]
 NTP=0.pool.ntp.org 1.pool.ntp.org
 FallbackNTP=ntp.ubuntu.com 0.debian.pool.ntp.org

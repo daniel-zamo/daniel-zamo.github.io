@@ -24,23 +24,23 @@ To make sure both archives contain the same files, write a list of their sorted 
 <summary>Click to see the answer</summary>
 ```bash
 dzamo@victus:~/in-gitlab/dzamo@/dzamo.gitlab.io$ ssh candidate@data-001
-candidate@data-001-lab1:~$ whoami
-candidate@data-001-lab1:~$ cd /imports/
-candidate@data-001-lab1:/imports$ ls -al
-candidate@data-001-lab1:/imports$ bunzip2 -k import001.tar.bz2 
-candidate@data-001-lab1:/imports$ ls
-candidate@data-001-lab1:/imports$ gzip --best import001.tar
-candidate@data-001-lab1:/imports$ ls -lh
-candidate@data-001-lab1:/imports$tar -tvjf import001.tar.bz2|sort > import001.tar.bz2_list
-candidate@data-001-lab1:/imports$tar -tvzf import001.tar.gz|sort > import001.tar.gz_list
+$ whoami
+$ cd /imports/
+${PS1}:/imports$ ls -al
+${PS1}:/imports$ bunzip2 -k import001.tar.bz2 
+${PS1}:/imports$ ls
+${PS1}:/imports$ gzip --best import001.tar
+${PS1}:/imports$ ls -lh
+${PS1}:/imports$tar -tvjf import001.tar.bz2|sort > import001.tar.bz2_list
+${PS1}:/imports$tar -tvzf import001.tar.gz|sort > import001.tar.gz_list
 # Compare the two lists to ensure they are identical
-candidate@data-001-lab1:/imports$ diff import001.tar.gz_list import001.tar.bz2_list
+${PS1}:/imports$ diff import001.tar.gz_list import001.tar.bz2_list
 # View the contents of one of the lists 
-candidate@data-001-lab1:/imports$ cat import001.tar.gz_list
+${PS1}:/imports$ cat import001.tar.gz_list
 ...
 lrwxrwxrwx candidate/candidate   0 2025-08-22 21:22 import001/system/sockets.target.wants/snap.lxd.user-daemon.unix.socket -> /etc/systemd/system/snap.lxd.user-daemon.unix.socket
 lrwxrwxrwx candidate/candidate   0 2025-09-09 23:51 import001/system/multi-user.target.wants/ssh.service -> /lib/systemd/system/ssh.service
 lrwxrwxrwx candidate/candidate   0 2025-09-09 23:51 import001/system/sshd.service -> /lib/systemd/system/ssh.service
-candidate@data-001-lab1:/imports$
+${PS1}:/imports$
 ```
 </details>
