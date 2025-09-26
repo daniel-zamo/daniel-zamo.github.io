@@ -82,7 +82,6 @@ export default defineConfig({
         },
     },
 
-
             ],
 
             sidebar: [
@@ -99,6 +98,12 @@ export default defineConfig({
                         { label: 'Overview', link: '/virtualization/' },
                         { label: 'KVM Post-Clone Setup', link: '/virtualization/kvm-vm-clone-post-config' }
                     ]
+                },
+                // Sección TCP/IP Networking en inglés
+                { 
+                    label: 'TCP/IP Networking', 
+                    collapsed: true, 
+                    autogenerate: { directory: 'tcp-ip-networking' } 
                 },
                 { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
                 {
