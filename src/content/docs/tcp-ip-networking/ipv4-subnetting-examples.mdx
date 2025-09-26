@@ -1,0 +1,304 @@
+---
+title: IPv4 Subnetting Practical Examples
+description: Step-by-step enterprise cases, magic jump method application, and mathematical verifications with real examples.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+sidebar:
+  order: 2
+  badge:
+    text: Practice
+    variant: success
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+
+# IPv4 Subnetting Practical Examples
+
+<Aside type="tip" title="Prerequisites">
+Read first the [IPv4 Subnetting Fundamental Guide](/tcp-ip-networking/ipv4-subnetting-guide/) to know the basic formulas and methods.
+</Aside>
+
+This guide presents real enterprise cases with step-by-step solutions, applying the fundamental mathematical methods of IPv4 subnetting.
+
+## 1. Magic Jump Method Application
+
+<Badge text="Main Technique" variant="tip" size="small" />
+
+### Example 1: /26 Network
+
+<Tabs>
+  <TabItem label="Problem">
+    **Network:** 192.168.1.0/26
+    **Mask:** 255.255.255.192
+    **Calculate:** All subnets and their ranges
+  </TabItem>
+  
+  <TabItem label="Calculations">
+    ```bash title="Applying the magic jump"
+    # Jump: 256 - 192 = 64
+    # Subnets: 2^2 = 4
+    # Hosts per subnet: 2^6 - 2 = 62
+    ```
+  </TabItem>
+  
+  <TabItem label="Solution">
+    ```bash title="Subnet ranges"
+    Subnet 1: 192.168.1.0   - 192.168.1.63   (62 hosts)
+    Subnet 2: 192.168.1.64  - 192.168.1.127  (62 hosts)
+    Subnet 3: 192.168.1.128 - 192.168.1.191  (62 hosts)
+    Subnet 4: 192.168.1.192 - 192.168.1.255  (62 hosts)
+    ```
+  </TabItem>
+</Tabs>
+
+### Example 2: /27 Network
+
+<Tabs>
+  <TabItem label="Problem">
+    **Network:** 10.0.0.0/27
+    **Mask:** 255.255.255.224
+    **Calculate:** First 4 subnets
+  </TabItem>
+  
+  <TabItem label="Solution">
+    ```bash title="First 4 subnets out of 8 total"
+    # Jump: 256 - 224 = 32
+    
+    Subnet 1: 10.0.0.0   - 10.0.0.31   (30 hosts)
+    Subnet 2: 10.0.0.32  - 10.0.0.63   (30 hosts)
+    Subnet 3: 10.0.0.64  - 10.0.0.95   (30 hosts)
+    Subnet 4: 10.0.0.96  - 10.0.0.127  (30 hosts)
+    ```
+  </TabItem>
+</Tabs>
+
+### Example 3: /28 Network
+
+<Tabs>
+  <TabItem label="Problem">
+    **Network:** 172.16.10.0/28
+    **Requirement:** Identify subnet number 5
+  </TabItem>
+  
+  <TabItem label="Solution">
+    ```bash title="Direct calculation of specific subnet"
+    # Jump: 256 - 240 = 16
+    # Subnet 5 starts at: 0 + (4 × 16) = 64
+    
+    Subnet 5: 172.16.10.64 - 172.16.10.79 (14 hosts)
+    ```
+  </TabItem>
+</Tabs>
+
+## 2. Complete Enterprise Case
+
+<Badge text="Real Case" variant="caution" size="small" />
+
+### Scenario: Medium-sized Company
+
+**Context:** A company needs to divide the 192.168.100.0/24 network for:
+- 3 departments (Sales, IT, Administration)
+- Each department needs at least 50 hosts
+- Reserve space for future growth
+
+### Step-by-Step Analysis
+
+<Steps>
+
+1. **Requirements Analysis**
+   ```bash title="Initial evaluation"
+   # Original network: 192.168.100.0/24 (256 addresses)
+   # Minimum subnets: 3
+   # Minimum hosts per subnet: 50
+   ```
+
+2. **Powers Ladder Search**
+   ```bash title="Subnet selection"
+   # 2^1 = 2 subnets (insufficient)
+   # 2^2 = 4 subnets (sufficient + buffer) ✓
+   ```
+
+3. **Capacity Calculation**
+   ```bash title="Host verification"
+   # Borrowed bits: 2
+   # Remaining host bits: 32 - 26 = 6
+   # Hosts per subnet: 2^6 - 2 = 62 hosts ✓
+   ```
+
+4. **Implementation**
+   ```bash title="Final assignment"
+   # New mask: /24 + 2 = /26
+   # Jump: 256 - 192 = 64
+   
+   Sales:          192.168.100.0/26   (.1   - .62)
+   IT:             192.168.100.64/26  (.65  - .126)
+   Administration: 192.168.100.128/26 (.129 - .190)
+   Reserved:       192.168.100.192/26 (.193 - .254)
+   ```
+
+5. **Mathematical Verification**
+   ```bash title="Validation tests"
+   # Consistency test:
+   4 subnets × 64 addresses = 256 addresses ✓
+   
+   # Feasibility test:
+   new_mask = 26 ≤ 30 ✓
+   
+   # Capacity test:
+   62 hosts ≥ 50 required hosts ✓
+   ```
+
+</Steps>
+
+## 3. Cases by Company Type
+
+### Small Company (< 50 employees)
+
+**Scenario:** 192.168.1.0/24 network for 4 areas
+
+<Tabs>
+  <TabItem label="Requirements">
+    - **Administration:** 15 hosts
+    - **Sales:** 20 hosts  
+    - **Technical:** 10 hosts
+    - **Guests:** 8 hosts
+  </TabItem>
+  
+  <TabItem label="Solution">
+    ```bash title="Division with /27 (30 hosts each)"
+    # Using /27 gives 8 subnets of 30 hosts
+    
+    Administration: 192.168.1.0/27   (.1 - .30)
+    Sales:          192.168.1.32/27  (.33 - .62)
+    Technical:      192.168.1.64/27  (.65 - .94)
+    Guests:         192.168.1.96/27  (.97 - .126)
+    Reserved:       4 additional subnets for growth
+    ```
+  </TabItem>
+</Tabs>
+
+### Medium Company (50-200 employees)
+
+**Scenario:** 172.16.0.0/16 network for multiple offices
+
+<Tabs>
+  <TabItem label="Requirements">
+    - **Main Office:** 500 hosts
+    - **Office A:** 200 hosts
+    - **Office B:** 150 hosts
+    - **Servers:** 50 hosts
+    - **DMZ:** 20 hosts
+  </TabItem>
+  
+  <TabItem label="VLSM Solution">
+    ```bash title="Variable masks according to need"
+    # Main Office: /22 (1022 hosts)
+    172.16.0.0/22    (.1 - 172.16.3.254)
+    
+    # Office A: /24 (254 hosts)  
+    172.16.4.0/24    (.1 - .254)
+    
+    # Office B: /24 (254 hosts)
+    172.16.5.0/24    (.1 - .254)
+    
+    # Servers: /26 (62 hosts)
+    172.16.6.0/26    (.1 - .62)
+    
+    # DMZ: /27 (30 hosts)
+    172.16.6.64/27   (.65 - .94)
+    ```
+  </TabItem>
+</Tabs>
+
+## 4. Verifications and Troubleshooting
+
+### Validation Tests
+
+<Tabs>
+  <TabItem label="Conservation Test">
+    ```bash title="Basic mathematical verification"
+    # For any division:
+    Subnets × Addresses_per_subnet = Original_total
+    
+    # Example /26 in /24:
+    4 × 64 = 256 ✓
+    ```
+  </TabItem>
+  
+  <TabItem label="Non-overlapping Test">
+    ```bash title="Range verification"
+    # Correct:
+    Subnet 1: 192.168.1.0   - 192.168.1.63
+    Subnet 2: 192.168.1.64  - 192.168.1.127  ✓
+    
+    # Incorrect (overlap):
+    Subnet 1: 192.168.1.0   - 192.168.1.63
+    Subnet 2: 192.168.1.32  - 192.168.1.95   ✗
+    ```
+  </TabItem>
+  
+  <TabItem label="Feasibility Test">
+    ```bash title="Limit verification"
+    # Basic rules:
+    new_mask ≤ 30 (for LANs with hosts)
+    calculated_hosts ≥ required_hosts
+    calculated_subnets ≥ required_subnets
+    ```
+  </TabItem>
+</Tabs>
+
+### Common Errors
+
+<Steps>
+
+1. **Jump Calculation Error**
+   ```bash
+   # Incorrect: using the mask value
+   # Correct: 256 - mask_value
+   
+   For /26 (192): Jump = 256 - 192 = 64 ✓
+   ```
+
+2. **Forgetting Reserved Addresses**
+   ```bash
+   # Real hosts = 2^bits - 2
+   # Don't forget to subtract network and broadcast
+   ```
+
+3. **Exceeding Mask Limits**
+   ```bash
+   # For LANs: maximum /30 (2 hosts)
+   # For P2P links: maximum /31 (RFC 3021)
+   ```
+
+</Steps>
+
+## 5. Quick Calculation Templates
+
+### Quick Verification Formula
+
+```bash title="Direct mental calculation"
+# For any mask /X:
+Hosts = 2^(32-X) - 2
+
+# To find mask given hosts:
+X = 32 - log2(hosts + 2)
+
+# Example: 100 hosts needed
+X = 32 - log2(102) ≈ 32 - 6.67 ≈ 25.33 → /25
+Verification: 2^(32-25) - 2 = 126 hosts ✓
+```
+
+---
+
+<Aside type="tip" title="Practical Mastery">
+Constant practice with these examples will develop your quick mental calculation ability for IPv4 subnetting.
+</Aside>
+
+**Related Articles:**
+- **[IPv4 Subnetting Fundamental Guide](/tcp-ip-networking/ipv4-subnetting-guide/)** - Basic formulas and methods
+- **[VLSM and Advanced Techniques](/tcp-ip-networking/ipv4-vlsm-advanced/)** - Variable Length Subnet Masking

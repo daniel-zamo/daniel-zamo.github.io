@@ -1,0 +1,208 @@
+---
+title: Mathematical Methods for IPv4 Subnet Calculation
+description: Essential mathematical formulas and mnemonic techniques to master IPv4 subnetting calculation. Fundamental guide without extensive examples.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+sidebar:
+  order: 1
+  badge:
+    text: Fundamental
+    variant: tip
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+# Mathematical Methods for IPv4 Subnet Calculation
+
+<Aside type="tip" title="Essential Guide">
+This guide presents the mathematical fundamentals and mnemonic techniques for IPv4 subnet calculation. For practical examples and specific cases, check the complementary articles.
+</Aside>
+
+## 1. Universal Mathematical Fundamentals
+
+<Badge text="Essential" variant="danger" size="small" />
+
+### Master Formulas
+
+```bash title="The four fundamental formulas"
+Subnets = 2^(borrowed_bits)
+Hosts_per_subnet = 2^(host_bits) - 2
+Borrowed_bits = new_mask - original_mask
+Host_bits = 32 - new_mask
+```
+
+### Conservation Principle
+
+```bash title="Verification equation"
+Total_original_addresses = Number_of_subnets × Addresses_per_subnet
+```
+
+<Aside type="note">
+This equation must always hold true and serves as verification for our calculations.
+</Aside>
+
+## 2. Universal Mnemonic Table: "The Powers Ladder"
+
+<Badge text="Memorization" variant="tip" size="small" />
+
+| Bits | Value | Mnemonic | Application |
+|------|-------|----------|-------------|
+| 1 | 2 | "2 options: YES/NO" | 2 subnets |
+| 2 | 4 | "4 cardinal points" | 4 subnets |
+| 3 | 8 | "8 bits = 1 byte" | 8 subnets |
+| 4 | 16 | "16 years = legal age" | 16 subnets |
+| 5 | 32 | "32 adult teeth" | 32 subnets |
+| 6 | 64 | "64 chess squares" | 64 subnets |
+| 7 | 128 | "128 ASCII characters" | 128 subnets |
+| 8 | 256 | "256 byte values" | 256 subnets |
+
+### Binary Position Values in IPv4
+
+|Position|7|6|5|4|3|2|1|0|
+|:-------|:--|:--|:--|:--|:--|:--|:--|:--|
+|**Exponent**|`2^7`|`2^6`|`2^5`|`2^4`|`2^3`|`2^2`|`2^1`|`2^0`|
+|**Decimal Value**|`128`|`64`|`32`|`16`|`8`|`4`|`2`|`1`|
+
+## 3. Generalized "Magic Jump" Method
+
+<Badge text="Key Technique" variant="caution" size="small" />
+
+### Universal Algorithm
+
+1. **Convert CIDR to decimal:** Use mask reference table
+2. **Calculate jump:** 256 - last_affected_octet_value
+3. **Generate ranges:** Increment by the jump
+
+### Reference Mask Table
+
+| CIDR | Decimal Mask | Last Octet | Jump |
+|------|--------------|------------|------|
+| /25 | 255.255.255.128 | 128 | 128 |
+| /26 | 255.255.255.192 | 192 | 64 |
+| /27 | 255.255.255.224 | 224 | 32 |
+| /28 | 255.255.255.240 | 240 | 16 |
+| /29 | 255.255.255.248 | 248 | 8 |
+| /30 | 255.255.255.252 | 252 | 4 |
+
+## 4. Private Network Patterns
+
+<Badge text="RFC 1918" variant="note" size="small" />
+
+### Private Class A: 10.0.0.0/8
+
+**Base capacity:** 16,777,216 addresses
+
+| Desired Subnets | Borrowed Bits | New Mask | Hosts/Subnet |
+|-----------------|---------------|----------|--------------|
+| 2 | 1 | /9 | 8,388,606 |
+| 4 | 2 | /10 | 4,194,302 |
+| 8 | 3 | /11 | 2,097,150 |
+| 16 | 4 | /12 | 1,048,574 |
+| 256 | 8 | /16 | 65,534 |
+| 65,536 | 16 | /24 | 254 |
+
+### Private Class B: 172.16.0.0/12
+
+**Base capacity:** 1,048,576 addresses
+
+| Desired Subnets | Borrowed Bits | New Mask | Hosts/Subnet |
+|-----------------|---------------|----------|--------------|
+| 2 | 1 | /13 | 524,286 |
+| 4 | 2 | /14 | 262,142 |
+| 8 | 3 | /15 | 131,070 |
+| 16 | 4 | /16 | 65,534 |
+| 256 | 8 | /20 | 4,094 |
+| 4,096 | 12 | /24 | 254 |
+
+### Private Class C: 192.168.x.0/24
+
+**Base capacity:** 256 addresses
+
+| Desired Subnets | Borrowed Bits | New Mask | Hosts/Subnet |
+|-----------------|---------------|----------|--------------|
+| 2 | 1 | /25 | 126 |
+| 4 | 2 | /26 | 62 |
+| 8 | 3 | /27 | 30 |
+| 16 | 4 | /28 | 14 |
+| 32 | 5 | /29 | 6 |
+| 64 | 6 | /30 | 2 |
+
+## 5. Step-by-Step Calculation Algorithm
+
+<Badge text="Methodology" variant="tip" size="small" />
+
+### Systematic Method
+
+```
+1. IDENTIFY: How many subnets do I need?
+2. SEARCH: In the powers ladder, find 2^n ≥ needed_subnets
+3. CALCULATE: new_mask = original_mask + n
+4. VERIFY: Is it feasible? (new_mask ≤ 30 for LANs)
+5. APPLY: Jump method for specific ranges
+```
+
+## 6. Optimization Rules
+
+### "Next Power of 2" Rule
+
+If you need N subnets, use the smallest 2^n where 2^n ≥ N
+
+### "Growth Buffer" Rule
+
+For production, plan 25-50% more subnets than immediately required
+
+### "Minimum Viable Mask" Rule
+
+<Tabs>
+  <TabItem label="LANs">
+    Never exceed /30 (except for point-to-point links)
+  </TabItem>
+  <TabItem label="WANs">
+    /30 is common for dedicated links
+  </TabItem>
+</Tabs>
+
+## 7. Mathematical Verifications
+
+### Consistency Test
+
+```
+Calculated_subnets × Hosts_per_subnet = Original_network_addresses
+```
+
+### Feasibility Test
+
+```
+new_mask ≤ 30 (for networks with hosts)
+new_mask ≤ 32 (absolute maximum)
+```
+
+## 8. Special Cases
+
+<CardGrid>
+  <Card title="VLSM" icon="document">
+    Variable Length Subnet Masking - For subnets of different sizes
+  </Card>
+  <Card title="Supernetting" icon="merge">
+    To aggregate networks, subtract bits instead of adding them
+  </Card>
+  <Card title="Reserved Addresses" icon="prohibition">
+    Always subtract 2 from total hosts (network + broadcast)
+  </Card>
+</CardGrid>
+
+---
+
+<Aside type="tip" title="Related Articles">
+- **[IPv4 Subnetting Practical Examples](/tcp-ip-networking/ipv4-subnetting-examples/)** - Step-by-step enterprise cases
+- **[VLSM and Advanced Techniques](/tcp-ip-networking/ipv4-vlsm-advanced/)** - Variable Length Subnet Masking
+- **[Validation Tools](/tcp-ip-networking/ipv4-subnetting-tools/)** - Useful commands and scripts
+</Aside>
+
+<Aside type="note" title="Technical Note">
+This document covers 95% of subnetting scenarios in enterprise networks. For specific edge cases, refer to RFCs 950, 1518, and 1519.
+</Aside>

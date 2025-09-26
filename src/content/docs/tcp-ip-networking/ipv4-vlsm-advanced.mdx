@@ -1,0 +1,376 @@
+---
+title: VLSM and Advanced IPv4 Subnetting Techniques
+description: Variable Length Subnet Masking, supernetting, route aggregation and advanced IPv4 addressing optimization.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+sidebar:
+  order: 3
+  badge:
+    text: Advanced
+    variant: danger
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+# VLSM and Advanced IPv4 Subnetting Techniques
+
+<Aside type="caution" title="Prerequisites">
+Complete mastery of basic subnetting. Read first the [Fundamental Guide](/tcp-ip-networking/ipv4-subnetting-guide/) and [Practical Examples](/tcp-ip-networking/ipv4-subnetting-examples/).
+</Aside>
+
+Advanced subnetting techniques allow optimizing IPv4 address space usage through variable length masks and route aggregation.
+
+## 1. VLSM (Variable Length Subnet Masking)
+
+<Badge text="Advanced Optimization" variant="danger" size="small" />
+
+### What is VLSM?
+
+VLSM allows using different subnet masks within the same main network, optimizing IP address usage according to the specific needs of each segment.
+
+<CardGrid>
+  <Card title="Advantages" icon="check">
+    - Efficient use of address space
+    - Reduction of IP waste
+    - Better network organization
+  </Card>
+  <Card title="Disadvantages" icon="warning">
+    - Greater administrative complexity
+    - Requires routing protocols that support VLSM
+    - More careful planning
+  </Card>
+</CardGrid>
+
+### VLSM Methodology
+
+<Steps>
+
+1. **List requirements by size**
+   Order all subnets from largest to smallest
+
+2. **Assign from largest to smallest**
+   Start with the largest subnet and continue sequentially
+
+3. **Avoid overlapping**
+   Each new subnet must start after the end of the previous one
+
+4. **Verify availability**
+   Confirm there is enough space in the original range
+
+</Steps>
+
+### Complete VLSM Example
+
+**Scenario:** 192.168.10.0/24 network for:
+- Network A: 120 hosts
+- Network B: 60 hosts  
+- Network C: 28 hosts
+- Network D: 12 hosts
+- P2P Links: 3 links of 2 hosts each
+
+<Tabs>
+  <TabItem label="Analysis">
+    ```bash title="Ordering by size"
+    1. Network A: 120 hosts → needs /25 (126 hosts)
+    2. Network B: 60 hosts  → needs /26 (62 hosts)
+    3. Network C: 28 hosts  → needs /27 (30 hosts)
+    4. Network D: 12 hosts  → needs /28 (14 hosts)
+    5. Links: 2 hosts → needs /30 (2 hosts) × 3
+    ```
+  </TabItem>
+  
+  <TabItem label="Sequential Assignment">
+    ```bash title="VLSM distribution"
+    # Network A (120 hosts) - /25
+    192.168.10.0/25    (.1 - .126)     [Used: 0-127]
+    
+    # Network B (60 hosts) - /26  
+    192.168.10.128/26  (.129 - .190)   [Used: 128-191]
+    
+    # Network C (28 hosts) - /27
+    192.168.10.192/27  (.193 - .222)   [Used: 192-223]
+    
+    # Network D (12 hosts) - /28
+    192.168.10.224/28  (.225 - .238)   [Used: 224-239]
+    
+    # P2P Links - /30
+    Link 1: 192.168.10.240/30 (.241-.242) [Used: 240-243]
+    Link 2: 192.168.10.244/30 (.245-.246) [Used: 244-247] 
+    Link 3: 192.168.10.248/30 (.249-.250) [Used: 248-251]
+    
+    # Reserved: 192.168.10.252-255
+    ```
+  </TabItem>
+  
+  <TabItem label="Verification">
+    ```bash title="Design validation"
+    # Total space used: 252 of 256 addresses
+    # Efficiency: 98.4%
+    # No overlaps ✓
+    # All requirements covered ✓
+    ```
+  </TabItem>
+</Tabs>
+
+## 2. Supernetting / CIDR Aggregation
+
+<Badge text="Aggregation" variant="tip" size="small" />
+
+### Supernetting Principle
+
+Combine multiple consecutive networks into a single larger route, reducing routing table size.
+
+### Supernetting Rules
+
+<Tabs>
+  <TabItem label="Main Rule">
+    ```bash title="Conditions for aggregation"
+    # Networks must be:
+    1. Consecutive in address space
+    2. Power of 2 in quantity
+    3. Aligned on correct boundary
+    ```
+  </TabItem>
+  
+  <TabItem label="Aggregation Calculation">
+    ```bash title="Supernetting formula"
+    # To aggregate N networks /X:
+    new_mask = X - log2(N)
+    
+    # Example: Aggregate 4 networks /24
+    new_mask = 24 - log2(4) = 24 - 2 = /22
+    ```
+  </TabItem>
+</Tabs>
+
+### Supernetting Examples
+
+<Tabs>
+  <TabItem label="Simple Case">
+    ```bash title="Aggregation of 2 networks /24"
+    # Original networks:
+    192.168.0.0/24
+    192.168.1.0/24
+    
+    # Aggregated:
+    192.168.0.0/23  (covers both networks)
+    ```
+  </TabItem>
+  
+  <TabItem label="Complex Case">
+    ```bash title="Aggregation of 8 networks /24"
+    # Original networks:
+    10.1.0.0/24, 10.1.1.0/24, 10.1.2.0/24, 10.1.3.0/24
+    10.1.4.0/24, 10.1.5.0/24, 10.1.6.0/24, 10.1.7.0/24
+    
+    # Aggregated:
+    10.1.0.0/21  (covers all 8 networks)
+    ```
+  </TabItem>
+  
+  <TabItem label="Invalid Case">
+    ```bash title="Impossible aggregation"
+    # These networks CANNOT be aggregated:
+    192.168.1.0/24
+    192.168.3.0/24  ← Not consecutive
+    
+    # Solution: treat separately
+    ```
+  </TabItem>
+</Tabs>
+
+## 3. Modern Point-to-Point Links
+
+<Badge text="RFC 3021" variant="note" size="small" />
+
+### Comparison /30 vs /31
+
+<Tabs>
+  <TabItem label="/30 (Traditional)">
+    ```bash title="Link with broadcast"
+    192.168.1.0/30:
+      Network:   192.168.1.0    (not usable)
+      Host A:    192.168.1.1    (usable)
+      Host B:    192.168.1.2    (usable)  
+      Broadcast: 192.168.1.3    (not usable)
+    
+    # Efficiency: 50% (2 of 4 addresses)
+    ```
+  </TabItem>
+  
+  <TabItem label="/31 (RFC 3021)">
+    ```bash title="Link without broadcast"
+    192.168.1.0/31:
+      Host A: 192.168.1.0    (usable)
+      Host B: 192.168.1.1    (usable)
+    
+    # Efficiency: 100% (2 of 2 addresses)
+    # Applicable only on point-to-point links
+    ```
+  </TabItem>
+  
+  <TabItem label="Use Cases">
+    ```bash title="When to use each one"
+    # Use /31:
+    - Dedicated WAN links
+    - Router-to-router connections
+    - ISP backbones
+    
+    # Use /30:
+    - Links with possibility of more hosts
+    - Networks requiring broadcast
+    - Equipment not supporting RFC 3021
+    ```
+  </TabItem>
+</Tabs>
+
+## 4. Optimization by Network Type
+
+### Corporate Networks
+
+<CardGrid>
+  <Card title="Large Offices" icon="office">
+    **Strategy:** VLSM with /22 for users, /26 for servers
+    
+    **Benefit:** Scalability and segregation
+  </Card>
+  <Card title="Branch Offices" icon="branch">
+    **Strategy:** Standard /24 with possible subdivision
+    
+    **Benefit:** Administrative simplicity
+  </Card>
+  <Card title="Data Centers" icon="server">
+    **Strategy:** /27 for clusters, /30 for management
+    
+    **Benefit:** Maximum address efficiency
+  </Card>
+</CardGrid>
+
+### Service Providers
+
+<Tabs>
+  <TabItem label="ISPs">
+    ```bash title="ISP strategy"
+    # Residential customers: /29 (6 hosts)
+    # Business customers: /28 to /24 according to need
+    # Regional aggregation: /19 or /20
+    # Interconnections: /30 or /31
+    ```
+  </TabItem>
+  
+  <TabItem label="Cloud Providers">
+    ```bash title="Cloud strategy"
+    # VPCs per customer: /16
+    # Subnets per service: /24
+    # Microservices: /26 or /27
+    # Load balancers: /28
+    ```
+  </TabItem>
+</Tabs>
+
+## 5. Advanced Planning Tools
+
+### Efficiency Calculator
+
+```bash title="Optimization metrics"
+# Utilization efficiency:
+Efficiency = (Used_addresses / Total_addresses) × 100
+
+# Waste per segment:
+Waste = Assigned_addresses - Required_addresses
+
+# Growth factor:
+Factor = Assigned_addresses / Required_addresses
+```
+
+### VLSM Validation Algorithm
+
+<Steps>
+
+1. **Verify Ordering**
+   ```bash
+   # Confirm descending order by size
+   hosts[i] ≥ hosts[i+1] for all i
+   ```
+
+2. **Verify No Overlap**
+   ```bash
+   # End of current subnet < Start of next
+   end[i] < start[i+1] for all i
+   ```
+
+3. **Verify Limits**
+   ```bash
+   # All subnets within original range
+   end[last] ≤ upper_limit_original_network
+   ```
+
+4. **Calculate Efficiency**
+   ```bash
+   # Minimize unused space
+   Target_efficiency ≥ 85%
+   ```
+
+</Steps>
+
+## 6. Advanced Special Cases
+
+### Hybrid Private Networks
+
+<Tabs>
+  <TabItem label="Scenario">
+    A company has offices requiring:
+    - Main Office: 2000 hosts
+    - 5 branch offices: 100 hosts each
+    - 20 WAN links: 2 hosts each
+    - Management network: 50 hosts
+  </TabItem>
+  
+  <TabItem label="Solution">
+    ```bash title="Hybrid design"
+    # Use multiple private ranges:
+    
+    # Main Office: 10.0.0.0/21 (2046 hosts)
+    # Branch offices: 172.16.1.0/25, 172.16.1.128/25, etc.
+    # WAN links: 192.168.255.0/30, 192.168.255.4/30, etc.
+    # Management: 192.168.254.0/26 (62 hosts)
+    ```
+  </TabItem>
+</Tabs>
+
+### Legacy Network Migration
+
+<Steps>
+
+1. **Current State Analysis**
+   - Inventory of addresses in use
+   - Conflict identification
+   - Dependency mapping
+
+2. **Target State Design**
+   - Apply optimal VLSM
+   - Migration phase planning
+   - Define temporal coexistence
+
+3. **Gradual Implementation**
+   - Migration by segments
+   - Connectivity maintenance
+   - Progressive validation
+
+</Steps>
+
+---
+
+<Aside type="tip" title="Advanced Mastery">
+Mastering VLSM and advanced techniques enables designing highly efficient and scalable networks, maximizing IPv4 address space usage.
+</Aside>
+
+**Related Articles:**
+- **[IPv4 Subnetting Fundamental Guide](/tcp-ip-networking/ipv4-subnetting-guide/)** - Mathematical foundations
+- **[Practical Examples](/tcp-ip-networking/ipv4-subnetting-examples/)** - Enterprise cases
+- **[Validation Tools](/tcp-ip-networking/ipv4-subnetting-tools/)** - Scripts and commands

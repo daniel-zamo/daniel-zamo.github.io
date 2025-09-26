@@ -1,0 +1,578 @@
+---
+title: Herramientas de Validación para Subnetting IPv4
+description: Comandos, scripts y herramientas para verificar cálculos de subnetting, troubleshooting y automatización de validaciones.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+sidebar:
+  order: 4
+  badge:
+    text: Herramientas
+    variant: success
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+# Herramientas de Validación para Subnetting IPv4
+
+<Aside type="tip" title="Complemento Práctico">
+Esta guía complementa los conceptos fundamentales con herramientas prácticas para verificar y automatizar cálculos de subnetting.
+</Aside>
+
+Conjunto de comandos, scripts y metodologías para validar cálculos de subnetting IPv4 y realizar troubleshooting eficiente.
+
+## 1. Comandos de Validación por Sistema
+
+<Badge text="Multi-Plataforma" variant="tip" size="small" />
+
+### Linux
+
+<Tabs>
+  <TabItem label="ipcalc">
+    ```bash title="Herramienta estándar de cálculo"
+    # Información básica de subred
+    ipcalc 192.168.1.0/26
+    
+    # Dividir en subredes específicas
+    ipcalc 192.168.1.0/24 --split 4
+    
+    # Verificar si IP pertenece a subred
+    ipcalc 192.168.1.50 192.168.1.0/26
+    ```
+  </TabItem>
+  
+  <TabItem label="sipcalc">
+    ```bash title="Calculadora avanzada"
+    # Análisis detallado
+    sipcalc 192.168.1.0/26
+    
+    # Multiple subredes
+    sipcalc 192.168.1.0/24 -s 26
+    
+    # Información en diferentes formatos
+    sipcalc -a 192.168.1.0/26
+    ```
+  </TabItem>
+  
+  <TabItem label="subnetcalc">
+    ```bash title="Información comprehensiva"
+    # Detalles completos de subred
+    subnetcalc 192.168.1.0/26
+    
+    # Formato específico
+    subnetcalc 192.168.1.0/26 -n
+    
+    # Rango de direcciones
+    subnetcalc 192.168.1.0/26 -r
+    ```
+  </TabItem>
+</Tabs>
+
+### Windows
+
+<Tabs>
+  <TabItem label="PowerShell Nativo">
+    ```powershell title="Cmdlets de red"
+    # Información de adaptador
+    Get-NetIPConfiguration
+    
+    # Detalles de IP
+    Get-NetIPAddress | Where-Object AddressFamily -eq IPv4
+    
+    # Tabla de routing
+    Get-NetRoute -AddressFamily IPv4
+    ```
+  </TabItem>
+  
+  <TabItem label="Cálculos Personalizados">
+    ```powershell title="Script de cálculo"
+    # Función para calcular subred
+    function Get-SubnetInfo {
+        param($NetworkAddress, $PrefixLength)
+        # Lógica de cálculo aquí
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+### Python (Multiplataforma)
+
+<Tabs>
+  <TabItem label="ipaddress Module">
+    ```python title="Biblioteca estándar"
+    import ipaddress
+    
+    # Crear objeto de red
+    subnet = ipaddress.IPv4Network('192.168.1.0/26')
+    
+    # Información básica
+    print("Red:", subnet.network_address)
+    print("Broadcast:", subnet.broadcast_address)
+    print("Hosts:", subnet.num_addresses - 2)
+    print("Máscara:", subnet.netmask)
+    
+    # Verificar si IP está en red
+    ip = ipaddress.IPv4Address('192.168.1.50')
+    print("IP en red:", ip in subnet)
+    ```
+  </TabItem>
+  
+  <TabItem label="Dividir Subredes">
+    ```python title="Subnetting automático"
+    import ipaddress
+    
+    # Red original
+    original = ipaddress.IPv4Network('192.168.1.0/24')
+    
+    # Dividir en 4 subredes
+    subnets = list(original.subnets(new_prefix=26))
+    
+    for i, subnet in enumerate(subnets, 1):
+        print("Subred", i, ":", subnet)
+        first = subnet.network_address + 1
+        last = subnet.broadcast_address - 1
+        print("  Rango:", first, "-", last)
+        print("  Hosts:", subnet.num_addresses - 2)
+    ```
+  </TabItem>
+  
+  <TabItem label="Validación VLSM">
+    ```python title="Verificador VLSM"
+    def validate_vlsm(subnets_info):
+        """Valida diseño VLSM"""
+        subnets = []
+        for info in subnets_info:
+            subnet = ipaddress.IPv4Network(info['network'])
+            start = subnet.network_address
+            end = subnet.broadcast_address
+            name = info['name']
+            subnets.append((start, end, name))
+        
+        # Ordenar por dirección de inicio
+        subnets.sort(key=lambda x: x[0])
+        
+        # Verificar solapamiento
+        for i in range(len(subnets) - 1):
+            if subnets[i][1] >= subnets[i+1][0]:
+                error_msg = "Solapamiento entre " + subnets[i][2] + " y " + subnets[i+1][2]
+                return False, error_msg
+        
+        return True, "Diseño VLSM válido"
+    ```
+  </TabItem>
+</Tabs>
+
+## 2. Scripts de Automatización
+
+<Badge text="Automatización" variant="caution" size="small" />
+
+### Script Bash Completo
+
+```bash title="subnet_calculator.sh"
+#!/bin/bash
+
+# Calculadora completa de subnetting
+subnet_calculator() {
+    local ADDRESS=$1
+    local CIDR=$2
+    
+    echo "=== Análisis de Red $ADDRESS/$CIDR ==="
+    
+    # Convertir CIDR a máscara decimal
+    MASK_BITS=$((32 - CIDR))
+    HOSTS=$((2**MASK_BITS - 2))
+    
+    # Calcular máscara en decimal
+    MASK_VALUE=$((0xFFFFFFFF << MASK_BITS & 0xFFFFFFFF))
+    MASK_DEC=$(printf "%d.%d.%d.%d" \
+        $((MASK_VALUE >> 24 & 255)) \
+        $((MASK_VALUE >> 16 & 255)) \
+        $((MASK_VALUE >> 8 & 255)) \
+        $((MASK_VALUE & 255)))
+    
+    echo "Máscara decimal: $MASK_DEC"
+    echo "Hosts por subred: $HOSTS"
+    echo "Bits de host: $MASK_BITS"
+    
+    # Calcular primer y última IP
+    IFS='.' read -r a b c d <<< "$ADDRESS"
+    NET_INT=$((a * 256**3 + b * 256**2 + c * 256 + d))
+    
+    FIRST_HOST=$((NET_INT + 1))
+    BROADCAST=$((NET_INT + 2**MASK_BITS - 1))
+    LAST_HOST=$((BROADCAST - 1))
+    
+    printf "Primera IP: %d.%d.%d.%d\n" \
+        $((FIRST_HOST >> 24 & 255)) \
+        $((FIRST_HOST >> 16 & 255)) \
+        $((FIRST_HOST >> 8 & 255)) \
+        $((FIRST_HOST & 255))
+    
+    printf "Última IP: %d.%d.%d.%d\n" \
+        $((LAST_HOST >> 24 & 255)) \
+        $((LAST_HOST >> 16 & 255)) \
+        $((LAST_HOST >> 8 & 255)) \
+        $((LAST_HOST & 255))
+    
+    printf "Broadcast: %d.%d.%d.%d\n" \
+        $((BROADCAST >> 24 & 255)) \
+        $((BROADCAST >> 16 & 255)) \
+        $((BROADCAST >> 8 & 255)) \
+        $((BROADCAST & 255))
+}
+
+# Uso: subnet_calculator 192.168.1.0 26
+```
+
+### Script Python Avanzado
+
+```python title="subnet_validator.py"
+#!/usr/bin/env python3
+import ipaddress
+import sys
+from typing import List, Tuple, Dict
+
+class SubnetValidator:
+    def __init__(self):
+        self.errors = []
+        self.warnings = []
+    
+    def validate_basic_subnet(self, subnet_str: str) -> Dict:
+        """Validación básica de subred"""
+        try:
+            subnet = ipaddress.IPv4Network(subnet_str, strict=False)
+            return {
+                'valid': True,
+                'network': str(subnet.network_address),
+                'broadcast': str(subnet.broadcast_address),
+                'netmask': str(subnet.netmask),
+                'prefix_length': subnet.prefixlen,
+                'num_hosts': subnet.num_addresses - 2,
+                'first_host': str(subnet.network_address + 1),
+                'last_host': str(subnet.broadcast_address - 1)
+            }
+        except ValueError as e:
+            return {'valid': False, 'error': str(e)}
+    
+    def calculate_subnets(self, base_str: str, num_subnets: int) -> List[Dict]:
+        """Calcular división en subredes"""
+        base = ipaddress.IPv4Network(base_str)
+        
+        # Calcular bits necesarios
+        import math
+        bits_needed = math.ceil(math.log2(num_subnets))
+        new_prefix = base.prefixlen + bits_needed
+        
+        if new_prefix > 30:
+            error_msg = "Nueva máscara /" + str(new_prefix) + " excede límite práctico /30"
+            raise ValueError(error_msg)
+        
+        subnets = list(base.subnets(new_prefix=new_prefix))
+        
+        result = []
+        for i, subnet in enumerate(subnets[:num_subnets]):
+            first = subnet.network_address + 1
+            last = subnet.broadcast_address - 1
+            range_str = str(first) + " - " + str(last)
+            result.append({
+                'index': i + 1,
+                'network': str(subnet),
+                'range': range_str,
+                'hosts': subnet.num_addresses - 2
+            })
+        
+        return result
+
+def main():
+    validator = SubnetValidator()
+    
+    if len(sys.argv) < 2:
+        print("Uso: python subnet_validator.py <red/cidr>")
+        print("Ejemplo: python subnet_validator.py 192.168.1.0/24")
+        sys.exit(1)
+    
+    subnet_input = sys.argv[1]
+    result = validator.validate_basic_subnet(subnet_input)
+    
+    if result['valid']:
+        print("Red:", result['network'])
+        print("Máscara:", result['netmask'], "(" + "/" + str(result['prefix_length']) + ")")
+        print("Broadcast:", result['broadcast'])
+        print("Rango hosts:", result['first_host'], "-", result['last_host'])
+        print("Total hosts:", result['num_hosts'])
+    else:
+        print("Error:", result['error'])
+
+if __name__ == "__main__":
+    main()
+```
+
+## 3. Herramientas de Troubleshooting
+
+<Badge text="Diagnóstico" variant="danger" size="small" />
+
+### Verificación de Conectividad
+
+<Tabs>
+  <TabItem label="Ping Masivo">
+    ```bash title="Verificar rango de IPs"
+    #!/bin/bash
+    # ping_subnet.sh - Verificar hosts activos en subred
+    
+    subnet_ping() {
+        local ADDRESS=$1
+        local CIDR=$2
+        
+        # Convertir a rango de IPs
+        # Simplificado para /24
+        BASE="${ADDRESS%.*}"
+        
+        echo "Escaneando $ADDRESS/$CIDR..."
+        
+        for i in {1..254}; do
+            IP="$BASE.$i"
+            if ping -c 1 -W 1 "$IP" >/dev/null 2>&1; then
+                echo "✓ $IP responde"
+            fi
+        done
+    }
+    ```
+  </TabItem>
+  
+  <TabItem label="Nmap">
+    ```bash title="Escaneo de red profesional"
+    # Descubrimiento de hosts
+    nmap -sn 192.168.1.0/24
+    
+    # Escaneo rápido de puertos
+    nmap -F 192.168.1.0/24
+    
+    # Detectar hosts activos en múltiples subredes
+    nmap -sn 192.168.1.0/26 192.168.1.64/26
+    ```
+  </TabItem>
+  
+  <TabItem label="PowerShell">
+    ```powershell title="Test masivo con PowerShell"
+    # Verificar conectividad en rango
+    1..254 | ForEach-Object {
+        $IP = "192.168.1.$_"
+        if (Test-Connection -ComputerName $IP -Count 1 -Quiet) {
+            Write-Host "✓ $IP responde" -ForegroundColor Green
+        }
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+### Análisis de Tablas de Routing
+
+<Tabs>
+  <TabItem label="Linux">
+    ```bash title="Comandos de routing"
+    # Tabla de routing
+    ip route show
+    
+    # Ruta específica
+    ip route get 192.168.1.50
+    
+    # Interfaces y direcciones
+    ip addr show
+    
+    # Información de ARP
+    ip neigh show
+    ```
+  </TabItem>
+  
+  <TabItem label="Windows">
+    ```cmd title="Comandos Windows"
+    REM Tabla de routing
+    route print
+    
+    REM Ruta específica  
+    route print 192.168.1.0
+    
+    REM Configuración IP
+    ipconfig /all
+    
+    REM Tabla ARP
+    arp -a
+    ```
+  </TabItem>
+</Tabs>
+
+## 4. Tests de Validación Matemática
+
+<Badge text="Verificación" variant="tip" size="small" />
+
+### Tests Automatizados
+
+```python title="test_subnet_math.py"
+import unittest
+import ipaddress
+
+class TestSubnetMath(unittest.TestCase):
+    
+    def test_conservation_principle(self):
+        """Test: Subredes × Direcciones = Total Original"""
+        subnet = ipaddress.IPv4Network('192.168.1.0/24')
+        subnets = list(subnet.subnets(new_prefix=26))
+        
+        total_from_subnets = sum(s.num_addresses for s in subnets)
+        self.assertEqual(total_from_subnets, subnet.num_addresses)
+    
+    def test_no_overlap_in_vlsm(self):
+        """Test: Sin solapamiento en VLSM"""
+        subnet_strings = [
+            '192.168.1.0/25',   # 0-127
+            '192.168.1.128/26', # 128-191  
+            '192.168.1.192/27', # 192-223
+            '192.168.1.224/28'  # 224-239
+        ]
+        
+        subnets = [ipaddress.IPv4Network(s) for s in subnet_strings]
+        
+        for i in range(len(subnets) - 1):
+            current_end = subnets[i].broadcast_address
+            next_start = subnets[i+1].network_address
+            error_msg = "Solapamiento entre " + str(subnets[i]) + " y " + str(subnets[i+1])
+            self.assertLess(current_end, next_start, error_msg)
+    
+    def test_host_count_calculation(self):
+        """Test: Cálculo correcto de hosts"""
+        test_cases = [
+            ('/24', 254),
+            ('/25', 126), 
+            ('/26', 62),
+            ('/27', 30),
+            ('/28', 14),
+            ('/29', 6),
+            ('/30', 2)
+        ]
+        
+        for cidr, expected_hosts in test_cases:
+            subnet = ipaddress.IPv4Network('192.168.1.0' + cidr)
+            actual_hosts = subnet.num_addresses - 2
+            error_msg = "Error en cálculo de hosts para " + cidr
+            self.assertEqual(actual_hosts, expected_hosts, error_msg)
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+## 5. Herramientas de Documentación
+
+### Generador de Documentación
+
+```python title="subnet_documentation.py"
+import ipaddress
+from datetime import datetime
+
+class SubnetDocumentationGenerator:
+    def __init__(self):
+        self.template = """
+# Documentación de Red - {subnet_addr}
+Generado: {timestamp}
+
+## Información General
+- **Red base:** {subnet_addr}
+- **Máscara:** {netmask} (/{prefix})
+- **Rango total:** {first_ip} - {last_ip}
+- **Total direcciones:** {total_addresses}
+- **Hosts utilizables:** {usable_hosts}
+
+## División en Subredes
+{subnets_table}
+
+## Configuración Recomendada
+{config_section}
+"""
+    
+    def generate_subnet_doc(self, subnet_str: str, num_subnets: int = None):
+        subnet = ipaddress.IPv4Network(subnet_str)
+        
+        # Información básica
+        doc_data = {
+            'subnet_addr': str(subnet),
+            'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            'netmask': str(subnet.netmask),
+            'prefix': subnet.prefixlen,
+            'first_ip': str(subnet.network_address + 1),
+            'last_ip': str(subnet.broadcast_address - 1),
+            'total_addresses': subnet.num_addresses,
+            'usable_hosts': subnet.num_addresses - 2
+        }
+        
+        # Generar tabla de subredes si se solicita
+        if num_subnets:
+            import math
+            bits_needed = math.ceil(math.log2(num_subnets))
+            new_prefix = subnet.prefixlen + bits_needed
+            subnets = list(subnet.subnets(new_prefix=new_prefix))
+            
+            table_rows = []
+            for i, sub in enumerate(subnets[:num_subnets], 1):
+                first = sub.network_address + 1
+                last = sub.broadcast_address - 1
+                hosts = sub.num_addresses - 2
+                row = "| Subred " + str(i).rjust(2) + " | " + str(sub) + " | " + str(first) + " - " + str(last) + " | " + str(hosts).rjust(3) + " |"
+                table_rows.append(row)
+            
+            subnets_table = """
+| Subred | CIDR | Rango de Hosts | Hosts |
+|--------|------|----------------|-------|
+""" + "\n".join(table_rows)
+        else:
+            subnets_table = "No se solicitó división en subredes."
+        
+        doc_data['subnets_table'] = subnets_table
+        doc_data['config_section'] = self._generate_config_examples(subnet)
+        
+        return self.template.format(**doc_data)
+    
+    def _generate_config_examples(self, subnet):
+        first_ip = subnet.network_address + 1
+        prefix = subnet.prefixlen
+        netmask = subnet.netmask
+        
+        return """
+### Cisco IOS
+```
+interface GigabitEthernet0/1
+ ip address """ + str(first_ip) + " " + str(netmask) + """
+ no shutdown
+```
+
+### Linux
+```bash
+ip addr add """ + str(first_ip) + "/" + str(prefix) + """ dev eth0
+```
+
+### Windows
+```cmd
+netsh interface ip set address "Ethernet" static """ + str(first_ip) + " " + str(netmask) + """
+```
+"""
+
+# Uso
+```
+generator = SubnetDocumentationGenerator()
+doc = generator.generate_subnet_doc('192.168.100.0/24', 4)
+print(doc)
+```
+
+---
+
+<Aside type="tip" title="Automatización Completa">
+Estas herramientas permiten automatizar completamente el proceso de diseño, validación y documentación de esquemas de subnetting IPv4.
+</Aside>
+
+**Artículos de la Serie:**
+- **[Guía Fundamental de Subnetting IPv4](/es/tcp-ip-networking/ipv4-subnetting-guide/)** - Bases matemáticas
+- **[Ejemplos Prácticos](/es/tcp-ip-networking/ipv4-subnetting-examples/)** - Casos empresariales  
+- **[VLSM y Técnicas Avanzadas](/es/tcp-ip-networking/ipv4-vlsm-advanced/)** - Optimización avanzada
