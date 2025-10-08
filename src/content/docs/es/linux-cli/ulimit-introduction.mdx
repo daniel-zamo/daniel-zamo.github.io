@@ -1,0 +1,103 @@
+---
+title: "Introducción a ulimit (Límites de Recursos en Linux)"
+description: "Aprende a usar ulimit para establecer límites soft y hard, temporal y permanentemente, en sistemas Linux."
+slug: "ulimit-introduccion"
+tags: ["Linux", "LFCS", "sysadmin", "ulimit", "bash", "recursos", "limits.conf"]
+---
+
+# 🇪🇸 Introducción a `ulimit` en Linux
+
+El comando `ulimit` es una herramienta fundamental para **administradores de sistemas Linux**. Permite establecer y consultar límites de recursos por **usuario**, **shell** y **sesión**, evitando que procesos individuales consuman recursos de forma excesiva y afecten la estabilidad global del sistema.
+
+Estos límites forman parte de la configuración de **PAM (Pluggable Authentication Modules)** y del kernel, y están divididos en dos tipos principales:
+
+- **Soft limit** (blando):  
+  Es el valor efectivo que aplica a los procesos cuando inician.  
+  👉 Un usuario **puede reducir o aumentar** su límite blando, **hasta** el valor definido por el límite duro.
+
+- **Hard limit** (duro):  
+  Es el valor máximo absoluto que puede establecerse.  
+  👉 **Solo el superusuario (root)** puede aumentar un límite duro.  
+  👉 Un usuario normal **sí puede reducir** su límite duro (por ejemplo, para restringirse temporalmente), pero no podrá volver a aumentarlo por encima del nuevo valor sin intervención de root.
+
+---
+
+## Ver límites actuales
+
+```bash
+ulimit -a
+```
+
+Muestra todos los límites actuales para la sesión interactiva.
+También puedes usar opciones específicas, por ejemplo:
+
+```bash
+ulimit -n   # número máximo de archivos abiertos
+ulimit -u   # número máximo de procesos
+ulimit -c   # tamaño máximo de core dumps
+```
+
+Establecer límites temporales (por sesión)
+
+Cualquier usuario puede cambiar sus propios límites blandos temporalmente:
+
+```bash
+ulimit -n 4096
+ulimit -u 2048
+```
+
+Si intentas establecer un valor por encima del límite duro actual:
+
+```bash
+ulimit -n 100000
+```
+
+Obtendrás un error como:
+
+```bash
+bash: ulimit: open files: cannot modify limit: Operation not permitted
+```
+
+> ✅ Recuerda que solo root puede aumentar los límites duros.
+>
+> ✅ Un usuario puede reducir su límite duro, pero no puede aumentarlo. Esto es importante en entornos multiusuario para prevenir abusos.
+
+## Cambiar límites duros (solo root)
+
+El superusuario puede elevar límites duros usando ulimit directamente en una sesión root, o mediante archivos de configuración persistente. Por ejemplo:
+
+```bash
+sudo su -
+ulimit -Hn 65535
+ulimit -Sn 65535
+```
+
+- `-H` para hard, `-S` para soft.
+- Root (`root`) puede cambiar ambos libremente.
+
+## Establecer límites permanentes
+
+Para aplicar límites de recursos de forma permanente/persistente, se usan las configuraciones de PAM. Estos cambios se hacen sobre el archivo `/etc/security/limits.conf` o creando archivos en `/etc/security/limits.d/`. Estos son:
+
+```bash
+sudo vim /etc/security/limits.conf
+```
+
+o mejor:
+
+```bash
+/etc/security/limits.d/<usuario>.conf
+/etc/security/limits.d/<NOMBRE_..>.conf
+```
+
+Ejemplo:
+
+```bash
+pascual soft nofile 4096
+@2 hard nofile 8192
+```
+
+
+
+
+
