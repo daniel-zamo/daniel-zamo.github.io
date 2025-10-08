@@ -103,25 +103,26 @@ export default defineConfig({
                 //{ label: 'TCP/IP Networking', collapsed: true, autogenerate: { directory: 'tcp-ip-networking' }},
                 { label: 'TCP/IP & Networking', collapsed: true, autogenerate: { directory: 'tcp-ip-networking' } },
                 { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
-                {
-                    label: 'Certifications',
-                    collapsed: true,
-                    items: [
-                        /* { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },*/
-                        /*{
-                            label: 'Azure',
-                            items: [
-                                { label: 'Azure Certifications', link: '/certifications/azure/' },
-                                { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
-                                { label: 'Practice AI-900', link: '/practice/' }
-                            ]
-                        },*/
-                        /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
-                        
-                        // Corregir el directorio para que coincida con la estructura
-                        { label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } },
-                    ]
-                }, 
+                { label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } },
+//                {
+//                    label: 'Certifications',
+//                    collapsed: true,
+//                    items: [
+//                        /* { label: 'Linux', autogenerate: { directory: 'certifications/linux' } },*/
+//                        /*{
+//                            label: 'Azure',
+//                            items: [
+//                                { label: 'Azure Certifications', link: '/certifications/azure/' },
+//                                { label: 'AI-900: Azure AI Fundamentals', link: '/certifications/azure/ai-900' },
+//                                { label: 'Practice AI-900', link: '/practice/' }
+//                            ]
+//                        },*/
+//                        /*{ label: 'ai', autogenerate: { directory: '/ai/'} },*/
+//                        
+//                        // Corregir el directorio para que coincida con la estructura
+//                        //{ label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } },
+//                    ]
+//                }, 
             ],
         }),
     ],
