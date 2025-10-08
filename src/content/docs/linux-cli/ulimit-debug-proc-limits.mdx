@@ -1,0 +1,36 @@
+---
+title: "Debugging: /proc/<PID>/limits"
+#... and why ulimit does not apply / Debugging /proc/<PID>/limits"
+description: "How to inspect limits applied to processes and debug why ulimit didn't take effect (systemd, containers, PAM, sessions)."
+#lang: "es,en"
+slug: "ulimit-debug-proc-limits"
+---
+
+# 🇬🇧 Debugging limits with `/proc/<PID>/limits`
+
+If `ulimit` seems not to work, check:
+
+- Was the process started by systemd? Then change the unit file.
+- Is it running inside a container without PAM? Then `limits.d` might not apply.
+- Were limits changed after the process started? Then they won't apply retroactively.
+
+Use:
+
+```bash
+cat /proc/<PID>/limits
+```
+
+Then compare with `ulimit -a` from the same user. For systemd-managed services, set `LimitNOFILE` / `LimitNPROC` in the unit and restart. For Docker containers, use `--ulimit` when running the container.
+
+## Typical Cases and Quick Fixes (FQFS)
+
+- **Error:** `Operation not permitted` when trying to set `ulimit -n`
+**Cause:** You are trying to increase the hard limit.
+**Solution:** Ask root to increase the hard limit in `/etc/security/limits.d/` or modify the systemd unit if applicable.
+
+- **Problem:** Changes to `~/.bashrc` do not affect the service.
+**Cause:** The service is managed by systemd or the process is already started.
+**Solution:** Use the unit configuration or restart the service.
+
+- **Issue in containers:** `/etc/security/limits.d` is ignored.
+**Solution:** Use `--ulimit` when creating containers or adjusting host cgroups.

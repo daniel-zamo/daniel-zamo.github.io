@@ -1,0 +1,56 @@
+---
+title: "Introduction to ulimit"
+description: "Practical guide on how to check and configure soft and hard (temporary and permanent) limits in Linux."
+#lang: "es,en"
+slug: "ulimit-introduccion"
+draft: false
+---
+
+# 🇬🇧 Introduction to `ulimit` in Linux
+
+The `ulimit` command is a core tool for Linux administrators. It lets you set and inspect per-user and per-session resource limits.
+
+- **Soft limit**: enforced value at process start; users may raise it up to the hard limit.
+- **Hard limit**: absolute ceiling; only root can raise it. Regular users can lower it.
+
+### Check current limits
+
+```bash
+ulimit -a
+```
+
+### Temporary session limits
+
+```bash
+ulimit -n 4096
+ulimit -u 2048
+```
+
+Attempting to increase beyond the hard limit will fail with "Operation not permitted".
+
+### Permanent limits (PAM)
+
+Edit `/etc/security/limits.conf` or create `/etc/security/limits.d/<user>.conf`:
+
+```
+pascual soft nofile 4096
+pascual hard nofile 8192
+```
+
+### systemd-managed services
+
+Use unit directives:
+
+```ini
+[Service]
+LimitNOFILE=8192
+LimitNPROC=4096
+```
+
+Reload systemd and restart the service.
+
+### Notes
+
+- Root can change hard limits; regular users cannot raise hard limits.  
+- Use `/proc/<PID>/limits` to verify the effective limits applied to a running process.
+

@@ -1,0 +1,33 @@
+---
+title: "Cheat Sheet: ulimit en Linux / ulimit Cheat Sheet"
+description: "Quick reference sheet for the most commonly used commands and files with ulimit."
+#lang: "es,en"
+slug: "ulimit-cheatsheet"
+draft: false
+---
+
+# 🇬🇧 `ulimit` Cheat Sheet (Linux Sysadmin)
+
+| Action                                      | Command / File                                             | Notes |
+|---------------------------------------------|------------------------------------------------------------|-------|
+| Show all limits                              | `ulimit -a`                                               | Soft values displayed |
+| Show soft limit (nofile)                     | `ulimit -Sn`                                              | |
+| Show hard limit (nofile)                     | `ulimit -Hn`                                              | Only root can raise |
+| Change soft limit                             | `ulimit -Sn 4096`                                         | Up to hard limit |
+| Change hard limit                             | `ulimit -Hn 4096`                                         | Regular users can only lower, root can raise |
+| Max open files                                | `ulimit -n`                                              | Common for services |
+| Max user processes                            | `ulimit -u`                                              | |
+| Core dumps                                     | `ulimit -c unlimited`                                   | For debugging |
+| Persistent (PAM)                               | `/etc/security/limits.d/<user>.conf`                     | Per-user configuration |
+| Persistent (shell)                             | `~/.bashrc` or `~/.bash_profile`                         | |
+| systemd unit                                   | `[Service]\nLimitNOFILE=8192`                           | For services |
+| Check process limits                           | `cat /proc/<PID>/limits`                                 | Shows effective soft/hard |
+
+---
+
+✅ **LFCS Tip**: If `ulimit` doesn't apply, check:
+
+- You're trying to exceed the hard limit without being root.
+- The process was launched by `systemd` (check the unit).
+- You're in a non-PAM container (use `--ulimit` when creating the container).
+- The change was made in a different session (re-log or restart the service).
