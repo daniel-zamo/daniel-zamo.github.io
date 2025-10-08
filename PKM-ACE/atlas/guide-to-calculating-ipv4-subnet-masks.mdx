@@ -1,0 +1,573 @@
+---
+title: Métodos Matemáticos para Cálculo de Subredes IPv4
+description: Guía completa con fórmulas matemáticas, técnicas nemotécnicas y métodos prácticos para dominar el subnetting IPv4 en redes empresariales.
+tableOfContents:
+  minHeadingLevel: 2
+  maxHeadingLevel: 4
+sidebar:
+  order: 2
+  badge:
+    text: Fundamental
+    variant: tip
+---
+
+import { Aside } from '@astrojs/starlight/components';
+import { Code } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Badge } from '@astrojs/starlight/components';
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+# Métodos Matemáticos para Cálculo de Subredes IPv4: Guía Completa
+
+<Aside type="tip" title="Prerequisitos">
+Esta guía asume conocimientos básicos de direccionamiento IP y notación binaria. Incluye técnicas nemotécnicas para facilitar el aprendizaje.
+</Aside>
+
+El subnetting es una habilidad fundamental en administración de redes que permite dividir una red IP en segmentos más pequeños y manejables. Esta guía presenta métodos matemáticos sistemáticos y técnicas de memorización para dominar el cálculo de subredes IPv4.
+
+## ¿Por qué es importante dominar el subnetting?
+
+<CardGrid>
+  <Card title="Optimización de Recursos" icon="optimization">
+    Maximiza el uso eficiente del espacio de direcciones IP disponible
+  </Card>
+  <Card title="Seguridad de Red" icon="shield">
+    Permite segmentación lógica y control de tráfico entre diferentes departamentos
+  </Card>
+  <Card title="Rendimiento" icon="rocket">
+    Reduce dominios de broadcast y mejora el rendimiento general de la red
+  </Card>
+  <Card title="Escalabilidad" icon="growth">
+    Facilita el crecimiento controlado de la infraestructura de red
+  </Card>
+</CardGrid>
+
+## 1. Fundamentos Matemáticos Universales
+
+<Badge text="Esencial" variant="danger" size="small" /> <Badge text="Matemáticas" variant="note" size="small" />
+
+### Fórmulas Maestras
+
+Estas son las cuatro fórmulas fundamentales que resolverán cualquier problema de subnetting:
+
+```bash title="Fórmulas esenciales del subnetting"
+Subredes = 2^(bits_prestados)
+Hosts_por_subred = 2^(bits_host) - 2
+Bits_prestados = nueva_máscara - máscara_original
+Bits_host = 32 - nueva_máscara
+```
+
+<Aside type="note" title="Principio de Conservación">
+**Total_direcciones_original = Número_subredes × Direcciones_por_subred**
+
+Esta ecuación debe cumplirse siempre y sirve como verificación de nuestros cálculos.
+</Aside>
+
+### Conceptos Clave
+
+<Tabs>
+  <TabItem label="Bits Prestados">
+    Los bits que "tomamos prestados" de la porción de host para crear subredes adicionales.
+    
+    ```
+    Red original: 192.168.1.0/24 (8 bits de host)
+    Prestamos 2 bits: 192.168.1.0/26 (6 bits de host)
+    Resultado: 4 subredes con 62 hosts cada una
+    ```
+  </TabItem>
+  
+  <TabItem label="Bits de Host">
+    Los bits restantes después del prestamo que determinan cuántos hosts puede tener cada subred.
+    
+    ```
+    32 bits totales - máscara CIDR = bits de host
+    Ejemplo: 32 - 26 = 6 bits de host
+    2^6 - 2 = 62 hosts utilizable por subred
+    ```
+  </TabItem>
+  
+  <TabItem label="Direcciones Reservadas">
+    **Siempre se restan 2 direcciones por subred:**
+    - **Dirección de red**: Primer dirección (todos los bits de host en 0)
+    - **Dirección de broadcast**: Última dirección (todos los bits de host en 1)
+  </TabItem>
+</Tabs>
+
+## 2. Tabla Nemotécnica Universal: "La Escalera de Potencias"
+
+<Badge text="Memorización" variant="tip" size="small" />
+
+Esta tabla te permitirá calcular mentalmente las potencias de 2 más comunes:
+
+| Bits | Valor | Nemotécnico | Aplicación Práctica |
+|------|-------|-------------|---------------------|
+| 1 | 2 | "2 opciones: SÍ/NO" | 2 subredes |
+| 2 | 4 | "4 puntos cardinales" | 4 subredes |
+| 3 | 8 | "8 bits = 1 byte" | 8 subredes |
+| 4 | 16 | "16 años = mayoría edad" | 16 subredes |
+| 5 | 32 | "32 dientes adulto" | 32 subredes |
+| 6 | 64 | "64 casillas ajedrez" | 64 subredes |
+| 7 | 128 | "128 caracteres ASCII" | 128 subredes |
+| 8 | 256 | "256 valores byte" | 256 subredes |
+
+### Valores de Posición Binaria en IPv4
+
+<Aside type="tip" title="Pesos Binarios">
+Memorizar estos valores facilita las conversiones binario-decimal:
+</Aside>
+
+|Posición|7|6|5|4|3|2|1|0|
+|:-------|:--|:--|:--|:--|:--|:--|:--|:--|
+|**Exponente**|`2^7`|`2^6`|`2^5`|`2^4`|`2^3`|`2^2`|`2^1`|`2^0`|
+|**Valor Decimal**|`128`|`64`|`32`|`16`|`8`|`4`|`2`|`1`|
+
+## 3. Método del "Salto Mágico" Generalizado
+
+<Badge text="Técnica Avanzada" variant="caution" size="small" />
+
+Este método permite calcular rápidamente los rangos de subredes sin conversiones binarias complejas.
+
+### Algoritmo Universal
+
+<Steps>
+
+1. **Convertir CIDR a máscara decimal**
+   Usar la tabla de máscaras de referencia
+
+2. **Calcular el salto**
+   ```
+   Salto = 256 - valor_último_octeto_afectado
+   ```
+
+3. **Generar rangos**
+   Incrementar por el salto desde la dirección base
+
+4. **Determinar límites**
+   Cada subred va desde su dirección base hasta (siguiente_base - 1)
+
+</Steps>
+
+### Tabla de Máscaras de Referencia
+
+| CIDR | Máscara Decimal | Último Octeto | Salto | Subredes | Hosts/Subred |
+|------|-----------------|---------------|-------|----------|--------------|
+| /25 | 255.255.255.128 | 128 | 128 | 2 | 126 |
+| /26 | 255.255.255.192 | 192 | 64 | 4 | 62 |
+| /27 | 255.255.255.224 | 224 | 32 | 8 | 30 |
+| /28 | 255.255.255.240 | 240 | 16 | 16 | 14 |
+| /29 | 255.255.255.248 | 248 | 8 | 32 | 6 |
+| /30 | 255.255.255.252 | 252 | 4 | 64 | 2 |
+
+### Ejemplo Práctico del Salto Mágico
+
+<Tabs>
+  <TabItem label="Caso: /26">
+    ```bash title="Red: 192.168.1.0/26"
+    # Máscara: 255.255.255.192
+    # Salto: 256 - 192 = 64
+    
+    Subred 1: 192.168.1.0   - 192.168.1.63
+    Subred 2: 192.168.1.64  - 192.168.1.127
+    Subred 3: 192.168.1.128 - 192.168.1.191
+    Subred 4: 192.168.1.192 - 192.168.1.255
+    ```
+  </TabItem>
+  
+  <TabItem label="Caso: /27">
+    ```bash title="Red: 10.0.0.0/27"
+    # Máscara: 255.255.255.224
+    # Salto: 256 - 224 = 32
+    
+    Subred 1: 10.0.0.0   - 10.0.0.31   (30 hosts)
+    Subred 2: 10.0.0.32  - 10.0.0.63   (30 hosts)
+    Subred 3: 10.0.0.64  - 10.0.0.95   (30 hosts)
+    Subred 4: 10.0.0.96  - 10.0.0.127  (30 hosts)
+    # ... continúa hasta 8 subredes
+    ```
+  </TabItem>
+  
+  <TabItem label="Caso: /28">
+    ```bash title="Red: 172.16.10.0/28"
+    # Máscara: 255.255.255.240
+    # Salto: 256 - 240 = 16
+    
+    Subred 1:  172.16.10.0   - 172.16.10.15  (14 hosts)
+    Subred 2:  172.16.10.16  - 172.16.10.31  (14 hosts)
+    Subred 3:  172.16.10.32  - 172.16.10.47  (14 hosts)
+    # ... total de 16 subredes
+    ```
+  </TabItem>
+</Tabs>
+
+## 4. Patrones para Redes Privadas
+
+<Badge text="RFC 1918" variant="note" size="small" />
+
+### Clase A Privada: 10.0.0.0/8
+
+<Aside type="tip" title="Capacidad Masiva">
+**Capacidad base:** 16,777,216 direcciones - Ideal para grandes corporaciones
+</Aside>
+
+| Subredes Deseadas | Bits Prestados | Nueva Máscara | Hosts/Subred | Uso Típico |
+|-------------------|----------------|---------------|--------------|------------|
+| 2 | 1 | /9 | 8,388,606 | División continental |
+| 4 | 2 | /10 | 4,194,302 | División por países |
+| 8 | 3 | /11 | 2,097,150 | División por regiones |
+| 16 | 4 | /12 | 1,048,574 | División por ciudades |
+| 256 | 8 | /16 | 65,534 | Departamentos grandes |
+| 65,536 | 16 | /24 | 254 | Oficinas pequeñas |
+
+### Clase B Privada: 172.16.0.0/12
+
+<Aside type="note" title="Rango Medio">
+**Capacidad base:** 1,048,576 direcciones - Perfecto para empresas medianas
+</Aside>
+
+| Subredes Deseadas | Bits Prestados | Nueva Máscara | Hosts/Subred | Uso Típico |
+|-------------------|----------------|---------------|--------------|------------|
+| 2 | 1 | /13 | 524,286 | División principal |
+| 4 | 2 | /14 | 262,142 | División por campus |
+| 16 | 4 | /16 | 65,534 | Edificios |
+| 256 | 8 | /20 | 4,094 | Pisos/Departamentos |
+| 4,096 | 12 | /24 | 254 | Oficinas individuales |
+
+### Clase C Privada: 192.168.x.0/24
+
+<Aside type="caution" title="Espacio Limitado">
+**Capacidad base:** 256 direcciones - Común en redes domésticas y oficinas pequeñas
+</Aside>
+
+| Subredes Deseadas | Bits Prestados | Nueva Máscara | Hosts/Subred | Uso Típico |
+|-------------------|----------------|---------------|--------------|------------|
+| 2 | 1 | /25 | 126 | Usuarios/Servidores |
+| 4 | 2 | /26 | 62 | Departamentos pequeños |
+| 8 | 3 | /27 | 30 | Equipos de trabajo |
+| 16 | 4 | /28 | 14 | Impresoras/IoT |
+| 32 | 5 | /29 | 6 | Enlaces internos |
+| 64 | 6 | /30 | 2 | Enlaces punto a punto |
+
+## 5. Algoritmo de Cálculo Sistemático
+
+<Badge text="Metodología" variant="tip" size="small" />
+
+### Proceso Paso a Paso
+
+<Steps>
+
+1. **IDENTIFICAR las necesidades**
+   - ¿Cuántas subredes necesito?
+   - ¿Cuántos hosts por subred?
+
+2. **BUSCAR en la escalera de potencias**
+   - Encontrar el menor 2^n ≥ subredes_necesarias
+   - Verificar que 2^m - 2 ≥ hosts_necesarios
+
+3. **CALCULAR la nueva máscara**
+   ```
+   nueva_máscara = máscara_original + bits_prestados
+   ```
+
+4. **VERIFICAR factibilidad**
+   - nueva_máscara ≤ 30 (para LANs con hosts)
+   - nueva_máscara ≤ 32 (máximo absoluto)
+
+5. **APLICAR método del salto**
+   - Calcular rangos específicos
+   - Asignar subredes según necesidades
+
+</Steps>
+
+### Ejemplo Completo: Caso Empresarial
+
+<Tabs>
+  <TabItem label="Problema">
+    **Escenario:** Una empresa necesita dividir la red 192.168.100.0/24 para:
+    - 3 departamentos (Ventas, IT, Administración)
+    - Cada departamento necesita al menos 50 hosts
+    - Reservar espacio para crecimiento futuro
+  </TabItem>
+  
+  <TabItem label="Análisis">
+    ```bash title="Análisis de requerimientos"
+    # Red original: 192.168.100.0/24 (256 direcciones)
+    # Subredes mínimas: 3
+    # Hosts mínimos por subred: 50
+    
+    # Buscar en escalera de potencias:
+    # 2^1 = 2 subredes (insuficiente)
+    # 2^2 = 4 subredes (suficiente + buffer)
+    
+    # Verificar hosts por subred:
+    # Bits prestados: 2
+    # Bits de host restantes: 32 - 26 = 6
+    # Hosts por subred: 2^6 - 2 = 62 hosts (suficiente)
+    ```
+  </TabItem>
+  
+  <TabItem label="Solución">
+    ```bash title="Implementación con /26"
+    # Nueva máscara: /24 + 2 = /26
+    # Salto: 256 - 192 = 64
+    
+    Ventas:        192.168.100.0/26   (192.168.100.1   - 192.168.100.62)
+    IT:            192.168.100.64/26  (192.168.100.65  - 192.168.100.126)
+    Administración: 192.168.100.128/26 (192.168.100.129 - 192.168.100.190)
+    Reservada:     192.168.100.192/26 (192.168.100.193 - 192.168.100.254)
+    ```
+  </TabItem>
+  
+  <TabItem label="Verificación">
+    ```bash title="Validación matemática"
+    # Test de consistencia:
+    # 4 subredes × 64 direcciones = 256 direcciones ✓
+    
+    # Test de factibilidad:
+    # nueva_máscara = 26 ≤ 30 ✓
+    
+    # Test de capacidad:
+    # 62 hosts ≥ 50 hosts requeridos ✓
+    ```
+  </TabItem>
+</Tabs>
+
+## 6. Reglas de Optimización Empresarial
+
+### Regla del "Siguiente Poder de 2"
+
+<Aside type="tip" title="Planificación">
+Si necesitas N subredes, usa el menor 2^n donde 2^n ≥ N para permitir crecimiento futuro.
+</Aside>
+
+```bash title="Ejemplos de aplicación"
+Necesitas 5 subredes → Usa 2^3 = 8 subredes
+Necesitas 10 subredes → Usa 2^4 = 16 subredes
+Necesitas 25 subredes → Usa 2^5 = 32 subredes
+```
+
+### Regla del "Buffer de Crecimiento"
+
+<CardGrid>
+  <Card title="Pequeñas Empresas (< 50 empleados)" icon="small-business">
+    Planifica **25% adicional** de capacidad
+  </Card>
+  <Card title="Empresas Medianas (50-500 empleados)" icon="medium-business">
+    Planifica **50% adicional** de capacidad
+  </Card>
+  <Card title="Grandes Corporaciones (> 500 empleados)" icon="large-business">
+    Planifica **100% adicional** de capacidad
+  </Card>
+</CardGrid>
+
+### Regla de "Máscara Mínima Viable"
+
+```bash title="Límites recomendados por tipo de red"
+# Redes LAN con hosts
+/30 → Máximo recomendado (2 hosts útiles)
+
+# Enlaces punto a punto WAN
+/30 → Estándar para enlaces dedicados
+
+# Enlaces punto a punto modernos
+/31 → Permitido en RFC 3021 (sin broadcast)
+
+# Host individual
+/32 → Direcciones de loopback/host específico
+```
+
+## 7. Verificaciones Matemáticas y Troubleshooting
+
+<Badge text="Quality Assurance" variant="caution" size="small" />
+
+### Tests de Consistencia
+
+<Tabs>
+  <TabItem label="Test Principal">
+    ```bash title="Verificación de conservación"
+    Subredes_calculadas × Hosts_por_subred = Direcciones_red_original
+    
+    # Ejemplo: Red 192.168.1.0/24 dividida en /26
+    4 subredes × 64 direcciones = 256 direcciones ✓
+    ```
+  </TabItem>
+  
+  <TabItem label="Test de Factibilidad">
+    ```bash title="Verificación de límites"
+    # Para redes con hosts
+    nueva_máscara ≤ 30
+    
+    # Máximo absoluto IPv4
+    nueva_máscara ≤ 32
+    
+    # Hosts mínimos viables
+    hosts_por_subred ≥ hosts_requeridos
+    ```
+  </TabItem>
+  
+  <TabItem label="Test de Overlapping">
+    ```bash title="Verificación de no solapamiento"
+    # Las subredes NO deben solaparse
+    fin_subred_n < inicio_subred_n+1
+    
+    # Ejemplo correcto:
+    Subred 1: 192.168.1.0   - 192.168.1.63
+    Subred 2: 192.168.1.64  - 192.168.1.127  ✓
+    
+    # Ejemplo incorrecto:
+    Subred 1: 192.168.1.0   - 192.168.1.63
+    Subred 2: 192.168.1.32  - 192.168.1.95   ✗
+    ```
+  </TabItem>
+</Tabs>
+
+### Errores Comunes y Soluciones
+
+<CardGrid>
+  <Card title="Error: Insuficientes Hosts" icon="error">
+    **Síntoma:** Menos hosts calculados que requeridos
+    
+    **Solución:** Reducir número de subredes o usar máscara menor
+  </Card>
+  <Card title="Error: Desperdiciar Direcciones" icon="warning">
+    **Síntoma:** Demasiados hosts no utilizados por subred
+    
+    **Solución:** Implementar VLSM (Variable Length Subnet Masking)
+  </Card>
+  <Card title="Error: Máscara Inválida" icon="prohibition">
+    **Síntoma:** Máscara resultante > /30 para LANs
+    
+    **Solución:** Usar red de clase superior o replantear arquitectura
+  </Card>
+</CardGrid>
+
+## 8. Casos Especiales y Técnicas Avanzadas
+
+### VLSM (Variable Length Subnet Masking)
+
+<Badge text="Avanzado" variant="danger" size="small" />
+
+<Aside type="tip" title="Optimización Avanzada">
+VLSM permite usar diferentes máscaras de subred dentro de la misma red principal, optimizando el uso de direcciones.
+</Aside>
+
+**Metodología VLSM:**
+
+<Steps>
+
+1. **Ordenar por tamaño descendente**
+   Listar todas las subredes requeridas desde la más grande
+
+2. **Asignar de mayor a menor**
+   Comenzar con la subred más grande y continuar secuencialmente
+
+3. **Evitar overlapping**
+   Cada nueva subred debe comenzar después del final de la anterior
+
+4. **Verificar disponibilidad**
+   Confirmar que hay espacio suficiente en el rango original
+
+</Steps>
+
+### Supernetting / CIDR Aggregation
+
+```bash title="Agregación de rutas"
+# Combinar múltiples redes en una sola ruta
+192.168.0.0/24 + 192.168.1.0/24 = 192.168.0.0/23
+192.168.2.0/24 + 192.168.3.0/24 = 192.168.2.0/23
+
+# Regla: Las redes deben ser consecutivas y potencia de 2
+```
+
+### Enlaces Punto a Punto Modernos
+
+<Tabs>
+  <TabItem label="/31 (RFC 3021)">
+    ```bash title="Enlaces sin broadcast"
+    # Utilizable en enlaces punto a punto sin desperdicio
+    192.168.1.0/31:
+      Host A: 192.168.1.0
+      Host B: 192.168.1.1
+    # No hay dirección de red ni broadcast
+    ```
+  </TabItem>
+  
+  <TabItem label="/30 (Tradicional)">
+    ```bash title="Enlaces con broadcast"
+    192.168.1.0/30:
+      Red:       192.168.1.0    (no utilizable)
+      Host A:    192.168.1.1    (utilizable)
+      Host B:    192.168.1.2    (utilizable)  
+      Broadcast: 192.168.1.3    (no utilizable)
+    ```
+  </TabItem>
+</Tabs>
+
+## 9. Herramientas de Validación y Cálculo
+
+### Calculadora Manual Rápida
+
+```bash title="Fórmulas de verificación rápida"
+# Para cualquier máscara /X:
+Hosts = 2^(32-X) - 2
+
+# Para encontrar la máscara dado el número de hosts:
+X = 32 - log2(hosts + 2)
+
+# Ejemplo: 100 hosts necesarios
+X = 32 - log2(102) ≈ 32 - 6.67 ≈ 25.33 → /25
+Verificación: 2^(32-25) - 2 = 126 hosts ✓
+```
+
+### Comandos Útiles para Validación
+
+<Tabs>
+  <TabItem label="Linux">
+    ```bash
+    # Calcular rango de subred
+    ipcalc 192.168.1.0/26
+    
+    # Verificar solapamiento
+    sipcalc 192.168.1.0/26
+    
+    # Información detallada
+    subnetcalc 192.168.1.0/26
+    ```
+  </TabItem>
+  
+  <TabItem label="Windows">
+    ```bash
+    # PowerShell para cálculos
+    [System.Net.IPAddress]::Parse("255.255.255.192")
+    
+    # Conversión CIDR
+    netsh interface ipv4 show subinterfaces
+    ```
+  </TabItem>
+  
+  <TabItem label="Python">
+    ```python
+    import ipaddress
+    
+    # Crear red
+    network = ipaddress.IPv4Network('192.168.1.0/26')
+    
+    # Información de la red
+    print(f"Hosts: {network.num_addresses - 2}")
+    print(f"Red: {network.network_address}")
+    print(f"Broadcast: {network.broadcast_address}")
+    ```
+  </TabItem>
+</Tabs>
+
+---
+
+<Aside type="tip" title="Dominio del Subnetting">
+Con estas técnicas matemáticas y nemotécnicas, podrás resolver cualquier problema de subnetting IPv4 de manera rápida y precisa. La práctica constante es clave para la maestría.
+</Aside>
+
+**Próximos Pasos:** Considera estudiar IPv6 subnetting y técnicas avanzadas de routing para completar tu conocimiento en administración de redes empresariales.
+
+<Aside type="note" title="Nota Técnica">
+Este documento cubre el 95% de escenarios de subnetting en redes empresariales. Para casos edge específicos, consultar RFCs 950, 1518, y 1519.
+</Aside>
