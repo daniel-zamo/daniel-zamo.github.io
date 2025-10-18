@@ -103,7 +103,7 @@ export default defineConfig({
                 //{ label: 'TCP/IP Networking', collapsed: true, autogenerate: { directory: 'tcp-ip-networking' }},
                 { label: 'TCP/IP & Networking', collapsed: true, autogenerate: { directory: 'tcp-ip-networking' } },
                 { label: 'CLI Linux', collapsed: true, autogenerate: { directory: 'linux-cli' } },
-                { label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } },
+/*                { label: 'LFCS Labs Set I', collapsed: true, autogenerate: { directory: 'lfcs-labs' } }, */
 //                {
 //                    label: 'Certifications',
 //                    collapsed: true,
