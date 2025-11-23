@@ -38,3 +38,15 @@ a:hover {
   color: #004499;
 }
 */
+
+/* Hacer que la imagen del Hero se vea como una tarjeta 3D */
+/* .hero img { */
+/*  border-radius: 24px; */
+/* Redondea bordes */
+/*  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.5); */
+/* Sombra elegante */
+/*  max-height: 400px; */
+/* Controlar altura para que no sea gigante */
+/*  width: auto; */
+/*  object-fit: contain; */
+/*} */

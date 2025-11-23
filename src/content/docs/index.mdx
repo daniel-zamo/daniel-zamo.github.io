@@ -5,17 +5,13 @@ template: splash
 hero:
   tagline: A personal collection of IT study notes, guides, and tech deep-dives.
   image:
-    file: ../../assets/open-book.png
+    file: ../../assets/hero-cube-removebg-preview.png
   actions:
-#    - text: LFCS Labs Set I - study practical Linux questions
-#      link: /lfcs-labs/
-#      icon: right-arrow
-    - text: TCP/IP & Networking
-      link: /tcp-ip-networking/
-      icon: open-book
+    - text: LFCS Workshop & Scenarios
+      link: /lfcs/
+      icon: rocket
 prev: false
 next: false
-
 editUrl: false
 lastUpdated: 2025-09-08
 head:
@@ -54,26 +50,9 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Explore Topics
 
 <CardGrid stagger>
-  {/*
-	<Card title="Cloud & DevOps" icon="document">
-		My journey and notes on cloud platforms and DevOps tools.
-	</Card>*/}
-	<Card title="IPv4 Subnet Calculation" icon="pencil">
-    Essential mathematical formulas and mnemonic techniques to master IPv4 subnetting calculation. Fundamental guide without extensive examples.
+	<Card title="LFCS" icon="rocket">
+    ...
     <br />
-    <a href="/tcp-ip-networking/ipv4-subnetting-guide">Mathematical Methods for **IPv4 Subnet Calculation** →</a>
+    <a href="/lfcs-certication/...">... →</a>
 	</Card>
-    {/* --- COMENTARIO ---
-    <Card title="Practical Guides" icon="document">
-        Step-by-step guides and tips on tools like Git, Docker, and more.
-        <br />
-        <a href="/guides/git/gitignore-strategies/">Start learning →</a>
-    </Card>
-	<Card title="Kubernetes (K8s)" icon="rocket">
-		From basic concepts to advanced cluster management.
-	</Card>
-	<Card title="Networking" icon="network">
-		Core concepts, protocols, and practical configurations.
-	</Card>
-    --- FIN COMENTARIO --- */}
 </CardGrid>

@@ -1,0 +1,67 @@
+---
+title: Engineering Scenarios
+description: Catalog of practical infrastructure challenges and validation workshops.
+sidebar:
+  label: Scenario Catalog
+  order: 0
+type: lab
+source: manual
+---
+
+import { CardGrid, LinkCard, Icon } from '@astrojs/starlight/components';
+
+This section hosts the **practical validation layer** of this portfolio. Each scenario simulates a real-world infrastructure ticket, requiring the execution of configuration, troubleshooting, and deployment tasks within a live environment.
+
+The objective is to demonstrate muscle memory and architectural understanding under constraints typical of the **LFCS** performance-based exam.
+
+---
+
+## 🏗️ Infrastructure Topology
+
+All scenarios defined in this catalog operate within a standardized **7-node cluster**.
+
+:::danger[Operational Constraints]
+*   **Entry Point:** All tasks originate from the `terminal` node.
+*   **Connectivity:** **Nested SSH is strictly forbidden**. You must connect to target nodes directly from the main terminal.
+*   **Persistence:** All configurations must survive a system reboot.
+:::
+
+### Node Inventory
+
+| Role | Hostname | Function / Context |
+| :--- | :--- | :--- |
+| **Management** | `terminal` | Default controller and CLI entry point. |
+| **Web Tier** | `web-server01` | HTTP serving, Nginx/Apache configuration. |
+| **App Tier** | `app-server1` | Application logic and proxy targets. |
+| **Data Tier** | `data-node01`, `02` | Database simulation and raw storage. |
+| **Virtualization** | `kvm-001` | Libvirt/KVM hypervisor host. |
+| **Containers** | `docker-001` | Container runtime host. |
+
+---
+
+## 🚀 Scenario Catalog
+
+Select a workshop to view the specific requirements and solution strategy.
+
+<CardGrid>
+  <LinkCard
+    title="01 - Time Synchronization"
+    description="Configure NTP clients and peers across the cluster using Chrony."
+    href="/lfcs/labs/01-time-sync/"
+  />
+  <LinkCard
+    title="02 - Nginx Reverse Proxy"
+    description="Deploy a web server and configure upstream proxying for internal apps."
+    href="/lfcs/labs/02-nginx-proxy/"
+  />
+  <LinkCard
+    title="03 - Storage Management"
+    description="LVM resizing, swap creation, and persistent mounting."
+    href="/lfcs/labs/03-storage-mgmt/"
+  />
+   <LinkCard
+    title="04 - KVM Guest Management"
+    description="Provision and isolate virtual machines via CLI."
+    href="/lfcs/labs/04-kvm-management/"
+  />
+</CardGrid>

@@ -1,37 +1,58 @@
 // RUTA: src/content/config.ts
-
-// Importaciones originales de Starlight
-import { docsLoader } from '@astrojs/starlight/loaders';
+import { defineCollection, z } from 'astro:content';
 import { docsSchema } from '@astrojs/starlight/schema';
 
-// Importaciones necesarias para nuestra colección de preguntas
-import { defineCollection, z } from 'astro:content';
+// 1. Colección 'docs'
+// ELIMINADO: loader: docsLoader() -> Esto causaba el error con la imagen
+const docsCollection = defineCollection({
+  schema: docsSchema({
+    extend: z.object({
+      // Mapeo de campos personalizados de Obsidian
+      source: z.string().optional(),
 
-// 1. Tu colección 'docs' original de Starlight (sin cambios)
-const docsCollection = defineCollection({ 
-  loader: docsLoader(), 
-  schema: docsSchema() 
+      // Taxonomía de dominios
+      domain: z.enum([
+        'compute',
+        'storage',
+        'networking',
+        'security',
+        'virtualization',
+        'containers',
+        'automation',
+        'monitoring'
+      ]).optional(),
+
+      // Tipo de contenido
+      type: z.enum([
+        'lab',
+        'theory',
+        'cheatsheet',
+        'scenario',
+        'configuration'
+      ]).default('theory'),
+    }),
+  })
 });
 
-// 2. Nuestra colección 'questions' (versión 100% en inglés)
+// 2. Colección 'questions' (Intacta)
 const questionsCollection = defineCollection({
   type: 'data',
   schema: z.object({
     exam: z.string(),
-    topic: z.string(), // Simplificado de 'topic_en' a 'topic'
+    topic: z.string(),
     difficulty: z.enum(['easy', 'medium', 'hard']),
     question: z.object({
-      scenario: z.string().optional(), // Simplificado
-      prompt: z.string(), // Simplificado
+      scenario: z.string().optional(),
+      prompt: z.string(),
     }),
     options: z.array(
       z.object({
         id: z.string(),
-        text: z.string(), // Simplificado
+        text: z.string(),
       })
     ),
     correctAnswerId: z.string(),
-    explanation: z.object({ // Simplificado
+    explanation: z.object({
       summary: z.string(),
       breakdown: z.array(
         z.object({
@@ -43,8 +64,8 @@ const questionsCollection = defineCollection({
   }),
 });
 
-// 3. Exportamos AMBAS colecciones
+// 3. Exportamos
 export const collections = {
-	docs: docsCollection,
-  	questions: questionsCollection,
+  docs: docsCollection,
+  questions: questionsCollection,
 };

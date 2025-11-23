@@ -1,6 +1,5 @@
 *.org
 *.v*
-PKM-ACE
 dzamo-drafts
 
 # build output
@@ -27,3 +26,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# backups/evolution
+zz-backups
+
