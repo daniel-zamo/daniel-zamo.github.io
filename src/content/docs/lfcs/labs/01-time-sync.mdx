@@ -1,10 +1,127 @@
 ---
-title: _1
-description: _1
-#sidebar:
-#  label: Overview
-#  order: 0
-## Taxonomías personalizadas (según nuestro config.ts)
-type: theory
+title: "Lab 01: Time Synchronization Client"
+description: Configure systemd-timesyncd, NTP pools, and polling intervals on an Ubuntu client.
+sidebar:
+  label: 01 - Time Sync Client
+  order: 1
+type: lab
+domain: networking
 source: manual
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Scenario Requirements
+
+You are tasked with updating the time synchronization configuration on the `terminal` host (Ubuntu 24.04). The requirements are as follows:
+
+1.  **Primary NTP Servers:** Set `0.pool.ntp.org` and `1.pool.ntp.org`.
+2.  **Fallback NTP Servers:** Set `ntp.ubuntu.com` and `0.debian.pool.ntp.org`.
+3.  **Tuning:**
+    *   Maximum poll interval: `1000` seconds.
+    *   Connection retry interval: `20` seconds.
+
+:::caution[Service Context]
+This scenario uses `systemd-timesyncd`, which is the default lightweight SNTP client on Ubuntu. Do not install `chrony` or `ntp` packages unless explicitly asked, as they conflict with timesyncd.
+:::
+
+---
+
+## 🔧 Solution Walkthrough
+
+<Steps>
+
+1.  **Audit current status**
+
+    Before applying changes, verify the operating system version and the current time synchronization status.
+
+    ```bash
+    # Check OS version
+    cat /etc/os-release | grep PRETTY_NAME
+    # Output: PRETTY_NAME="Ubuntu 24.04.3 LTS"
+
+    # Check active time service
+    dpkg -l | grep systemd-timesync
+    ```
+
+    You can query the current status of the daemon using `timedatectl`:
+
+    ```bash
+    timedatectl timesync-status
+    ```
+
+2.  **Modify configuration**
+
+    Open the configuration file `/etc/systemd/timesyncd.conf`.
+
+    ```bash
+    sudo vim /etc/systemd/timesyncd.conf
+    ```
+
+    Modify the `[Time]` section to match the requirements. Uncomment the lines if necessary.
+
+    ```ini title="/etc/systemd/timesyncd.conf" {2-5}
+    [Time]
+    NTP=0.pool.ntp.org 1.pool.ntp.org
+    FallbackNTP=ntp.ubuntu.com 0.debian.pool.ntp.org
+    PollIntervalMaxSec=1000
+    ConnectionRetrySec=20
+    ```
+
+    :::tip[Man Pages]
+    If you are unsure about a specific directive syntax during the exam, use:
+    `man timesyncd.conf`
+    :::
+
+3.  **Restart the service**
+
+    Apply the changes by restarting the systemd unit.
+
+    ```bash
+    sudo systemctl restart systemd-timesyncd.service
+    ```
+
+4.  **Verify implementation**
+
+    Ensure the service is active and running without errors.
+
+    ```bash
+    sudo systemctl status systemd-timesyncd.service
+    ```
+
+    *Expected output snippet:*
+    ```text
+    Status: "Contacted time server 82.165.173.235:123 (0.pool.ntp.org)."
+    Active: active (running) ...
+    ```
+
+    Finally, validate the operational metrics (Poll interval and Jitter) using `timedatectl`.
+
+    ```bash
+    timedatectl timesync-status
+    ```
+
+    ```text {2}
+    Server: 82.165.173.235 (0.pool.ntp.org)
+    Poll interval: 1min 4s (min: 32s; max 16min 40s)
+    ...
+    ```
+
+</Steps>
+
+## 🔍 Troubleshooting
+
+If the synchronization fails, check the system logs for specific daemon messages:
+
+```bash
+sudo grep systemd-timesyncd /var/log/syslog
+# Or use journalctl
+sudo journalctl -u systemd-timesyncd
+```
+
+Successful synchronization logs will look like this:
+> *Contacted time server ... (0.pool.ntp.org).*
+> *Initial clock synchronization to ...*

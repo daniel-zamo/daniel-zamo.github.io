@@ -7,7 +7,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'D@cz | Tech Docs',
-            favicon: '/favicon.ico',
+            favicon: '/favicon.png',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
 
             // CSS personalizado para modo claro por defecto

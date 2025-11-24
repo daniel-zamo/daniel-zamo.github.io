@@ -1,10 +1,152 @@
 ---
-title: _2
-description: _2
-#sidebar:
-#  label: Overview
-#  order: 0
-## Taxonomías personalizadas (según nuestro config.ts)
-type: theory
+title: "Lab 02: Nginx Load Balancer"
+description: Configure Layer 7 load balancing and reverse proxy rules using Nginx.
+sidebar:
+  label: 02 - Nginx Proxy
+  order: 2
+type: lab
+domain: networking
 source: manual
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Scenario Requirements
+
+You are logged into `web-server01` (10.0.0.60). This server is currently hosting two internal applications served by a pre-existing Nginx configuration which **must not be modified**:
+*   **App A:** Running on port `1111`
+*   **App B:** Running on port `2222`
+
+**Objective:** Create a new HTTP Load Balancer / Reverse Proxy configuration on this server to expose these applications as follows:
+
+1.  **Traffic Redirection:**
+    *   Listen on port `8001`.
+    *   Forward all traffic to `http://10.0.0.60:2222/special`.
+2.  **Load Balancing:**
+    *   Listen on port `8000`.
+    *   Balance traffic between **App A** (`1111`) and **App B** (`2222`).
+    *   Algorithm: Round Robin or Random.
+
+:::danger[Constraints]
+*   Do not modify the existing Nginx configuration files that serve ports 1111/2222.
+*   You may use Nginx (recommended), HAProxy, or Apache, but the service must survive a reboot.
+:::
+
+---
+
+## 🔧 Solution Walkthrough
+
+<Steps>
+
+1.  **Access the target node**
+
+    Connect to the web server from your main terminal.
+
+    ```bash
+    ssh web-server01
+    ```
+
+2.  **Verify existing applications**
+
+    Before configuring the proxy, ensure the backend applications are answering locally.
+
+    ```bash
+    curl -I http://127.0.0.1:1111
+    curl -I http://127.0.0.1:2222
+    ```
+    *You should receive a `200 OK` or `403 Forbidden` (depending on the app), but not a "Connection Refused".*
+
+3.  **Create the configuration**
+
+    Instead of editing `nginx.conf`, create a dedicated configuration file in `/etc/nginx/conf.d/`. This ensures modularity and prevents breaking existing sites.
+
+    ```bash
+    sudo vim /etc/nginx/conf.d/loadbalancer.conf
+    ```
+
+    Add the following configuration blocks. We define an **upstream** group for the load balancing and two **server** blocks for the ports.
+
+    ```nginx title="/etc/nginx/conf.d/loadbalancer.conf"
+    # Define the Upstream Group (Load Balancer)
+    # Default algorithm is Round Robin, so no extra flags are needed.
+    upstream backend_apps {
+        server 127.0.0.1:1111;
+        server 127.0.0.1:2222;
+    }
+
+    # Task 2: Load Balancer on Port 8000
+    server {
+        listen 8000;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://backend_apps;
+        }
+    }
+
+    # Task 1: Redirection/Proxy on Port 8001
+    server {
+        listen 8001;
+        server_name localhost;
+
+        location / {
+            # Proxies traffic to the specific sub-path
+            proxy_pass http://127.0.0.1:2222/special;
+        }
+    }
+    ```
+
+    :::tip[Nginx Context]
+    Using `127.0.0.1` is safer and faster than using the public IP `10.0.0.60` for internal proxying, as it avoids network stack overhead, although both are accepted.
+    :::
+
+4.  **Validate and Reload**
+
+    Always check the syntax before reloading the service to avoid downtime.
+
+    ```bash
+    # Check syntax
+    sudo nginx -t
+
+    # Reload configuration (Zero downtime)
+    sudo systemctl reload nginx
+    ```
+
+    *If `nginx -t` fails, check for missing semicolons `;` or bracket mismatches.*
+
+5.  **Verification**
+
+    Test the Load Balancer (Port 8000). Run this multiple times; you should see responses from both App A and App B alternating (Round Robin).
+
+    ```bash
+    for i in {1..4}; do curl http://localhost:8000; echo; done
+    ```
+
+    Test the Redirection (Port 8001). The response should come from the `/special` path of App B.
+
+    ```bash
+    curl -v http://localhost:8001
+    ```
+
+</Steps>
+
+## 🔍 Troubleshooting
+
+If the ports are not accessible:
+
+1.  **Check listening ports:** Ensure Nginx successfully bound to 8000 and 8001.
+    ```bash
+    ss -tulpn | grep nginx
+    ```
+2.  **Firewall:** If testing from outside (e.g., from `terminal`), ensure the firewall allows these ports (though usually disabled in internal labs).
+    ```bash
+    sudo ufw allow 8000/tcp
+    sudo ufw allow 8001/tcp
+    ```
+3.  **Logs:** Check for proxy errors (e.g., "502 Bad Gateway").
+    ```bash
+    tail -f /var/log/nginx/error.log
+    ```

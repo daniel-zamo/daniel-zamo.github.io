@@ -1,10 +1,142 @@
 ---
-title: _4
-description: _4
-#sidebar:
-#  label: Overview
-#  order: 0
-## Taxonomías personalizadas (según nuestro config.ts)
-type: theory
+title: "Lab 04: KVM Virtual Machine Management"
+description: Provision, configure, and manage the lifecycle of KVM guests using libvirt CLI tools.
+sidebar:
+  label: 04 - KVM Management
+  order: 4
+type: lab
+domain: virtualization
 source: manual
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Scenario Requirements
+
+You are assigned to the virtualization host `kvm-001` (running Ubuntu 24.04 LTS). The Quality Assurance (QA) team requires a new isolated compute instance for application testing.
+
+**Objectives:**
+
+1.  **Host Readiness:** Ensure the KVM/Libvirt stack (`qemu-kvm`, `virt-install`, `libvirt-daemon-system`) is installed and the service is active.
+2.  **Storage Provisioning:** Create a **10 GiB** qcow2 volume named `qa-vm-disk.qcow2` located in the default libvirt images directory (`/var/lib/libvirt/images/`).
+3.  **VM Definition:** Provision a new guest named `qa-vm01` using `virt-install` with the following specs:
+    *   **Resources:** 1 vCPU, 1024 MiB RAM.
+    *   **Network:** Default NAT network.
+    *   **OS Source:** Network installation (e.g., Rocky Linux 9 or CentOS Stream).
+    *   **Access:** Headless mode (no graphics); output redirected to **serial console**.
+4.  **Lifecycle Management:**
+    *   Enable the VM to start automatically on host boot.
+    *   Verify the running status.
+    *   Perform a graceful shutdown of the guest.
+
+:::note[Scope]
+You are **not** required to complete the full OS installation wizard inside the VM. Successfully booting into the installer kernel is sufficient for this task.
+:::
+
+---
+
+## 🔧 Solution Walkthrough
+
+<Steps>
+
+1.  **Access the Hypervisor**
+
+    Connect to the virtualization node.
+
+    ```bash
+    ssh kvm-001
+    ```
+
+2.  **Verify Host Prerequisites**
+
+    Ensure the virtualization toolchain is installed and the daemon is running.
+
+    ```bash
+    # Install packages (if missing)
+    sudo apt update
+    sudo apt install -y qemu-kvm libvirt-daemon-system virt-install
+
+    # Enable and start libvirtd
+    sudo systemctl enable --now libvirtd
+
+    # Verify status
+    systemctl is-active libvirtd
+    ```
+
+3.  **Provision Storage**
+
+    Create the virtual disk image using `qemu-img`. Note the use of the `qcow2` format, which supports snapshots and dynamic allocation.
+
+    ```bash
+    sudo qemu-img create -f qcow2 /var/lib/libvirt/images/qa-vm-disk.qcow2 10G
+    ```
+
+    *Verification:*
+    ```bash
+    ls -lh /var/lib/libvirt/images/qa-vm-disk.qcow2
+    ```
+
+4.  **Instantiate the Virtual Machine**
+
+    Use `virt-install` to define and boot the guest. We use `--location` to point to a public mirror for the installation source and `--extra-args` to ensure the kernel outputs logs to the serial console (`ttyS0`).
+
+    ```bash
+    sudo virt-install \
+      --name qa-vm01 \
+      --ram 1024 \
+      --vcpus 1 \
+      --disk path=/var/lib/libvirt/images/qa-vm-disk.qcow2,format=qcow2 \
+      --os-variant rocky9 \
+      --network network=default \
+      --graphics none \
+      --console pty,target_type=serial \
+      --location "https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/" \
+      --extra-args "console=ttyS0"
+    ```
+
+    :::tip[Console Escape]
+    If the command attaches you to the console and you see the installer loading, you can detach (exit to host) without stopping the VM by pressing `Ctrl + ]`.
+    :::
+
+5.  **Verify Status**
+
+    Check the list of all domains (VMs) to ensure `qa-vm01` is running.
+
+    ```bash
+    sudo virsh list --all
+    ```
+
+6.  **Configure Autostart**
+
+    Flag the VM to boot automatically when the physical host `kvm-001` restarts.
+
+    ```bash
+    sudo virsh autostart qa-vm01
+    ```
+
+7.  **Graceful Shutdown**
+
+    Request an ACPI shutdown. This mimics pressing the power button on a physical server, allowing the OS to close processes safely (unlike `virsh destroy`, which is like pulling the power cord).
+
+    ```bash
+    sudo virsh shutdown qa-vm01
+    ```
+
+    *Note: Since we are only in the installer stage, the shutdown might require manual confirmation inside the console or might not process the ACPI signal immediately depending on the installer kernel. For the exam, running the command is the validation step.*
+
+</Steps>
+
+## 🔍 Troubleshooting
+
+*   **Error: "Guest name 'qa-vm01' is already in use"**:
+    If you made a mistake and need to start over, remove the existing definition:
+    ```bash
+    sudo virsh destroy qa-vm01  # Force stop
+    sudo virsh undefine qa-vm01 # Remove config
+    ```
+
+*   **Error: "Permission denied" on disk**:
+    Ensure the user running qemu (usually `libvirt-qemu`) has read/write access to `/var/lib/libvirt/images/`. Standard installations handle this automatically.

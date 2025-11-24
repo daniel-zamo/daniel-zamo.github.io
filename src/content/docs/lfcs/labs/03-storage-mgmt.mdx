@@ -1,10 +1,114 @@
 ---
-title: _3
-description: _3
-#sidebar:
-#  label: Overview
-#  order: 0
-## Taxonomías personalizadas (según nuestro config.ts)
-type: theory
+title: "Lab 03: LVM Storage Management"
+description: Resize Volume Groups, decommission Physical Volumes, and provision new Logical Volumes.
+sidebar:
+  label: 03 - Storage Mgmt
+  order: 3
+type: lab
+domain: storage
 source: manual
 ---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Scenario Requirements
+
+You are working on the `terminal` host. This system currently has a Volume Group named `vol1` that spans multiple physical disks. Your objective is to reclaim one of these disks to repurpose it for a new storage group.
+
+**Perform the following actions:**
+
+1.  **Shrink Volume Group:** Decommission the physical disk `/dev/vdh` from the existing Volume Group `vol1`.
+2.  **Create Volume Group:** Initialize a new Volume Group named `vol2` using the reclaimed disk (`/dev/vdh`).
+3.  **Provision Logical Volume:** Create a Logical Volume named `p1` with a size of **50 MiB** inside the new `vol2` group.
+4.  **Format:** Initialize the new Logical Volume with the **ext4** filesystem.
+
+:::caution[Data Safety]
+In a real environment, removing a disk from a Volume Group requires ensuring no data physically resides on that specific disk. This scenario assumes you know how to migrate data if necessary.
+:::
+
+---
+
+## 🔧 Solution Walkthrough
+
+<Steps>
+
+1.  **Analyze current storage topology**
+
+    Identify the physical volumes (PV) associated with `vol1` to confirm `/dev/vdh` is part of it.
+
+    ```bash
+    sudo pvs
+    sudo vgs
+    ```
+    *Output should confirm `vol1` includes `/dev/vdh`.*
+
+2.  **Prepare the disk for removal (Data Migration)**
+
+    Before removing a physical volume, ensure it is empty. The `pvmove` command relocates any allocated physical extents (PE) from `/dev/vdh` to other free disks within the same Volume Group.
+
+    ```bash
+    # Check if the disk is used
+    sudo pvdisplay -m /dev/vdh
+
+    # Move data to other disks in vol1 (Best Practice)
+    sudo pvmove /dev/vdh
+    ```
+
+3.  **Reduce the Volume Group**
+
+    Once the disk is free of data, remove it from the volume group definition.
+
+    ```bash
+    sudo vgreduce vol1 /dev/vdh
+    ```
+    *The disk `/dev/vdh` is now an unallocated Physical Volume (or a raw disk, depending on LVM metadata).*
+
+4.  **Create the new Volume Group**
+
+    Initialize the new group `vol2` using the reclaimed disk. If LVM warns about existing signatures, confirm with `y`.
+
+    ```bash
+    sudo vgcreate vol2 /dev/vdh
+    ```
+
+5.  **Create the Logical Volume**
+
+    Provision the requested volume. Note the use of `-n` for name and `-L` for fixed size.
+
+    ```bash
+    sudo lvcreate -n p1 -L 50M vol2
+    ```
+
+6.  **Apply Filesystem**
+
+    Format the new block device with ext4.
+
+    ```bash
+    sudo mkfs.ext4 /dev/vol2/p1
+    ```
+
+7.  **Verification**
+
+    Validate the final state. `vol1` should be smaller, `vol2` should exist with the new LV, and the filesystem should be detected.
+
+    ```bash
+    # Check VGs and LVs
+    sudo vgs
+    sudo lvs
+
+    # Verify filesystem type
+    lsblk -f /dev/vol2/p1
+    ```
+
+</Steps>
+
+## 🔍 Troubleshooting
+
+*   **Error: "Physical volume is still in use"**:
+    This happens during `vgreduce` if you skipped step 2. You **must** run `pvmove /dev/vdh` to evacuate data to other disks in the group. If there is no space left on other disks, you cannot reduce the group.
+
+*   **Error: "Device /dev/vdh not found"**:
+    Check if the disk exists using `lsblk`. In some lab environments, device names might shift (e.g., `vdb`, `vdc`). Always verify the device name before running commands.

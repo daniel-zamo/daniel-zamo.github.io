@@ -31,9 +31,9 @@ All scenarios defined in this catalog operate within a standardized **7-node clu
 | Role | Hostname | Function / Context |
 | :--- | :--- | :--- |
 | **Management** | `terminal` | Default controller and CLI entry point. |
-| **Web Tier** | `web-server01` | HTTP serving, Nginx/Apache configuration. |
-| **App Tier** | `app-server1` | Application logic and proxy targets. |
-| **Data Tier** | `data-node01`, `02` | Database simulation and raw storage. |
+| **Web Tier** | `web-srv1` | HTTP serving, Nginx/Apache configuration. |
+| **App Tier** | `app-srv1` | Application logic and proxy targets. |
+| **Data Tier** | `data-001`, `002` | Database simulation and raw storage. |
 | **Virtualization** | `kvm-001` | Libvirt/KVM hypervisor host. |
 | **Containers** | `docker-001` | Container runtime host. |
 
@@ -45,8 +45,8 @@ Select a workshop to view the specific requirements and solution strategy.
 
 <CardGrid>
   <LinkCard
-    title="01 - Time Synchronization"
-    description="Configure NTP clients and peers across the cluster using Chrony."
+    title="01 - Time Synchronization Client"
+    description="Configure NTP clients."
     href="/lfcs/labs/01-time-sync/"
   />
   <LinkCard
@@ -65,3 +65,7 @@ Select a workshop to view the specific requirements and solution strategy.
     href="/lfcs/labs/04-kvm-management/"
   />
 </CardGrid>
+
+:::tip[Environment Info]
+All scenarios assume a standardized 7-node cluster topology. Specific connection details are provided within each lab entry.
+:::
