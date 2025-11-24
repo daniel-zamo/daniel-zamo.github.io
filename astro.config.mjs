@@ -6,7 +6,7 @@ export default defineConfig({
     site: 'https://dzamo.gitlab.io',
     integrations: [
         starlight({
-            title: 'D@cz | Tech Docs',
+            title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
             favicon: '/favicon.png',
             social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
 
@@ -24,10 +24,23 @@ export default defineConfig({
             // Meta tags globales para Open Graph y Twitter Cards
             head: [
                 {
+                    tag: 'script',
+                    content: `
+                        // Comprobar si el usuario ya guardó una preferencia
+                        const storedTheme = localStorage.getItem('starlight-theme');
+                        
+                        // Si NO hay preferencia guardada (es la primera visita), forzamos DARK
+                        if (!storedTheme) {
+                            document.documentElement.setAttribute('data-theme', 'dark');
+                            localStorage.setItem('starlight-theme', 'dark');
+                        }
+                    `,
+                },
+                {
                     tag: 'meta',
                     attrs: {
                         property: 'og:site_name',
-                        content: 'D@cz |Tech Docs',
+                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
                     },
                 },
                 {
@@ -56,14 +69,14 @@ export default defineConfig({
                     tag: 'meta',
                     attrs: {
                         name: 'author',
-                        content: 'Daniel Oscar Zamo',
+                        content: 'Daniel O. Zamo',
                     },
                 },
                 {
                     tag: 'meta',
                     attrs: {
                         property: 'article:author',
-                        content: 'Daniel Oscar Zamo',
+                        content: 'Daniel O. Zamo',
                     },
                 },
                 // Para LinkedIn específicamente

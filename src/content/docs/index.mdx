@@ -1,28 +1,29 @@
 ---
-title: Welcome to D@cz!
-description: D@cz - personal documentation site, my space for sharing IT notes.
+title: SysAdmin & Cloud Hub
+description: Technical documentation, labs, and automation by Daniel Zamo.
 template: splash
 hero:
-  tagline: A personal collection of IT study notes, guides, and tech deep-dives.
+  tagline: Infrastructure as Code, Linux Administration, and Cloud Architecture. Technical documentation of deployments and lab scenarios.
   image:
-    file: ../../assets/images/hero-cube-removebg-preview.png
+    file: ../../assets/images/hero-image.png
   actions:
-    - text: LFCS Workshop & Scenarios
+    - text: Explore Knowledge Base
       link: /lfcs/
-      icon: linux
+      icon: right-arrow
+      variant: primary
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-09-08
+lastUpdated: 2025-11-24
 head:
   - tag: meta
     attrs:
       property: og:title
-      content: "D@cz | IT Notes - DevOps, Virtualization & Certifications"
+      content: "Daniel Zamo | SysAdmin & Cloud Engineering"
   - tag: meta
     attrs:
       property: og:description
-      content: "Technical documentation and tutorials covering DevOps tools, virtualization technologies, and IT certifications. Your go-to resource for system administration and cloud technologies."
+      content: "Technical documentation covering Linux Engineering (LFCS), Azure Cloud Infrastructure, and Virtualization. A professional portfolio by Daniel Zamo."
   - tag: meta
     attrs:
       property: og:image
@@ -38,21 +39,30 @@ head:
   - tag: meta
     attrs:
       name: twitter:title
-      content: "D@cz | IT Notes - DevOps, Virtualization & Certifications"
+      content: "Daniel Zamo | SysAdmin & Cloud Engineering"
   - tag: meta
     attrs:
       name: twitter:description
-      content: "Technical documentation and tutorials covering DevOps tools, virtualization technologies, and IT certifications. Your go-to resource for system administration and cloud technologies."
+      content: "Technical documentation covering Linux Engineering (LFCS), Azure Cloud Infrastructure, and Virtualization. A professional portfolio by Daniel Zamo."
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Explore Topics
+## Tech Stack & Roadmap
 
 <CardGrid stagger>
-	<Card title="LFCS" icon="rocket">
-    ...
-    <br />
-    <a href="/lfcs-certication/...">... →</a>
+	<Card title="Linux Engineering (LFCS)" icon="linux">
+		Advanced system administration documentation, storage management, security hardening, and troubleshooting in Enterprise environments.
+        *(Status: Certified & Complete)*
+	</Card>
+	<Card title="Azure Cloud Infrastructure" icon="microsoft">
+		IaaS/PaaS resource deployment, identity management, and cloud networking. Technical implementation aligned with AZ-104 standards.
+        *(Status: In Development)*
+	</Card>
+	<Card title="Virtualization (KVM/Libvirt)" icon="laptop">
+		Low-level virtualization labs using QEMU/KVM and Libvirt. Virtual machine orchestration and performance optimization.
+	</Card>
+	<Card title="DevOps & Automation" icon="rocket">
+		Bash scripting for administrative tasks, GitLab CI/CD pipelines, and Infrastructure as Code (IaC) principles.
 	</Card>
 </CardGrid>
