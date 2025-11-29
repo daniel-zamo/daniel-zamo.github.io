@@ -1,6 +1,7 @@
 *.org
 *.v*
-dzamo-drafts
+zz-*
+.*.bkp
 
 # build output
 dist/
