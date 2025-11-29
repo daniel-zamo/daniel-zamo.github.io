@@ -1,13 +1,11 @@
-// RUTA: src/content/config.ts
 import { defineCollection, z } from 'astro:content';
 import { docsSchema } from '@astrojs/starlight/schema';
 
-// 1. Colección 'docs'
-// ELIMINADO: loader: docsLoader() -> Esto causaba el error con la imagen
+// 1. Colección 'docs' (Tu documentación principal)
 const docsCollection = defineCollection({
   schema: docsSchema({
     extend: z.object({
-      // Mapeo de campos personalizados de Obsidian
+      // Mapeo de campos personalizados
       source: z.string().optional(),
 
       // Taxonomía de dominios
@@ -22,21 +20,22 @@ const docsCollection = defineCollection({
         'monitoring'
       ]).optional(),
 
-      // Tipo de contenido
+      // Tipo de contenido (Añadido 'project' para tu portfolio)
       type: z.enum([
         'lab',
         'theory',
         'cheatsheet',
         'scenario',
-        'configuration'
+        'configuration',
+        'project'
       ]).default('theory'),
     }),
   })
 });
 
-// 2. Colección 'questions' (Intacta)
+// 2. Colección 'questions' (Para futuros quizzes)
 const questionsCollection = defineCollection({
-  type: 'data',
+  loader: async () => [], // Placeholder: Astro 5 pide un loader si no hay archivos físicos aun
   schema: z.object({
     exam: z.string(),
     topic: z.string(),
@@ -67,5 +66,8 @@ const questionsCollection = defineCollection({
 // 3. Exportamos
 export const collections = {
   docs: docsCollection,
-  questions: questionsCollection,
+  // Si aún no tienes archivos .json/.yaml en src/content/questions, 
+  // puedes comentar la siguiente línea para evitar warnings de "colección vacía"
+  questions: questionsCollection, 
 };
+

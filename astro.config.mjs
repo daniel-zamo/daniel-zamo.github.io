@@ -57,14 +57,6 @@ export default defineConfig({
                         content: 'summary_large_image',
                     },
                 },
-                /*                {
-                                    tag: 'meta',
-                                    attrs: {
-                                        name: 'twitter:site',
-                                        content: '@tu_usuario_twitter', // Cambia por tu usuario de Twitter si lo tienes
-                                    },
-                                },*/
-
                 {
                     tag: 'meta',
                     attrs: {
@@ -99,7 +91,16 @@ export default defineConfig({
 
             sidebar: [
                 { label: 'Home', link: '/' },
-                { label: 'LFCS Certification', collapsed: false, autogenerate: { directory: 'lfcs' } },
+                {
+                    label: 'Engineering Projects',
+                    collapsed: false,
+                    autogenerate: { directory: 'projects' }
+                },
+                {
+                    label: 'LFCS Certification',
+                    collapsed: true,
+                    autogenerate: { directory: 'lfcs' }
+                },
             ],
         }),
     ],
