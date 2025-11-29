@@ -1,0 +1,52 @@
+/* Forzar modo claro por defecto en Starlight */
+/*
+:root {
+  --sl-color-bg: #ffffff;
+  --sl-color-bg-nav: #f8f9fa;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-text: #1a1a1a;
+  --sl-color-text-accent: #0066cc;
+  --sl-color-gray-1: #f8f9fa;
+  --sl-color-gray-2: #e9ecef;
+  --sl-color-gray-3: #dee2e6;
+  --sl-color-gray-4: #ced4da;
+  --sl-color-gray-5: #adb5bd;
+  --sl-color-gray-6: #6c757d;
+}
+*/
+
+/* Opcional: Ocultar el toggle de modo oscuro si no quieres que los usuarios cambien */
+/* 
+.theme-toggle {
+  display: none;
+}
+*/
+
+/* Asegurar que el texto sea legible en modo claro */
+/*
+.sl-markdown-content {
+  color: var(--sl-color-text);
+}
+*/
+/* Mejorar contraste en enlaces */
+/*
+a {
+  color: var(--sl-color-text-accent);
+}
+
+a:hover {
+  color: #004499;
+}
+*/
+
+/* Hacer que la imagen del Hero se vea como una tarjeta 3D */
+/* .hero img { */
+/*  border-radius: 24px; */
+/* Redondea bordes */
+/*  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.5); */
+/* Sombra elegante */
+/*  max-height: 400px; */
+/* Controlar altura para que no sea gigante */
+/*  width: auto; */
+/*  object-fit: contain; */
+/*} */

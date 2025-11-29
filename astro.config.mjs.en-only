@@ -1,43 +1,35 @@
-// astro.config.mjs - Configuración con soporte inglés/español
+// astro.config.mjs - Solución simple y escalable con customCss + Open Graph
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
     site: 'https://dzamo.gitlab.io',
-
-    // Redirección automática de la raíz al idioma por defecto
-    redirects: {
-        '/': '/en/',
-    },
-
     integrations: [
         starlight({
             title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
             favicon: '/favicon.png',
-            social: [
-                { icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }
+            social: [{ icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }],
+
+            // CSS personalizado para modo claro por defecto
+            customCss: [
+                './src/styles/custom.css'
             ],
 
-            customCss: ['./src/styles/custom.css'],
-
-            // Configuración de idiomas
-            defaultLocale: 'en', // Inglés como idioma por defecto
+            defaultLocale: 'root',
             locales: {
-                en: {
-                    label: 'English',
-                    lang: 'en'
-                },
-                es: {
-                    label: 'Español',
-                    lang: 'es'
-                }
+                root: { label: 'English', lang: 'en' },
+                //                es: { label: 'Español', lang: 'es' },
             },
 
+            // Meta tags globales para Open Graph y Twitter Cards
             head: [
                 {
                     tag: 'script',
                     content: `
+                        // Comprobar si el usuario ya guardó una preferencia
                         const storedTheme = localStorage.getItem('starlight-theme');
+                        
+                        // Si NO hay preferencia guardada (es la primera visita), forzamos DARK
                         if (!storedTheme) {
                             document.documentElement.setAttribute('data-theme', 'dark');
                             localStorage.setItem('starlight-theme', 'dark');
@@ -72,30 +64,40 @@ export default defineConfig({
                         content: 'Daniel O. Zamo',
                     },
                 },
-            ],
-
-            // Sidebar por idioma
-            sidebar: [
                 {
-                    label: 'Home',
-                    translations: {
-                        es: 'Inicio'
+                    tag: 'meta',
+                    attrs: {
+                        property: 'article:author',
+                        content: 'Daniel O. Zamo',
                     },
-                    link: '/'
+                },
+                // Para LinkedIn específicamente
+                {
+                    tag: 'meta',
+                    attrs: {
+                        property: 'profile:first_name',
+                        content: 'Daniel Oscar',
+                    },
                 },
                 {
-                    label: 'Engineering Projects',
-                    translations: {
-                        es: 'Proyectos de Ingeniería'
+                    tag: 'meta',
+                    attrs: {
+                        property: 'profile:last_name',
+                        content: 'Zamo',
                     },
+                },
+
+            ],
+
+            sidebar: [
+                { label: 'Home', link: '/' },
+                {
+                    label: 'Engineering Projects',
                     collapsed: false,
                     autogenerate: { directory: 'projects' }
                 },
                 {
                     label: 'LFCS Certification',
-                    translations: {
-                        es: 'Certificación LFCS'
-                    },
                     collapsed: true,
                     autogenerate: { directory: 'lfcs' }
                 },

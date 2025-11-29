@@ -1,52 +1,60 @@
-/* Forzar modo claro por defecto en Starlight */
+/* ============================================
+   ESTILOS MÍNIMOS - Solo dropdowns del header
+   ============================================ */
+
+/* Fondo oscuro para los select del header */
 /*
-:root {
-  --sl-color-bg: #ffffff;
-  --sl-color-bg-nav: #f8f9fa;
-  --sl-color-bg-sidebar: #ffffff;
-  --sl-color-text: #1a1a1a;
-  --sl-color-text-accent: #0066cc;
-  --sl-color-gray-1: #f8f9fa;
-  --sl-color-gray-2: #e9ecef;
-  --sl-color-gray-3: #dee2e6;
-  --sl-color-gray-4: #ced4da;
-  --sl-color-gray-5: #adb5bd;
-  --sl-color-gray-6: #6c757d;
-}
+header starlight-theme-select select,
+header starlight-lang-select select {
+  background-color: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-gray-5); 
+} 
 */
 
-/* Opcional: Ocultar el toggle de modo oscuro si no quieres que los usuarios cambien */
-/* 
-.theme-toggle {
-  display: none;
-}
-*/
-
-/* Asegurar que el texto sea legible en modo claro */
+/* Hover en los select */
 /*
-.sl-markdown-content {
-  color: var(--sl-color-text);
+header starlight-theme-select select:hover,
+header starlight-lang-select select:hover {
+  background-color: var(--sl-color-gray-5);
+  border-color: var(--sl-color-gray-4);
 }
 */
-/* Mejorar contraste en enlaces */
+header starlight-theme-select select:hover,
+header starlight-lang-select select:hover {
+  background-color: var(--sl-color-gray-5);
+}
+
+/* Opciones del dropdown (para Firefox) */
 /*
-a {
-  color: var(--sl-color-text-accent);
-}
-
-a:hover {
-  color: #004499;
+header starlight-theme-select select option,
+header starlight-lang-select select option {
+  background-color: var(--sl-color-gray-6);
+  color: var(--sl-color-white);
 }
 */
 
-/* Hacer que la imagen del Hero se vea como una tarjeta 3D */
-/* .hero img { */
-/*  border-radius: 24px; */
-/* Redondea bordes */
-/*  box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.5); */
-/* Sombra elegante */
-/*  max-height: 400px; */
-/* Controlar altura para que no sea gigante */
-/*  width: auto; */
-/*  object-fit: contain; */
-/*} */
+/* Modo Light */
+/*
+[data-theme="light"] header starlight-theme-select select,
+[data-theme="light"] header starlight-lang-select select {
+  background-color: var(--sl-color-white);
+  color: var(--sl-color-gray-6);
+  border-color: var(--sl-color-gray-4);
+}
+*/
+
+/*
+[data-theme="light"] header starlight-theme-select select:hover,
+[data-theme="light"] header starlight-lang-select select:hover {
+  background-color: var(--sl-color-gray-2);
+}
+*/
+
+/*
+[data-theme="light"] header starlight-theme-select select option,
+[data-theme="light"] header starlight-lang-select select option {
+  background-color: var(--sl-color-white);
+  color: var(--sl-color-gray-6);
+}
+*/
