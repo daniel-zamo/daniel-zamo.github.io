@@ -7,14 +7,18 @@ hero:
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: Explorar Base de Conocimiento
-      link: /es/lfcs/
-      icon: right-arrow
+    - text: Proyectos de Ingeniería
+      link: /es/projects/
+      icon: rocket
       variant: primary
+    - text: Certificación LFCS
+      link: /es/lfcs/
+      icon: open-book
+      variant: secondary
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-11-24
+lastUpdated: 2025-11-29
 head:
   - tag: meta
     attrs:
@@ -51,18 +55,30 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Stack Tecnológico y Hoja de Ruta
 
 <CardGrid stagger>
+  <Card title="Proyectos de Ingeniería" icon="rocket">
+    Proyectos de automatización de grado de producción: Despliegues de middleware con Ansible/Docker, pipelines CI/CD e iniciativas de modernización de infraestructura.
+    
+    **[Explorar Proyectos →](/es/projects/)**
+  </Card>
+  
   <Card title="Ingeniería Linux (LFCS)" icon="linux">
     Documentación avanzada de administración de sistemas, gestión de almacenamiento, hardening de seguridad y resolución de problemas en entornos Enterprise.
+    
     *(Estado: Certificado y Completo)*
+    
+    **[Ver Laboratorios →](/es/lfcs/)**
   </Card>
+  
   <Card title="Infraestructura Cloud Azure" icon="microsoft">
     Despliegue de recursos IaaS/PaaS, gestión de identidad y redes cloud. Implementación técnica alineada con estándares AZ-104.
+    
     *(Estado: En Desarrollo)*
   </Card>
+  
   <Card title="Virtualización (KVM/Libvirt)" icon="laptop">
     Laboratorios de virtualización de bajo nivel usando QEMU/KVM y Libvirt. Orquestación de máquinas virtuales y optimización de rendimiento.
-  </Card>
-  <Card title="DevOps y Automatización" icon="rocket">
-    Scripting Bash para tareas administrativas, pipelines GitLab CI/CD y principios de Infraestructura como Código (IaC).
+    
+    **[Explorar Labs KVM →](/es/lfcs/labs/04-kvm-management/)**
   </Card>
 </CardGrid>
+

@@ -7,14 +7,18 @@ hero:
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: Explore Knowledge Base
-      link: /lfcs/
-      icon: right-arrow
+    - text: Engineering Projects
+      link: /en/projects/
+      icon: rocket
       variant: primary
+    - text: LFCS Certification
+      link: /en/lfcs/
+      icon: open-book
+      variant: secondary
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-11-24
+lastUpdated: 2025-11-29
 head:
   - tag: meta
     attrs:
@@ -31,7 +35,7 @@ head:
   - tag: meta
     attrs:
       property: og:url
-      content: "https://dzamo.gitlab.io/"
+      content: "https://dzamo.gitlab.io/en/"
   - tag: meta
     attrs:
       name: twitter:image
@@ -51,18 +55,30 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Tech Stack & Roadmap
 
 <CardGrid stagger>
-	<Card title="Linux Engineering (LFCS)" icon="linux">
-		Advanced system administration documentation, storage management, security hardening, and troubleshooting in Enterprise environments.
-        *(Status: Certified & Complete)*
-	</Card>
-	<Card title="Azure Cloud Infrastructure" icon="microsoft">
-		IaaS/PaaS resource deployment, identity management, and cloud networking. Technical implementation aligned with AZ-104 standards.
-        *(Status: In Development)*
-	</Card>
-	<Card title="Virtualization (KVM/Libvirt)" icon="laptop">
-		Low-level virtualization labs using QEMU/KVM and Libvirt. Virtual machine orchestration and performance optimization.
-	</Card>
-	<Card title="DevOps & Automation" icon="rocket">
-		Bash scripting for administrative tasks, GitLab CI/CD pipelines, and Infrastructure as Code (IaC) principles.
-	</Card>
+  <Card title="Engineering Projects" icon="rocket">
+    Production-grade automation projects: Middleware deployments with Ansible/Docker, CI/CD pipelines, and infrastructure modernization initiatives.
+    
+    **[Explore Projects →](/en/projects/)**
+  </Card>
+  
+  <Card title="Linux Engineering (LFCS)" icon="linux">
+    Advanced system administration documentation, storage management, security hardening, and troubleshooting in Enterprise environments.
+    
+    *(Status: Certified & Complete)*
+    
+    **[View Labs →](/en/lfcs/)**
+  </Card>
+  
+  <Card title="Azure Cloud Infrastructure" icon="microsoft">
+    IaaS/PaaS resource deployment, identity management, and cloud networking. Technical implementation aligned with AZ-104 standards.
+    
+    *(Status: In Development)*
+  </Card>
+  
+  <Card title="Virtualization (KVM/Libvirt)" icon="laptop">
+    Low-level virtualization labs using QEMU/KVM and Libvirt. Virtual machine orchestration and performance optimization.
+    
+    **[Explore KVM Labs →](/en/lfcs/labs/04-kvm-management/)**
+  </Card>
 </CardGrid>
+

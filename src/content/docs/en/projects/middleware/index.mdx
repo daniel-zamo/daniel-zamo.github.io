@@ -1,0 +1,84 @@
+---
+title: Middleware Automation Projects
+description: Enterprise application server deployment and configuration using Infrastructure as Code principles.
+sidebar:
+  label: Middleware
+  order: 0
+type: project
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Overview
+
+Middleware automation projects focus on eliminating manual deployment processes for enterprise application servers. These implementations demonstrate how to transition from traditional bare-metal installations to containerized, automated deployments.
+
+### Business Context
+
+In Banking and Telco sectors, application servers (JBoss, WildFly, WebSphere) are critical infrastructure components. Manual configuration leads to:
+
+- ❌ **Configuration Drift:** Inconsistencies between environments
+- ❌ **Security Gaps:** Missed patches and misconfigurations
+- ❌ **Slow Deployments:** Hours/days instead of minutes
+- ❌ **Knowledge Silos:** Dependency on specific engineers
+
+**Solution:** Infrastructure as Code + Containerization
+
+---
+
+## 🚀 Featured Projects
+
+<CardGrid>
+  <LinkCard
+    title="WildFly + Ansible + Docker"
+    description="Automated deployment of WildFly Application Server using Ansible playbooks and Docker containers. Replaces ~40 manual steps with a single idempotent command."
+    href="/en/projects/middleware/wildfly-ansible-docker/"
+  />
+  
+  <LinkCard
+    title="Coming Soon: JBoss EAP Clustering"
+    description="High-availability JBoss EAP cluster with JGroups/TCPPing discovery. Includes load balancer configuration and session replication."
+    href="#"
+  />
+  
+  <LinkCard
+    title="Coming Soon: WebSphere to OpenLiberty"
+    description="Migration strategy from IBM WebSphere Application Server to OpenLiberty with Docker. Includes application compatibility testing."
+    href="#"
+  />
+</CardGrid>
+
+---
+
+## 🛠️ Technologies Used
+
+| Technology | Purpose | Why It's Used |
+|:-----------|:--------|:--------------|
+| **Ansible** | Configuration Management | Idempotent, agentless, SSH-based |
+| **Docker** | Containerization | Immutable infrastructure, consistent environments |
+| **WildFly/JBoss** | Application Server | Java EE runtime for enterprise apps |
+| **GitLab CI** | Pipeline Automation | Continuous deployment integration |
+| **Systemd** | Service Management | Native Linux service orchestration |
+
+---
+
+## 📚 Skills Demonstrated
+
+- **Ansible Playbooks:** Writing idempotent automation tasks
+- **Docker Images:** Building production-grade containers
+- **Environment Management:** Handling secrets and configuration injection
+- **Networking:** Container port mapping and host exposure
+- **Documentation:** Technical writing for operational teams
+
+---
+
+## 🎯 Next Steps
+
+1. **Explore the WildFly project** to see a complete implementation
+2. **Review the source code** (available on GitLab)
+3. **Test the playbook** in your own lab environment
+
+:::note[Lab Environment]
+All middleware projects can be tested in the LFCS lab topology. The `docker-001` node is pre-configured with Docker runtime.
+:::
+

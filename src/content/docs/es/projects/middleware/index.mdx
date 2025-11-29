@@ -1,0 +1,84 @@
+---
+title: Proyectos de Automatización de Middleware
+description: Despliegue y configuración de servidores de aplicaciones empresariales usando principios de Infraestructura como Código.
+sidebar:
+  label: Middleware
+  order: 0
+type: project
+---
+
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+## Descripción General
+
+Los proyectos de automatización de middleware se enfocan en eliminar procesos manuales de despliegue para servidores de aplicaciones empresariales. Estas implementaciones demuestran cómo realizar la transición de instalaciones tradicionales en bare metal a despliegues automatizados y contenedorizados.
+
+### Contexto de Negocio
+
+En los sectores de Banca y Telecomunicaciones, los servidores de aplicaciones (JBoss, WildFly, WebSphere) son componentes críticos de infraestructura. La configuración manual conduce a:
+
+- ❌ **Deriva de Configuración:** Inconsistencias entre entornos
+- ❌ **Brechas de Seguridad:** Parches omitidos y configuraciones incorrectas
+- ❌ **Despliegues Lentos:** Horas/días en lugar de minutos
+- ❌ **Silos de Conocimiento:** Dependencia de ingenieros específicos
+
+**Solución:** Infraestructura como Código + Contenedorización
+
+---
+
+## 🚀 Proyectos Destacados
+
+<CardGrid>
+  <LinkCard
+    title="WildFly + Ansible + Docker"
+    description="Despliegue automatizado de WildFly Application Server usando playbooks Ansible y contenedores Docker. Reemplaza ~40 pasos manuales con un único comando idempotente."
+    href="/es/projects/middleware/wildfly-ansible-docker/"
+  />
+  
+  <LinkCard
+    title="Próximamente: Clustering JBoss EAP"
+    description="Cluster de alta disponibilidad JBoss EAP con descubrimiento JGroups/TCPPing. Incluye configuración de balanceador de carga y replicación de sesiones."
+    href="#"
+  />
+  
+  <LinkCard
+    title="Próximamente: WebSphere a OpenLiberty"
+    description="Estrategia de migración de IBM WebSphere Application Server a OpenLiberty con Docker. Incluye pruebas de compatibilidad de aplicaciones."
+    href="#"
+  />
+</CardGrid>
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Tecnología | Propósito | Por Qué Se Usa |
+|:-----------|:----------|:---------------|
+| **Ansible** | Gestión de Configuración | Idempotente, sin agentes, basado en SSH |
+| **Docker** | Contenedorización | Infraestructura inmutable, entornos consistentes |
+| **WildFly/JBoss** | Servidor de Aplicaciones | Runtime Java EE para apps empresariales |
+| **GitLab CI** | Automatización de Pipelines | Integración de despliegue continuo |
+| **Systemd** | Gestión de Servicios | Orquestación nativa de servicios Linux |
+
+---
+
+## 📚 Habilidades Demostradas
+
+- **Playbooks Ansible:** Escritura de tareas de automatización idempotentes
+- **Imágenes Docker:** Construcción de contenedores de grado de producción
+- **Gestión de Entornos:** Manejo de secretos e inyección de configuración
+- **Redes:** Mapeo de puertos de contenedores y exposición de host
+- **Documentación:** Escritura técnica para equipos operacionales
+
+---
+
+## 🎯 Próximos Pasos
+
+1. **Explorar el proyecto WildFly** para ver una implementación completa
+2. **Revisar el código fuente** (disponible en GitLab)
+3. **Probar el playbook** en tu propio entorno de laboratorio
+
+:::note[Entorno de Laboratorio]
+Todos los proyectos de middleware pueden ser probados en la topología de laboratorio LFCS. El nodo `docker-001` está preconfigurado con runtime Docker.
+:::
+
