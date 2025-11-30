@@ -1,0 +1,101 @@
+---
+title: "Estrategia NTP y Sincronización"
+description: Configuración de políticas systemd-timesyncd para consistencia transaccional en clústers distribuidos.
+sidebar:
+  label: Estrategia NTP
+  order: 1
+type: scenario
+domain: networking
+source: manual
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Requisitos de Ingeniería
+
+**Contexto de Negocio:**
+Los registros de auditoría indican una deriva (drift) en los relojes del sistema a través del clúster, causando fallos en la conciliación de transacciones distribuidas. Se debe aplicar una política estricta de NTP en el nodo controlador.
+
+**Objetivos Técnicos:**
+1.  **Upstreams Primarios:** Configurar `0.pool.ntp.org` y `1.pool.ntp.org` como fuentes autoritativas.
+2.  **Failover:** Definir `ntp.ubuntu.com` y `0.debian.pool.ntp.org` como servidores de respaldo.
+3.  **Ajuste de Rendimiento (Tuning):**
+    *   Intervalo máximo de sondeo (Poll): `1000s`.
+    *   Intervalo de reintento de conexión: `20s`.
+
+:::caution[Restricción de Servicio]
+El entorno utiliza `systemd-timesyncd` como cliente SNTP ligero estándar. No instale paquetes `chrony` o `ntp` legacy a menos que se requiera explícitamente, para evitar conflictos de servicio.
+:::
+
+---
+
+## 🔧 Procedimiento de Implementación
+
+<Steps>
+
+1.  **Auditoría del Estado Actual**
+
+    Verifique la versión del sistema operativo y el estado activo del servicio de tiempo antes de aplicar cambios.
+
+    ```bash
+    # Verificar versión de OS
+    cat /etc/os-release | grep PRETTY_NAME
+
+    # Verificar estado del servicio
+    timedatectl timesync-status
+    ```
+
+2.  **Aplicar Política de Configuración**
+
+    Edite el archivo de configuración del demonio `/etc/systemd/timesyncd.conf`.
+
+    ```bash
+    sudo vim /etc/systemd/timesyncd.conf
+    ```
+
+    Modifique la sección `[Time]` para coincidir estrictamente con los requisitos:
+
+    ```ini title="/etc/systemd/timesyncd.conf" {2-5}
+    [Time]
+    NTP=0.pool.ntp.org 1.pool.ntp.org
+    FallbackNTP=ntp.ubuntu.com 0.debian.pool.ntp.org
+    PollIntervalMaxSec=1000
+    ConnectionRetrySec=20
+    ```
+
+3.  **Reiniciar Servicio**
+
+    Aplique la nueva política reiniciando la unidad systemd.
+
+    ```bash
+    sudo systemctl restart systemd-timesyncd.service
+    ```
+
+4.  **Validar Implementación**
+
+    Confirme que el servicio está activo y sincronizando con el estrato (stratum) correcto.
+
+    ```bash
+    # Estado del servicio
+    sudo systemctl status systemd-timesyncd.service
+
+    # Validar métricas (Poll interval)
+    timedatectl timesync-status
+    ```
+
+    *Criterio de Validación:* La salida debe mostrar `Active: active (running)` y las métricas de intervalo coincidiendo con la configuración.
+
+</Steps>
+
+## 🔍 Diagnóstico y Resolución
+
+Si la sincronización falla (ej. "Packet not received"), inspeccione el journal del sistema:
+
+```bash
+sudo journalctl -u systemd-timesyncd --no-pager | tail -n 20
+```
+
+*Indicador de Éxito:* Busque logs que indiquen: *"Contacted time server ... (0.pool.ntp.org)"*.

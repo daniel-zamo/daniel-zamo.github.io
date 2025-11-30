@@ -1,5 +1,5 @@
 ---
-title: "L7 Load Balancing & Edge Proxy" # BEFORE: Lab 02
+title: "L7 Load Balancing & Edge Proxy"
 description: Implementation of Reverse Proxy rules and traffic distribution algorithms using Nginx.
 sidebar:
   label: L7 Load Balancing
@@ -14,74 +14,65 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 <LabEnvironment />
 
-## 📋 Scenario Requirements
+## 📋 Engineering Requirements
 
-**Context:** High availability is required for internal legacy applications hosted on `web-server01`. Currently, apps serve on non-standard ports (`1111`, `2222`).
+**Business Context:**
+Legacy internal applications hosted on `web-server01` are currently exposed on non-standard ports (`1111`, `2222`), complicating firewall rules and client access. A Reverse Proxy solution is required to standardize access via HTTP.
 
-**Engineering Task:** Implement an Nginx Layer 7 Load Balancer to expose these services via standard HTTP ports, ensuring session distribution and URL rewriting.
+**Technical Objectives:**
+1.  **Target Node:** `web-server01` (10.0.0.60).
+2.  **Traffic Redirection (Port 8001):**
+    *   Incoming traffic must be forwarded to the specific backend path: `http://127.0.0.1:2222/special`.
+3.  **Load Balancing (Port 8000):**
+    *   Distribute traffic between **App A** (`:1111`) and **App B** (`:2222`).
+    *   Algorithm: Round Robin (Default) or Random.
 
-You are logged into `web-server01` (10.0.0.60). This server is currently hosting two internal applications served by a pre-existing Nginx configuration which **must not be modified**:
-*   **App A:** Running on port `1111`
-*   **App B:** Running on port `2222`
-
-**Objective:** Create a new HTTP Load Balancer / Reverse Proxy configuration on this server to expose these applications as follows:
-
-1.  **Traffic Redirection:**
-    *   Listen on port `8001`.
-    *   Forward all traffic to `http://10.0.0.60:2222/special`.
-2.  **Load Balancing:**
-    *   Listen on port `8000`.
-    *   Balance traffic between **App A** (`1111`) and **App B** (`2222`).
-    *   Algorithm: Round Robin or Random.
-
-:::danger[Constraints]
-*   Do not modify the existing Nginx configuration files that serve ports 1111/2222.
-*   You may use Nginx (recommended), HAProxy, or Apache, but the service must survive a reboot.
+:::danger[Operational Constraints]
+*   **Immutable Backend:** Do not modify the existing Nginx configuration files serving ports 1111/2222.
+*   **Persistence:** The configuration must persist after a system reboot.
 :::
 
 ---
 
-## 🔧 Solution Walkthrough
+## 🔧 Implementation Procedure
 
 <Steps>
 
-1.  **Access the target node**
+1.  **Access Target Node**
 
-    Connect to the web server from your main terminal.
+    Establish a secure connection to the web server from the bastion host.
 
     ```bash
     ssh web-server01
     ```
 
-2.  **Verify existing applications**
+2.  **Verify Backend Health**
 
-    Before configuring the proxy, ensure the backend applications are answering locally.
+    Ensure the upstream applications are operational before configuring the proxy.
 
     ```bash
     curl -I http://127.0.0.1:1111
     curl -I http://127.0.0.1:2222
     ```
-    *You should receive a `200 OK` or `403 Forbidden` (depending on the app), but not a "Connection Refused".*
 
-3.  **Create the configuration**
+3.  **Define Proxy Configuration**
 
-    Instead of editing `nginx.conf`, create a dedicated configuration file in `/etc/nginx/conf.d/`. This ensures modularity and prevents breaking existing sites.
+    Create a modular configuration file in `/etc/nginx/conf.d/`. Avoid editing the main `nginx.conf` directly.
 
     ```bash
     sudo vim /etc/nginx/conf.d/loadbalancer.conf
     ```
 
-    Add the following configuration blocks. We define an **upstream** group for the load balancing and two **server** blocks for the ports.
+    Implement the following block to define the upstream group and server contexts:
 
     ```nginx title="/etc/nginx/conf.d/loadbalancer.conf"
-    # Define the Upstream Group (Load Balancer)
-    # Default algorithm is Round Robin, so no extra flags are needed.
+    # 1. Define Upstream Group (Load Balancer)
     upstream backend_apps {
         server 127.0.0.1:1111;
         server 127.0.0.1:2222;
     }
 
-    # Task 2: Load Balancer on Port 8000
+    # 2. Task: Load Balancer (Port 8000)
     server {
         listen 8000;
         server_name localhost;
@@ -91,46 +82,34 @@ You are logged into `web-server01` (10.0.0.60). This server is currently hosting
         }
     }
 
-    # Task 1: Redirection/Proxy on Port 8001
+    # 3. Task: Redirection/Proxy (Port 8001)
     server {
         listen 8001;
         server_name localhost;
 
         location / {
-            # Proxies traffic to the specific sub-path
             proxy_pass http://127.0.0.1:2222/special;
         }
     }
     ```
 
-    :::tip[Nginx Context]
-    Using `127.0.0.1` is safer and faster than using the public IP `10.0.0.60` for internal proxying, as it avoids network stack overhead, although both are accepted.
-    :::
-
 4.  **Validate and Reload**
 
-    Always check the syntax before reloading the service to avoid downtime.
+    Perform a syntax check to prevent service downtime, then reload the process signal.
 
     ```bash
-    # Check syntax
     sudo nginx -t
-
-    # Reload configuration (Zero downtime)
     sudo systemctl reload nginx
     ```
 
-    *If `nginx -t` fails, check for missing semicolons `;` or bracket mismatches.*
+5.  **Functional Verification**
 
-5.  **Verification**
-
-    Test the Load Balancer (Port 8000). Run this multiple times; you should see responses from both App A and App B alternating (Round Robin).
-
+    **Test Load Balancer (8000):** Run multiple requests. Responses should alternate between backends.
     ```bash
     for i in {1..4}; do curl http://localhost:8000; echo; done
     ```
 
-    Test the Redirection (Port 8001). The response should come from the `/special` path of App B.
-
+    **Test Redirection (8001):**
     ```bash
     curl -v http://localhost:8001
     ```
@@ -139,18 +118,8 @@ You are logged into `web-server01` (10.0.0.60). This server is currently hosting
 
 ## 🔍 Troubleshooting
 
-If the ports are not accessible:
-
-1.  **Check listening ports:** Ensure Nginx successfully bound to 8000 and 8001.
+*   **Connection Refused:** Ensure Nginx is bound to the new ports:
     ```bash
     ss -tulpn | grep nginx
     ```
-2.  **Firewall:** If testing from outside (e.g., from `terminal`), ensure the firewall allows these ports (though usually disabled in internal labs).
-    ```bash
-    sudo ufw allow 8000/tcp
-    sudo ufw allow 8001/tcp
-    ```
-3.  **Logs:** Check for proxy errors (e.g., "502 Bad Gateway").
-    ```bash
-    tail -f /var/log/nginx/error.log
-    ```
+*   **502 Bad Gateway:** Indicates Nginx cannot reach the upstream ports (1111/2222). Check if the backend apps crashed.

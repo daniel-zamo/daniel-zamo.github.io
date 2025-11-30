@@ -1,0 +1,115 @@
+---
+title: "Orquestación de VMs con KVM/Libvirt"
+description: Aprovisionamiento y gestión del ciclo de vida de instancias de cómputo utilizando herramientas CLI de virtualización.
+sidebar:
+  label: Orquestación KVM
+  order: 4
+type: scenario
+domain: virtualization
+source: manual
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Requisitos de Ingeniería
+
+**Contexto de Negocio:**
+El equipo de QA requiere una instancia de cómputo dedicada y aislada en el hipervisor `kvm-001` para pruebas de integración. El entorno debe ser aprovisionado usando herramientas CLI estándar para asegurar la reproducibilidad.
+
+**Objetivos Técnicos:**
+1.  **Estado del Host:** Validar el estado del stack `qemu-kvm` y `libvirtd`.
+2.  **Almacenamiento:** Aprovisionar un volumen `qcow2` de **10 GiB** (Thin Provisioned) llamado `qa-vm-disk.qcow2`.
+3.  **Definición de Instancia (`qa-vm01`):**
+    *   **Specs:** 1 vCPU, 1024 MiB RAM.
+    *   **Red:** Bridge NAT por defecto.
+    *   **Consola:** Redirección serie (Modo Headless).
+4.  **Ciclo de Vida:** Habilitar auto-inicio en el arranque y realizar prueba de apagado controlado.
+
+:::note[Alcance]
+No se requiere la instalación completa del OS. Arrancar exitosamente el kernel hasta el prompt del instalador vía consola serie es suficiente para la validación.
+:::
+
+---
+
+## 🔧 Procedimiento de Implementación
+
+<Steps>
+
+1.  **Acceso al Nodo Hipervisor**
+
+    Conecte al host de virtualización.
+
+    ```bash
+    ssh kvm-001
+    ```
+
+2.  **Verificar Prerrequisitos del Host**
+
+    Asegúrese de que el demonio libvirt está activo y habilitado.
+
+    ```bash
+    sudo systemctl is-active libvirtd
+    # Si inactivo: sudo systemctl enable --now libvirtd
+    ```
+
+3.  **Aprovisionar Volumen de Almacenamiento**
+
+    Cree el disco virtual usando `qemu-img`.
+
+    ```bash
+    sudo qemu-img create -f qcow2 /var/lib/libvirt/images/qa-vm-disk.qcow2 10G
+    ```
+
+4.  **Definir y Arrancar Instancia**
+
+    Ejecute `virt-install` con parámetros para entorno headless (`--graphics none`).
+
+    ```bash
+    sudo virt-install \
+      --name qa-vm01 \
+      --ram 1024 \
+      --vcpus 1 \
+      --disk path=/var/lib/libvirt/images/qa-vm-disk.qcow2,format=qcow2 \
+      --os-variant rocky9 \
+      --network network=default \
+      --graphics none \
+      --console pty,target_type=serial \
+      --location "https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/" \
+      --extra-args "console=ttyS0"
+    ```
+
+    *Tip: Para desconectarse de la consola sin matar la VM, presione `Ctrl + ]`.*
+
+5.  **Configurar Auto-inicio**
+
+    Asegure que la VM sobrevive a reinicios del host.
+
+    ```bash
+    sudo virsh autostart qa-vm01
+    ```
+
+6.  **Validar Control de Ciclo de Vida**
+
+    Verifique que la VM corre, luego solicite un apagado ACPI.
+
+    ```bash
+    # Verificar estado
+    sudo virsh list --all
+
+    # Solicitud de apagado controlado
+    sudo virsh shutdown qa-vm01
+    ```
+
+</Steps>
+
+## 🔍 Diagnóstico y Resolución
+
+*   **"Guest name already in use":** Si un intento previo falló parcialmente, limpie los metadatos:
+    ```bash
+    sudo virsh destroy qa-vm01
+    sudo virsh undefine qa-vm01
+    ```
+*   **Consola Congelada:** Si la consola no muestra salida, asegúrese de que `--extra-args "console=ttyS0"` fue pasado correctamente para redirigir los logs del kernel al puerto serie.

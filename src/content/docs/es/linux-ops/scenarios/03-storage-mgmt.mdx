@@ -1,0 +1,105 @@
+---
+title: "Gestión del Ciclo de Vida LVM"
+description: Redimensionamiento dinámico de Grupos de Volúmenes y retiro de Volúmenes Físicos en producción.
+sidebar:
+  label: Gestión LVM
+  order: 3
+type: scenario
+domain: storage
+source: manual
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Requisitos de Ingeniería
+
+**Contexto de Negocio:**
+Una iniciativa de consolidación de almacenamiento requiere retirar el disco físico `/dev/vdh` del grupo de volúmenes existente `vol1`. Este disco debe ser reutilizado para crear un nuevo grupo de almacenamiento aislado (`vol2`) para un proyecto específico.
+
+**Objetivos Técnicos:**
+1.  **Migración en Caliente:** Evacuar datos de `/dev/vdh` sin interrupción del servicio usando capacidades de mirroring de LVM.
+2.  **Cambio de Topología:** Remover `/dev/vdh` de `vol1` e inicializar un nuevo Volume Group `vol2`.
+3.  **Aprovisionamiento:** Crear un Volumen Lógico `p1` (50 MiB) dentro de `vol2`.
+4.  **Filesystem:** Formatear el nuevo volumen con **ext4**.
+
+:::caution[Integridad de Datos]
+En producción, ejecutar `pvmove` es una operación intensiva en I/O. Asegúrese de que no haya backups críticos ejecutándose simultáneamente.
+:::
+
+---
+
+## 🔧 Procedimiento de Implementación
+
+<Steps>
+
+1.  **Analizar Topología de Almacenamiento**
+
+    Confirme el esquema actual y verifique que `/dev/vdh` es parte de `vol1`.
+
+    ```bash
+    sudo pvs
+    sudo vgs
+    ```
+
+2.  **Evacuación de Datos (pvmove)**
+
+    Reubique los "physical extents" (PE) asignados desde el disco objetivo hacia otros discos libres dentro del mismo Grupo de Volúmenes.
+
+    ```bash
+    # Verificar asignación
+    sudo pvdisplay -m /dev/vdh
+
+    # Migrar datos
+    sudo pvmove /dev/vdh
+    ```
+
+3.  **Retirar Disco**
+
+    Una vez el disco esté totalmente libre, remuévalo del Grupo de Volúmenes.
+
+    ```bash
+    sudo vgreduce vol1 /dev/vdh
+    ```
+
+4.  **Inicializar Nuevo Grupo de Almacenamiento**
+
+    Cree el nuevo Volume Group `vol2` usando el volumen físico reclamado.
+
+    ```bash
+    sudo vgcreate vol2 /dev/vdh
+    ```
+
+5.  **Aprovisionar Volumen Lógico**
+
+    Asigne la capacidad de almacenamiento solicitada.
+
+    ```bash
+    sudo lvcreate -n p1 -L 50M vol2
+    ```
+
+6.  **Aplicar Sistema de Archivos**
+
+    Formatee el dispositivo de bloque.
+
+    ```bash
+    sudo mkfs.ext4 /dev/vol2/p1
+    ```
+
+7.  **Validación Final**
+
+    Verifique la nueva estructura LVM y la firma del filesystem.
+
+    ```bash
+    sudo lvs -o lv_name,vg_name,lv_size,seg_pe_ranges
+    lsblk -f /dev/vol2/p1
+    ```
+
+</Steps>
+
+## 🔍 Diagnóstico y Resolución
+
+*   **"Physical volume is still in use":** El comando `vgreduce` fallará si saltó el Paso 2. **Debe** evacuar los datos primero.
+*   **"Insufficient free extents":** Si `vol1` no tiene suficiente espacio libre en otros discos (ej. `/dev/vdb`) para contener los datos de `/dev/vdh`, la operación `pvmove` fallará.

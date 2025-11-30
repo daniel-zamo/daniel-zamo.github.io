@@ -1,5 +1,5 @@
 ---
-title: "KVM/Libvirt VM Orchestration" # BEFORE: Lab 04
+title: "KVM/Libvirt VM Orchestration"
 description: Provisioning and lifecycle management of compute instances using virtualization CLI tools.
 sidebar:
   label: KVM Orchestration
@@ -14,32 +14,33 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 <LabEnvironment />
 
-## 📋 Requirement Definition
+## 📋 Engineering Requirements
 
-**Context:** The QA team requests an isolated compute instance on the `kvm-001` hypervisor for integration testing.
+**Business Context:**
+The QA team requests a dedicated, isolated compute instance on the `kvm-001` hypervisor for integration testing. The environment must be provisioned using standard CLI tools to ensure reproducibility.
 
-**Engineering Objectives:**
-1.  **Host Readiness:** Ensure operational status of the `qemu-kvm` and `libvirtd` stack.
-2.  **Storage Provisioning:** Create `qcow2` volumes utilizing Thin Provisioning.
-3.  **Instance Definition:** Deploy a `headless` guest with serial console redirection for management without a GUI.
-4.  **Lifecycle Management:**
-    *   Enable the VM to start automatically on host boot.
-    *   Verify the running status.
-    *   Perform a graceful shutdown of the guest.
+**Technical Objectives:**
+1.  **Host Readiness:** Validate the `qemu-kvm` and `libvirtd` stack status.
+2.  **Storage:** Provision a **10 GiB** `qcow2` volume (Thin Provisioned) named `qa-vm-disk.qcow2`.
+3.  **Instance Definition (`qa-vm01`):**
+    *   **Specs:** 1 vCPU, 1024 MiB RAM.
+    *   **Network:** Default NAT bridge.
+    *   **Console:** Serial redirection (Headless mode).
+4.  **Lifecycle:** Enable auto-start on boot and perform a graceful shutdown test.
 
-:::note[Scope]
-You are **not** required to complete the full OS installation wizard inside the VM. Successfully booting into the installer kernel is sufficient for this task.
+:::note[Scope Constraint]
+Full OS installation is not required. Successfully booting the kernel into the installer prompt via the serial console is sufficient for validation.
 :::
 
 ---
 
-## 🔧 Solution Walkthrough
+## 🔧 Implementation Procedure
 
 <Steps>
 
-1.  **Access the Hypervisor**
+1.  **Access Hypervisor Node**
 
-    Connect to the virtualization node.
+    Connect to the virtualization host.
 
     ```bash
     ssh kvm-001
@@ -47,36 +48,24 @@ You are **not** required to complete the full OS installation wizard inside the 
 
 2.  **Verify Host Prerequisites**
 
-    Ensure the virtualization toolchain is installed and the daemon is running.
+    Ensure the libvirt daemon is active and enabled.
 
     ```bash
-    # Install packages (if missing)
-    sudo apt update
-    sudo apt install -y qemu-kvm libvirt-daemon-system virt-install
-
-    # Enable and start libvirtd
-    sudo systemctl enable --now libvirtd
-
-    # Verify status
-    systemctl is-active libvirtd
+    sudo systemctl is-active libvirtd
+    # If inactive: sudo systemctl enable --now libvirtd
     ```
 
-3.  **Provision Storage**
+3.  **Provision Storage Volume**
 
-    Create the virtual disk image using `qemu-img`. Note the use of the `qcow2` format, which supports snapshots and dynamic allocation.
+    Create the virtual disk using `qemu-img`.
 
     ```bash
     sudo qemu-img create -f qcow2 /var/lib/libvirt/images/qa-vm-disk.qcow2 10G
     ```
 
-    *Verification:*
-    ```bash
-    ls -lh /var/lib/libvirt/images/qa-vm-disk.qcow2
-    ```
+4.  **Define and Boot Instance**
 
-4.  **Instantiate the Virtual Machine**
-
-    Use `virt-install` to define and boot the guest. We use `--location` to point to a public mirror for the installation source and `--extra-args` to ensure the kernel outputs logs to the serial console (`ttyS0`).
+    Execute `virt-install` with parameters for a headless environment (`--graphics none`).
 
     ```bash
     sudo virt-install \
@@ -92,46 +81,35 @@ You are **not** required to complete the full OS installation wizard inside the 
       --extra-args "console=ttyS0"
     ```
 
-    :::tip[Console Escape]
-    If the command attaches you to the console and you see the installer loading, you can detach (exit to host) without stopping the VM by pressing `Ctrl + ]`.
-    :::
+    *Tip: To detach from the console without killing the VM, press `Ctrl + ]`.*
 
-5.  **Verify Status**
+5.  **Configure Autostart**
 
-    Check the list of all domains (VMs) to ensure `qa-vm01` is running.
-
-    ```bash
-    sudo virsh list --all
-    ```
-
-6.  **Configure Autostart**
-
-    Flag the VM to boot automatically when the physical host `kvm-001` restarts.
+    Ensure the VM survives host reboots.
 
     ```bash
     sudo virsh autostart qa-vm01
     ```
 
-7.  **Graceful Shutdown**
+6.  **Validate Lifecycle Control**
 
-    Request an ACPI shutdown. This mimics pressing the power button on a physical server, allowing the OS to close processes safely (unlike `virsh destroy`, which is like pulling the power cord).
+    Verify the VM is running, then request an ACPI shutdown.
 
     ```bash
+    # Check status
+    sudo virsh list --all
+
+    # Graceful shutdown request
     sudo virsh shutdown qa-vm01
     ```
-
-    *Note: Since we are only in the installer stage, the shutdown might require manual confirmation inside the console or might not process the ACPI signal immediately depending on the installer kernel. For the exam, running the command is the validation step.*
 
 </Steps>
 
 ## 🔍 Troubleshooting
 
-*   **Error: "Guest name 'qa-vm01' is already in use"**:
-    If you made a mistake and need to start over, remove the existing definition:
+*   **"Guest name already in use":** If a previous attempt failed partially, clean up the metadata:
     ```bash
-    sudo virsh destroy qa-vm01  # Force stop
-    sudo virsh undefine qa-vm01 # Remove config
+    sudo virsh destroy qa-vm01
+    sudo virsh undefine qa-vm01
     ```
-
-*   **Error: "Permission denied" on disk**:
-    Ensure the user running qemu (usually `libvirt-qemu`) has read/write access to `/var/lib/libvirt/images/`. Standard installations handle this automatically.
+*   **Console Hanging:** If the console does not show output, ensure `--extra-args "console=ttyS0"` was passed correctly to redirect kernel logs to the serial port.

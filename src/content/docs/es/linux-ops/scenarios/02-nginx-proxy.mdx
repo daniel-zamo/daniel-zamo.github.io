@@ -1,0 +1,125 @@
+---
+title: "Balanceo de Carga L7 y Edge Proxy"
+description: Implementación de reglas de Proxy Reverso y algoritmos de distribución de tráfico usando Nginx.
+sidebar:
+  label: Balanceo de Carga L7
+  order: 2
+type: scenario
+domain: networking
+source: manual
+---
+
+import { Steps } from '@astrojs/starlight/components';
+import LabEnvironment from '../../../../../components/LabEnvironment.astro';
+
+<LabEnvironment />
+
+## 📋 Requisitos de Ingeniería
+
+**Contexto de Negocio:**
+Las aplicaciones internas legacy alojadas en `web-server01` están expuestas actualmente en puertos no estándar (`1111`, `2222`), complicando las reglas de firewall y el acceso del cliente. Se requiere una solución de Proxy Reverso para estandarizar el acceso vía HTTP.
+
+**Objetivos Técnicos:**
+1.  **Nodo Objetivo:** `web-server01` (10.0.0.60).
+2.  **Redirección de Tráfico (Puerto 8001):**
+    *   El tráfico entrante debe ser reenviado a la ruta backend específica: `http://127.0.0.1:2222/special`.
+3.  **Balanceo de Carga (Puerto 8000):**
+    *   Distribuir tráfico entre **App A** (`:1111`) y **App B** (`:2222`).
+    *   Algoritmo: Round Robin (Por defecto) o Random.
+
+:::danger[Restricciones Operativas]
+*   **Backend Inmutable:** No modifique los archivos de configuración de Nginx existentes que sirven los puertos 1111/2222.
+*   **Persistencia:** La configuración debe persistir tras un reinicio del sistema.
+:::
+
+---
+
+## 🔧 Procedimiento de Implementación
+
+<Steps>
+
+1.  **Acceso al Nodo Objetivo**
+
+    Establezca una conexión segura al servidor web desde el host bastión.
+
+    ```bash
+    ssh web-server01
+    ```
+
+2.  **Verificar Salud del Backend**
+
+    Asegúrese de que las aplicaciones upstream están operativas antes de configurar el proxy.
+
+    ```bash
+    curl -I http://127.0.0.1:1111
+    curl -I http://127.0.0.1:2222
+    ```
+
+3.  **Definir Configuración del Proxy**
+
+    Cree un archivo de configuración modular en `/etc/nginx/conf.d/`. Evite editar `nginx.conf` directamente.
+
+    ```bash
+    sudo vim /etc/nginx/conf.d/loadbalancer.conf
+    ```
+
+    Implemente el siguiente bloque para definir el grupo upstream y los contextos server:
+
+    ```nginx title="/etc/nginx/conf.d/loadbalancer.conf"
+    # 1. Definir Grupo Upstream (Balanceador)
+    upstream backend_apps {
+        server 127.0.0.1:1111;
+        server 127.0.0.1:2222;
+    }
+
+    # 2. Tarea: Balanceador de Carga (Puerto 8000)
+    server {
+        listen 8000;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://backend_apps;
+        }
+    }
+
+    # 3. Tarea: Redirección/Proxy (Puerto 8001)
+    server {
+        listen 8001;
+        server_name localhost;
+
+        location / {
+            proxy_pass http://127.0.0.1:2222/special;
+        }
+    }
+    ```
+
+4.  **Validar y Recargar**
+
+    Realice una comprobación de sintaxis para prevenir caídas del servicio, luego recargue la señal del proceso.
+
+    ```bash
+    sudo nginx -t
+    sudo systemctl reload nginx
+    ```
+
+5.  **Verificación Funcional**
+
+    **Probar Balanceador (8000):** Ejecute múltiples peticiones. Las respuestas deben alternar entre backends.
+    ```bash
+    for i in {1..4}; do curl http://localhost:8000; echo; done
+    ```
+
+    **Probar Redirección (8001):**
+    ```bash
+    curl -v http://localhost:8001
+    ```
+
+</Steps>
+
+## 🔍 Diagnóstico y Resolución
+
+*   **Connection Refused:** Asegúrese de que Nginx está escuchando en los nuevos puertos:
+    ```bash
+    ss -tulpn | grep nginx
+    ```
+*   **502 Bad Gateway:** Indica que Nginx no puede alcanzar los puertos upstream (1111/2222). Verifique si las apps backend han caído.

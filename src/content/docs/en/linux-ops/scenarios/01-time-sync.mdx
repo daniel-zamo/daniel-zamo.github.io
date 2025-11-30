@@ -14,54 +14,49 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 <LabEnvironment />
 
-## 📋 Scenario Requirements
+## 📋 Engineering Requirements
 
-**Context:** Drift in system clocks is causing failures in distributed transaction logs. You must enforce a strict NTP policy on the `terminal` controller.
+**Business Context:**
+Audit logs indicate drift in system clocks across the cluster, causing failures in distributed transaction reconciliation. A strict NTP policy must be enforced on the controller node to ensure consistency.
 
-**Configuration Standard:**
-1.  **Primary Upstreams:** `0.pool.ntp.org`, `1.pool.ntp.org`.
-2.  **Performance Tuning:**
+**Technical Objectives:**
+1.  **Primary Upstreams:** Configure `0.pool.ntp.org` and `1.pool.ntp.org` as authoritative sources.
+2.  **Failover:** Define `ntp.ubuntu.com` and `0.debian.pool.ntp.org` as fallback servers.
+3.  **Performance Tuning:**
     *   Max poll interval: `1000s`.
-    *   Retry interval: `20s`.
+    *   Connection retry interval: `20s`.
 
-:::caution[Service Context]
-This scenario uses `systemd-timesyncd`, which is the default lightweight SNTP client on Ubuntu. Do not install `chrony` or `ntp` packages unless explicitly asked, as they conflict with timesyncd.
+:::caution[Service Constraint]
+The environment utilizes `systemd-timesyncd` as the standard lightweight SNTP client. Do not install `chrony` or legacy `ntp` packages unless explicitly required, to avoid service conflicts.
 :::
 
 ---
 
-## 🔧 Solution Walkthrough
+## 🔧 Implementation Procedure
 
 <Steps>
 
-1.  **Audit current status**
+1.  **Audit Current State**
 
-    Before applying changes, verify the operating system version and the current time synchronization status.
+    Verify the operating system version and the active time synchronization status before applying changes.
 
     ```bash
     # Check OS version
     cat /etc/os-release | grep PRETTY_NAME
-    # Output: PRETTY_NAME="Ubuntu 24.04.3 LTS"
 
-    # Check active time service
-    dpkg -l | grep systemd-timesync
-    ```
-
-    You can query the current status of the daemon using `timedatectl`:
-
-    ```bash
+    # Verify active time service status
     timedatectl timesync-status
     ```
 
-2.  **Modify configuration**
+2.  **Apply Configuration Policy**
 
-    Open the configuration file `/etc/systemd/timesyncd.conf`.
+    Edit the daemon configuration file `/etc/systemd/timesyncd.conf`.
 
     ```bash
     sudo vim /etc/systemd/timesyncd.conf
     ```
 
-    Modify the `[Time]` section to match the requirements. Uncomment the lines if necessary.
+    Modify the `[Time]` section to strictly match the engineering requirements:
 
     ```ini title="/etc/systemd/timesyncd.conf" {2-5}
     [Time]
@@ -71,57 +66,36 @@ This scenario uses `systemd-timesyncd`, which is the default lightweight SNTP cl
     ConnectionRetrySec=20
     ```
 
-    :::tip[Man Pages]
-    If you are unsure about a specific directive syntax during the exam, use:
-    `man timesyncd.conf`
-    :::
+3.  **Restart Service**
 
-3.  **Restart the service**
-
-    Apply the changes by restarting the systemd unit.
+    Apply the new policy by restarting the systemd unit.
 
     ```bash
     sudo systemctl restart systemd-timesyncd.service
     ```
 
-4.  **Verify implementation**
+4.  **Validate Implementation**
 
-    Ensure the service is active and running without errors.
+    Confirm the service is active and synchronizing with the correct upstream stratum.
 
     ```bash
+    # Check service status
     sudo systemctl status systemd-timesyncd.service
-    ```
 
-    *Expected output snippet:*
-    ```text
-    Status: "Contacted time server 82.165.173.235:123 (0.pool.ntp.org)."
-    Active: active (running) ...
-    ```
-
-    Finally, validate the operational metrics (Poll interval and Jitter) using `timedatectl`.
-
-    ```bash
+    # Validate metrics (Poll interval)
     timedatectl timesync-status
     ```
 
-    ```text {2}
-    Server: 82.165.173.235 (0.pool.ntp.org)
-    Poll interval: 1min 4s (min: 32s; max 16min 40s)
-    ...
-    ```
+    *Validation Criteria:* Output must show `Active: active (running)` and `Poll interval` metrics matching the configuration.
 
 </Steps>
 
 ## 🔍 Troubleshooting
 
-If the synchronization fails, check the system logs for specific daemon messages:
+If synchronization fails (e.g., "Packet not received"), inspect the system journal:
 
 ```bash
-sudo grep systemd-timesyncd /var/log/syslog
-# Or use journalctl
-sudo journalctl -u systemd-timesyncd
+sudo journalctl -u systemd-timesyncd --no-pager | tail -n 20
 ```
 
-Successful synchronization logs will look like this:
-> *Contacted time server ... (0.pool.ntp.org).*
-> *Initial clock synchronization to ...*
+*Success Indicator:* Look for logs stating: *"Contacted time server ... (0.pool.ntp.org)"*.
