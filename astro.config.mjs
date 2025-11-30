@@ -93,12 +93,12 @@ export default defineConfig({
                     autogenerate: { directory: 'projects' }
                 },
                 {
-                    label: 'LFCS Certification',
+                    label: 'Linux Systems Engineering',
                     translations: {
-                        es: 'Certificación LFCS'
+                        es: 'Ingeniería de Sistemas Linux'
                     },
                     collapsed: true,
-                    autogenerate: { directory: 'lfcs' }
+                    autogenerate: { directory: 'linux-ops' }
                 },
             ],
         }),

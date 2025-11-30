@@ -1,10 +1,10 @@
 ---
-title: "Lab 02: Nginx Load Balancer"
-description: Configure Layer 7 load balancing and reverse proxy rules using Nginx.
+title: "L7 Load Balancing & Edge Proxy" # BEFORE: Lab 02
+description: Implementation of Reverse Proxy rules and traffic distribution algorithms using Nginx.
 sidebar:
-  label: 02 - Nginx Proxy
+  label: L7 Load Balancing
   order: 2
-type: lab
+type: scenario
 domain: networking
 source: manual
 ---
@@ -15,6 +15,10 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 <LabEnvironment />
 
 ## 📋 Scenario Requirements
+
+**Context:** High availability is required for internal legacy applications hosted on `web-server01`. Currently, apps serve on non-standard ports (`1111`, `2222`).
+
+**Engineering Task:** Implement an Nginx Layer 7 Load Balancer to expose these services via standard HTTP ports, ensuring session distribution and URL rewriting.
 
 You are logged into `web-server01` (10.0.0.60). This server is currently hosting two internal applications served by a pre-existing Nginx configuration which **must not be modified**:
 *   **App A:** Running on port `1111`

@@ -1,10 +1,10 @@
 ---
-title: "Lab 03: LVM Storage Management"
-description: Resize Volume Groups, decommission Physical Volumes, and provision new Logical Volumes.
+title: "LVM Volume Lifecycle Management" # BEFORE: Lab 03
+description: Dynamic resizing of Volume Groups and decommissioning of Physical Volumes in production.
 sidebar:
-  label: 03 - Storage Mgmt
+  label: LVM Management
   order: 3
-type: lab
+type: scenario
 domain: storage
 source: manual
 ---
@@ -16,13 +16,12 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 ## 📋 Scenario Requirements
 
-You are working on the `terminal` host. This system currently has a Volume Group named `vol1` that spans multiple physical disks. Your objective is to reclaim one of these disks to repurpose it for a new storage group.
+**Context:** A storage consolidation request requires decommissioning physical disk `/dev/vdh` from `vol1` to repurpose it for a new dedicated volume group, without disrupting data integrity.
 
-**Perform the following actions:**
-
-1.  **Shrink Volume Group:** Decommission the physical disk `/dev/vdh` from the existing Volume Group `vol1`.
-2.  **Create Volume Group:** Initialize a new Volume Group named `vol2` using the reclaimed disk (`/dev/vdh`).
-3.  **Provision Logical Volume:** Create a Logical Volume named `p1` with a size of **50 MiB** inside the new `vol2` group.
+**Procedure Scope:**
+1.  **Hot Migration:** Evacuate data from physical extents (PE) using `pvmove`.
+2.  **Topology Change:** Reduce existing VG and initialize `vol2`.
+3.  **Provisioning:** Allocate logical storage and apply `ext4` filesystem.
 4.  **Format:** Initialize the new Logical Volume with the **ext4** filesystem.
 
 :::caution[Data Safety]

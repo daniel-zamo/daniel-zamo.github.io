@@ -1,10 +1,10 @@
 ---
-title: "Lab 04: KVM Virtual Machine Management"
-description: Provision, configure, and manage the lifecycle of KVM guests using libvirt CLI tools.
+title: "KVM/Libvirt VM Orchestration" # BEFORE: Lab 04
+description: Provisioning and lifecycle management of compute instances using virtualization CLI tools.
 sidebar:
-  label: 04 - KVM Management
+  label: KVM Orchestration
   order: 4
-type: lab
+type: scenario
 domain: virtualization
 source: manual
 ---
@@ -14,19 +14,14 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 <LabEnvironment />
 
-## 📋 Scenario Requirements
+## 📋 Requirement Definition
 
-You are assigned to the virtualization host `kvm-001` (running Ubuntu 24.04 LTS). The Quality Assurance (QA) team requires a new isolated compute instance for application testing.
+**Context:** The QA team requests an isolated compute instance on the `kvm-001` hypervisor for integration testing.
 
-**Objectives:**
-
-1.  **Host Readiness:** Ensure the KVM/Libvirt stack (`qemu-kvm`, `virt-install`, `libvirt-daemon-system`) is installed and the service is active.
-2.  **Storage Provisioning:** Create a **10 GiB** qcow2 volume named `qa-vm-disk.qcow2` located in the default libvirt images directory (`/var/lib/libvirt/images/`).
-3.  **VM Definition:** Provision a new guest named `qa-vm01` using `virt-install` with the following specs:
-    *   **Resources:** 1 vCPU, 1024 MiB RAM.
-    *   **Network:** Default NAT network.
-    *   **OS Source:** Network installation (e.g., Rocky Linux 9 or CentOS Stream).
-    *   **Access:** Headless mode (no graphics); output redirected to **serial console**.
+**Engineering Objectives:**
+1.  **Host Readiness:** Ensure operational status of the `qemu-kvm` and `libvirtd` stack.
+2.  **Storage Provisioning:** Create `qcow2` volumes utilizing Thin Provisioning.
+3.  **Instance Definition:** Deploy a `headless` guest with serial console redirection for management without a GUI.
 4.  **Lifecycle Management:**
     *   Enable the VM to start automatically on host boot.
     *   Verify the running status.

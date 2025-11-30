@@ -1,10 +1,10 @@
 ---
-title: "Lab 01: Time Synchronization Client"
-description: Configure systemd-timesyncd, NTP pools, and polling intervals on an Ubuntu client.
+title: "NTP Strategy & Time Synchronization"
+description: Configuration of systemd-timesyncd policies for transactional consistency in distributed clusters.
 sidebar:
-  label: 01 - Time Sync Client
+  label: NTP Strategy
   order: 1
-type: lab
+type: scenario
 domain: networking
 source: manual
 ---
@@ -16,13 +16,13 @@ import LabEnvironment from '../../../../../components/LabEnvironment.astro';
 
 ## 📋 Scenario Requirements
 
-You are tasked with updating the time synchronization configuration on the `terminal` host (Ubuntu 24.04). The requirements are as follows:
+**Context:** Drift in system clocks is causing failures in distributed transaction logs. You must enforce a strict NTP policy on the `terminal` controller.
 
-1.  **Primary NTP Servers:** Set `0.pool.ntp.org` and `1.pool.ntp.org`.
-2.  **Fallback NTP Servers:** Set `ntp.ubuntu.com` and `0.debian.pool.ntp.org`.
-3.  **Tuning:**
-    *   Maximum poll interval: `1000` seconds.
-    *   Connection retry interval: `20` seconds.
+**Configuration Standard:**
+1.  **Primary Upstreams:** `0.pool.ntp.org`, `1.pool.ntp.org`.
+2.  **Performance Tuning:**
+    *   Max poll interval: `1000s`.
+    *   Retry interval: `20s`.
 
 :::caution[Service Context]
 This scenario uses `systemd-timesyncd`, which is the default lightweight SNTP client on Ubuntu. Do not install `chrony` or `ntp` packages unless explicitly asked, as they conflict with timesyncd.

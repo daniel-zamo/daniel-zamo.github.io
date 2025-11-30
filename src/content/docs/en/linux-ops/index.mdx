@@ -1,0 +1,65 @@
+---
+title: Linux Systems Engineering & Operations
+description: Technical knowledge base for administration, hardening, and optimization of Enterprise Linux systems.
+sidebar:
+  label: Overview
+  order: 0
+type: theory
+source: manual
+---
+
+import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
+
+Welcome to the **Linux Operations** technical documentation hub. This section consolidates engineering practices for the design, deployment, and maintenance of Linux kernel-based infrastructure.
+
+Content is aligned with industry standards (**LFCS**, **RHCSA**), focusing on practical execution and incident resolution in production environments.
+
+:::tip[Operational Focus]
+Documentation prioritizes **CLI (Command Line Interface)** over graphical tools, ensuring management capabilities in *headless* servers and automated environments.
+:::
+
+## 🎯 Competency Domains
+
+The knowledge base is structured into functional areas critical for system stability:
+
+<CardGrid>
+  <Card title="Core Operations" icon="linux">
+    Advanced text stream manipulation (sed/awk), process management, and Bash automation scripting.
+  </Card>
+  <Card title="Runtime Management" icon="setting">
+    Boot process analysis (Systemd/Grub), runtime kernel parameters, and system tuning.
+  </Card>
+  <Card title="Identity Management" icon="user">
+    Local user configuration, LDAP/AD directory integration, and PAM security policies.
+  </Card>
+  <Card title="Networking & Security" icon="signal">
+    Static/dynamic routing, packet filtering (Firewalling), and precise time synchronization (NTP/PTP).
+  </Card>
+  <Card title="Infrastructure Services" icon="puzzle">
+    Configuration of DNS, secure SSH, Web servers, and container runtimes.
+  </Card>
+  <Card title="Enterprise Storage" icon="laptop">
+    Logical Volume Management (LVM), software RAID, and transactional filesystems.
+  </Card>
+</CardGrid>
+
+---
+
+## 🧪 Scenario Catalog
+
+Theory is validated through execution. Access the **Standard Operating Procedures (SOP)** catalog to view step-by-step implementations.
+
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+    <LinkButton href="/en/linux-ops/scenarios/" variant="primary" icon="rocket">
+        View Operational Procedures
+    </LinkButton>
+    <LinkButton href="https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/" variant="secondary" icon="external" target="_blank">
+        Reference Standard (LFCS)
+    </LinkButton>
+</div>
+
+### Recent Updates
+
+*   **Virtualization:** Orchestration guides for KVM and Libvirt.
+*   **Containers:** Docker/Podman integration within system workflows.
+*   **Storage:** Hot-resize procedures for LVM volumes.

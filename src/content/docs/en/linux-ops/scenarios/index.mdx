@@ -1,0 +1,71 @@
+---
+title: Operational Scenarios Catalog
+description: Technical procedures for incident resolution, resource provisioning, and Linux lifecycle management.
+sidebar:
+  label: Scenario Catalog
+  order: 0
+type: scenario
+source: manual
+---
+
+import { CardGrid, LinkCard, Icon } from '@astrojs/starlight/components';
+
+This section hosts the **practical execution layer** of the portfolio. Each entry is structured as a **Standard Operating Procedure (SOP)**, simulating real-world infrastructure tickets requiring configuration, troubleshooting, and validation in a live environment.
+
+The objective is to demonstrate resolution capabilities under technical constraints aligned with industry standards (LFCS/RHCSA).
+
+---
+
+## 🏗️ Environment Topology (Standard Operating Environment)
+
+All scenarios run on a standardized 7-node cluster. This topology simulates a three-tier architecture (Web, App, Data) with nested virtualization capabilities.
+
+:::danger[Access & Security Protocols]
+*   **Bastion:** All operations originate from the `terminal` node.
+*   **Nested SSH:** Strictly forbidden by security policy. Connections must be direct from the controller.
+*   **Persistence:** All configurations must survive a system reboot (*Reboot-proof*).
+:::
+
+### Node Inventory
+
+| Role | Hostname | Function / Business Context |
+| :--- | :--- | :--- |
+| **Management** | `terminal` | Operations Controller (Bastion Host) and main CLI. |
+| **Web Tier** | `web-srv1` | SSL Termination, Reverse Proxy, and HTTP Server. |
+| **App Tier** | `app-srv1` | Business logic execution and internal APIs. |
+| **Data Tier** | `data-001/002` | Persistence, databases, and raw block storage. |
+| **Virtualization** | `kvm-001` | Libvirt hypervisor for server consolidation. |
+| **Containers** | `docker-001` | Runtime for microservices and lightweight orchestration. |
+
+---
+
+## 🚀 Available Procedures
+
+Select a scenario to view engineering requirements and implementation strategy.
+
+<CardGrid>
+  <LinkCard
+    title="01 - Time Management (NTP/Chrony)"
+    description="Configuration of time clients to ensure transactional consistency in distributed systems."
+    href="/en/linux-ops/scenarios/01-time-sync/"
+  />
+  <LinkCard
+    title="02 - L7 Load Balancing (Nginx)"
+    description="Implementation of Reverse Proxy and HTTP traffic balancing for internal applications."
+    href="/en/linux-ops/scenarios/02-nginx-proxy/"
+  />
+  <LinkCard
+    title="03 - Storage & LVM"
+    description="Elastic volume management: Hot resizing and Physical Volume lifecycle management."
+    href="/en/linux-ops/scenarios/03-storage-mgmt/"
+  />
+   <LinkCard
+    title="04 - KVM Orchestration"
+    description="Provisioning of virtual machines (VMs) and lifecycle management using Virsh."
+    href="/en/linux-ops/scenarios/04-kvm-management/"
+  />
+</CardGrid>
+
+:::tip[Infrastructure Note]
+Procedures assume pre-configured network connectivity between inventory nodes. For specific IP addressing details, refer to the technical datasheet within each scenario.
+:::

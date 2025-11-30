@@ -1,0 +1,71 @@
+---
+title: Catálogo de Escenarios Operativos
+description: Colección de procedimientos técnicos para la resolución de incidencias, aprovisionamiento de recursos y gestión de ciclo de vida en Linux.
+sidebar:
+  label: Catálogo de Escenarios
+  order: 0
+type: scenario
+source: manual
+---
+
+import { CardGrid, LinkCard, Icon } from '@astrojs/starlight/components';
+
+Esta sección aloja la **capa de ejecución práctica** del portfolio. Cada entrada está estructurada como un **Procedimiento Operativo Estándar (SOP)**, simulando tickets de infraestructura reales que requieren configuración, *troubleshooting* y validación en un entorno vivo.
+
+El objetivo es demostrar capacidad de resolución bajo restricciones técnicas alineadas con estándares de la industria (LFCS/RHCSA).
+
+---
+
+## 🏗️ Topología del Entorno (Standard Operating Environment)
+
+Todos los escenarios se ejecutan sobre un clúster estandarizado de 7 nodos. Esta topología simula una arquitectura de tres capas (Web, App, Data) con capacidades de virtualización anidadas.
+
+:::danger[Protocolos de Acceso y Seguridad]
+*   **Bastión:** Todas las operaciones se inician desde el nodo `terminal`.
+*   **SSH Anidado:** Estrictamente prohibido por políticas de seguridad. La conexión debe ser directa desde el controlador.
+*   **Persistencia:** Toda configuración debe sobrevivir al reinicio del sistema (*Reboot-proof*).
+:::
+
+### Inventario de Nodos
+
+| Rol | Hostname | Función / Contexto de Negocio |
+| :--- | :--- | :--- |
+| **Gestión** | `terminal` | Controlador de operaciones (Bastion Host) y CLI principal. |
+| **Capa Web** | `web-srv1` | Terminación SSL, Proxy Inverso y Servidor HTTP. |
+| **Capa App** | `app-srv1` | Ejecución de lógica de negocio y APIs internas. |
+| **Capa Datos** | `data-001/002` | Persistencia, bases de datos y almacenamiento en bloque. |
+| **Virtualización** | `kvm-001` | Hipervisor Libvirt para consolidación de servidores. |
+| **Contenedores** | `docker-001` | Runtime para microservicios y orquestación ligera. |
+
+---
+
+## 🚀 Procedimientos Disponibles
+
+Seleccione un escenario para ver los requisitos de ingeniería y la estrategia de implementación.
+
+<CardGrid>
+  <LinkCard
+    title="01 - Gestión de Tiempo (NTP/Chrony)"
+    description="Configuración de clientes de tiempo para garantizar la consistencia transaccional en sistemas distribuidos."
+    href="/es/linux-ops/scenarios/01-time-sync/"
+  />
+  <LinkCard
+    title="02 - Balanceo de Carga L7 (Nginx)"
+    description="Implementación de Proxy Reverso y balanceo de tráfico HTTP para aplicaciones internas."
+    href="/es/linux-ops/scenarios/02-nginx-proxy/"
+  />
+  <LinkCard
+    title="03 - Storage & LVM"
+    description="Gestión elástica de volúmenes: Redimensionamiento en caliente y gestión de Physical Volumes."
+    href="/es/linux-ops/scenarios/03-storage-mgmt/"
+  />
+   <LinkCard
+    title="04 - Orquestación KVM"
+    description="Aprovisionamiento de máquinas virtuales (VMs) y gestión del ciclo de vida con Virsh."
+    href="/es/linux-ops/scenarios/04-kvm-management/"
+  />
+</CardGrid>
+
+:::tip[Nota de Infraestructura]
+Los procedimientos asumen conectividad de red preconfigurada entre los nodos del inventario. Para detalles específicos de direccionamiento IP, consulte la ficha técnica dentro de cada escenario.
+:::

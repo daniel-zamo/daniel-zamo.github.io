@@ -3,7 +3,7 @@
 aa-*
 .*.bkp
 /content-site.sh
-/*_report-site-spec.md
+/*site-spec.md
 
 # build output
 dist/
