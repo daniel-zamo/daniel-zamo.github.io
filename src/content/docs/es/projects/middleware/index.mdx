@@ -1,6 +1,6 @@
 ---
-title: Proyectos de Automatización de Middleware
-description: Despliegue y configuración de servidores de aplicaciones empresariales usando principios de Infraestructura como Código.
+title: Ingeniería de Middleware y Automatización
+description: Estrategias de modernización para servidores de aplicaciones empresariales mediante IaC y contenedorización.
 sidebar:
   label: Middleware
   order: 0
@@ -9,76 +9,63 @@ type: project
 
 import { CardGrid, LinkCard } from '@astrojs/starlight/components';
 
-## Descripción General
+## Visión Arquitectónica
 
-Los proyectos de automatización de middleware se enfocan en eliminar procesos manuales de despliegue para servidores de aplicaciones empresariales. Estas implementaciones demuestran cómo realizar la transición de instalaciones tradicionales en bare metal a despliegues automatizados y contenedorizados.
+Esta sección documenta la **modernización de plataformas middleware**. El objetivo es transicionar infraestructuras monolíticas y manuales hacia arquitecturas elásticas y gestionadas por código.
 
-### Contexto de Negocio
+### El Problema de Negocio
 
-En los sectores de Banca y Telecomunicaciones, los servidores de aplicaciones (JBoss, WildFly, WebSphere) son componentes críticos de infraestructura. La configuración manual conduce a:
+En sectores regulados (Banca, Seguros, Telco), la gestión tradicional de servidores de aplicaciones (JBoss, WildFly, WebSphere) presenta fricciones críticas:
 
-- ❌ **Deriva de Configuración:** Inconsistencias entre entornos
-- ❌ **Brechas de Seguridad:** Parches omitidos y configuraciones incorrectas
-- ❌ **Despliegues Lentos:** Horas/días en lugar de minutos
-- ❌ **Silos de Conocimiento:** Dependencia de ingenieros específicos
+*   **Riesgo Operacional:** La configuración manual introduce errores humanos y deriva entre entornos (Environment Drift).
+*   **Coste de Mantenimiento:** El tiempo dedicado a parches y actualizaciones manuales (Toil) impide la innovación.
+*   **Recuperación Lenta:** Los RTOs (Recovery Time Objectives) son altos debido a la falta de automatización en el aprovisionamiento.
 
-**Solución:** Infraestructura como Código + Contenedorización
+**Solución Implementada:** Infraestructura Inmutable + Orquestación.
 
 ---
 
-## 🚀 Proyectos Destacados
+## 🚀 Catálogo de Soluciones
 
 <CardGrid>
   <LinkCard
-    title="WildFly + Ansible + Docker"
-    description="Despliegue automatizado de WildFly Application Server usando playbooks Ansible y contenedores Docker. Reemplaza ~40 pasos manuales con un único comando idempotente."
+    title="WildFly: Orquestación con Ansible y Docker"
+    description="Implementación de referencia para el despliegue inmutable de WildFly. Reduce el tiempo de aprovisionamiento en un 98% y asegura paridad entre entornos."
     href="/es/projects/middleware/wildfly-ansible-docker/"
   />
   
   <LinkCard
-    title="Próximamente: Clustering JBoss EAP"
-    description="Cluster de alta disponibilidad JBoss EAP con descubrimiento JGroups/TCPPing. Incluye configuración de balanceador de carga y replicación de sesiones."
+    title="Roadmap: Alta Disponibilidad JBoss EAP"
+    description="Diseño de arquitectura en clúster (Domain Mode) utilizando JGroups y TCPPING para entornos de red restringidos, con replicación de sesión distribuida."
     href="#"
   />
   
   <LinkCard
-    title="Próximamente: WebSphere a OpenLiberty"
-    description="Estrategia de migración de IBM WebSphere Application Server a OpenLiberty con Docker. Incluye pruebas de compatibilidad de aplicaciones."
+    title="I+D: Modernización Legacy (IBM WebSphere)"
+    description="Estrategia de replataformado (Re-platforming) migrando cargas de trabajo de WAS tradicional hacia contenedores OpenLiberty ligeros."
     href="#"
   />
 </CardGrid>
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Stack Tecnológico
 
-| Tecnología | Propósito | Por Qué Se Usa |
-|:-----------|:----------|:---------------|
-| **Ansible** | Gestión de Configuración | Idempotente, sin agentes, basado en SSH |
-| **Docker** | Contenedorización | Infraestructura inmutable, entornos consistentes |
-| **WildFly/JBoss** | Servidor de Aplicaciones | Runtime Java EE para apps empresariales |
-| **GitLab CI** | Automatización de Pipelines | Integración de despliegue continuo |
-| **Systemd** | Gestión de Servicios | Orquestación nativa de servicios Linux |
-
----
-
-## 📚 Habilidades Demostradas
-
-- **Playbooks Ansible:** Escritura de tareas de automatización idempotentes
-- **Imágenes Docker:** Construcción de contenedores de grado de producción
-- **Gestión de Entornos:** Manejo de secretos e inyección de configuración
-- **Redes:** Mapeo de puertos de contenedores y exposición de host
-- **Documentación:** Escritura técnica para equipos operacionales
+| Componente | Función | Justificación Técnica |
+|:-----------|:--------|:----------------------|
+| **Ansible** | Configuración | Modelo sin agentes (Agentless) ideal para entornos con restricciones de seguridad estrictas. |
+| **Docker** | Runtime | Aislamiento de procesos y portabilidad de binarios y dependencias. |
+| **WildFly/JBoss** | Middleware | Estándar de facto para aplicaciones Java EE en entorno Enterprise. |
+| **Systemd** | Supervisión | Gestión nativa del ciclo de vida del servicio en el host Linux. |
 
 ---
 
-## 🎯 Próximos Pasos
+## 🎯 Competencias Clave
 
-1. **Explorar el proyecto WildFly** para ver una implementación completa
-2. **Revisar el código fuente** (disponible en GitLab)
-3. **Probar el playbook** en tu propio entorno de laboratorio
+*   **Ingeniería de Automatización:** Desarrollo de Playbooks idempotentes y roles reutilizables.
+*   **Gestión de Secretos:** Desacoplamiento de credenciales y configuración del código fuente.
+*   **Networking en Contenedores:** Exposición segura de servicios y gestión de interfaces de red.
 
-:::note[Entorno de Laboratorio]
-Todos los proyectos de middleware pueden ser probados en la topología de laboratorio LFCS. El nodo `docker-001` está preconfigurado con runtime Docker.
+:::note[Entorno de Validación]
+Las arquitecturas aquí descritas han sido validadas sobre la topología de laboratorio LFCS, utilizando el nodo `docker-001` como host de ejecución.
 :::
-

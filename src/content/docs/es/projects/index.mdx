@@ -1,6 +1,6 @@
 ---
-title: Proyectos de Ingeniería
-description: Iniciativas de automatización de infraestructura y modernización del mundo real que demuestran prácticas DevOps y arquitecturas cloud-native.
+title: Portafolio de Ingeniería
+description: Iniciativas de automatización de infraestructura, prácticas DevOps y arquitecturas Cloud-Native.
 sidebar:
   label: Visión General
   order: 0
@@ -9,74 +9,66 @@ type: project
 
 import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
 
-Esta sección muestra **proyectos de grado de producción** que demuestran experiencia práctica en automatización de infraestructura, contenedorización y modernización de sistemas empresariales.
+Esta sección consolida **proyectos de grado de producción** que demuestran experiencia práctica en la resolución de problemas complejos de infraestructura.
 
-Cada proyecto incluye diagramas arquitectónicos, detalles de implementación y lecciones aprendidas de despliegues en el mundo real.
+Cada entrada está documentada no solo a nivel de código, sino también justificando las **decisiones de arquitectura** y el **impacto en el negocio**.
 
 ---
 
-## 🎯 Categorías de Proyectos
+## 🎯 Dominios de Especialización
 
 <CardGrid>
-  <Card title="Automatización de Middleware" icon="puzzle">
-    Despliegue y configuración automatizada de servidores de aplicaciones empresariales usando principios de Infraestructura como Código.
+  <Card title="Automatización Middleware" icon="puzzle">
+    Orquestación de servidores de aplicaciones empresariales y reducción de deuda técnica mediante Infraestructura como Código (IaC).
     
-    **Tecnologías:** Ansible, Docker, JBoss/WildFly, Gestión de Configuración
+    **Stack:** Ansible, Docker, JBoss/WildFly.
     
-    [Explorar Proyectos Middleware →](/es/projects/middleware/)
+    [Ver Proyectos Middleware →](/es/projects/middleware/)
   </Card>
   
-  <Card title="Infraestructura Cloud" icon="rocket">
-    Próximamente: Despliegues Azure IaaS/PaaS, gestión de identidad e implementaciones de arquitectura de red.
+  <Card title="Arquitectura Cloud & Gobierno" icon="rocket">
+    **Roadmap Activo:** Diseño de Azure Landing Zones, gestión de identidad (IAM) y redes híbridas. Implementación de referencia alineada con la certificación **AZ-104**.
     
-    **Tecnologías:** Azure, Terraform, Plantillas ARM, Redes Virtuales
-    
-    *(En Desarrollo)*
+    **Stack:** Azure Resource Manager, VNet, Entra ID.
   </Card>
   
-  <Card title="Virtualización y Cómputo" icon="laptop">
-    Próximamente: Automatización KVM/Libvirt, orquestación de máquinas virtuales y gestión de hipervisores.
+  <Card title="Cómputo & Virtualización" icon="laptop">
+    **Roadmap Activo:** Automatización de hipervisores KVM/Libvirt y estrategias de aprovisionamiento de máquinas virtuales (VMs).
     
-    **Tecnologías:** QEMU/KVM, Libvirt, Vagrant, Packer
-    
-    *(Planificado)*
+    **Stack:** QEMU/KVM, Virsh, Cloud-Init.
   </Card>
   
-  <Card title="Pipelines CI/CD" icon="setting">
-    Próximamente: Implementaciones GitLab CI/CD, frameworks de testing automatizado y estrategias de despliegue.
+  <Card title="Ingeniería de Release (CI/CD)" icon="setting">
+    **Roadmap Activo:** Pipelines de integración continua, gestión de artefactos y estrategias de despliegue automatizado.
     
-    **Tecnologías:** GitLab CI, Jenkins, Registros de Contenedores, Helm
-    
-    *(Planificado)*
+    **Stack:** GitLab CI, Registros de Contenedores.
   </Card>
 </CardGrid>
 
 ---
 
-## 📊 Habilidades Demostradas
+## 📊 Habilidades Transversales
 
-Estos proyectos validan competencias en múltiples dominios:
+Estos proyectos validan competencias más allá de la ejecución de comandos:
 
-- **Infraestructura como Código (IaC):** Gestión de configuración declarativa usando playbooks Ansible
-- **Contenedorización:** Creación de imágenes Docker, gestión de registros y configuración de runtime
-- **Automatización:** Eliminación de procesos manuales mediante despliegues scripteados
-- **Sistemas Empresariales:** Trabajo con stacks middleware legacy y patrones de modernización
-- **Documentación:** Escritura técnica alineada con estándares de la industria
+- **Infrastructure as Code (IaC):** Gestión declarativa de recursos para asegurar la consistencia.
+- **Inmutabilidad:** Adopción de patrones de contenedores para eliminar la deriva de configuración.
+- **Modernización:** Capacidad para transformar sistemas legacy en arquitecturas gestionables.
+- **Documentación Técnica:** Comunicación efectiva de diseños complejos para equipos de operaciones.
 
 ---
 
-## 🚀 Comenzar
+## 🚀 Navegación Rápida
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
   <LinkButton href="/es/projects/middleware/" variant="primary" icon="right-arrow">
-    Explorar Proyectos Middleware
+    Soluciones Middleware
   </LinkButton>
   <LinkButton href="/es/lfcs/" variant="secondary" icon="document">
-    Ver Laboratorios LFCS
+    Ver Laboratorios Técnicos (LFCS)
   </LinkButton>
 </div>
 
 :::tip[Contexto Profesional]
-Todos los proyectos están diseñados para reflejar **escenarios del mundo real** encontrados en entornos de Banca, Telecomunicaciones y TI Empresarial. Priorizan seguridad, mantenibilidad y excelencia operacional.
+Los escenarios presentados reflejan desafíos reales encontrados en entornos corporativos (Banca, Telco), priorizando la **seguridad**, la **mantenibilidad** y la **excelencia operacional**.
 :::
-

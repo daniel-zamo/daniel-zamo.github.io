@@ -1,24 +1,24 @@
 ---
-title: SysAdmin & Cloud Hub
-description: Technical documentation, labs, and automation by Daniel Zamo.
+title: Systems Engineering & Cloud DevOps
+description: Technical portfolio and architectural documentation by Daniel Zamo.
 template: splash
 hero:
-  tagline: Infrastructure as Code, Linux Administration, and Cloud Architecture. Technical documentation of deployments and lab scenarios.
+  tagline: Infrastructure Automation, Enterprise Linux Administration, and Cloud Architecture (Azure).
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: Engineering Projects
+    - text: View Engineering Portfolio
       link: /en/projects/
       icon: rocket
       variant: primary
-    - text: LFCS Certification
+    - text: LFCS Technical Validation
       link: /en/lfcs/
       icon: open-book
       variant: secondary
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-11-29
+lastUpdated: 2025-11-30
 head:
   - tag: meta
     attrs:
@@ -27,27 +27,7 @@ head:
   - tag: meta
     attrs:
       property: og:description
-      content: "Technical documentation covering Linux Engineering (LFCS), Azure Cloud Infrastructure, and Virtualization. A professional portfolio by Daniel Zamo."
-  - tag: meta
-    attrs:
-      property: og:image
-      content: "https://dzamo.gitlab.io/images/og-homepage.png"
-  - tag: meta
-    attrs:
-      property: og:url
-      content: "https://dzamo.gitlab.io/en/"
-  - tag: meta
-    attrs:
-      name: twitter:image
-      content: "https://dzamo.gitlab.io/images/og-homepage.png"
-  - tag: meta
-    attrs:
-      name: twitter:title
-      content: "Daniel Zamo | SysAdmin & Cloud Engineering"
-  - tag: meta
-    attrs:
-      name: twitter:description
-      content: "Technical documentation covering Linux Engineering (LFCS), Azure Cloud Infrastructure, and Virtualization. A professional portfolio by Daniel Zamo."
+      content: "Linux Engineering Solutions (LFCS), Azure Architecture, and DevOps. Professional portfolio by Daniel Zamo."
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
@@ -56,29 +36,28 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <CardGrid stagger>
   <Card title="Engineering Projects" icon="rocket">
-    Production-grade automation projects: Middleware deployments with Ansible/Docker, CI/CD pipelines, and infrastructure modernization initiatives.
+    Production-grade automation: Middleware modernization with Ansible/Docker, CI/CD pipelines, and scalable infrastructure design.
     
-    **[Explore Projects →](/en/projects/)**
+    **[Explore Solutions →](/en/projects/)**
   </Card>
   
   <Card title="Linux Engineering (LFCS)" icon="linux">
-    Advanced system administration documentation, storage management, security hardening, and troubleshooting in Enterprise environments.
+    Advanced system administration documentation: Storage management (LVM), security hardening, and troubleshooting in Enterprise environments.
     
-    *(Status: Certified & Complete)*
+    *(Status: Competency Validated & Certified)*
     
-    **[View Labs →](/en/lfcs/)**
+    **[View Technical Scenarios →](/en/lfcs/)**
   </Card>
   
-  <Card title="Azure Cloud Infrastructure" icon="microsoft">
-    IaaS/PaaS resource deployment, identity management, and cloud networking. Technical implementation aligned with AZ-104 standards.
+  <Card title="Azure Cloud Architecture" icon="microsoft">
+    IaaS/PaaS resource implementation, Identity Governance, and Hybrid Networking. Deployments aligned with **AZ-104** technical standards.
     
-    *(Status: In Development)*
+    *(Status: Active Reference Implementation)*
   </Card>
   
   <Card title="Virtualization (KVM/Libvirt)" icon="laptop">
-    Low-level virtualization labs using QEMU/KVM and Libvirt. Virtual machine orchestration and performance optimization.
+    Low-level infrastructure orchestration using QEMU/KVM and Libvirt. Performance optimization for virtualized workloads.
     
-    **[Explore KVM Labs →](/en/lfcs/labs/04-kvm-management/)**
+    **[Explore Virtualization →](/en/lfcs/labs/04-kvm-management/)**
   </Card>
 </CardGrid>
-
