@@ -9,7 +9,7 @@ domain: automation
 tags: ["ansible", "docker", "middleware", "devops", "hardening"]
 ---
 
-import { Steps, FileTree } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 ## 📋 Resumen Ejecutivo
 
@@ -30,19 +30,22 @@ La solución desacopla el *runtime* (WildFly) de la configuración, orquestado p
 
 ```mermaid
 graph LR
-    subgraph Control Plane
-    A[Controlador Ansible] 
-    end
-    
-    subgraph Data Plane
-    B[Host de Contenedores]
-    C(Contenedor WildFly Inmutable)
+    subgraph Control_Plane [Plano de Control]
+        A[Controlador Ansible]
     end
 
-    A -- "SSH (Playbook IaC)" --> B
-    B -- "Spawns" --> C
-    C -- "Expone :8080" --> D[Tráfico App]
-    C -- "Expone :9990" --> E[Tráfico Gestión]
+    subgraph Data_Plane [Plano de Datos]
+        B[Host de Contenedores]
+        C(Contenedor WildFly)
+    end
+
+    A -- SSH / Playbook IaC --> B
+    B -- Spawns --> C
+    C -- Puerto 8080 --> D[Tráfico App]
+    C -- Puerto 9990 --> E[Tráfico Gestión]
+    
+    style Control_Plane fill:#f9f,stroke:#333,stroke-width:2px
+    style Data_Plane fill:#ccf,stroke:#333,stroke-width:2px
 ```
 
 ### Principios Técnicos Aplicados

@@ -9,7 +9,7 @@ domain: automation
 tags: ["ansible", "docker", "middleware", "devops", "hardening"]
 ---
 
-import { Steps, FileTree } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 ## 📋 Executive Summary
 
@@ -30,19 +30,22 @@ The solution decouples the runtime (WildFly) from configuration, orchestrated by
 
 ```mermaid
 graph LR
-    subgraph Control Plane
-    A[Ansible Controller] 
+    subgraph Control_Plane [Control Plane]
+        A[Ansible Controller]
     end
     
-    subgraph Data Plane
-    B[Container Host]
-    C(Immutable WildFly Container)
+    subgraph Data_Plane [Data Plane]
+        B[Container Host]
+        C(Immutable WildFly)
     end
 
-    A -- "SSH (IaC Playbook)" --> B
-    B -- "Spawns" --> C
-    C -- "Exposes :8080" --> D[App Traffic]
-    C -- "Exposes :9990" --> E[Mgmt Traffic]
+    A -- SSH / IaC Playbook --> B
+    B -- Spawns --> C
+    C -- Exposes :8080 --> D[App Traffic]
+    C -- Exposes :9990 --> E[Mgmt Traffic]
+    
+    style Control_Plane fill:#f9f,stroke:#333,stroke-width:2px
+    style Data_Plane fill:#ccf,stroke:#333,stroke-width:2px
 ```
 
 ### Technical Principles
