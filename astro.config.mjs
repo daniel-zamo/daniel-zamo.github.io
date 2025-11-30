@@ -1,6 +1,7 @@
 // astro.config.mjs - Configuración con soporte inglés/español
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import mermaid from 'astro-mermaid'; // <--- Para diagramas Mermaid
 
 export default defineConfig({
     site: 'https://dzamo.gitlab.io',

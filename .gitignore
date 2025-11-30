@@ -1,7 +1,9 @@
 *.org
 *.v*
-zz-*
+aa-*
 .*.bkp
+/content-site.sh
+/*_report-site-spec.md
 
 # build output
 dist/
