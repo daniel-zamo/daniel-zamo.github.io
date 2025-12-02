@@ -13,10 +13,12 @@ export default defineConfig({
 
     integrations: [
         starlight({
-            title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
+            //                        title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
+            title: 'Daniel Zamo | SysAdmin',
             favicon: '/favicon.png',
             social: [
-                { icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' }
+                { icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' },
+                { icon: 'linkedin', label: 'Linkedin', href: 'https://www.linkedin.com/in/danielzamo/' }
             ],
 
             customCss: ['./src/styles/custom.css'],
@@ -49,7 +51,8 @@ export default defineConfig({
                     tag: 'meta',
                     attrs: {
                         property: 'og:site_name',
-                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
+                        content: 'Daniel Zamo | SysAdmin',
+                        //                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
                     },
                 },
                 {
@@ -57,13 +60,6 @@ export default defineConfig({
                     attrs: {
                         property: 'og:type',
                         content: 'website',
-                    },
-                },
-                {
-                    tag: 'meta',
-                    attrs: {
-                        name: 'twitter:card',
-                        content: 'summary_large_image',
                     },
                 },
                 {
