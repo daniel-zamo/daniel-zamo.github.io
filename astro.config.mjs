@@ -8,7 +8,7 @@ export default defineConfig({
 
     // Redirección automática de la raíz al idioma por defecto
     redirects: {
-        '/': '/en/',
+        '/': '/es/',
     },
 
     integrations: [
