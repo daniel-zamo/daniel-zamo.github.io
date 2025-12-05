@@ -1,0 +1,208 @@
+---
+title: "Stack LAMP con Ansible & Docker"
+description: Despliegue automatizado de arquitectura web (Apache, MySQL, PHP) usando contenedores y orquestación IaC.
+sidebar:
+  label: Stack LAMP (Web)
+  order: 2
+type: project
+domain: automation
+tags: ["ansible", "docker", "lamp", "mysql", "iac"]
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 📋 Resumen Ejecutivo
+
+Este proyecto aborda la necesidad de estandarizar el despliegue de aplicaciones web basadas en PHP (Legacy) en un entorno moderno. En lugar de configurar servidores manualmente, utilizamos **Ansible** para definir el estado deseado de la infraestructura y **Docker** para encapsular las dependencias de la aplicación.
+
+### 🎯 Objetivos de Ingeniería
+1.  **Idempotencia:** Capacidad de ejecutar el despliegue múltiples veces sin duplicar recursos ni generar errores.
+2.  **Segregación de Red:** Aislamiento de la base de datos (Backend) del servidor web (Frontend) mediante redes bridge privadas.
+3.  **Persistencia:** Gestión de volúmenes Docker para garantizar la durabilidad de los datos de MySQL.
+
+---
+
+## 🏗️ Arquitectura de la Solución
+
+El diseño implementa un patrón de **Sidecar de Datos** y segregación de contenedores gestionados por un controlador externo (Ansible).
+
+```mermaid
+graph TD
+    %% --- Definición de Estilos (Paleta de Alto Contraste) ---
+    %% Ansible: Fondo amarillo suave, borde naranja, TEXTO NEGRO
+    classDef ansibleNode fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000000;
+    
+    %% Docker General: Fondo cian suave, borde azul, TEXTO NEGRO
+    classDef dockerNode fill:#e0f7fa,stroke:#0288d1,stroke-width:2px,color:#000000;
+    
+    %% Base de Datos/Volumen: Fondo púrpura suave, borde violeta, TEXTO NEGRO
+    classDef dbNode fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000;
+    
+    %% Externo: Fondo oscuro, borde negro, TEXTO BLANCO
+    classDef extNode fill:#37474f,stroke:#000000,stroke-width:2px,color:#ffffff;
+
+    subgraph Host ["Host Docker (Ubuntu 24.04)"]
+        %% Forzamos estilo del subgraph para que se vea bien en Dark Mode
+        style Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#ffffff
+
+        subgraph Ansible_Playbook ["Ansible Automation"]
+            style Ansible_Playbook fill:#546e7a,stroke:#fff,stroke-width:1px,color:#fff
+            direction TB
+            
+            %% Aplicamos la clase 'ansibleNode' con :::
+            Task1["1. Configura Red"]:::ansibleNode
+            Task2["2. Provisiona Volúmenes"]:::ansibleNode
+            Task3["3. Despliega MySQL"]:::ansibleNode
+            Task4["4. Despliega Apache/PHP"]:::ansibleNode
+        end
+
+        subgraph Docker_Runtime ["Runtime de Contenedores"]
+            style Docker_Runtime fill:#eceff1,stroke:#455a64,stroke-width:2px,color:#000000
+            
+            %% Aplicamos clases específicas
+            Net["Red Privada: lamp-network"]:::dockerNode
+            
+            DB[("Contenedor DB<br/>MariaDB 10.6")]:::dbNode
+            Web["Contenedor Web<br/>Apache + PHP 8.1"]:::dockerNode
+            Ext["Tráfico Externo"]:::extNode
+            
+            Vol1[("Volumen: db_data")]:::dbNode --> DB
+            
+            Web -- "Puerto 3306" --> DB
+            Web -- "Puerto 80:80" --> Ext
+            
+            Task1 -.-> Net
+            Task2 -.-> Vol1
+            Task3 -.-> DB
+            Task4 -.-> Web
+        end
+    end
+    
+    %% --- Engrosar todas las líneas ---
+    linkStyle default stroke:#333,stroke-width:2px,fill:none;
+```
+
+---
+
+## 💻 Implementación Técnica (Ansible)
+
+La lógica de despliegue se encapsula en un **Playbook de Ansible**. A diferencia de `docker-compose`, este enfoque nos permite realizar validaciones previas en el host y gestionar secretos de forma segura con Ansible Vault.
+
+<Steps>
+
+1.  **Definición del Inventario**
+
+    Apuntamos al host Docker de nuestra infraestructura de laboratorio.
+
+    ```ini title="inventory.ini"
+    [app_servers]
+    192.168.1.60 ansible_user=dzamo ansible_ssh_private_key_file=~/.ssh/id_rsa
+    ```
+
+2.  **Estructura del Playbook**
+
+    El código a continuación asegura que la red Docker exista, crea los volúmenes persistentes y lanza los contenedores en el orden correcto para respetar dependencias.
+
+    ```yaml title="deploy-lamp.yml"
+    ---
+    - name: Aprovisionamiento de Stack LAMP
+      hosts: app_servers
+      become: true
+      vars:
+        project_name: "intranet-core"
+        mysql_root_pass: "SecureRoot123!" # En prod usar Ansible Vault
+        mysql_db: "intranet_db"
+        mysql_user: "app_user"
+        mysql_pass: "AppPass2025"
+        
+      tasks:
+        - name: Crear Red Docker Aislada
+          community.docker.docker_network:
+            name: "{{ project_name }}-net"
+            driver: bridge
+
+        - name: Crear Volumen de Persistencia DB
+          community.docker.docker_volume:
+            name: "{{ project_name }}-db-data"
+
+        - name: Desplegar Base de Datos (MariaDB)
+          community.docker.docker_container:
+            name: "{{ project_name }}-db"
+            image: mariadb:10.6
+            state: started
+            restart_policy: always
+            networks:
+              - name: "{{ project_name }}-net"
+            env:
+              MARIADB_ROOT_PASSWORD: "{{ mysql_root_pass }}"
+              MARIADB_DATABASE: "{{ mysql_db }}"
+              MARIADB_USER: "{{ mysql_user }}"
+              MARIADB_PASSWORD: "{{ mysql_pass }}"
+            volumes:
+              - "{{ project_name }}-db-data:/var/lib/mysql"
+            labels:
+              com.role: "database"
+
+        - name: Desplegar Servidor Web (Apache+PHP)
+          community.docker.docker_container:
+            name: "{{ project_name }}-web"
+            image: php:8.1-apache
+            state: started
+            restart_policy: always
+            ports:
+              - "80:80"
+            networks:
+              - name: "{{ project_name }}-net"
+            volumes:
+              # Montamos el código fuente desde el host
+              - ./src:/var/www/html
+            labels:
+              com.role: "frontend"
+    ```
+
+3.  **Código de la Aplicación (Prueba de Concepto)**
+
+    Para validar la conectividad entre contenedores, inyectamos un script PHP simple que intenta conectar a la base de datos usando el nombre DNS interno del contenedor (`intranet-core-db`).
+
+    ```php title="./src/index.php"
+    <?php
+    $servername = "intranet-core-db"; // Resolución DNS interna de Docker
+    $username = "app_user";
+    $password = "AppPass2025";
+
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password);
+
+    // Verificar
+    if ($conn->connect_error) {
+        die("❌ Fallo de conexión: " . $conn->connect_error);
+    }
+    echo "✅ Conectado exitosamente a MariaDB desde Apache Container.";
+    ?>
+    ```
+
+4.  **Ejecución y Verificación**
+
+    Lanzamos el playbook y verificamos el estado final.
+
+    ```bash
+    ansible-playbook -i inventory.ini deploy-lamp.yml
+    ```
+
+</Steps>
+
+## 🔍 Análisis de Valor
+
+La transición de scripts manuales de Bash a Ansible para este despliegue proporciona:
+
+| Característica | Script Bash Tradicional | Ansible + Docker |
+| :--- | :--- | :--- |
+| **Control de Estado** | Imperativo (Difícil saber si falló a medias) | Declarativo (Asegura el estado final) |
+| **Limpieza** | Manual (Riesgo de residuos) | Gestión nativa del ciclo de vida del contenedor |
+| **Portabilidad** | Atado al OS del Host | Ejecutable en cualquier Host con Docker Engine |
+
+### Próximos Pasos (Roadmap AZ-104)
+
+Este proyecto sirve como base para la siguiente fase de migración a la nube:
+1.  **Lift & Shift:** Reutilizar este Playbook para aprovisionar una VM Ubuntu en **Azure Compute**.
+2.  **Database Migration:** Desacoplar el contenedor de MariaDB y conectar la App a **Azure Database for MariaDB**.
