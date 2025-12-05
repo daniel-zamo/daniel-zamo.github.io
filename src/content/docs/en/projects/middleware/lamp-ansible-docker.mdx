@@ -86,24 +86,26 @@ graph TD
 
 ## 💻 Technical Implementation (Ansible)
 
-The deployment logic is encapsulated in an **Ansible Playbook**. Unlike `docker-compose`, this approach allows for pre-deployment host validations and secure secret management via Ansible Vault.
+The deployment logic follows the **SOP-LINUX-ANS-01** standard, separating inventories, playbooks, and source code. This structure enables pre-deployment validations and secure dependency management.
 
 <Steps>
 
 1.  **Inventory Definition**
 
-    We target the Docker host within our lab infrastructure.
+    Located in the standard development path, we target the Docker host of our infrastructure.
 
-    ```ini title="inventory.ini"
+    ```ini title="inventory/dev"
     [app_servers]
     192.168.1.60 ansible_user=dzamo ansible_ssh_private_key_file=~/.ssh/id_rsa
     ```
 
 2.  **Playbook Structure**
 
-    The code below ensures the Docker network exists, creates persistent volumes, and launches containers in the correct order to respect dependencies.
+    The code ensures the Docker network exists, creates persistent volumes, and launches containers.
+    
+    > **Note:** Since the playbook runs from the `playbooks/` folder, the source code path is adjusted to `../src`.
 
-    ```yaml title="deploy-lamp.yml"
+    ```yaml title="playbooks/deploy-lamp.yml"
     ---
     - name: LAMP Stack Provisioning
       hosts: app_servers
@@ -154,17 +156,17 @@ The deployment logic is encapsulated in an **Ansible Playbook**. Unlike `docker-
             networks:
               - name: "{{ project_name }}-net"
             volumes:
-              # Mount source code from host
-              - ./src:/var/www/html
+              # Mount source code (Move up one level relative to playbook)
+              - ../src:/var/www/html
             labels:
               com.role: "frontend"
     ```
 
 3.  **Application Code (Proof of Concept)**
 
-    To validate connectivity between containers, we inject a simple PHP script that attempts to connect to the database using the internal container DNS name (`intranet-core-db`).
+    Located at the project root for easy editing. We inject a simple PHP script that validates internal DNS connectivity.
 
-    ```php title="./src/index.php"
+    ```php title="src/index.php"
     <?php
     $servername = "intranet-core-db"; // Internal Docker DNS resolution
     $username = "app_user";
@@ -183,10 +185,11 @@ The deployment logic is encapsulated in an **Ansible Playbook**. Unlike `docker-
 
 4.  **Execution & Verification**
 
-    Launch the playbook and verify the final state.
+    Thanks to the standard `ansible.cfg` configuration, there is no need to manually specify the inventory file.
 
     ```bash
-    ansible-playbook -i inventory.ini deploy-lamp.yml
+    # Execute from project root
+    ansible-playbook playbooks/deploy-lamp.yml
     ```
 
 </Steps>
