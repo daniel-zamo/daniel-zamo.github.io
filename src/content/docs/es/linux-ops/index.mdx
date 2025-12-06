@@ -1,6 +1,6 @@
 ---
-title: Ingeniería de Sistemas Linux & Operaciones
-description: Base de conocimiento técnico para la administración, hardening y optimización de sistemas Linux Enterprise.
+title: Operaciones de Sistemas Linux (Enterprise)
+description: Base de conocimiento técnico para la administración, hardening y optimización de sistemas Linux.
 sidebar:
   label: Visión General
   order: 0
@@ -10,56 +10,47 @@ source: manual
 
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 
-Bienvenido al centro de documentación técnica de **Operaciones Linux**. Esta sección consolida prácticas de ingeniería para el diseño, despliegue y mantenimiento de infraestructura basada en kernel Linux.
+Este repositorio centraliza los **Procedimientos Operativos Estándar (SOP)** y las mejores prácticas de ingeniería para la gestión de infraestructura basada en Linux.
 
-El contenido está alineado con los estándares de la industria (**LFCS**, **RHCSA**), enfocándose en la ejecución práctica y la resolución de incidencias en entornos de producción.
+El contenido refleja estándares de producción, priorizando la estabilidad, la seguridad y la capacidad de auditoría en entornos de misión crítica.
 
 :::tip[Enfoque Operacional]
-La documentación prioriza la **CLI (Línea de Comandos)** sobre herramientas gráficas, garantizando la capacidad de gestión en servidores *headless* y entornos automatizados.
+Esta documentación prioriza la **CLI (Línea de Comandos)** sobre herramientas gráficas, garantizando la capacidad de gestión en servidores *headless* y la automatización de tareas.
 :::
 
 ## 🎯 Dominios de Competencia
 
-La base de conocimiento se estructura en áreas funcionales críticas para la estabilidad del sistema:
+Áreas funcionales críticas para la continuidad del servicio:
 
 <CardGrid>
   <Card title="Operaciones Core" icon="linux">
-    Manipulación avanzada de flujos de texto (sed/awk), gestión de procesos y scripting de automatización en Bash.
+    Manipulación de flujos de texto, gestión de procesos y scripting en Bash.
   </Card>
   <Card title="Gestión de Runtime" icon="setting">
-    Análisis del proceso de arranque (Systemd/Grub), parámetros del kernel en tiempo de ejecución y tuning de sistema.
+    Análisis de arranque (Systemd), parámetros del kernel y tuning de sistema.
   </Card>
   <Card title="Gestión de Identidad" icon="user">
-    Configuración de usuarios locales, integración con directorios LDAP/AD, y políticas de seguridad PAM.
+    Usuarios locales, integración LDAP/AD y políticas PAM.
   </Card>
   <Card title="Redes & Seguridad" icon="signal">
-    Enrutamiento estático/dinámico, filtrado de paquetes (Firewalling) y sincronización precisa de tiempo (NTP/PTP).
+    Enrutamiento, Firewalling y sincronización NTP/PTP precisa.
   </Card>
   <Card title="Servicios de Infraestructura" icon="puzzle">
-    Configuración de servidores DNS, SSH seguro, servidores Web y tiempos de ejecución de contenedores.
+    DNS, SSH seguro, Servidores Web y Runtimes de contenedores.
   </Card>
-  <Card title="Almacenamiento Empresarial" icon="laptop">
-    Gestión de volúmenes lógicos (LVM), RAID por software, y sistemas de archivos transaccionales.
+  <Card title="Almacenamiento" icon="laptop">
+    Gestión de LVM, RAID por software y sistemas de archivos transaccionales.
   </Card>
 </CardGrid>
 
 ---
 
-## 🧪 Catálogo de Escenarios
+## 🧪 Procedimientos Operativos
 
-La teoría se valida mediante la ejecución. Acceda al catálogo de **Procedimientos Operativos Estándar (SOP)** para ver implementaciones paso a paso.
+Acceda al catálogo de escenarios para ver implementaciones paso a paso de tareas de administración.
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
     <LinkButton href="/es/linux-ops/scenarios/" variant="primary" icon="rocket">
-        Ver Procedimientos Operativos
-    </LinkButton>
-    <LinkButton href="https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/" variant="secondary" icon="external" target="_blank">
-        Estándar de Referencia (LFCS)
+        Ver Catálogo de Procedimientos
     </LinkButton>
 </div>
-
-### Últimas Actualizaciones
-
-*   **Virtualización:** Guías de orquestación para KVM y Libvirt.
-*   **Contenedores:** Integración de Docker/Podman en flujos de sistema.
-*   **Storage:** Procedimientos de redimensionamiento de LVM en caliente.

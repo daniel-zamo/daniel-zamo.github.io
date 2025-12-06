@@ -15,34 +15,35 @@ Esta sección documenta la **modernización de plataformas middleware**. El obje
 
 ### El Problema de Negocio
 
-En sectores regulados (Banca, Seguros, Telco), la gestión tradicional de servidores de aplicaciones (JBoss, WildFly, WebSphere) presenta fricciones críticas:
+### El Problema de Negocio
 
-*   **Riesgo Operacional:** La configuración manual introduce errores humanos y deriva entre entornos (Environment Drift).
-*   **Coste de Mantenimiento:** El tiempo dedicado a parches y actualizaciones manuales (Toil) impide la innovación.
-*   **Recuperación Lenta:** Los RTOs (Recovery Time Objectives) son altos debido a la falta de automatización en el aprovisionamiento.
+En sectores regulados, la gestión tradicional de servidores de aplicaciones presenta fricciones críticas:
+*   **Riesgo Operacional:** La configuración manual introduce errores humanos y deriva entre entornos.
+*   **Coste de Mantenimiento:** El tiempo dedicado a parches manuales impide la innovación.
 
-**Solución Implementada:** Infraestructura Inmutable + Orquestación.
+**Solución:** Infraestructura Inmutable + Orquestación.
 
 ---
 
 ## 🚀 Catálogo de Soluciones
 
 <CardGrid>
+
   <LinkCard
-    title="WildFly: Orquestación con Ansible y Docker"
-    description="Implementación de referencia para el despliegue inmutable de WildFly. Reduce el tiempo de aprovisionamiento en un 98% y asegura paridad entre entornos."
+    title="Stack LAMP: Ansible & Docker"
+    description="Implementación de referencia con gestión de secretos, construcción de imágenes personalizadas y Makefiles."
+    href="/es/projects/middleware/lamp-ansible-docker/"
+  />
+
+  <LinkCard
+    title="WildFly: Orquestación Inmutable"
+    description="Despliegue automatizado de JBoss/WildFly. Reduce el tiempo de aprovisionamiento en un 98%."
     href="/es/projects/middleware/wildfly-ansible-docker/"
   />
-  
+
   <LinkCard
     title="Roadmap: Alta Disponibilidad JBoss EAP"
-    description="Diseño de arquitectura en clúster (Domain Mode) utilizando JGroups y TCPPING para entornos de red restringidos, con replicación de sesión distribuida."
-    href="#"
-  />
-  
-  <LinkCard
-    title="I+D: Modernización Legacy (IBM WebSphere)"
-    description="Estrategia de replataformado (Re-platforming) migrando cargas de trabajo de WAS tradicional hacia contenedores OpenLiberty ligeros."
+    description="Diseño de arquitectura en clúster (Domain Mode) utilizando JGroups y TCPPING."
     href="#"
   />
 </CardGrid>

@@ -15,13 +15,11 @@ This section documents the **modernization of middleware platforms**. The goal i
 
 ### The Business Problem
 
-In regulated sectors (Banking, Insurance, Telco), traditional management of application servers (JBoss, WildFly, WebSphere) introduces critical friction:
-
+Traditional management of application servers introduces critical friction:
 *   **Operational Risk:** Manual configuration leads to human error and Environment Drift.
-*   **Maintenance Cost:** Excessive time spent on manual patching and updates (Toil) hinders innovation.
-*   **Slow Recovery:** High RTOs (Recovery Time Objectives) due to the lack of automated provisioning.
+*   **Maintenance Cost:** Excessive time spent on manual patching (Toil).
 
-**Implemented Solution:** Immutable Infrastructure + Orchestration.
+**Solution:** Immutable Infrastructure + Orchestration.
 
 ---
 
@@ -29,20 +27,20 @@ In regulated sectors (Banking, Insurance, Telco), traditional management of appl
 
 <CardGrid>
   <LinkCard
-    title="WildFly: Orchestration with Ansible & Docker"
-    description="Reference implementation for immutable WildFly deployment. Reduces provisioning time by 98% and ensures environment parity."
-    href="/en/projects/middleware/wildfly-ansible-docker/"
+    title="LAMP Stack: Ansible & Docker"
+    description="Reference implementation featuring secret management, custom image builds, and standardized Makefiles."
+    href="/en/projects/middleware/lamp-ansible-docker/"
   />
+
+  <LinkCard
+    title="WildFly: Immutable Orchestration"
+    description="Automated deployment of JBoss/WildFly. Reduces provisioning time by 98%."
+    href="/en/projects/middleware/wildfly-ansible-docker/"
+  />  
   
   <LinkCard
     title="Roadmap: JBoss EAP High Availability"
-    description="Cluster architecture design (Domain Mode) utilizing JGroups and TCPPING for restricted network environments, featuring distributed session replication."
-    href="#"
-  />
-  
-  <LinkCard
-    title="R&D: Legacy Modernization (IBM WebSphere)"
-    description="Re-platforming strategy migrating workloads from traditional WAS to lightweight OpenLiberty containers."
+    description="Cluster architecture design (Domain Mode) utilizing JGroups and TCPPING."
     href="#"
   />
 </CardGrid>

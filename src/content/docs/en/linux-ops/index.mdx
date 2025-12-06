@@ -1,6 +1,6 @@
 ---
-title: Linux Systems Engineering & Operations
-description: Technical knowledge base for administration, hardening, and optimization of Enterprise Linux systems.
+title: Linux Systems Operations (Enterprise)
+description: Technical knowledge base for administration, hardening, and optimization of Linux systems.
 sidebar:
   label: Overview
   order: 0
@@ -10,56 +10,47 @@ source: manual
 
 import { Card, CardGrid, LinkButton, Icon } from '@astrojs/starlight/components';
 
-Welcome to the **Linux Operations** technical documentation hub. This section consolidates engineering practices for the design, deployment, and maintenance of Linux kernel-based infrastructure.
+This repository consolidates **Standard Operating Procedures (SOP)** and engineering best practices for Linux-based infrastructure management.
 
-Content is aligned with industry standards (**LFCS**, **RHCSA**), focusing on practical execution and incident resolution in production environments.
+Content reflects production standards, prioritizing stability, security, and auditability in mission-critical environments.
 
 :::tip[Operational Focus]
-Documentation prioritizes **CLI (Command Line Interface)** over graphical tools, ensuring management capabilities in *headless* servers and automated environments.
+Documentation prioritizes **CLI (Command Line Interface)** over graphical tools, ensuring management capabilities in *headless* servers and task automation.
 :::
 
 ## 🎯 Competency Domains
 
-The knowledge base is structured into functional areas critical for system stability:
+Functional areas critical for service continuity:
 
 <CardGrid>
   <Card title="Core Operations" icon="linux">
-    Advanced text stream manipulation (sed/awk), process management, and Bash automation scripting.
+    Text stream manipulation, process management, and Bash scripting.
   </Card>
   <Card title="Runtime Management" icon="setting">
-    Boot process analysis (Systemd/Grub), runtime kernel parameters, and system tuning.
+    Boot analysis (Systemd), kernel parameters, and system tuning.
   </Card>
   <Card title="Identity Management" icon="user">
-    Local user configuration, LDAP/AD directory integration, and PAM security policies.
+    Local users, LDAP/AD integration, and PAM policies.
   </Card>
   <Card title="Networking & Security" icon="signal">
-    Static/dynamic routing, packet filtering (Firewalling), and precise time synchronization (NTP/PTP).
+    Routing, Firewalling, and precise NTP/PTP synchronization.
   </Card>
   <Card title="Infrastructure Services" icon="puzzle">
-    Configuration of DNS, secure SSH, Web servers, and container runtimes.
+    DNS, Secure SSH, Web Servers, and Container Runtimes.
   </Card>
   <Card title="Enterprise Storage" icon="laptop">
-    Logical Volume Management (LVM), software RAID, and transactional filesystems.
+    LVM Management, software RAID, and transactional filesystems.
   </Card>
 </CardGrid>
 
 ---
 
-## 🧪 Scenario Catalog
+## 🧪 Standard Procedures
 
-Theory is validated through execution. Access the **Standard Operating Procedures (SOP)** catalog to view step-by-step implementations.
+Access the scenario catalog to view step-by-step implementations of administration tasks.
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
     <LinkButton href="/en/linux-ops/scenarios/" variant="primary" icon="rocket">
-        View Operational Procedures
-    </LinkButton>
-    <LinkButton href="https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/" variant="secondary" icon="external" target="_blank">
-        Reference Standard (LFCS)
+        View Procedure Catalog
     </LinkButton>
 </div>
-
-### Recent Updates
-
-*   **Virtualization:** Orchestration guides for KVM and Libvirt.
-*   **Containers:** Docker/Podman integration within system workflows.
-*   **Storage:** Hot-resize procedures for LVM volumes.

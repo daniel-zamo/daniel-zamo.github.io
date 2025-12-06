@@ -5,7 +5,6 @@ import mermaid from 'astro-mermaid'; // <--- 1. IMPORTAR MOTOR astro-mermaid (1/
 
 export default defineConfig({
     site: 'https://dzamo.gitlab.io',
-
     // Redirección automática de la raíz al idioma por defecto
     redirects: {
         '/': '/es/',
@@ -13,7 +12,6 @@ export default defineConfig({
 
     integrations: [
         starlight({
-            //                        title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
             title: 'Daniel Zamo | SysAdmin & DevOps',
             favicon: '/favicon.png',
             social: [
@@ -24,7 +22,7 @@ export default defineConfig({
             customCss: ['./src/styles/custom.css'],
 
             // Configuración de idiomas
-            defaultLocale: 'en', // Inglés como idioma por defecto
+            defaultLocale: 'es', // Inglés como idioma por defecto
             locales: {
                 en: {
                     label: 'English',
@@ -52,7 +50,6 @@ export default defineConfig({
                     attrs: {
                         property: 'og:site_name',
                         content: 'Daniel Zamo | SysAdmin & DevOps',
-                        //                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
                     },
                 },
                 {

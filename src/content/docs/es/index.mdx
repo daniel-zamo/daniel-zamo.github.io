@@ -1,34 +1,33 @@
 ---
-title: Ingeniería de Sistemas & Cloud DevOps
-description: Portfolio técnico y documentación de arquitectura por Daniel Zamo.
+title: SysAdmin & DevOps
+description: Portfolio de automatización de infraestructura y administración de sistemas por Daniel Zamo.
 template: splash
 hero:
-  tagline: Automatización de Infraestructura, Administración Linux Enterprise y Arquitectura Cloud (Azure).
+  tagline: Automatización de Infraestructura, Administración Linux Enterprise y Arquitectura Cloud.
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: Ver Portfolio de Ingeniería
-      link: /es/projects/
+    - text: Ver Proyecto Destacado (LAMP)
+      link: /es/projects/middleware/lamp-ansible-docker/
       icon: rocket
       variant: primary
-    - text: Consultar Procedimientos (Linux)
+    - text: Procedimientos Operativos
       link: /es/linux-ops/
-      icon: open-book
-      variant: secondary
+      icon: right-arrow
+      variant: minimal
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-11-30
+lastUpdated: 2025-12-06
 head:
   - tag: meta
     attrs:
       property: og:title
-      content: "Daniel Zamo | SysAdmin e Ingeniería Cloud"
+      content: "Daniel Zamo | SysAdmin & DevOps"
   - tag: meta
     attrs:
       property: og:description
-      content: "Soluciones de Ingeniería Linux (LFCS), Arquitectura Azure y DevOps. Portfolio profesional de Daniel Zamo."
-
+      content: "Soluciones de Infraestructura como Código (Ansible), Docker y Administración Linux Enterprise."
   - tag: meta
     attrs:
       property: og:image
@@ -45,32 +44,30 @@ head:
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
 
-## Stack Tecnológico & Hoja de Ruta
+## Implementaciones y Competencias
 
 <CardGrid stagger>
-  <Card title="Proyectos de Ingeniería" icon="rocket">
-    Automatización de grado de producción: Modernización de Middleware con Ansible/Docker, pipelines CI/CD y diseño de infraestructura escalable.
+  <Card title="Automatización & IaC" icon="rocket">
+    Despliegue de infraestructura inmutable. Ejemplo destacado: **Stack LAMP** con gestión de secretos, construcción de imágenes Docker custom y Makefiles.
     
-    **[Explorar Soluciones →](/es/projects/)**
+    **[Ver Caso de Estudio: LAMP + Ansible →](/es/projects/middleware/lamp-ansible-docker/)**
   </Card>
   
-  <Card title="Ingeniería Linux (SysAdmin)" icon="linux">
-    Documentación avanzada de administración de sistemas: Gestión de almacenamiento (LVM), hardening de seguridad y resolución de problemas en entornos Enterprise.
+  <Card title="Operaciones Linux Enterprise" icon="linux">
+    Base de conocimiento técnico para entornos de misión crítica: Gestión de almacenamiento LVM, Hardening y Troubleshooting.
     
-    *(Estado: Competencia Senior & Certificada)*
-    
-    **[Ver Procedimientos Operativos →](/es/linux-ops/)**
+    **[Consultar Procedimientos (SOP) →](/es/linux-ops/)**
   </Card>
   
+  <Card title="Orquestación KVM/Libvirt" icon="laptop">
+    Gestión de bajo nivel de recursos de cómputo. Aprovisionamiento de máquinas virtuales (VMs) mediante CLI y optimización de rendimiento.
+    
+    **[Ver Escenario de Virtualización →](/es/linux-ops/scenarios/04-kvm-management/)**
+  </Card>
+
   <Card title="Arquitectura Cloud Azure" icon="microsoft">
-    Implementación de recursos IaaS/PaaS, Gobierno de Identidad y Redes Híbridas. Despliegues alineados con el estándar técnico **AZ-104**.
+    Diseño de soluciones híbridas y gobierno de identidad. Alineado con el estándar **AZ-104** (Administrador de Azure).
     
-    *(Estado: Implementación de Referencia en Curso)*
-  </Card>
-  
-  <Card title="Virtualización (KVM/Libvirt)" icon="laptop">
-    Orquestación de infraestructura de bajo nivel utilizando QEMU/KVM y Libvirt. Optimización de rendimiento para cargas de trabajo virtualizadas.
-    
-    **[Explorar Virtualización →](/es/linux-ops/scenarios/04-kvm-management/)**
+    *(Estado: Roadmap de Certificación Activo)*
   </Card>
 </CardGrid>
