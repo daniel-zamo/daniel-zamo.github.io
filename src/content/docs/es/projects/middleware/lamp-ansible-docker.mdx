@@ -28,17 +28,28 @@ El diseño implementa un patrón de **Sidecar de Datos** y segregación de conte
 
 ```mermaid
 graph TD
+    %% --- Definición de Estilos (Paleta de Alto Contraste) ---
+    %% Ansible: Fondo amarillo suave, borde naranja, TEXTO NEGRO
     classDef ansibleNode fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000000;
+    
+    %% Docker General: Fondo cian suave, borde azul, TEXTO NEGRO
     classDef dockerNode fill:#e0f7fa,stroke:#0288d1,stroke-width:2px,color:#000000;
+    
+    %% Base de Datos/Volumen: Fondo púrpura suave, borde violeta, TEXTO NEGRO
     classDef dbNode fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000;
+    
+    %% Externo: Fondo oscuro, borde negro, TEXTO BLANCO
     classDef extNode fill:#37474f,stroke:#000000,stroke-width:2px,color:#ffffff;
 
     subgraph Host ["Host Docker (Ubuntu 24.04)"]
+        %% Forzamos estilo del subgraph para que se vea bien en Dark Mode
         style Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#ffffff
 
         subgraph Ansible_Playbook ["Ansible Automation"]
             style Ansible_Playbook fill:#546e7a,stroke:#fff,stroke-width:1px,color:#fff
             direction TB
+            
+            %% Aplicamos la clase 'ansibleNode' con :::
             Task1["1. Configura Red"]:::ansibleNode
             Task2["2. Provisiona Volúmenes"]:::ansibleNode
             Task3["3. Despliega MySQL"]:::ansibleNode
@@ -47,12 +58,16 @@ graph TD
 
         subgraph Docker_Runtime ["Runtime de Contenedores"]
             style Docker_Runtime fill:#eceff1,stroke:#455a64,stroke-width:2px,color:#000000
+            
+            %% Aplicamos clases específicas
             Net["Red Privada: lamp-network"]:::dockerNode
+            
             DB[("Contenedor DB<br/>MariaDB 10.6")]:::dbNode
             Web["Contenedor Web<br/>Apache + PHP 8.1"]:::dockerNode
             Ext["Tráfico Externo"]:::extNode
             
             Vol1[("Volumen: db_data")]:::dbNode --> DB
+            
             Web -- "Puerto 3306" --> DB
             Web -- "Puerto 80:80" --> Ext
             
@@ -62,6 +77,8 @@ graph TD
             Task4 -.-> Web
         end
     end
+    
+    %% --- Engrosar todas las líneas ---
     linkStyle default stroke:#333,stroke-width:2px,fill:none;
 ```
 
@@ -69,60 +86,31 @@ graph TD
 
 ## 💻 Implementación Técnica (Ansible)
 
-La lógica de despliegue se organiza siguiendo el estándar **SOP-LINUX-ANS-01**, separando inventarios, playbooks y código fuente.
+La lógica de despliegue se encapsula en un **Playbook de Ansible**. A diferencia de `docker-compose`, este enfoque nos permite realizar validaciones previas en el host y gestionar secretos de forma segura con Ansible Vault.
 
 <Steps>
 
-1.  **Configuración del Motor (Ansible Core)**
+1.  **Definición del Inventario**
 
-    Debido a cambios recientes en las colecciones comunitarias, utilizamos una configuración minimalista para garantizar compatibilidad con Python 3.12+.
+    Apuntamos al host Docker de nuestra infraestructura de laboratorio.
 
-    ```ini title="ansible.cfg"
-    [defaults]
-    inventory = ./inventory/dev
-    collections_path = ./collections
-    host_key_checking = False
-    pipelining = True
-    # Usamos 'yaml' (short name) para evitar conflictos con plugins legacy
-    stdout_callback = yaml
-
-    [privilege_escalation]
-    become = True
-    become_method = sudo
-    become_user = root
-    become_ask_pass = False
-    ```
-
-    Declaramos únicamente las dependencias estrictamente necesarias para evitar "bloatware" o conflictos.
-
-    ```yaml title="requirements.yml"
-    ---
-    collections:
-      - name: community.docker
-        version: 3.10.1
-      - name: ansible.posix
-        version: 1.5.4
-    ```
-
-2.  **Definición del Inventario**
-
-    ```ini title="inventory/dev"
+    ```ini title="inventory.ini"
     [app_servers]
     192.168.1.60 ansible_user=dzamo ansible_ssh_private_key_file=~/.ssh/id_rsa
     ```
 
-3.  **Estructura del Playbook**
-    
-    > **Nota:** Al ejecutar desde la carpeta `playbooks/`, la ruta al código fuente se ajusta a `../src`.
+2.  **Estructura del Playbook**
 
-    ```yaml title="playbooks/deploy-lamp.yml"
+    El código a continuación asegura que la red Docker exista, crea los volúmenes persistentes y lanza los contenedores en el orden correcto para respetar dependencias.
+
+    ```yaml title="deploy-lamp.yml"
     ---
     - name: Aprovisionamiento de Stack LAMP
       hosts: app_servers
       become: true
       vars:
         project_name: "intranet-core"
-        mysql_root_pass: "SecureRoot123!"
+        mysql_root_pass: "SecureRoot123!" # En prod usar Ansible Vault
         mysql_db: "intranet_db"
         mysql_user: "app_user"
         mysql_pass: "AppPass2025"
@@ -166,16 +154,17 @@ La lógica de despliegue se organiza siguiendo el estándar **SOP-LINUX-ANS-01**
             networks:
               - name: "{{ project_name }}-net"
             volumes:
-              - ../src:/var/www/html
+              # Montamos el código fuente desde el host
+              - ./src:/var/www/html
             labels:
               com.role: "frontend"
     ```
 
 3.  **Código de la Aplicación (Prueba de Concepto)**
 
-    Ubicado en la raíz del proyecto para facilitar su edición. Inyectamos un script PHP que valida la conexión DNS interna.
+    Para validar la conectividad entre contenedores, inyectamos un script PHP simple que intenta conectar a la base de datos usando el nombre DNS interno del contenedor (`intranet-core-db`).
 
-    ```php title="src/index.php"
+    ```php title="./src/index.php"
     <?php
     $servername = "intranet-core-db"; // Resolución DNS interna de Docker
     $username = "app_user";
@@ -194,12 +183,10 @@ La lógica de despliegue se organiza siguiendo el estándar **SOP-LINUX-ANS-01**
 
 4.  **Ejecución y Verificación**
 
+    Lanzamos el playbook y verificamos el estado final.
+
     ```bash
-    # Instalación de dependencias (Solo la primera vez)
-    ansible-galaxy install -r requirements.yml
-    
-    # Ejecución
-    ansible-playbook playbooks/deploy-lamp.yml
+    ansible-playbook -i inventory.ini deploy-lamp.yml
     ```
 
 </Steps>
