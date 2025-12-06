@@ -27,14 +27,14 @@ This project modernizes the deployment of Legacy PHP applications, evolving from
 The workflow implements a remote **Build & Deploy** pattern orchestrated by Ansible. The control node handles configuration and secrets, while the remote host builds and runs the containers.
 
 ```mermaid
-graph TD
+graph LR
     %% --- Style Definitions ---
     classDef ansibleNode fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000000;
     classDef dockerNode fill:#e0f7fa,stroke:#0288d1,stroke-width:2px,color:#000000;
     classDef secretNode fill:#ffcdd2,stroke:#c62828,stroke-width:2px,color:#000000;
 
     subgraph Control_Node ["Control Node (Dev)"]
-        style Control_Node fill:#eceff1,stroke:#cfd8dc
+        style Control_Node fill:#eceff1,stroke:#cfd8dc,color:#000000
         Make[("Makefile Wrapper")]:::ansibleNode
         Ansible[("Ansible Playbook")]:::ansibleNode
         Secrets[("secrets.yml<br/>(GitIgnored)")]:::secretNode
@@ -44,7 +44,7 @@ graph TD
     end
 
     subgraph Remote_Host ["App Server (Ubuntu 24.04)"]
-        style Remote_Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#ffffff
+        style Remote_Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#000000
         
         subgraph Docker_Runtime ["Docker Engine"]
             style Docker_Runtime fill:#eceff1,stroke:#455a64,color:#000000
