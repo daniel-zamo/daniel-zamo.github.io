@@ -1,208 +1,172 @@
 ---
 title: "LAMP Stack with Ansible & Docker"
-description: Automated deployment of web architecture (Apache, MySQL, PHP) using containers and IaC orchestration.
+description: Automated deployment of web architecture (Apache, MySQL, PHP) focusing on secret management, custom image builds, and standardized workflows.
 sidebar:
   label: LAMP Stack (Web)
   order: 2
 type: project
 domain: automation
-tags: ["ansible", "docker", "lamp", "mysql", "iac"]
+tags: ["ansible", "docker", "lamp", "mysql", "security", "make"]
 ---
 
 import { Steps } from '@astrojs/starlight/components';
 
 ## 📋 Executive Summary
 
-This project addresses the need to standardize the deployment of PHP-based web applications (Legacy) in a modern environment. Instead of manually configuring servers, we use **Ansible** to define the desired infrastructure state and **Docker** to encapsulate application dependencies.
+This project modernizes the deployment of Legacy PHP applications, evolving from manual configuration to **Immutable Infrastructure**. Unlike basic container deployments, this solution addresses real-world challenges: compiling custom PHP extensions (`mysqli`), managing credentials securely outside the codebase, and standardizing the development environment.
 
 ### 🎯 Engineering Objectives
-1.  **Idempotency:** Ability to execute the deployment multiple times without duplicating resources or generating errors.
-2.  **Network Segregation:** Isolation of the database (Backend) from the web server (Frontend) using private bridge networks.
-3.  **Persistence:** Management of Docker volumes to ensure MySQL data durability.
+1.  **Immutability:** On-demand custom Docker image builds to inject system dependencies during deployment.
+2.  **Security (12-Factor App):** Full decoupling of credentials. Source code contains no secrets; they are injected as environment variables.
+3.  **Standardization:** Implementation of a `Makefile` wrapper to abstract Python/Ansible complexity and ensure zero-friction onboarding.
 
 ---
 
 ## 🏗️ Solution Architecture
 
-The design implements a **Data Sidecar** pattern and container segregation managed by an external controller (Ansible).
+The workflow implements a remote **Build & Deploy** pattern orchestrated by Ansible. The control node handles configuration and secrets, while the remote host builds and runs the containers.
 
 ```mermaid
 graph TD
-    %% --- Style Definitions (High Contrast Palette) ---
-    %% Ansible: Soft yellow fill, orange border, BLACK TEXT
+    %% --- Style Definitions ---
     classDef ansibleNode fill:#fff9c4,stroke:#fbc02d,stroke-width:2px,color:#000000;
-    
-    %% Docker General: Soft cyan fill, blue border, BLACK TEXT
     classDef dockerNode fill:#e0f7fa,stroke:#0288d1,stroke-width:2px,color:#000000;
-    
-    %% DB/Volume: Soft purple fill, violet border, BLACK TEXT
-    classDef dbNode fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000;
-    
-    %% External: Dark fill, black border, WHITE TEXT
-    classDef extNode fill:#37474f,stroke:#000000,stroke-width:2px,color:#ffffff;
+    classDef secretNode fill:#ffcdd2,stroke:#c62828,stroke-width:2px,color:#000000;
 
-    subgraph Host ["Docker Host (Ubuntu 24.04)"]
-        %% Force subgraph style for Dark Mode compatibility
-        style Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#ffffff
+    subgraph Control_Node ["Control Node (Dev)"]
+        style Control_Node fill:#eceff1,stroke:#cfd8dc
+        Make[("Makefile Wrapper")]:::ansibleNode
+        Ansible[("Ansible Playbook")]:::ansibleNode
+        Secrets[("secrets.yml<br/>(GitIgnored)")]:::secretNode
+        
+        Make --> Ansible
+        Secrets -.-> Ansible
+    end
 
-        subgraph Ansible_Playbook ["Ansible Automation"]
-            style Ansible_Playbook fill:#546e7a,stroke:#fff,stroke-width:1px,color:#fff
-            direction TB
+    subgraph Remote_Host ["App Server (Ubuntu 24.04)"]
+        style Remote_Host fill:#0288d1,stroke:#cfd8dc,stroke-width:2px,color:#ffffff
+        
+        subgraph Docker_Runtime ["Docker Engine"]
+            style Docker_Runtime fill:#eceff1,stroke:#455a64,color:#000000
             
-            %% Applying 'ansibleNode' class
-            Task1["1. Configure Network"]:::ansibleNode
-            Task2["2. Provision Volumes"]:::ansibleNode
-            Task3["3. Deploy MySQL"]:::ansibleNode
-            Task4["4. Deploy Apache/PHP"]:::ansibleNode
-        end
-
-        subgraph Docker_Runtime ["Container Runtime"]
-            style Docker_Runtime fill:#eceff1,stroke:#455a64,stroke-width:2px,color:#000000
+            Build[("Docker Build<br/>(PHP + Mysqli)")]:::dockerNode
+            App[("Container Web<br/>Apache")]:::dockerNode
+            DB[("Container DB<br/>MariaDB")]:::dockerNode
             
-            %% Applying specific classes
-            Net["Private Net: lamp-network"]:::dockerNode
-            
-            DB[("DB Container<br/>MariaDB 10.6")]:::dbNode
-            Web["Web Container<br/>Apache + PHP 8.1"]:::dockerNode
-            Ext["External Traffic"]:::extNode
-            
-            Vol1[("Volume: db_data")]:::dbNode --> DB
-            
-            Web -- "Port 3306" --> DB
-            Web -- "Port 80:80" --> Ext
-            
-            Task1 -.-> Net
-            Task2 -.-> Vol1
-            Task3 -.-> DB
-            Task4 -.-> Web
+            Ansible -- "1. Upload Dockerfile" --> Build
+            Build -- "2. Image Created" --> App
+            Ansible -- "3. Inject ENV Vars" --> App
+            App -- "Internal DNS" --> DB
         end
     end
     
-    %% --- Thicken all lines ---
     linkStyle default stroke:#333,stroke-width:2px,fill:none;
 ```
 
 ---
 
-## 💻 Technical Implementation (Ansible)
+## 💻 Technical Implementation
 
-The deployment logic is encapsulated in an **Ansible Playbook**. Unlike `docker-compose`, this approach allows for pre-deployment host validations and secure secret management via Ansible Vault.
+The solution uses a professional structure separating configuration, secrets, and deployment logic.
 
 <Steps>
 
-1.  **Inventory Definition**
+1.  **Execution Wrapper (Makefile)**
 
-    We target the Docker host within our lab infrastructure.
+    To avoid versioning and virtual environment issues, we encapsulate commands in a `Makefile`. This ensures every developer uses the exact same tooling.
 
-    ```ini title="inventory.ini"
-    [app_servers]
-    192.168.1.60 ansible_user=dzamo ansible_ssh_private_key_file=~/.ssh/id_rsa
+    ```makefile title="Makefile"
+    setup:
+        python3 -m venv .venv
+        .venv/bin/pip install ansible-core docker
+        .venv/bin/ansible-galaxy install -r requirements.yml
+
+    deploy:
+        .venv/bin/ansible-playbook playbook/deploy-lamp.yml
     ```
 
-2.  **Playbook Structure**
+2.  **Secret Management (Override Pattern)**
 
-    The code below ensures the Docker network exists, creates persistent volumes, and launches containers in the correct order to respect dependencies.
+    Ansible loads public variables (`all.yml`) first, then overwrites them with a local secret file that is excluded from Git (`.gitignore`).
 
-    ```yaml title="deploy-lamp.yml"
-    ---
-    - name: LAMP Stack Provisioning
-      hosts: app_servers
-      become: true
-      vars:
-        project_name: "intranet-core"
-        mysql_root_pass: "SecureRoot123!" # In prod use Ansible Vault
-        mysql_db: "intranet_db"
-        mysql_user: "app_user"
-        mysql_pass: "AppPass2025"
-        
-      tasks:
-        - name: Create Isolated Docker Network
-          community.docker.docker_network:
-            name: "{{ project_name }}-net"
-            driver: bridge
-
-        - name: Create DB Persistence Volume
-          community.docker.docker_volume:
-            name: "{{ project_name }}-db-data"
-
-        - name: Deploy Database (MariaDB)
-          community.docker.docker_container:
-            name: "{{ project_name }}-db"
-            image: mariadb:10.6
-            state: started
-            restart_policy: always
-            networks:
-              - name: "{{ project_name }}-net"
-            env:
-              MARIADB_ROOT_PASSWORD: "{{ mysql_root_pass }}"
-              MARIADB_DATABASE: "{{ mysql_db }}"
-              MARIADB_USER: "{{ mysql_user }}"
-              MARIADB_PASSWORD: "{{ mysql_pass }}"
-            volumes:
-              - "{{ project_name }}-db-data:/var/lib/mysql"
-            labels:
-              com.role: "database"
-
-        - name: Deploy Web Server (Apache+PHP)
-          community.docker.docker_container:
-            name: "{{ project_name }}-web"
-            image: php:8.1-apache
-            state: started
-            restart_policy: always
-            ports:
-              - "80:80"
-            networks:
-              - name: "{{ project_name }}-net"
-            volumes:
-              # Mount source code from host
-              - ./src:/var/www/html
-            labels:
-              com.role: "frontend"
+    ```yaml title="playbook/deploy-lamp.yml"
+    - hosts: app_servers
+      vars_files:
+        - "../group_vars/all.yml"      # Public Structure (Placeholders)
+        - "../group_vars/secrets.yml"  # Local Secrets (Real Passwords)
     ```
 
-3.  **Application Code (Proof of Concept)**
+3.  **Playbook Logic (Build & Run)**
 
-    To validate connectivity between containers, we inject a simple PHP script that attempts to connect to the database using the internal container DNS name (`intranet-core-db`).
+    The playbook not only pulls images but uploads a `Dockerfile` and compiles a custom image to support `mysqli`.
 
-    ```php title="./src/index.php"
+    ```yaml title="playbook/deploy-lamp.yml"
+    tasks:
+      - name: Build Custom PHP Image
+        community.docker.docker_image:
+          name: "{{ custom_image_name }}"
+          tag: latest
+          build:
+            path: "{{ remote_project_path }}" # Remote path to Dockerfile
+          source: build
+          force_source: true
+
+      - name: Deploy Web Container
+        community.docker.docker_container:
+          name: "{{ project_name }}-web"
+          image: "{{ custom_image_name }}:latest" # Use the freshly built image
+          env:
+            # Secure injection of environment variables
+            DB_HOST: "{{ project_name }}-db"
+            DB_USER: "{{ mysql_user }}"
+            DB_PASSWORD: "{{ mysql_pass }}"
+    ```
+
+4.  **Agnostic Code (PHP)**
+
+    The source code (`src/index.php`) contains no credentials. It reads the environment configuration, complying with *The Twelve-Factor App* principles.
+
+    ```php title="src/index.php"
     <?php
-    $servername = "intranet-core-db"; // Internal Docker DNS resolution
-    $username = "app_user";
-    $password = "AppPass2025";
+    // Secure reading from Environment Variables
+    $servername = getenv('DB_HOST');
+    $username = getenv('DB_USER');
+    $password = getenv('DB_PASSWORD');
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password);
-
-    // Verify
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
     if ($conn->connect_error) {
         die("❌ Connection failed: " . $conn->connect_error);
     }
-    echo "✅ Successfully connected to MariaDB from Apache Container.";
+    echo "✅ Successfully connected to MariaDB.";
     ?>
     ```
 
-4.  **Execution & Verification**
+5.  **Standardized Execution**
 
-    Launch the playbook and verify the final state.
+    Thanks to the Makefile, deployment is reduced to two commands, regardless of the underlying complexity.
 
     ```bash
-    ansible-playbook -i inventory.ini deploy-lamp.yml
+    # Initialization (First time only)
+    make setup
+
+    # Idempotent Deploy
+    make deploy
     ```
 
 </Steps>
 
 ## 🔍 Value Analysis
 
-Transitioning from manual Bash scripts to Ansible for this deployment provides:
-
-| Feature | Traditional Bash Script | Ansible + Docker |
+| Feature | Traditional Bash Script | Ansible + Docker Pro |
 | :--- | :--- | :--- |
-| **State Control** | Imperative (Hard to tell if it failed halfway) | Declarative (Ensures final state) |
-| **Cleanup** | Manual (Risk of residue) | Native container lifecycle management |
-| **Portability** | Bound to Host OS | Executable on any Host with Docker Engine |
+| **Credentials** | Hardcoded in files (`.php`) | Injected in Memory (ENV) |
+| **Dependencies** | Manual installation (`apt-get`) | Automatic Docker Build |
+| **Portability** | "Works on my machine" | Standardized via Makefile |
 
 ### Next Steps (Roadmap AZ-104)
 
-This project serves as the baseline for the next cloud migration phase:
-1.  **Lift & Shift:** Reuse this Playbook to provision an Ubuntu VM in **Azure Compute**.
-2.  **Database Migration:** Decouple the MariaDB container and connect the App to **Azure Database for MariaDB**.
+This project serves as the baseline for cloud migration:
+1.  **Azure Container Registry (ACR):** Move the build process to the cloud instead of building on the host.
+2.  **Azure App Service:** Deploy this Web container using the image from ACR.
+3.  **Azure Key Vault:** Replace the local `secrets.yml` file with cloud-managed secrets.
