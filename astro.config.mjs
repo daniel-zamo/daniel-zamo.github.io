@@ -14,7 +14,7 @@ export default defineConfig({
     integrations: [
         starlight({
             //                        title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
-            title: 'Daniel Zamo | SysAdmin & Cloud Engineering',
+            title: 'Daniel Zamo | SysAdmin & DevOps',
             favicon: '/favicon.png',
             social: [
                 { icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' },
@@ -51,7 +51,7 @@ export default defineConfig({
                     tag: 'meta',
                     attrs: {
                         property: 'og:site_name',
-                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
+                        content: 'Daniel Zamo | SysAdmin & DevOps',
                         //                        content: 'Daniel Zamo | SysAdmin & Cloud Engineering',
                     },
                 },
