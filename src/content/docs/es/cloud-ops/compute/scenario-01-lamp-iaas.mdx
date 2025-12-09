@@ -1,0 +1,122 @@
+---
+title: "Escenario 01: Migración LAMP a Azure IaaS"
+description: Despliegue automatizado de un servidor web Linux (Apache/PHP/MySQL) en Azure usando CLI y Cloud-Init.
+sidebar:
+  label: 01 - Stack LAMP IaaS
+  order: 1
+type: scenario
+domain: compute
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 📋 Definición del Proyecto
+
+**Contexto de Negocio:**
+Como parte de una iniciativa de modernización, se requiere migrar una carga de trabajo web legacy (Stack LAMP) a la nube pública. El objetivo es reducir la sobrecarga operativa del hardware físico manteniendo el control total sobre la configuración del sistema operativo.
+
+**Requisitos Técnicos:**
+1.  **Aislamiento de Recursos:** Implementación de un Grupo de Recursos dedicado para la gestión del ciclo de vida.
+2.  **Seguridad de Red:** Segmentación mediante VNET y filtrado de tráfico estricto (NSG) permitiendo únicamente HTTP (80) y SSH (22).
+3.  **Eficiencia de Cómputo:** Aprovisionamiento de instancia `Standard_B1s` (Burstable) sobre Ubuntu 22.04 LTS.
+4.  **Automatización (Infrastructure as Code):** El aprovisionamiento debe ser desatendido, utilizando **Cloud-Init** para la configuración del stack de software en el primer arranque.
+
+:::tip[Estrategia de Aprovisionamiento]
+En entornos productivos, se evita la configuración manual post-despliegue. El uso de **Custom Data (Cloud-Init)** garantiza que la VM esté operativa y configurada desde el segundo cero, facilitando la escalabilidad horizontal.
+:::
+
+---
+
+## 🔧 Procedimiento de Implementación (Azure CLI)
+
+Ejecución mediante `az cli` para garantizar la reproducibilidad y auditabilidad del despliegue.
+
+<Steps>
+
+1.  **Definición de Variables de Entorno**
+
+    Estandarización de nomenclaturas para recursos.
+
+    ```bash
+    RG_NAME="rg-lamp-migration-001"
+    LOCATION="northeurope"
+    VM_NAME="vm-web-legacy-01"
+    VNET_NAME="vnet-prod-01"
+    NSG_NAME="nsg-web-public"
+    ```
+
+2.  **Creación del Contenedor Lógico**
+
+    ```bash
+    az group create --name $RG_NAME --location $LOCATION
+    ```
+
+3.  **Configuración de Bootstrapping (Cloud-Init)**
+
+    Definición del estado deseado del sistema operativo. Este manifiesto instala dependencias y genera archivos de prueba automáticamente.
+
+    ```yaml title="cloud-init-lamp.txt"
+    #cloud-config
+    package_upgrade: true
+    packages:
+      - apache2
+      - php
+      - libapache2-mod-php
+      - mysql-server
+      - php-mysql
+    write_files:
+      - content: |
+          <?php phpinfo(); ?>
+        path: /var/www/html/info.php
+    runcmd:
+      - systemctl restart apache2
+      - systemctl enable apache2
+    ```
+
+4.  **Despliegue de Infraestructura**
+
+    Comando atómico que aprovisiona red, seguridad, IP pública y cómputo, inyectando la configuración de Cloud-Init.
+
+    ```bash
+    az vm create \
+      --resource-group $RG_NAME \
+      --name $VM_NAME \
+      --image Ubuntu2204 \
+      --admin-username azureuser \
+      --generate-ssh-keys \
+      --public-ip-sku Standard \
+      --size Standard_B1s \
+      --custom-data @cloud-init-lamp.txt \
+      --nsg $NSG_NAME
+    ```
+
+5.  **Hardening de Red (NSG)**
+
+    Configuración explícita de reglas de entrada para permitir tráfico web.
+
+    ```bash
+    az network nsg rule create \
+      --resource-group $RG_NAME \
+      --nsg-name $NSG_NAME \
+      --name Allow-HTTP \
+      --protocol Tcp \
+      --priority 100 \
+      --destination-port-range 80 \
+      --access Allow
+    ```
+
+6.  **Verificación de Servicio**
+
+    Validación de la disponibilidad del endpoint público.
+
+    ```bash
+    IP_ADDRESS=$(az vm show -d -g $RG_NAME -n $VM_NAME --query publicIps -o tsv)
+    echo "Endpoint disponible en: http://$IP_ADDRESS/info.php"
+    ```
+
+</Steps>
+
+## 🔍 Decisión de Diseño
+
+### ¿Por qué Cloud-Init para este escenario?
+Para despliegues de **instancias únicas** o **imágenes base**, Cloud-Init es el estándar de la industria "Cloud-Native". Elimina la necesidad de un servidor de configuración externo (como Ansible Tower) para el bootstrap inicial, reduciendo la complejidad y el tiempo de arranque (RTO).

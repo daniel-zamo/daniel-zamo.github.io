@@ -1,0 +1,46 @@
+---
+title: Azure Architecture & Operations
+description: Technical documentation for the design, governance, and administration of Microsoft Azure Cloud environments.
+sidebar:
+  label: Overview
+  order: 0
+type: theory
+domain: cloud
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+This section consolidates **engineering procedures** and reference architectures for cloud infrastructure implementation.
+
+The content aligns with the best practices of the **Microsoft Cloud Adoption Framework (CAF)**, prioritizing security, automation, and operational governance over manual management.
+
+---
+
+## ☁️ Architectural Domains
+
+<CardGrid>
+  <Card title="Identity & Governance" icon="user">
+    Implementation of access policies (RBAC), identity management with Entra ID, and compliance via Azure Policy.
+  </Card>
+  <Card title="Networking (VNETs)" icon="signal">
+    Design of Hub-and-Spoke topologies, traffic segmentation with NSGs, and secure hybrid connectivity.
+  </Card>
+  <Card title="Compute IaaS" icon="laptop">
+    Virtual Machine lifecycle management, cost optimization (Spot Instances), and auto-scaling.
+  </Card>
+  <Card title="Storage & Data" icon="document">
+    Management of storage accounts, data protection, and redundancy strategies (LRS/GRS).
+  </Card>
+</CardGrid>
+
+---
+
+## 🚀 Technical Implementations
+
+Practical deployment scenarios and infrastructure troubleshooting.
+
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+    <LinkButton href="/en/cloud-ops/compute/scenario-01-lamp-iaas/" variant="primary" icon="rocket">
+        View Scenario 01: LAMP Stack IaaS
+    </LinkButton>
+</div>

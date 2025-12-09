@@ -1,0 +1,46 @@
+---
+title: Arquitectura & Operaciones Azure
+description: Documentación técnica para el diseño, gobierno y administración de entornos Cloud basados en Microsoft Azure.
+sidebar:
+  label: Visión General
+  order: 0
+type: theory
+domain: cloud
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+Esta sección consolida **procedimientos de ingeniería** y arquitecturas de referencia para la implementación de infraestructura en la nube.
+
+El contenido se alinea con las mejores prácticas del **Microsoft Cloud Adoption Framework (CAF)**, priorizando la seguridad, la automatización y el gobierno operativo sobre la gestión manual.
+
+---
+
+## ☁️ Dominios de Arquitectura
+
+<CardGrid>
+  <Card title="Identidad y Gobierno" icon="user">
+    Implementación de políticas de acceso (RBAC), gestión de identidades con Entra ID y cumplimiento normativo mediante Azure Policy.
+  </Card>
+  <Card title="Networking (VNETs)" icon="signal">
+    Diseño de topologías Hub-and-Spoke, segmentación de tráfico con NSGs y conectividad híbrida segura.
+  </Card>
+  <Card title="Cómputo IaaS" icon="laptop">
+    Gestión del ciclo de vida de Máquinas Virtuales, optimización de costes (Spot Instances) y escalado automático.
+  </Card>
+  <Card title="Storage & Data" icon="document">
+    Administración de cuentas de almacenamiento, protección de datos y estrategias de redundancia (LRS/GRS).
+  </Card>
+</CardGrid>
+
+---
+
+## 🚀 Implementaciones Técnicas
+
+Escenarios prácticos de despliegue y resolución de problemas de infraestructura.
+
+<div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+    <LinkButton href="/es/cloud-ops/compute/scenario-01-lamp-iaas/" variant="primary" icon="rocket">
+        Ver Escenario 01: Stack LAMP IaaS
+    </LinkButton>
+</div>

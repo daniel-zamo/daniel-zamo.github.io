@@ -17,10 +17,11 @@ const docsCollection = defineCollection({
         'virtualization',
         'containers',
         'automation',
-        'monitoring'
+        'monitoring',
+        'cloud'
       ]).optional(),
 
-      // Tipo de contenido (Añadido 'project' para tu portfolio)
+      // Tipo de contenido (Añadido 'project' para portfolio)
       type: z.enum([
         'lab',
         'theory',
@@ -68,6 +69,6 @@ export const collections = {
   docs: docsCollection,
   // Si aún no tienes archivos .json/.yaml en src/content/questions, 
   // puedes comentar la siguiente línea para evitar warnings de "colección vacía"
-  questions: questionsCollection, 
+  questions: questionsCollection,
 };
 

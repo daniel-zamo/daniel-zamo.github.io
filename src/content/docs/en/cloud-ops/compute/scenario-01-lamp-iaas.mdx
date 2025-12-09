@@ -1,0 +1,122 @@
+---
+title: "Scenario 01: LAMP Migration to Azure IaaS"
+description: Automated deployment of a Linux web server (Apache/PHP/MySQL) on Azure using CLI and Cloud-Init.
+sidebar:
+  label: 01 - LAMP Stack IaaS
+  order: 1
+type: scenario
+domain: compute
+---
+
+import { Steps } from '@astrojs/starlight/components';
+
+## 📋 Project Definition
+
+**Business Context:**
+As part of a modernization initiative, a legacy web workload (LAMP Stack) needs to be migrated to the public cloud. The objective is to reduce the operational overhead of physical hardware while maintaining full control over the operating system configuration.
+
+**Technical Requirements:**
+1.  **Resource Isolation:** Implementation of a dedicated Resource Group for lifecycle management.
+2.  **Network Security:** Segmentation via VNET and strict traffic filtering (NSG) allowing only HTTP (80) and SSH (22).
+3.  **Compute Efficiency:** Provisioning of a `Standard_B1s` (Burstable) instance on Ubuntu 22.04 LTS.
+4.  **Automation (Infrastructure as Code):** Provisioning must be unattended, utilizing **Cloud-Init** for software stack configuration upon first boot.
+
+:::tip[Provisioning Strategy]
+In production environments, manual post-deployment configuration is avoided. Using **Custom Data (Cloud-Init)** ensures the VM is operational and configured from second zero, facilitating horizontal scalability.
+:::
+
+---
+
+## 🔧 Implementation Procedure (Azure CLI)
+
+Execution via `az cli` to ensure deployment reproducibility and auditability.
+
+<Steps>
+
+1.  **Environment Variable Definition**
+
+    Standardizing naming conventions for resources.
+
+    ```bash
+    RG_NAME="rg-lamp-migration-001"
+    LOCATION="northeurope"
+    VM_NAME="vm-web-legacy-01"
+    VNET_NAME="vnet-prod-01"
+    NSG_NAME="nsg-web-public"
+    ```
+
+2.  **Logical Container Creation**
+
+    ```bash
+    az group create --name $RG_NAME --location $LOCATION
+    ```
+
+3.  **Bootstrapping Configuration (Cloud-Init)**
+
+    Defining the desired state of the operating system. This manifest installs dependencies and generates test files automatically.
+
+    ```yaml title="cloud-init-lamp.txt"
+    #cloud-config
+    package_upgrade: true
+    packages:
+      - apache2
+      - php
+      - libapache2-mod-php
+      - mysql-server
+      - php-mysql
+    write_files:
+      - content: |
+          <?php phpinfo(); ?>
+        path: /var/www/html/info.php
+    runcmd:
+      - systemctl restart apache2
+      - systemctl enable apache2
+    ```
+
+4.  **Infrastructure Deployment**
+
+    Atomic command that provisions network, security, public IP, and compute, injecting the Cloud-Init configuration.
+
+    ```bash
+    az vm create \
+      --resource-group $RG_NAME \
+      --name $VM_NAME \
+      --image Ubuntu2204 \
+      --admin-username azureuser \
+      --generate-ssh-keys \
+      --public-ip-sku Standard \
+      --size Standard_B1s \
+      --custom-data @cloud-init-lamp.txt \
+      --nsg $NSG_NAME
+    ```
+
+5.  **Network Hardening (NSG)**
+
+    Explicit configuration of inbound rules to allow web traffic.
+
+    ```bash
+    az network nsg rule create \
+      --resource-group $RG_NAME \
+      --nsg-name $NSG_NAME \
+      --name Allow-HTTP \
+      --protocol Tcp \
+      --priority 100 \
+      --destination-port-range 80 \
+      --access Allow
+    ```
+
+6.  **Service Verification**
+
+    Validation of the public endpoint availability.
+
+    ```bash
+    IP_ADDRESS=$(az vm show -d -g $RG_NAME -n $VM_NAME --query publicIps -o tsv)
+    echo "Endpoint available at: http://$IP_ADDRESS/info.php"
+    ```
+
+</Steps>
+
+## 🔍 Design Decision
+
+### Why Cloud-Init for this scenario?
+For **single instance** or **base image** deployments, Cloud-Init is the "Cloud-Native" industry standard. It removes the need for an external configuration server (like Ansible Tower) for the initial bootstrap, reducing complexity and Recovery Time Objective (RTO).

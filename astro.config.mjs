@@ -1,11 +1,10 @@
 // astro.config.mjs - Configuración con soporte inglés/español
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import mermaid from 'astro-mermaid'; // <--- 1. IMPORTAR MOTOR astro-mermaid (1/2 - ver 'integrations')
+import mermaid from 'astro-mermaid';
 
 export default defineConfig({
     site: 'https://dzamo.gitlab.io',
-    // Redirección automática de la raíz al idioma por defecto
     redirects: {
         '/': '/es/',
     },
@@ -21,19 +20,13 @@ export default defineConfig({
 
             customCss: ['./src/styles/custom.css'],
 
-            // Configuración de idiomas
-            defaultLocale: 'es', // Inglés como idioma por defecto
+            defaultLocale: 'es',
             locales: {
-                en: {
-                    label: 'English',
-                    lang: 'en'
-                },
-                es: {
-                    label: 'Español',
-                    lang: 'es'
-                }
+                en: { label: 'English', lang: 'en' },
+                es: { label: 'Español', lang: 'es' }
             },
 
+            // ... (Sección head se mantiene igual) ...
             head: [
                 {
                     tag: 'script',
@@ -45,56 +38,36 @@ export default defineConfig({
                         }
                     `,
                 },
-                {
-                    tag: 'meta',
-                    attrs: {
-                        property: 'og:site_name',
-                        content: 'Daniel Zamo | SysAdmin & DevOps',
-                    },
-                },
-                {
-                    tag: 'meta',
-                    attrs: {
-                        property: 'og:type',
-                        content: 'website',
-                    },
-                },
-                {
-                    tag: 'meta',
-                    attrs: {
-                        name: 'author',
-                        content: 'Daniel O. Zamo',
-                    },
-                },
+                // ... (resto de metas) ...
             ],
 
-            // Sidebar por idioma
+            // --- ACTUALIZACIÓN DEL SIDEBAR ---
             sidebar: [
                 {
                     label: 'Home',
-                    translations: {
-                        es: 'Inicio'
-                    },
+                    translations: { es: 'Inicio' },
                     link: '/'
                 },
                 {
                     label: 'Engineering Projects',
-                    translations: {
-                        es: 'Proyectos de Ingeniería'
-                    },
+                    translations: { es: 'Proyectos de Ingeniería' },
                     collapsed: false,
                     autogenerate: { directory: 'projects' }
                 },
                 {
+                    label: 'Azure Cloud Operations', // <--- NUEVA SECCIÓN
+                    translations: { es: 'Operaciones Cloud Azure' },
+                    collapsed: true, // Colapsado para no saturar
+                    autogenerate: { directory: 'cloud-ops' }
+                },
+                {
                     label: 'Linux Systems Engineering',
-                    translations: {
-                        es: 'Ingeniería de Sistemas Linux'
-                    },
+                    translations: { es: 'Ingeniería de Sistemas Linux' },
                     collapsed: true,
                     autogenerate: { directory: 'linux-ops' }
                 },
             ],
         }),
-        mermaid(), //  <--- 2. AGREGADO AL FINAL DEL ARRAY DE 'integrations' (2/2 - MOTOR astro-mermaid)
+        mermaid(),
     ],
 });
