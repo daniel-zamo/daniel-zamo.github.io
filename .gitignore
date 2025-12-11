@@ -4,7 +4,6 @@ aa-*
 .*.bkp
 /content-site.sh
 /*site-spec.md
-zz-backups
 
 # build output
 dist/

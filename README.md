@@ -1,81 +1,94 @@
-# D@cz Tech Docs | Engineering Portfolio
+# D@cz Tech Docs | Portfolio de Ingeniería
 
-![Build Status](https://img.shields.io/gitlab/pipeline-status/dzamo/dzamo.gitlab.io?branch=main&style=for-the-badge&logo=gitlab)
-![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
-![LFCS Certified](https://img.shields.io/badge/CERTIFIED-LFCS-003B57?style=for-the-badge&logo=linux&logoColor=white)
+![Estado de Compilación](https://img.shields.io/github/actions/workflow/status/daniel-zamo/daniel-zamo.github.io/deploy.yml?branch=main&style=for-the-badge&logo=github&label=BUILD)
+
+![Licencia](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+
+![Certificado LFCS](https://img.shields.io/badge/CERTIFIED-LFCS-003B57?style=for-the-badge&logo=linux&logoColor=white)
 
 <p align="center">
-  <strong>Technical documentation, infrastructure labs, and system administration scenarios.</strong>
+  <strong>Documentación técnica, laboratorios de infraestructura y escenarios de administración de sistemas.</strong>
   <br>
-  Built with performance and scalability in mind.
+  Construido pensando en el rendimiento y la escalabilidad.
 </p>
 
 <p align="center">
-  <a href="https://dzamo.gitlab.io"><strong>🌐 Visit Live Site</strong></a>
+  <a href="https://daniel-zamo.github.io"><strong>🌐 Visitar Sitio en Vivo</strong></a>
 </p>
 
 ---
 
-## 🚀 Project Overview
+## 🚀 Resumen del Proyecto
 
-This repository hosts my personal **Knowledge Base and Engineering Portfolio**. It serves as a centralized hub for validated technical scenarios, focusing on Linux systems, Virtualization, and Cloud Infrastructure.
+Este repositorio aloja mi **Base de Conocimientos y Portfolio de Ingeniería** personal. Sirve como un centro unificado para escenarios técnicos validados, centrándose en sistemas Linux, Virtualización e Infraestructura Cloud.
 
-The content is structured to demonstrate competency in **LFCS (Linux Foundation Certified SysAdmin)** domains and real-world DevOps practices.
+El contenido está estructurado para demostrar competencias en los dominios de la certificación **LFCS (Linux Foundation Certified SysAdmin)** y prácticas DevOps del mundo real.
 
-### 🛠️ Tech Stack
+### 🛠️ Stack Tecnológico
 
-This site is built using a modern **Docs-as-Code** approach:
+Este sitio está construido utilizando un enfoque moderno de **Docs-as-Code** (Documentación como Código):
 
 ![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
+
 ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-![GitLab CI](https://img.shields.io/badge/gitlab%20ci-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white)
+
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-*   **Engine:** [Astro Starlight](https://starlight.astro.build) (SSG) for high performance and accessibility.
-*   **Content:** Written in **MDX** (Markdown + Components), migrated and curated from a private Obsidian PKM vault.
-*   **Deploy:** Automated builds via **GitLab CI/CD** to GitLab Pages.
-*   **Styling:** Custom CSS variables adapting to system color schemes (Dark/Light mode).
+*   **Motor:** [Astro Starlight](https://starlight.astro.build) (SSG) para alto rendimiento y accesibilidad.
+
+*   **Contenido:** Escrito en **MDX** (Markdown + Componentes), migrado y curado desde una bóveda privada de Obsidian PKM.
+
+*   **Despliegue:** Construcciones automatizadas vía **GitHub Actions** hacia GitHub Pages.
+
+*   **Estilos:** Variables CSS personalizadas que se adaptan a los esquemas de color del sistema (modo Claro/Oscuro).
 
 ---
 
-## 📚 Key Content Domains
+## 📚 Áreas Temáticas Principales
 
-The documentation is organized into engineering verticals:
+La documentación se organiza en verticales de ingeniería:
 
-*   **🐧 LFCS Certification:** Validated workshops covering the official exam competencies (Storage, Networking, Service Management).
-*   **☁️ Virtualization:** KVM/Libvirt hypervisor management, VM provisioning, and resource isolation.
-*   **🐳 Containers:** Docker and Podman orchestration scenarios.
-*   **🔧 Automation:** Shell scripting and infrastructure configuration management.
+*   **🐧 Certificación LFCS:** Talleres validados que cubren las competencias oficiales del examen (Almacenamiento, Redes, Gestión de Servicios).
+*   **☁️ Virtualización:** Gestión de hipervisores KVM/Libvirt, aprovisionamiento de VMs y aislamiento de recursos.
+*   **🐳 Contenedores:** Escenarios de orquestación con Docker y Podman.
+*   **🔧 Automatización:** Scripting en Shell y gestión de configuración de infraestructura.
 
 ---
 
-## ⚡ Local Development
+## ⚡ Desarrollo Local
 
-To run this project locally:
+Para ejecutar este proyecto localmente:
 
-1.  **Clone the repository:**
+1.  **Clonar el repositorio:**
+    
     ```bash
-    git clone https://gitlab.com/dzamo/dzamo.gitlab.io.git
-    cd dzamo.gitlab.io
+    git clone https://github.com/daniel-zamo/daniel-zamo.github.io.git
+    cd daniel-zamo.github.io
     ```
 
-2.  **Install dependencies:**
+2.  **Instalar dependencias:**
+
     ```bash
     npm install
     ```
 
-3.  **Start the development server:**
+3.  **Iniciar el servidor de desarrollo:**
+
     ```bash
     npm run dev
     ```
-    Access the site at `http://localhost:4321`.
+    
+    Accede al sitio en `http://localhost:4321`.
 
 ---
 
-## 📄 License
+## 📄 Licencia
 
-This project is open source and available under the [MIT License](LICENSE).
+Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
 
 <p align="right">
-  <em>Author: Daniel Oscar Zamo | LFCS Certified</em>
+  <em>Autor: Daniel Oscar Zamo | Certificado LFCS</em>
 </p>
+
