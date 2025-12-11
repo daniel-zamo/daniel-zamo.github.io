@@ -4,7 +4,7 @@ import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
 
 export default defineConfig({
-    site: 'https://dzamo.gitlab.io',
+    site: 'https://daniel-zamo.github.io',
     redirects: {
         '/': '/es/',
     },
@@ -14,7 +14,7 @@ export default defineConfig({
             title: 'Daniel Zamo | SysAdmin & DevOps',
             favicon: '/favicon.png',
             social: [
-                { icon: 'gitlab', label: 'GitLab', href: 'https://gitlab.com/dzamo/dzamo.gitlab.io' },
+                { icon: 'github', label: 'GitHub', href: 'https://github.com/daniel-zamo/daniel-zamo.github.io' },
                 { icon: 'linkedin', label: 'Linkedin', href: 'https://www.linkedin.com/in/danielzamo/' }
             ],
 
