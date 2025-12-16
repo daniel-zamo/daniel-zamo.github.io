@@ -1,0 +1,100 @@
+---
+title: "Advanced KVM Networking: Bridges & VLANs"
+description: Design and implementation of 802.1Q network segmentation and persistent Linux Bridges on a virtualization host.
+sidebar:
+  label: KVM Networking (VLANs)
+  order: 5
+type: scenario
+domain: networking
+---
+
+import { Steps, LinkButton } from '@astrojs/starlight/components';
+
+## 📋 Architectural Definition
+
+**Engineering Context:**
+In bare-metal virtualization environments (KVM Host), utilizing a "Flat Network" introduces security risks and broadcast congestion. It is necessary to evolve the host network configuration to support **multiple isolation zones** using a single physical interface (Trunk).
+
+**Design Objectives:**
+1.  **L3 Decoupling:** The host management IP must not reside on the physical interface but on a virtual Bridge, enabling greater flexibility.
+2.  **802.1Q Segmentation:** Implementation of VLAN sub-interfaces to segregate Management traffic (VLAN 19) from Lab/Tenant traffic (VLAN 88).
+3.  **NetworkManager Persistence:** Declarative configuration via `nmcli` to ensure stability across reboots, deprecating legacy scripts.
+
+---
+
+## 🏗️ Host Logical Topology
+
+The following diagram details the internal network stack configured within the KVM Host (`kvm-001`).
+
+```mermaid
+graph TD
+    subgraph Physical_Layer [Physical Layer]
+        ENO1[("Physical Interface<br/>(eno1 - Trunk)")]:::phys
+    end
+
+    subgraph VLAN_Layer [802.1Q Layer - Tagging]
+        VLAN19["eno1.19<br/>(VLAN ID: 19)"]:::vlan
+        VLAN88["eno1.88<br/>(VLAN ID: 88)"]:::vlan
+    end
+
+    subgraph Bridge_Layer [L2 Layer - Virtual Switching]
+        BR19["br19<br/>(Mgmt Bridge)"]:::bridge
+        BR88["br88<br/>(Workload Bridge)"]:::bridge
+    end
+
+    subgraph IP_Layer [L3 Layer - Routing]
+        IP_HOST["KVM Host IP<br/>192.168.19.50/24"]:::ip
+        VM_MGMT["Controller VM"]:::vm
+        VM_LAB["App VM"]:::vm
+    end
+
+    ENO1 ==> VLAN19
+    ENO1 ==> VLAN88
+    
+    VLAN19 --> BR19
+    VLAN88 --> BR88
+    
+    BR19 -.-> IP_HOST
+    BR19 --> VM_MGMT
+    BR88 --> VM_LAB
+
+    %% Professional Styles
+    classDef phys fill:#e3f2fd,stroke:#1565c0,color:#0d47a1,stroke-width:2px;
+    classDef vlan fill:#fff9c4,stroke:#fbc02d,color:#000;
+    classDef bridge fill:#c8e6c9,stroke:#2e7d32,color:#1b5e20,stroke-width:2px;
+    classDef ip fill:#ffccbc,stroke:#d84315,color:#bf360c;
+    classDef vm fill:#f5f5f5,stroke:#616161,color:#000;
+```
+
+---
+
+## 🚀 Implementation Procedure (SOP)
+
+This design has been standardized and documented in the **Ops Standards Library**. The SOP details the atomic `nmcli` commands required to transform a standard interface into a VLAN trunk with bridges.
+
+<div style="display: flex; justify-content: center; gap: 1rem; margin: 2rem 0;">
+  <LinkButton 
+    href="https://github.com/daniel-zamo/ops-standards-library/blob/main/linux/SOP-LINUX-NM-01_bridge-vlan-config.md"
+    variant="primary"
+    icon="github"
+    target="_blank"
+  >
+    View Technical Procedure (GitHub)
+  </LinkButton>
+  <LinkButton 
+    href="https://github.com/daniel-zamo/ops-standards-library/tree/main/linux"
+    variant="secondary"
+    icon="external"
+    target="_blank"
+  >
+    Explore OPS Repo
+  </LinkButton>
+</div>
+
+### Configuration Outcomes
+
+Upon applying this architecture:
+
+1.  **Isolation:** VMs connected to `br88` are logically isolated from the host management network.
+2.  **Standardization:** Dependency on unpredictable interface names (e.g., `eth0` vs `enp3s0`) is eliminated by abstracting connectivity into standardized Bridges (`brXX`).
+3.  **Observability:** The structure allows for independent traffic inspection of each segment using `tcpdump -i br19`.

@@ -1,0 +1,103 @@
+---
+/* 
+   COMPONENT: ReferenceArchitecture.astro
+   REPLACES: LabEnvironment.astro
+   PURPOSE: Muestra la topología lógica del entorno usando Mermaid en lugar de imágenes estáticas.
+*/
+---
+
+<div class="arch-card">
+  <div class="card-header">
+    <span class="icon">🏗️</span>
+    <strong>Standard Operating Environment (SOE)</strong>
+  </div>
+
+  <div class="diagram-wrapper">
+    <pre
+      class="mermaid">
+      graph TD
+        %% Definición de Estilos
+        classDef mgmt fill:#263238,stroke:#eceff1,color:#fff;
+        classDef compute fill:#0277bd,stroke:#b3e5fc,color:#fff;
+        classDef data fill:#2e7d32,stroke:#c8e6c9,color:#fff;
+        classDef virt fill:#ef6c00,stroke:#ffe0b2,color:#fff;
+
+        subgraph Management_Zone [Zone: Management]
+            Bastion[("💻 terminal<br />(10.0.0.15)")]:::mgmt
+        end
+
+        subgraph Workload_Zone [Zone: Application Tier]
+            Web["🌐 web-srv1<br />(Nginx)"]:::compute
+            App["⚙️ app-srv1<br />(Backend)"]:::compute
+        end
+
+        subgraph Data_Zone [Zone: Persistence Tier]
+            DB1[("🗄️ data-001<br />(Primary)")]:::data
+            DB2[("🗄️ data-002<br />(Replica)")]:::data
+        end
+
+        subgraph Specialized_Compute [Zone: Virtualization]
+            KVM["🖥️ kvm-001<br />(Libvirt/QEMU)"]:::virt
+            Docker["🐳 docker-001<br />(Container Runtime)"]:::virt
+        end
+
+        %% Conexiones Lógicas (Flujo de Gestión)
+        Bastion -.-> Web
+        Bastion -.-> App
+        Bastion -.-> DB1
+        Bastion -.-> DB2
+        Bastion -.-> KVM
+        Bastion -.-> Docker
+
+        %% Conexiones de Aplicación
+        Web --> App
+        App --> DB1
+        DB1 -.-> DB2
+    </pre>
+  </div>
+
+  <div class="info-footer">
+    <p>
+      <strong>Topology Context:</strong> The diagram above represents the logical
+      connectivity and role distribution of the reference cluster. All operations
+      are initiated from the <code>terminal</code> node (Bastion Host) via SSH.
+    </p>
+  </div>
+</div>
+
+<style>
+  .arch-card {
+    border: 1px solid var(--sl-color-gray-5);
+    background-color: var(--sl-color-gray-6);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: var(--sl-shadow-sm);
+  }
+
+  .card-header {
+    background-color: var(--sl-color-gray-5);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--sl-color-gray-4);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+
+  .diagram-wrapper {
+    background-color: #1e1e1e; /* Fondo oscuro para el diagrama */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .info-footer {
+    padding: 1rem;
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-2);
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+</style>

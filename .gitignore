@@ -2,8 +2,9 @@
 *.v*
 aa-*
 .*.bkp
-/content-site.sh
+/my-scripts
 /*site-spec.md
+*.sh
 
 # build output
 dist/
