@@ -1,35 +1,58 @@
 ---
 /* src/components/LabEnvironment.astro */
-import { Image } from "astro:assets";
-// Asegúrate de que tu imagen esté en src/assets/images/
-import topologyImg from "../assets/images/lab-01-topology.png"; 
+
+const mermaidTopology = `
+flowchart TD
+    Cloud((Internet))
+    
+    subgraph Backbone [L2 Management Bus]
+        direction LR
+        Switch([ ]) 
+    end
+
+    Terminal[terminal]
+    Web[web-srv1]
+    App[app-srv1]
+    DB1[(data-001)]
+    DB2[(data-002)]
+    Docker[[docker-001]]
+    KVM[[kvm-001]]
+
+    Cloud --- Switch
+    Switch --- Terminal
+    Switch --- Web
+    Switch --- App
+    Switch --- DB1
+    Switch --- DB2
+    Switch --- Docker
+    Switch --- KVM
+
+    classDef default fill:#1e1e1e,stroke:#333,color:#e0e0e0,stroke-width:1px
+    classDef highlight fill:#234,stroke:#38bdf8,color:#fff,stroke-width:2px
+    classDef netBus fill:none,stroke:#444,stroke-dasharray:5
+    
+    class Terminal highlight
+    class Backbone netBus
+`;
 ---
 
 <div class="lab-card">
-  <!-- Cabecera -->
   <div class="card-header">
     <span class="icon">🖧</span>
     <strong>Infrastructure Context</strong>
   </div>
 
-  <!-- Imagen del Diagrama -->
-  <div class="img-wrapper">
-    <Image
-      src={topologyImg}
-      alt="Network Topology Diagram"
-      width={800}
-      class="topology-img"
-    />
+  <div class="diagram-wrapper">
+    <!-- Usamos set:html para asegurar que Astro no escape caracteres -->
+    <pre class="mermaid" set:html={mermaidTopology} />
   </div>
 
-  <!-- Contenido -->
   <div class="info-content">
     <p class="intro-text">
-      Access via SSH from the <strong>default terminal</strong>. The cluster
+      Access via SSH from the <strong>Bastion Host (terminal)</strong>. The cluster
       topology is defined below:
     </p>
     
-    <!-- Simulación de archivo /etc/hosts -->
     <div class="terminal-window">
       <div class="terminal-bar">
         <span class="dot red"></span>
@@ -57,7 +80,6 @@ import topologyImg from "../assets/images/lab-01-topology.png";
       </div>
     </div>
 
-    <!-- Alerta de Seguridad -->
     <div class="security-alert">
       <div class="alert-icon">⚠️</div>
       <div class="alert-text">
@@ -68,18 +90,30 @@ import topologyImg from "../assets/images/lab-01-topology.png";
   </div>
 </div>
 
+<script>
+  import mermaid from 'mermaid';
+  mermaid.initialize({ 
+    startOnLoad: true, 
+    theme: 'dark',
+    // Esta opción es crítica para que acepte estilos CSS personalizados
+    securityLevel: 'loose', 
+    flowchart: { 
+      useMaxWidth: true, 
+      htmlLabels: true,
+      curve: 'basis' 
+    }
+  });
+</script>
+
 <style>
-  /* 1. Contenedor Principal */
   .lab-card {
     border: 1px solid var(--sl-color-gray-5);
     background-color: var(--sl-color-gray-6);
     border-radius: 0.5rem;
     overflow: hidden;
     margin-bottom: 2rem;
-    box-shadow: var(--sl-shadow-sm);
   }
 
-  /* 2. Cabecera */
   .card-header {
     background-color: var(--sl-color-gray-5);
     padding: 0.5rem 1rem;
@@ -92,40 +126,28 @@ import topologyImg from "../assets/images/lab-01-topology.png";
     color: var(--sl-color-white);
   }
 
-  /* 3. Imagen */
-  .img-wrapper {
-    /* Usamos variable de fondo para adaptarse si algún día pones modo claro */
-    background-color: var(--sl-color-black); 
-    padding: 1rem;
+  .diagram-wrapper {
+    background-color: #0b0e14;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid var(--sl-color-gray-5);
+    min-height: 350px;
   }
 
-  .topology-img {
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
-    border-radius: 4px;
+  /* Forzamos que el contenedor no rompa el estilo de Mermaid */
+  .mermaid {
+    background: transparent !important;
+    border: none !important;
+    color: inherit;
   }
 
-  /* 4. Contenido */
-  .info-content {
-    padding: 1.2rem;
-  }
+  .info-content { padding: 1.2rem; }
+  .intro-text { font-size: 0.9rem; color: var(--sl-color-gray-2); margin-bottom: 1rem; }
 
-  .intro-text {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-    color: var(--sl-color-gray-2);
-  }
-
-  /* 5. Terminal Window */
   .terminal-window {
-    background-color: #1e1e1e; /* Mantenemos oscuro duro para look terminal */
+    background-color: #1e1e1e;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 1.5rem;
     border: 1px solid #333;
     overflow: hidden;
@@ -136,53 +158,27 @@ import topologyImg from "../assets/images/lab-01-topology.png";
     padding: 6px 10px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #333;
   }
 
-  .dot {
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 6px;
-  }
+  .dot { height: 10px; width: 10px; border-radius: 50%; margin-right: 6px; }
   .dot.red { background-color: #ff5f56; }
   .dot.yellow { background-color: #ffbd2e; }
   .dot.green { background-color: #27c93f; }
 
-  .terminal-title {
-    margin-left: 10px;
-    color: #999;
-    font-family: monospace;
-    font-size: 0.8rem;
-  }
-
-  .terminal-body {
-    padding: 1rem;
-    overflow-x: auto;
-  }
+  .terminal-body { padding: 1rem; overflow-x: auto; }
 
   pre {
-    margin: 0;
-    font-family: var(--sl-font-mono); /* Usar fuente mono del tema */
-    font-size: 0.85rem;
-    line-height: 1.5;
-    color: #e0e0e0;
     background: transparent !important;
     border: none !important;
+    font-size: 0.85rem;
   }
 
-  .comment {
-    color: #6a9955;
-    font-style: italic;
-  }
+  .comment { color: #6a9955; font-style: italic; }
 
-  /* 6. Alerta - Usando colores semánticos de Starlight */
   .security-alert {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    /* Usamos variables de advertencia de Starlight */
     background-color: var(--sl-color-orange-low); 
     border: 1px solid var(--sl-color-orange-high);
     padding: 0.75rem;
@@ -190,9 +186,4 @@ import topologyImg from "../assets/images/lab-01-topology.png";
     color: var(--sl-color-orange-high);
     font-size: 0.85rem;
   }
-
-  .alert-icon {
-    font-size: 1.2rem;
-  }
 </style>
-
