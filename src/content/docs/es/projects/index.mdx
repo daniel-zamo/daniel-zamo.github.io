@@ -9,39 +9,37 @@ type: project
 
 import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
 
-Esta sección consolida **proyectos de grado de producción** que demuestran experiencia práctica en la resolución de problemas complejos de infraestructura.
+Esta sección consolida **proyectos de ingeniería de nivel producción** que demuestran capacidad técnica en la resolución de problemas complejos de infraestructura y optimización operativa.
 
-Cada entrada está documentada no solo a nivel de código, sino también justificando las **decisiones de arquitectura** y el **impacto en el negocio**.
+Cada entrada documenta no solo la implementación, sino la justificación de las **decisiones de arquitectura** y la reducción de **Toil** (carga operativa manual).
 
 ---
 
 ## 🎯 Dominios de Especialización
 
 <CardGrid>
-  <Card title="Automatización Middleware" icon="puzzle">
-    Orquestación de servidores de aplicaciones empresariales y reducción de deuda técnica mediante Infraestructura como Código (IaC).
+  <Card title="Automatización & AI-Ops" icon="rocket">
+    Orquestación de flujos inteligentes e integración de Modelos de Lenguaje (LLMs). Proyecto destacado: **Procesador experto AZ-104** con n8n y Gemini.
     
-    **Stack:** Ansible, Docker, JBoss/WildFly.
+    **[Ver Soluciones de Automatización →](/es/projects/automation/)**
+  </Card>
+
+  <Card title="Ingeniería Middleware" icon="puzzle">
+    Modernización de plataformas legacy mediante IaC. Despliegue inmutable de stacks LAMP y WildFly con Ansible y Docker.
     
-    [Ver Proyectos Middleware →](/es/projects/middleware/)
+    **[Ver Proyectos Middleware →](/es/projects/middleware/)**
   </Card>
   
-  <Card title="Arquitectura Cloud & Gobierno" icon="rocket">
-    **Roadmap Activo:** Diseño de Azure Landing Zones, gestión de identidad (IAM) y redes híbridas. Implementación de referencia alineada con la certificación **AZ-104**.
+  <Card title="Arquitectura Cloud Azure" icon="microsoft">
+    **Roadmap Activo:** Diseño de Landing Zones y redes híbridas. Implementaciones de referencia alineadas con el estándar **AZ-104**.
     
-    **Stack:** Azure Resource Manager, VNet, Entra ID.
+    **[Explorar Operaciones Cloud →](/es/cloud-ops/)**
   </Card>
   
   <Card title="Cómputo & Virtualización" icon="laptop">
-    **Roadmap Activo:** Automatización de hipervisores KVM/Libvirt y estrategias de aprovisionamiento de máquinas virtuales (VMs).
+    **Roadmap Activo:** Gestión de bajo nivel de recursos mediante KVM/Libvirt y aprovisionamiento desatendido con Cloud-Init.
     
-    **Stack:** QEMU/KVM, Virsh, Cloud-Init.
-  </Card>
-  
-  <Card title="Ingeniería de Release (CI/CD)" icon="setting">
-    **Roadmap Activo:** Pipelines de integración continua, gestión de artefactos y estrategias de despliegue automatizado.
-    
-    **Stack:** GitLab CI, Registros de Contenedores.
+    **[Ver Escenarios de Virtualización →](/es/linux-ops/scenarios/04-kvm-management/)**
   </Card>
 </CardGrid>
 
@@ -49,26 +47,24 @@ Cada entrada está documentada no solo a nivel de código, sino también justifi
 
 ## 📊 Habilidades Transversales
 
-Estos proyectos validan competencias más allá de la ejecución de comandos:
-
-- **Infrastructure as Code (IaC):** Gestión declarativa de recursos para asegurar la consistencia.
-- **Inmutabilidad:** Adopción de patrones de contenedores para eliminar la deriva de configuración.
-- **Modernización:** Capacidad para transformar sistemas legacy en arquitecturas gestionables.
-- **Documentación Técnica:** Comunicación efectiva de diseños complejos para equipos de operaciones.
+- **Infrastructure as Code (IaC):** Gestión declarativa para asegurar la consistencia del entorno.
+- **AI-Ops:** Integración de IA Generativa para auditoría técnica y gestión del conocimiento.
+- **Inmutabilidad:** Uso de contenedores para eliminar la deriva de configuración.
+- **Excelencia Operacional:** Documentación estandarizada bajo marcos SOP.
 
 ---
 
 ## 🚀 Navegación Rápida
 
 <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-  <LinkButton href="/es/projects/middleware/" variant="primary" icon="right-arrow">
-    Soluciones Middleware
+  <LinkButton href="/es/projects/automation/" variant="primary" icon="rocket">
+    Automatización e IA
   </LinkButton>
-  <LinkButton href="/es/lfcs/" variant="secondary" icon="document">
-    Explorar Operaciones Linux
+  <LinkButton href="/es/projects/middleware/" variant="secondary" icon="right-arrow">
+    Soluciones Middleware
   </LinkButton>
 </div>
 
-:::tip[Contexto Profesional]
-Los escenarios presentados reflejan desafíos reales encontrados en entornos corporativos (Banca, Telco), priorizando la **seguridad**, la **mantenibilidad** y la **excelencia operacional**.
+:::tip[Enfoque Profesional]
+Los proyectos aquí presentados priorizan la **seguridad**, la **mantenibilidad** y el **desacoplamiento**, siguiendo estándares de arquitecturas distribuidas modernas.
 :::

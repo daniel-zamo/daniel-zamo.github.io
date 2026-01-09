@@ -41,7 +41,7 @@ export default defineConfig({
                 // ... (resto de metas) ...
             ],
 
-            // --- ACTUALIZACIÓN DEL SIDEBAR ---
+            // --- SIDEBAR ---
             sidebar: [
                 {
                     label: 'Home',
@@ -52,10 +52,21 @@ export default defineConfig({
                     label: 'Engineering Projects',
                     translations: { es: 'Proyectos de Ingeniería' },
                     collapsed: false,
-                    autogenerate: { directory: 'projects' }
+                    items: [
+                        {
+                            label: 'Automation & AI-Ops', // <-- Nueva subcategoría destacada
+                            translations: { es: 'Automatización y AI-Ops' },
+                            autogenerate: { directory: 'projects/automation' }
+                        },
+                        {
+                            label: 'Middleware Solutions',
+                            translations: { es: 'Soluciones Middleware' },
+                            autogenerate: { directory: 'projects/middleware' }
+                        }
+                    ]
                 },
                 {
-                    label: 'Azure Cloud Operations', // <--- NUEVA SECCIÓN
+                    label: 'Azure Cloud Operations', // 
                     translations: { es: 'Operaciones Cloud Azure' },
                     collapsed: true, // Colapsado para no saturar
                     autogenerate: { directory: 'cloud-ops' }
