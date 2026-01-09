@@ -11,14 +11,14 @@ hero:
       link: /en/projects/middleware/lamp-ansible-docker/
       icon: rocket
       variant: primary
-    - text: Browse Standard Procedures
+    - text: Operational Procedures
       link: /en/linux-ops/
       icon: right-arrow
       variant: minimal
 prev: false
 next: false
 editUrl: false
-lastUpdated: 2025-12-06
+lastUpdated: 2026-01-09
 head:
   - tag: meta
     attrs:
@@ -27,19 +27,7 @@ head:
   - tag: meta
     attrs:
       property: og:description
-      content: "Infrastructure as Code (Ansible), Docker solutions, and Enterprise Linux Administration."
-  - tag: meta
-    attrs:
-      property: og:image
-      content: https://daniel-zamo.github.io/images/og-homepage-en-us.png
-  - tag: meta
-    attrs:
-      property: og:image:width
-      content: "1200"
-  - tag: meta
-    attrs:
-      property: og:image:height
-      content: "630"
+      content: "Infrastructure as Code (Ansible), Docker solutions, and AI-Ops Automation."
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
@@ -47,33 +35,35 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ## Implementations & Core Competencies
 
 <CardGrid stagger>
+
+  <Card title="Automation & AI-Ops" icon="rocket">
+    Infrastructure orchestration and AI integration. Featured project: **AZ-104 Expert Processor** using n8n and Gemini for technical auditing.
+    
+    **[View AI Pipeline →](/en/projects/automation/az104-ai-processor/)**
+  </Card>
+
   <Card title="Automation & IaC" icon="rocket">
     Immutable infrastructure deployment. Featured case: **LAMP Stack** orchestration with secret management, custom Docker builds, and Makefiles.
     
     **[View Case Study: LAMP + Ansible →](/en/projects/middleware/lamp-ansible-docker/)**
   </Card>
 
-  <Card title="Azure Cloud Architecture" icon="microsoft">
-    Hybrid solution design and identity governance. Aligned with **AZ-104** (Azure Administrator) standards.
+  <Card title="Azure Cloud Operations" icon="microsoft">
+    IaaS/PaaS solution design and identity governance. Aligned with **AZ-104** (Azure Administrator) standards.
     
-    **[Explore Cloud Operations →](/en/cloud-ops/)**
+    **[Explore Cloud Architectures →](/en/cloud-ops/)**
   </Card>
   
   <Card title="Enterprise Linux Operations" icon="linux">
-    Technical knowledge base for mission-critical environments: LVM Storage Management, Security Hardening, and Troubleshooting.
+    Operational standards (SOP) for mission-critical environments: LVM, Hardening, and Troubleshooting.
     
-    **[View Standard Procedures (SOP) →](/en/linux-ops/)**
+    **[Browse SOP Library →](/en/linux-ops/)**
   </Card>
   
   <Card title="KVM/Libvirt Orchestration" icon="laptop">
     Low-level compute resource management. CLI-based Virtual Machine (VM) provisioning and performance optimization.
     
-    **[View Virtualization Scenario →](/en/linux-ops/scenarios/04-kvm-management/)**
+    **[View Virtualization Scenario →](/en/en/linux-ops/scenarios/04-kvm-management/)**
   </Card>
 
-  <Card title="Azure Cloud Architecture" icon="microsoft">
-    Hybrid solution design and identity governance. Aligned with **AZ-104** (Azure Administrator) standards.
-    
-    *(Status: Active Certification Roadmap)*
-  </Card>
 </CardGrid>
