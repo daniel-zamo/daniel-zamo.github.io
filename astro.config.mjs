@@ -1,4 +1,4 @@
-// astro.config.mjs - Configuración con soporte inglés/español
+// astro.config.mjs - Configuración corregida con sidebar colapsado
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
@@ -26,7 +26,6 @@ export default defineConfig({
                 es: { label: 'Español', lang: 'es' }
             },
 
-            // ... (Sección head se mantiene igual) ...
             head: [
                 {
                     tag: 'script',
@@ -38,10 +37,9 @@ export default defineConfig({
                         }
                     `,
                 },
-                // ... (resto de metas) ...
             ],
 
-            // --- SIDEBAR ---
+            // --- SIDEBAR CORREGIDO ---
             sidebar: [
                 {
                     label: 'Home',
@@ -51,24 +49,13 @@ export default defineConfig({
                 {
                     label: 'Engineering Projects',
                     translations: { es: 'Proyectos de Ingeniería' },
-                    collapsed: false,
-                    items: [
-                        {
-                            label: 'Automation & AI-Ops', // <-- Nueva subcategoría destacada
-                            translations: { es: 'Automatización y AI-Ops' },
-                            autogenerate: { directory: 'projects/automation' }
-                        },
-                        {
-                            label: 'Middleware Solutions',
-                            translations: { es: 'Soluciones Middleware' },
-                            autogenerate: { directory: 'projects/middleware' }
-                        }
-                    ]
+                    collapsed: true,
+                    autogenerate: { directory: 'projects' }
                 },
                 {
-                    label: 'Azure Cloud Operations', // 
+                    label: 'Azure Cloud Operations',
                     translations: { es: 'Operaciones Cloud Azure' },
-                    collapsed: true, // Colapsado para no saturar
+                    collapsed: true,
                     autogenerate: { directory: 'cloud-ops' }
                 },
                 {
