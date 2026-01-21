@@ -1,4 +1,4 @@
-// astro.config.mjs - Configuración corregida con sidebar colapsado
+// astro.config.mjs - Configuración con sidebar totalmente manual
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
@@ -39,7 +39,8 @@ export default defineConfig({
                 },
             ],
 
-            // --- SIDEBAR CORREGIDO ---
+            // --- SIDEBAR CON ESTRUCTURA SIMPLE ---
+            // Opción 1: Solo autogenerate (sin control de click al index)
             sidebar: [
                 {
                     label: 'Home',
@@ -65,6 +66,78 @@ export default defineConfig({
                     autogenerate: { directory: 'linux-ops' }
                 },
             ],
+
+            // --- ALTERNATIVA: SIDEBAR COMPLETAMENTE MANUAL ---
+            // Descomenta esto y comenta el sidebar de arriba si quieres control total
+            /*
+            sidebar: [
+                {
+                    label: 'Home',
+                    translations: { es: 'Inicio' },
+                    link: '/'
+                },
+                {
+                    label: 'Engineering Projects',
+                    translations: { es: 'Proyectos de Ingeniería' },
+                    collapsed: true,
+                    items: [
+                        { 
+                            label: 'Overview', 
+                            translations: { es: 'Visión General' },
+                            link: '/es/projects/' 
+                        },
+                        {
+                            label: 'Automation & AI-Ops',
+                            translations: { es: 'Automatización y AI-Ops' },
+                            collapsed: true,
+                            items: [
+                                { slug: 'projects/automation/index' },
+                                { slug: 'projects/automation/ia-processor-az104' },
+                                // Agrega aquí manualmente cada archivo
+                            ]
+                        },
+                        {
+                            label: 'Middleware Solutions',
+                            translations: { es: 'Soluciones Middleware' },
+                            collapsed: true,
+                            items: [
+                                { slug: 'projects/middleware/index' },
+                                // Agrega aquí manualmente cada archivo
+                            ]
+                        }
+                    ]
+                },
+                {
+                    label: 'Azure Cloud Operations',
+                    translations: { es: 'Operaciones Cloud Azure' },
+                    collapsed: true,
+                    items: [
+                        { 
+                            label: 'Overview', 
+                            translations: { es: 'Visión General' },
+                            slug: 'cloud-ops/index' 
+                        },
+                        { slug: 'cloud-ops/compute/vision-general' },
+                        // Agrega aquí manualmente cada archivo
+                    ]
+                },
+                {
+                    label: 'Linux Systems Engineering',
+                    translations: { es: 'Ingeniería de Sistemas Linux' },
+                    collapsed: true,
+                    items: [
+                        { 
+                            label: 'Overview', 
+                            translations: { es: 'Visión General' },
+                            slug: 'linux-ops/index' 
+                        },
+                        { slug: 'linux-ops/vision-general' },
+                        { slug: 'linux-ops/scenarios/escenarios-practicos' },
+                        // Agrega aquí manualmente cada archivo
+                    ]
+                },
+            ],
+            */
         }),
         mermaid(),
     ],
