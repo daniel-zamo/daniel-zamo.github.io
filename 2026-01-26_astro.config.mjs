@@ -12,6 +12,11 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Daniel Zamo | SysAdmin & DevOps',
+            // --- AQUÍ ESTÁ EL CAMBIO CLAVE ---
+            components: {
+                Sidebar: './src/components/Sidebar.astro',
+            },
+            // ---------------------------------
             favicon: '/favicon.png',
             social: [
                 { icon: 'github', label: 'GitHub', href: 'https://github.com/daniel-zamo/daniel-zamo.github.io' },
@@ -37,6 +42,7 @@ export default defineConfig({
                         }
                     `,
                 },
+                // Hemos quitado el script anterior de aquí porque ahora está en el Override
             ],
 
             sidebar: [
@@ -44,36 +50,11 @@ export default defineConfig({
                     label: 'Azure Cloud Ops.', 
                     translations: { es: 'Operaciones Cloud Azure' },
                     items: [
-                        { 
-                            label: 'Introduction', 
-                            link: 'az-cloud-ops/', 
-                            translations: { es: 'Introducción' } 
-                        },
-                        { 
-                            label: 'Compute', 
-                            translations: { es: 'Cómputo' }, 
-                            autogenerate: { directory: 'az-cloud-ops/compute' }, 
-                            collapsed: true 
-                        },
-                        // NUEVA SECCIÓN: Redes / Networking
-                        { 
-                            label: 'Networking', 
-                            translations: { es: 'Redes' }, 
-                            autogenerate: { directory: 'az-cloud-ops/networking' }, 
-                            collapsed: true 
-                        },
+                        // Este es el link al que el script nos llevará al hacer clic en el padre
+                        { label: 'Introduction', link: 'az-cloud-ops/', translations: { es: 'Introducción' } },
+                        { label: 'Compute', translations: { es: 'Cómputo' }, autogenerate: { directory: 'az-cloud-ops/compute' }, collapsed: true },
                     ],
                 },
-                // Sección de Proyectos (Portfolio)
-                {
-                    label: 'Projects',
-                    translations: { es: 'Proyectos' },
-                    items: [
-                         { label: 'Introduction', link: 'projects/', translations: { es: 'Introducción' } },
-                         { label: 'Automation', translations: { es: 'Automatización' }, autogenerate: { directory: 'projects/automation' }, collapsed: true },
-                         { label: 'Middleware', translations: { es: 'Middleware' }, autogenerate: { directory: 'projects/middleware' }, collapsed: true },
-                    ]
-                }
             ],
         }),
         mermaid(),

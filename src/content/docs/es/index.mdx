@@ -7,8 +7,8 @@ hero:
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: Ver Proyecto Destacado (LAMP)
-      link: /es/projects/middleware/lamp-ansible-docker/
+    - text: Arquitecturas & Operaciones Cloud Azure
+      link: /es/az-cloud-ops/
       icon: rocket
       variant: primary
     - text: Procedimientos Operativos
@@ -42,42 +42,41 @@ head:
       content: "630"
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ## Implementaciones y Competencias
 
 <CardGrid stagger>
 
-  <Card title="Automatización & AI-Ops" icon="rocket">
-    Orquestación de infraestructura e integración de IA. Proyecto destacado: **Procesador Experto AZ-104** con n8n y Gemini para auditoría técnica.
-    
-    **[Ver Pipeline de IA →](/es/projects/automation/az104-ai-processor/)**
-  </Card>
+<Card title="Operaciones Cloud Azure" icon="microsoft">
+  Diseño de soluciones IaaS/PaaS y gobierno de identidad. Alineado con el
+  estándar **AZ-104**. **[Explorar Arquitecturas Cloud →](/es/az-cloud-ops/)**
+</Card>
 
+{/*
+<Card title="Automatización & AI-Ops" icon="rocket">
+  Orquestación de infraestructura e integración de IA. Proyecto destacado:
+  **Procesador Experto AZ-104** con n8n y Gemini para auditoría técnica. **[Ver
+  Pipeline de IA →](/es/projects/automation/az104-ai-processor/)**
+</Card>
 
-  <Card title="Automatización & IaC" icon="rocket">
-    Despliegue de infraestructura inmutable. Ejemplo destacado: **Stack LAMP** con gestión de secretos, construcción de imágenes Docker custom y Makefiles.
-    
-    **[Ver Caso de Estudio: LAMP + Ansible →](/es/projects/middleware/lamp-ansible-docker/)**
-  </Card>
+<Card title="Automatización & IaC" icon="rocket">
+  Despliegue de infraestructura inmutable. Ejemplo destacado: **Stack LAMP** con
+  gestión de secretos, construcción de imágenes Docker custom y Makefiles.
+  **[Ver Caso de Estudio: LAMP + Ansible
+  →](/es/projects/middleware/lamp-ansible-docker/)**
+</Card>
 
-  <Card title="Operaciones Cloud Azure" icon="microsoft">
-    Diseño de soluciones IaaS/PaaS y gobierno de identidad. Alineado con el estándar **AZ-104**.
-    
-    **[Explorar Arquitecturas Cloud →](/es/cloud-ops/)**
-  </Card>
-  
-  <Card title="Operaciones Linux Enterprise" icon="linux">
-    Estándares operativos (SOP) para entornos de misión crítica: LVM, Hardening y Troubleshooting.
-    
-    **[Consultar Librería SOP →](/es/linux-ops/)**
-  </Card>
-  
-  <Card title="Orquestación KVM/Libvirt" icon="laptop">
-    Gestión de bajo nivel de recursos de cómputo. Aprovisionamiento de máquinas virtuales (VMs) mediante CLI y optimización de rendimiento.
-    
-    **[Ver Escenario de Virtualización →](/es/linux-ops/scenarios/04-kvm-management/)**
-  </Card>
+<Card title="Operaciones Linux Enterprise" icon="linux">
+  Estándares operativos (SOP) para entornos de misión crítica: LVM, Hardening y
+  Troubleshooting. **[Consultar Librería SOP →](/es/linux-ops/)**
+</Card>
 
+<Card title="Orquestación KVM/Libvirt" icon="laptop">
+  Gestión de bajo nivel de recursos de cómputo. Aprovisionamiento de máquinas
+  virtuales (VMs) mediante CLI y optimización de rendimiento. **[Ver Escenario
+  de Virtualización →](/es/linux-ops/scenarios/04-kvm-management/)**
+</Card>
+*/}
 
 </CardGrid>

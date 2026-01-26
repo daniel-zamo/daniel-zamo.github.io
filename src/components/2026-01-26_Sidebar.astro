@@ -1,0 +1,56 @@
+---
+// src/components/Sidebar.astro
+import type { Props } from '@astrojs/starlight/props';
+import DefaultSidebar from '@astrojs/starlight/components/Sidebar.astro';
+---
+
+<div id="custom-sidebar-wrapper">
+    <DefaultSidebar {...Astro.props} />
+</div>
+
+<script>
+    // Esta función maneja la lógica de clic estilo Docusaurus
+    function patchSidebar() {
+        const summaries = document.querySelectorAll('#custom-sidebar-wrapper details summary');
+        
+        summaries.forEach(summary => {
+            // Evitamos duplicar eventos si Astro re-renderiza
+            if (summary.getAttribute('data-patched')) return;
+
+            summary.addEventListener('click', (e) => {
+                // Buscamos el primer link dentro del grupo (ej: "Introducción")
+                const parentDetails = summary.closest('details');
+                const firstLink = parentDetails?.querySelector('a');
+
+                if (firstLink) {
+                    const targetHref = firstLink.getAttribute('href');
+                    const currentHref = window.location.pathname;
+
+                    // Si no estamos ya en esa página, navegamos
+                    // El timeout es para permitir que el acordeón se abra visualmente antes de cambiar de página
+                    if (targetHref && targetHref !== currentHref) {
+                        window.location.href = targetHref;
+                    }
+                }
+            });
+            
+            summary.setAttribute('data-patched', 'true');
+        });
+    }
+
+    // Ejecutar al cargar y después de cada navegación de Astro (SPA)
+    patchSidebar();
+    document.addEventListener('astro:after-swap', patchSidebar);
+</script>
+
+<style is:global>
+    /* Forzamos que el cursor sea pointer en todo el label */
+    #custom-sidebar-wrapper summary {
+        cursor: pointer !important;
+    }
+    /* Efecto de subrayado en el texto para que parezca un link */
+    #custom-sidebar-wrapper summary:hover .large {
+        color: var(--sl-color-accent-high) !important;
+        text-decoration: underline !important;
+    }
+</style>

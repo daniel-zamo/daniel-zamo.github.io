@@ -1,0 +1,114 @@
+---
+title: "Scenario 02: Multi-Tier Network Segmentation (VNET)"
+description: Design and implementation of a secure network topology with isolated subnets for FrontEnd and BackEnd using Azure CLI.
+sidebar:
+  label: 02 - Isolated VNET Tiers
+  order: 2
+type: scenario
+domain: networking
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## 📋 Project Definition
+
+**Business Context:**
+Following the successful LAMP stack migration, the organization requires a more robust network architecture that adheres to the **Principle of Least Privilege**. The goal is to deploy a segmented Virtual Network (VNET) that prevents databases from being directly accessible from the Internet.
+
+**Technical Requirements:**
+1.  **Address Space:** VNET with prefix `10.0.0.0/16`.
+2.  **Tiered Segmentation:** 
+    *   **FrontEnd Subnet:** `10.0.1.0/24` for web servers.
+    *   **BackEnd Subnet:** `10.0.2.0/24` for databases (isolated).
+3.  **Granular Security:** Use of **Network Security Groups (NSG)** to filter traffic between layers.
+4.  **BackEnd Isolation:** The database layer must only accept inbound traffic originating from the FrontEnd layer on port 3306 (MySQL).
+
+<Aside type="caution" title="Network Security">
+In Azure, by default, all subnets within the same VNET can communicate. It is imperative to apply specific NSGs to break this visibility and secure sensitive data.
+</Aside>
+
+---
+
+## 🔧 Implementation Procedure (Azure CLI)
+
+Setting up the network foundation for multi-tier architectures.
+
+<Steps>
+
+1.  **Network Variable Initialization**
+
+    ```bash
+    RG_NAME="rg-networking-core"
+    LOCATION="northeurope"
+    VNET_NAME="vnet-prod-segmentation"
+    NSG_FRONT_NAME="nsg-frontend-tier"
+    NSG_BACK_NAME="nsg-backend-tier"
+    ```
+
+2.  **Virtual Network and FrontEnd Subnet Deployment**
+
+    ```bash
+    az network vnet create \
+      --resource-group $RG_NAME \
+      --name $VNET_NAME \
+      --address-prefix 10.0.0.0/16 \
+      --subnet-name snet-frontend \
+      --subnet-prefix 10.0.1.0/24
+    ```
+
+3.  **BackEnd Subnet Creation (Data Tier)**
+
+    ```bash
+    az network vnet subnet create \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-backend \
+      --address-prefix 10.0.2.0/24
+    ```
+
+4.  **NSG Creation and Association**
+
+    Separating access control for each layer of the architecture is essential.
+
+    ```bash
+    # Create NSGs
+    az network nsg create --resource-group $RG_NAME --name $NSG_FRONT_NAME
+    az network nsg create --resource-group $RG_NAME --name $NSG_BACK_NAME
+
+    # Associate with subnets
+    az network vnet subnet update \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-frontend \
+      --network-security-group $NSG_FRONT_NAME
+
+    az network vnet subnet update \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-backend \
+      --network-security-group $NSG_BACK_NAME
+    ```
+
+5.  **Security Rule: Data Tier Isolation**
+
+    Configuring the "Inter-Tier traffic" rule.
+
+    ```bash
+    az network nsg rule create \
+      --resource-group $RG_NAME \
+      --nsg-name $NSG_BACK_NAME \
+      --name Allow-FrontEnd-To-SQL \
+      --priority 100 \
+      --source-address-prefixes 10.0.1.0/24 \
+      --destination-port-ranges 3306 \
+      --access Allow \
+      --protocol Tcp \
+      --description "Allows SQL traffic only from the FrontEnd subnet."
+    ```
+
+</Steps>
+
+## 🔍 Design Decision
+
+### Why segmenting via Subnets and NSGs?
+This approach implements **Defense in Depth**. By separating application tiers into different subnets, we reduce the blast radius in the event of a web server intrusion. Even if the FrontEnd tier is compromised, the attacker does not have free access to the data layer thanks to the restrictive rules of the BackEnd NSG.

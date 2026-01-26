@@ -7,8 +7,8 @@ hero:
   image:
     file: ../../../assets/images/hero-image.png
   actions:
-    - text: View Featured Project (LAMP)
-      link: /en/projects/middleware/lamp-ansible-docker/
+    - text: Azure Architecture & Ops.
+      link: /en/az-cloud-ops/
       icon: rocket
       variant: primary
     - text: Operational Procedures
@@ -36,6 +36,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 <CardGrid stagger>
 
+  <Card title="Azure Cloud Operations" icon="microsoft">
+    IaaS/PaaS solution design and identity governance. Aligned with **AZ-104** (Azure Administrator) standards.
+    
+    **[Explore Cloud Architectures →](/en/az-cloud-ops/)**
+  </Card>
+
+{/*
   <Card title="Automation & AI-Ops" icon="rocket">
     Infrastructure orchestration and AI integration. Featured project: **AZ-104 Expert Processor** using n8n and Gemini for technical auditing.
     
@@ -46,12 +53,6 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     Immutable infrastructure deployment. Featured case: **LAMP Stack** orchestration with secret management, custom Docker builds, and Makefiles.
     
     **[View Case Study: LAMP + Ansible →](/en/projects/middleware/lamp-ansible-docker/)**
-  </Card>
-
-  <Card title="Azure Cloud Operations" icon="microsoft">
-    IaaS/PaaS solution design and identity governance. Aligned with **AZ-104** (Azure Administrator) standards.
-    
-    **[Explore Cloud Architectures →](/en/cloud-ops/)**
   </Card>
   
   <Card title="Enterprise Linux Operations" icon="linux">
@@ -65,5 +66,5 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
     
     **[View Virtualization Scenario →](/en/en/linux-ops/scenarios/04-kvm-management/)**
   </Card>
-
+*/}
 </CardGrid>

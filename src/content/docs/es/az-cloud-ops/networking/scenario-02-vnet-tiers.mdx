@@ -1,0 +1,114 @@
+---
+title: "Escenario 02: Segmentación de Red Multinivel (VNET)"
+description: Diseño e implementación de una topología de red segura con subredes aisladas para FrontEnd y BackEnd utilizando Azure CLI.
+sidebar:
+  label: 02 - VNET Tiers Aislada
+  order: 2
+type: scenario
+domain: networking
+---
+
+import { Steps, Aside } from '@astrojs/starlight/components';
+
+## 📋 Definición del Proyecto
+
+**Contexto de Negocio:**
+Tras el éxito de la migración del stack LAMP, la organización requiere una arquitectura de red más robusta que cumpla con el principio de **Privilegio Mínimo**. El objetivo es desplegar una red virtual (VNET) segmentada que impida que las bases de datos sean accesibles directamente desde Internet.
+
+**Requisitos Técnicos:**
+1.  **Espacio de Direccionamiento:** VNET con prefijo `10.0.0.0/16`.
+2.  **Segmentación por Niveles:** 
+    *   **Subred FrontEnd:** `10.0.1.0/24` para servidores web.
+    *   **Subred BackEnd:** `10.0.2.0/24` para bases de datos (aislada).
+3.  **Seguridad Granular:** Uso de **Network Security Groups (NSG)** para filtrar el tráfico entre capas.
+4.  **Aislamiento de BackEnd:** La capa de base de datos solo debe aceptar tráfico entrante originado desde la capa de FrontEnd en el puerto 3306 (MySQL).
+
+<Aside type="caution" title="Seguridad de Red">
+En Azure, por defecto, todas las subredes dentro de una misma VNET pueden comunicarse. Es imperativo aplicar NSGs específicos para romper esta visibilidad y securizar los datos sensibles.
+</Aside>
+
+---
+
+## 🔧 Procedimiento de Implementación (Azure CLI)
+
+Configuración de la base de red para arquitecturas multinivel.
+
+<Steps>
+
+1.  **Inicialización de Variables de Red**
+
+    ```bash
+    RG_NAME="rg-networking-core"
+    LOCATION="northeurope"
+    VNET_NAME="vnet-prod-segmentation"
+    NSG_FRONT_NAME="nsg-frontend-tier"
+    NSG_BACK_NAME="nsg-backend-tier"
+    ```
+
+2.  **Despliegue de la Red Virtual y Subred FrontEnd**
+
+    ```bash
+    az network vnet create \
+      --resource-group $RG_NAME \
+      --name $VNET_NAME \
+      --address-prefix 10.0.0.0/16 \
+      --subnet-name snet-frontend \
+      --subnet-prefix 10.0.1.0/24
+    ```
+
+3.  **Creación de la Subred BackEnd (Capa de Datos)**
+
+    ```bash
+    az network vnet subnet create \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-backend \
+      --address-prefix 10.0.2.0/24
+    ```
+
+4.  **Creación y Asociación de NSGs**
+
+    Es fundamental separar el control de acceso por cada capa de la arquitectura.
+
+    ```bash
+    # Crear NSGs
+    az network nsg create --resource-group $RG_NAME --name $NSG_FRONT_NAME
+    az network nsg create --resource-group $RG_NAME --name $NSG_BACK_NAME
+
+    # Asociar a las subredes
+    az network vnet subnet update \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-frontend \
+      --network-security-group $NSG_FRONT_NAME
+
+    az network vnet subnet update \
+      --resource-group $RG_NAME \
+      --vnet-name $VNET_NAME \
+      --name snet-backend \
+      --network-security-group $NSG_BACK_NAME
+    ```
+
+5.  **Regla de Seguridad: Aislamiento de Capa de Datos**
+
+    Configuración de la regla de "Permiso Cruzado" (Inter-Tier traffic).
+
+    ```bash
+    az network nsg rule create \
+      --resource-group $RG_NAME \
+      --nsg-name $NSG_BACK_NAME \
+      --name Allow-FrontEnd-To-SQL \
+      --priority 100 \
+      --source-address-prefixes 10.0.1.0/24 \
+      --destination-port-ranges 3306 \
+      --access Allow \
+      --protocol Tcp \
+      --description "Permite trafico SQL solo desde la subred FrontEnd."
+    ```
+
+</Steps>
+
+## 🔍 Decisión de Diseño
+
+### ¿Por qué segmentar mediante Subredes y NSGs?
+Esta aproximación implementa la **Defensa en Profundidad**. Al separar los niveles de aplicación en diferentes subredes, reducimos el radio de impacto (*blast radius*) en caso de una intrusión en el servidor web. Incluso si el nivel FrontEnd se ve comprometido, el atacante no tiene libre acceso a la capa de datos gracias a las reglas restrictivas del NSG del BackEnd.
