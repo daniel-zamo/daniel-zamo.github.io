@@ -5,6 +5,7 @@ aa-*
 /my-scripts
 /*site-spec.md
 *.sh
+2026*
 
 # build output
 dist/
