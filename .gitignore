@@ -1,6 +1,6 @@
 *.org
 *.v*
-aa-*
+archive-tier*
 .*.bkp
 /my-scripts
 /*site-spec.md
