@@ -1,0 +1,120 @@
+---
+title: "Deep Dive: Secuencia de Arranque en Linux (LFCS)"
+description: "Análisis detallado del flujo de arranque desde el encendido del hardware hasta el prompt de login, cubriendo arquitecturas BIOS/MBR y UEFI/GPT."
+date: 2026-01-31
+category: "lab"
+systems: ["linux"]
+difficulty: "intermediate"
+tags: ["boot-process", "kernel", "systemd", "lfcs", "cloudera"]
+author: "Daniel Zamo"
+lang: "es"
+sidebar:
+  label: "Linux Boot Sequence"
+  badge:
+    text: "LAB"
+    variant: note
+---
+
+import { Steps, Aside, Tabs, TabItem, Badge, Card } from '@astrojs/starlight/components';
+
+En el marco del curso de **Cloudera** y la preparación para la **LFCS**, entender qué sucede antes del `login` es vital para el troubleshooting de infraestructura. El arranque no es un proceso único, sino una transferencia de mando entre diferentes niveles de abstracción.
+
+<Badge text="Concepto Clave: Chainloading" variant="tip" />
+
+---
+
+## 🏗️ Comparativa de Arquitecturas de Arranque
+
+Dependiendo del firmware de la placa base, el camino hacia el Kernel varía significativamente.
+
+<Tabs>
+  <TabItem label="Legacy BIOS / MBR" icon="old-computer">
+    
+    El sistema **BIOS (Basic Input/Output System)** es el estándar heredado. Se basa en buscar código ejecutable en los primeros 512 bytes del disco (MBR).
+
+    ```mermaid
+    graph TD
+        A[Encendido] --> B[POST - Autodiagnóstico]
+        B --> C[BIOS busca MBR]
+        C --> D[MBR carga GRUB Stage 1]
+        D --> E[GRUB Stage 2 carga grub.cfg]
+        E --> F[Kernel + Initramfs]
+        F --> G[systemd PID 1]
+        style C fill:#f96,stroke:#333
+    ```
+
+    <Aside type="caution" title="Limitación MBR">
+      MBR solo soporta hasta 4 particiones primarias y discos de máximo 2TB.
+    </Aside>
+
+  </TabItem>
+  
+  <TabItem label="UEFI / GPT" icon="laptop">
+    
+    **UEFI (Unified Extensible Firmware Interface)** es el estándar moderno. No busca sectores físicos, sino que lee archivos en una partición FAT32 llamada **ESP**.
+
+    ```mermaid
+    graph TD
+        A[Encendido] --> B[SEC/PEI/DXE Phases]
+        B --> C[BDS: Gestor de Arranque UEFI]
+        C --> D[Carga .efi desde partición ESP]
+        D --> E[GRUB2 / Shim para Secure Boot]
+        E --> F[Kernel + Initramfs]
+        F --> G[systemd PID 1]
+        style D fill:#3498db,color:#fff
+    ```
+
+    <Aside type="tip" title="Ventaja GPT">
+      Soporta particiones casi ilimitadas y discos de hasta 9.4 Zettabytes.
+    </Aside>
+
+  </TabItem>
+</Tabs>
+
+---
+
+## 🛠️ Desglose de la Secuencia (Paso a Paso)
+
+Independientemente del firmware, una vez que el Bootloader (GRUB) toma el control, el proceso se unifica:
+
+<Steps>
+
+1.  **Carga del Kernel (`vmlinuz`)**
+    El bootloader carga el binario comprimido del kernel en la RAM.
+
+2.  **Extracción del `initramfs`**
+    Se monta un sistema de archivos temporal en RAM que contiene los drivers críticos (LVM, RAID, sistemas de archivos) necesarios para montar la partición `/` real.
+
+3.  **Montaje del Root FS y Cambio de Raíz (`switch_root`)**
+    Una vez detectado el disco real, el kernel desmonta el `initramfs` y monta el disco duro.
+
+4.  **Ejecución de `systemd` (PID 1)**
+    El kernel entrega el control al primer proceso de usuario. Systemd analiza el `default.target`.
+
+5.  **Alcanzar el Target de Destino**
+    - `multi-user.target`: Entorno de consola (Servidores).
+    - `graphical.target`: Entorno GUI (Desktops).
+
+</Steps>
+
+---
+
+## 🔍 Comandos de Verificación (Cheat Sheet LFCS)
+
+Como administrador, puedes auditar este proceso con las siguientes herramientas:
+
+| Comando | Propósito |
+| :--- | :--- |
+| `journalctl -b` | Ver logs del arranque actual. |
+| `systemd-analyze` | Medir cuánto tiempo tardó cada etapa del boot. |
+| `systemd-analyze blame` | Listar qué servicios tardaron más en cargar. |
+| `lsblk` | Verificar si el esquema es MBR (msdos) o GPT. |
+| `[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS` | Detectar modo de arranque actual. |
+
+---
+
+<Card title="Próximos Pasos en Cloudera" icon="rocket">
+En la siguiente nota, exploraremos cómo personalizar los parámetros del kernel en `/etc/default/grub` para habilitar el modo de recuperación (Single User Mode).
+</Card>
+
+**Autor:** `dzamo-sysadmin` | **Contexto:** LFCS Exam Prep / Cloudera Intro

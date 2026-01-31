@@ -1,0 +1,120 @@
+---
+title: "Deep Dive: Linux Boot Sequence (LFCS)"
+description: "Detailed analysis of the boot flow from power-on to login prompt, covering BIOS/MBR and UEFI/GPT architectures."
+date: 2026-01-31
+category: "lab"
+systems: ["linux"]
+difficulty: "intermediate"
+tags: ["boot-process", "kernel", "systemd", "lfcs", "cloudera"]
+author: "Daniel Zamo"
+lang: "en"
+sidebar:
+  label: "Linux Boot Sequence"
+  badge:
+    text: "LAB"
+    variant: note
+---
+
+import { Steps, Aside, Tabs, TabItem, Badge, Card } from '@astrojs/starlight/components';
+
+As part of the **Cloudera** training and **LFCS** preparation, understanding what happens before the `login` prompt is vital for infrastructure troubleshooting. Booting is not a single process, but a handoff between different abstraction layers.
+
+<Badge text="Key Concept: Chainloading" variant="tip" />
+
+---
+
+## 🏗️ Boot Architecture Comparison
+
+Depending on the motherboard firmware, the path to the Kernel varies significantly.
+
+<Tabs>
+  <TabItem label="Legacy BIOS / MBR" icon="old-computer">
+    
+    The **BIOS (Basic Input/Output System)** is the legacy standard. It relies on finding executable code in the first 512 bytes of the disk (MBR).
+
+    ```mermaid
+    graph TD
+        A[Power On] --> B[POST - Self-Test]
+        B --> C[BIOS looks for MBR]
+        C --> D[MBR loads GRUB Stage 1]
+        D --> E[GRUB Stage 2 loads grub.cfg]
+        E --> F[Kernel + Initramfs]
+        F --> G[systemd PID 1]
+        style C fill:#f96,stroke:#333
+    ```
+
+    <Aside type="caution" title="MBR Limitation">
+      MBR only supports up to 4 primary partitions and disks up to 2TB.
+    </Aside>
+
+  </TabItem>
+  
+  <TabItem label="UEFI / GPT" icon="laptop">
+    
+    **UEFI (Unified Extensible Firmware Interface)** is the modern standard. It doesn't look for physical sectors; instead, it reads files from a FAT32 partition called the **ESP**.
+
+    ```mermaid
+    graph TD
+        A[Power On] --> B[SEC/PEI/DXE Phases]
+        B --> C[BDS: UEFI Boot Manager]
+        C --> D[Loads .efi from ESP partition]
+        D --> E[GRUB2 / Shim for Secure Boot]
+        E --> F[Kernel + Initramfs]
+        F --> G[systemd PID 1]
+        style D fill:#3498db,color:#fff
+    ```
+
+    <Aside type="tip" title="GPT Advantage">
+      Supports nearly unlimited partitions and disks up to 9.4 Zettabytes.
+    </Aside>
+
+  </TabItem>
+</Tabs>
+
+---
+
+## 🛠️ Sequence Breakdown (Step-by-Step)
+
+Regardless of the firmware, once the Bootloader (GRUB) takes control, the process unifies:
+
+<Steps>
+
+1.  **Loading the Kernel (`vmlinuz`)**
+    The bootloader loads the compressed kernel binary into RAM.
+
+2.  **Extracting `initramfs`**
+    A temporary RAM-based filesystem is mounted, containing critical drivers (LVM, RAID, filesystems) needed to mount the real `/` partition.
+
+3.  **Root FS Mount and `switch_root`**
+    Once the real disk is detected, the kernel unmounts `initramfs` and mounts the actual hard drive.
+
+4.  **Executing `systemd` (PID 1)**
+    The kernel hands over control to the first user-space process. Systemd analyzes the `default.target`.
+
+5.  **Reaching the Target**
+    - `multi-user.target`: Console environment (Servers).
+    - `graphical.target`: GUI environment (Desktops).
+
+</Steps>
+
+---
+
+## 🔍 Verification Commands (LFCS Cheat Sheet)
+
+As an admin, you can audit this process with the following tools:
+
+| Command | Purpose |
+| :--- | :--- |
+| `journalctl -b` | View logs from the current boot. |
+| `systemd-analyze` | Measure how long each boot stage took. |
+| `systemd-analyze blame` | List which services took the longest to load. |
+| `lsblk` | Check if the scheme is MBR (msdos) or GPT. |
+| `[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS` | Detect current boot mode. |
+
+---
+
+<Card title="Next Steps in Cloudera" icon="rocket">
+In the next note, we will explore how to customize kernel parameters in `/etc/default/grub` to enable Single User Mode for recovery.
+</Card>
+
+**Author:** `dzamo-sysadmin` | **Context:** LFCS Exam Prep / Cloudera Intro
