@@ -1,0 +1,88 @@
+---
+title: "Generación de Imágenes Base (Export) en WSL 2"
+description: "Guía técnica sobre la captura de imágenes de sistema de archivos (RootFS) desde instancias activas de WSL 2."
+sidebar:
+  label: "WSL 2: Export RootFS"
+  badge:
+    text: "SOP"
+    variant: note
+---
+
+import { Steps, Aside, Badge } from '@astrojs/starlight/components';
+
+Este procedimiento describe cómo extraer el sistema de archivos completo de una distribución de WSL 2 para convertirlo en un artefacto portable `.tar`. 
+
+<Badge text="Prioridad: Alta" variant="caution" /> <Badge text="Entorno: Windows/WSL2" variant="note" />
+
+---
+
+## 🔄 Flujo de Generación
+
+A diferencia de un snapshot de VM tradicional, WSL requiere un volcado del sistema de archivos (*RootFS*). El flujo garantiza la consistencia de los punteros de archivos.
+
+```mermaid
+graph LR
+    Running[Distro en Ejecución] --> Stop[wsl --shutdown]
+    Stop --> Verify[Validar Estado: Stopped]
+    Verify --> Command[wsl --export]
+    Command --> Artifact[Archivo .tar]
+```
+
+---
+
+## 🚀 Ejecución del Procedimiento
+
+Para evitar archivos bloqueados por el kernel de Linux y garantizar la integridad del sistema de archivos, siga estos pasos desde **PowerShell 7** con privilegios de usuario estándar.
+
+<Steps>
+
+1.  **Preparación del Entorno**
+    
+    Detenemos el motor de WSL por completo. Esto cerrará todas las distros activas.
+    ```powershell
+    wsl --shutdown
+    ```
+
+2.  **Validación de Estado**
+    
+    Asegúrese de que la distribución objetivo aparece como `Stopped`.
+    ```powershell
+    wsl --list --verbose
+    ```
+
+3.  **Comandos de Exportación**
+    
+    El comando captura el estado exacto de la instancia, incluyendo paquetes en `/usr`, configuraciones en `/etc` y datos en `/home`.
+
+    ```powershell
+    # Definir ruta de salida (Tier Caliente de Almacenamiento)
+    $storage = "D:\10_Hot-Tier_Caliente\WSL\backups"
+
+    # Exportar instancia de Ubuntu
+    wsl --export Ubuntu "$storage\Ubuntu-$(get-date -f yyyyMMdd).tar"
+
+    # Exportar instancia de Rocky Linux 9
+    wsl --export RockyLinux9 "$storage\RockyLinux9-$(get-date -f yyyyMMdd).tar"
+    ```
+
+</Steps>
+
+---
+
+## 🔍 Diagnóstico y Puntos Críticos
+
+<Aside type="danger" title="Riesgo de Corrupción">
+**Nunca** ejecute un export sin haber realizado un `--shutdown` previo. Aunque WSL permite el comando, los archivos abiertos (especialmente bases de datos o sockets) pueden quedar en un estado inconsistente dentro del `.tar`.
+</Aside>
+
+<Aside type="tip" title="Gestión de Espacio">
+El proceso de exportación no aplica compresión por defecto. Asegúrese de que el disco de destino tiene un espacio libre al menos **1.2x** superior al tamaño del archivo `ext4.vhdx` original.
+</Aside>
+
+### Notas de Implementación
+- **Permisos:** El comando captura los atributos de Linux (UID/GID) correctamente, independientemente del usuario que ejecute PowerShell.
+- **Portabilidad:** El archivo resultante puede ser importado en cualquier máquina Windows mediante `wsl --import`.
+
+---
+**Documentación de Referencia:** [Microsoft Docs - WSL Management](https://learn.microsoft.com/en-us/windows/wsl/basic-commands)
+**Autor:** `dzamo-sysadmin` | **Versión:** 1.0

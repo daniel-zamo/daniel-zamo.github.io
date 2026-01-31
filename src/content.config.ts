@@ -1,42 +1,32 @@
+// src/content.config.ts
 import { defineCollection, z } from 'astro:content';
-import { docsSchema } from '@astrojs/starlight/schema';
+import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
+import { glob } from 'astro/loaders'; // <-- Importante para Astro 5
 
-// 1. Colección 'docs' (Tu documentación principal)
-const docsCollection = defineCollection({
+// 1. Colección 'docs' (Documentación y Notas)
+const docs = defineCollection({
+  // En Astro 5 especificamos explícitamente dónde buscar y qué extensiones
+  loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/docs' }),
   schema: docsSchema({
     extend: z.object({
-      // Mapeo de campos personalizados
       source: z.string().optional(),
-
-      // Taxonomía de dominios
       domain: z.enum([
-        'compute',
-        'storage',
-        'networking',
-        'security',
-        'virtualization',
-        'containers',
-        'automation',
-        'monitoring',
-        'cloud'
+        'compute', 'storage', 'networking', 'security', 
+        'virtualization', 'containers', 'automation', 
+        'monitoring', 'cloud'
       ]).optional(),
-
-      // Tipo de contenido (Añadido 'project' para portfolio)
       type: z.enum([
-        'lab',
-        'theory',
-        'cheatsheet',
-        'scenario',
-        'configuration',
-        'project'
+        'lab', 'theory', 'cheatsheet', 'scenario', 
+        'configuration', 'project'
       ]).default('theory'),
     }),
-  })
+  }),
 });
 
-// 2. Colección 'questions' (Para futuros quizzes)
-const questionsCollection = defineCollection({
-  loader: async () => [], // Placeholder: Astro 5 pide un loader si no hay archivos físicos aun
+// 2. Colección 'questions' (Silenciamos el warning definiendo el loader correctamente)
+const questions = defineCollection({
+  // Si vas a usar JSON o YAML para los quizzes en el futuro
+  loader: glob({ pattern: '**/*.{json,yaml}', base: 'src/content/questions' }),
   schema: z.object({
     exam: z.string(),
     topic: z.string(),
@@ -45,30 +35,16 @@ const questionsCollection = defineCollection({
       scenario: z.string().optional(),
       prompt: z.string(),
     }),
-    options: z.array(
-      z.object({
-        id: z.string(),
-        text: z.string(),
-      })
-    ),
+    options: z.array(z.object({ id: z.string(), text: z.string() })),
     correctAnswerId: z.string(),
     explanation: z.object({
       summary: z.string(),
-      breakdown: z.array(
-        z.object({
-          optionId: z.string(),
-          reasoning: z.string(),
-        })
-      ),
+      breakdown: z.array(z.object({ optionId: z.string(), reasoning: z.string() })),
     }),
   }),
 });
 
-// 3. Exportamos
-export const collections = {
-  docs: docsCollection,
-  // Si aún no tienes archivos .json/.yaml en src/content/questions, 
-  // puedes comentar la siguiente línea para evitar warnings de "colección vacía"
-  questions: questionsCollection,
-};
+// Nota: No incluimos 'i18n' aquí a menos que tengas archivos en src/content/i18n/
+// Starlight lo gestiona internamente si no hay overrides.
 
+export const collections = { docs };

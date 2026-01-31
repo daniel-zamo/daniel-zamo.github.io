@@ -10,8 +10,11 @@ export default defineConfig({
     },
 
     integrations: [
+        // 1. Integración de Mermaid para diagramas (Cargada antes de Starlight)
+        mermaid(),
+        
         starlight({
-            title: 'Daniel Zamo | SysAdmin & DevOps',
+            title: 'DZ | SysAdmin & DevOps',
             favicon: '/favicon.png',
             social: [
                 { icon: 'github', label: 'GitHub', href: 'https://github.com/daniel-zamo/daniel-zamo.github.io' },
@@ -26,7 +29,18 @@ export default defineConfig({
                 es: { label: 'Español', lang: 'es' }
             },
 
+            // Script persistente para forzar el tema oscuro y Metadatos de RSS
             head: [
+                // Autodetección de RSS para navegadores
+                {
+                    tag: 'link',
+                    attrs: {
+                        rel: 'alternate',
+                        type: 'application/rss+xml',
+                        title: 'DZ | Tech Notes RSS Feed',
+                        href: '/rss.xml',
+                    },
+                },
                 {
                     tag: 'script',
                     content: `
@@ -40,6 +54,15 @@ export default defineConfig({
             ],
 
             sidebar: [
+                // --- SECCIÓN: NOTAS TÉCNICAS (NATIVA Y ESTABLE) ---
+                {
+                    label: 'Tech Notes',
+                    translations: { es: 'Notas Técnicas' },
+                    autogenerate: { directory: 'notes' },
+                    collapsed: false,
+                },
+
+                // --- SECCIÓN: OPERACIONES CLOUD AZURE ---
                 {
                     label: 'Azure Cloud Ops.', 
                     translations: { es: 'Operaciones Cloud Azure' },
@@ -55,7 +78,6 @@ export default defineConfig({
                             autogenerate: { directory: 'az-cloud-ops/compute' }, 
                             collapsed: true 
                         },
-                        // NUEVA SECCIÓN: Redes / Networking
                         { 
                             label: 'Networking', 
                             translations: { es: 'Redes' }, 
@@ -64,7 +86,8 @@ export default defineConfig({
                         },
                     ],
                 },
-                // Sección de Proyectos (Portfolio)
+
+                // --- SECCIÓN: PROYECTOS (PORTFOLIO) ---
                 {
                     label: 'Projects',
                     translations: { es: 'Proyectos' },
@@ -76,6 +99,5 @@ export default defineConfig({
                 }
             ],
         }),
-        mermaid(),
     ],
 });
