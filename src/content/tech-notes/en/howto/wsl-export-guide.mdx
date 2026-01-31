@@ -1,0 +1,99 @@
+---
+title: "WSL 2 Base Image Generation (Export)"
+description: "Technical protocol for capturing RootFS images from WSL 2 instances for portable backups."
+date: 2026-01-30
+category: "howto"
+systems: ["windows", "linux"]
+difficulty: "beginner"
+tags: ["wsl2", "backup", "sysadmin", "infrastructure"]
+author: "Daniel Zamo"
+lang: "en"
+sidebar:
+  label: "WSL 2: Export Guide"
+  order: 1
+---
+
+import { Steps, Aside, Badge, LinkCard } from '@astrojs/starlight/components';
+
+This procedure describes how to extract the complete file system of a WSL 2 distribution into a portable `.tar` artifact.
+
+<Badge text="Protocol: Hot/Cold" variant="note" /> <Badge text="Runtime: PowerShell 7" variant="caution" />
+
+---
+
+## 🔄 Operational Workflow
+
+Unlike traditional VM snapshots, WSL requires a file system dump (*RootFS*). This workflow ensures the integrity of file pointers and system sockets.
+
+```mermaid
+graph LR
+    A[Distro Active] -- "1. Shutdown" --> B[State: Stopped]
+    B -- "2. Export CLI" --> C[RootFS .tar]
+    C -- "3. Verify" --> D[Vault/Backup]
+    
+    style B fill:#f96,stroke:#333,stroke-width:2px
+    style C fill:#2c3e50,color:#fff
+```
+
+---
+
+## 🚀 Execution Procedure
+
+To prevent file locking by the Linux kernel and ensure consistency, follow these steps from **PowerShell 7** using standard user privileges.
+
+<Steps>
+
+1.  **Complete Engine Shutdown**
+    
+    It is mandatory to close all instances to release the `ext4.vhdx` file.
+    ```powershell
+    wsl --shutdown
+    ```
+
+2.  **Instance Status Validation**
+    
+    Verify that the target distribution (e.g., `Ubuntu`) is listed as `Stopped`.
+    ```powershell
+    wsl --list --verbose
+    ```
+
+3.  **Artifact Exporting**
+    
+    Capture the exact state of the instance (including packages in `/usr`, configs in `/etc`, and data in `/home`).
+
+    ```powershell
+    # Define path variables
+    $storage = "D:\10_Hot-Tier_Caliente\WSL\backups"
+    $date = Get-Date -Format "yyyyMMdd"
+
+    # Export instance
+    wsl --export Ubuntu "$storage\Ubuntu-$date.tar"
+    ```
+
+</Steps>
+
+---
+
+## 🔍 Troubleshooting & Critical Points
+
+<Aside type="danger" title="Corruption Risk">
+**Never** run an export without a prior `--shutdown`. Open files (especially databases) can end up in an inconsistent state within the `.tar` archive.
+</Aside>
+
+<Aside type="tip" title="Storage Management">
+The `wsl --export` command does not apply compression by default. Ensure the destination drive has at least **1.2x** free space compared to the original virtual disk size.
+</Aside>
+
+### SysAdmin Implementation Notes
+- **Permissions:** The command correctly captures Linux attributes (UID/GID).
+- **Portability:** The resulting file is host-agnostic and can be imported into any Windows machine via `wsl --import`.
+
+---
+
+<LinkCard
+  title="Reference Documentation"
+  description="Advanced WSL management on Microsoft Learn."
+  href="https://learn.microsoft.com/en-us/windows/wsl/basic-commands"
+/>
+
+**Author:** `dzamo-sysadmin` | **Version:** 1.1 | **Status:** Validated

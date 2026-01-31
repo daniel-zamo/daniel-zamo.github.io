@@ -1,0 +1,151 @@
+---
+// src/pages/[lang]/tech-notes/index.astro
+import { getCollection } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const { lang } = Astro.params;
+
+const allNotes = await getCollection("tech-notes", ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const notes = allNotes
+  .filter((note) => note.data.lang === lang)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const translations = {
+  es: {
+    pageTitle: "Notas Técnicas",
+    pageDescription: "Procedimientos operativos y SOPs",
+    publishedOn: "Publicado el",
+    tags: "Etiquetas",
+    noNotes: "No hay notas publicadas aún.",
+  },
+  en: {
+    pageTitle: "Technical Notes",
+    pageDescription: "Operational procedures and SOPs",
+    publishedOn: "Published on",
+    tags: "Tags",
+    noNotes: "No published notes yet.",
+  },
+};
+
+const t = translations[lang] || translations.es;
+
+function formatDate(date, locale) {
+  return date.toLocaleDateString(locale, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+---
+
+<StarlightPage
+  frontmatter={{ title: t.pageTitle, description: t.pageDescription }}
+>
+  <div class="tech-notes-index">
+    {
+      notes.length === 0 ? (
+        <p>{t.noNotes}</p>
+      ) : (
+        <div class="notes-grid">
+          {notes.map((note) => {
+            const formattedDate = formatDate(note.data.date, lang);
+
+            // CORRECCIÓN: Construcción correcta del slug
+            // note.id viene como "es/sop/nombre.md" o "en/howto/nombre.mdx"
+            // Removemos el idioma del inicio y la extensión del final
+            const pathWithoutLang = note.id.replace(/^(es|en)\//, ""); // Quita "es/" o "en/"
+            const pathWithoutExt = pathWithoutLang.replace(/\.(md|mdx)$/, ""); // Quita ".md" o ".mdx"
+
+            // Construir URL final
+            //const noteUrl = `/${lang}/tech-notes/${pathWithoutExt}/`;
+            const noteUrl = `/tech-notes/${lang}/${pathWithoutExt}/`;
+
+            console.log("DEBUG:", {
+              noteId: note.id,
+              pathWithoutLang,
+              pathWithoutExt,
+              finalUrl: noteUrl,
+            });
+
+            return (
+              <article class="note-card">
+                <h2>
+                  <a href={noteUrl}>{note.data.title}</a>
+                </h2>
+                <time datetime={note.data.date.toISOString()}>
+                  {t.publishedOn} {formattedDate}
+                </time>
+                <p>{note.data.description}</p>
+                {note.data.tags && note.data.tags.length > 0 && (
+                  <div class="tags">
+                    {note.data.tags.map((tag) => (
+                      <span class="tag">#{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      )
+    }
+  </div>
+</StarlightPage>
+
+<style>
+  .tech-notes-index {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+  .note-card {
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+  .note-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  .note-card h2 a {
+    color: var(--sl-color-white);
+    text-decoration: none;
+  }
+  .note-card h2 a:hover {
+    color: var(--sl-color-accent);
+  }
+  .note-card time {
+    color: var(--sl-color-gray-3);
+    font-size: 0.875rem;
+  }
+  .note-card p {
+    color: var(--sl-color-gray-2);
+    margin: 1rem 0;
+  }
+  .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .tag {
+    background: var(--sl-color-gray-5);
+    color: var(--sl-color-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+</style>

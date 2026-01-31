@@ -1,25 +1,38 @@
 // src/pages/rss.xml.js
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+
 export async function GET(context) {
-  // Obtenemos todos los documentos de la colección 'docs'
-  const docs = await getCollection('docs');
-  // Filtramos para incluir solo las notas técnicas (Tech Notes)
-  // y las ordenamos por fecha (asumiendo que añadimos el campo 'date' en el frontmatter)
-  const techNotes = docs
-    .filter((post) => post.id.includes('/notes/')) // Solo lo que esté en carpetas /notes/
-    .sort((a, b) => new Date(b.data.date || 0) - new Date(a.data.date || 0));
+  // Obtener todas las notas técnicas (sin borradores en producción)
+  const techNotes = await getCollection('tech-notes', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  // Ordenar por fecha descendente
+  const sortedNotes = techNotes.sort(
+    (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+  );
+
   return rss({
-    title: 'DZ | Tech Notes RSS',
-    description: 'Procedimientos operativos, SOPs y notas de infraestructura SysAdmin/DevOps.',
+    title: 'dz.log | Tech Feed',
+    description: 'Notas de ingeniería, SOPs y logs de infraestructura.',
     site: context.site,
-    items: techNotes.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date || new Date(),
-      description: post.data.description,
-      // Generamos el link basado en el ID de Starlight
-      link: `/${post.id}/`,
-    })),
+    
+    items: sortedNotes.map((note) => {
+      // Detectar idioma del path
+      const lang = note.id.startsWith('es/') ? 'es' : 'en';
+      const slug = note.id.replace(/^(es|en)\//, '');
+      
+      return {
+        title: note.data.title,
+        pubDate: note.data.date,
+        description: note.data.description,
+        link: `/${lang}/tech-notes/${slug}`,
+        categories: [note.data.category, ...note.data.tags],
+        author: note.data.author,
+      };
+    }),
+    
     customData: `<language>es-es</language>`,
   });
 }

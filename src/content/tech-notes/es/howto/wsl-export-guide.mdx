@@ -1,0 +1,99 @@
+---
+title: "Generación de Imágenes Base (Export) en WSL 2"
+description: "Protocolo técnico para la captura de imágenes RootFS desde instancias de WSL 2 para backups portables."
+date: 2026-01-30
+category: "howto"
+systems: ["windows", "linux"]
+difficulty: "beginner"
+tags: ["wsl2", "backup", "sysadmin", "infrastructure"]
+author: "Daniel Zamo"
+lang: "es"
+sidebar:
+  label: "WSL 2: Export Guide"
+  order: 1
+---
+
+import { Steps, Aside, Badge, LinkCard } from '@astrojs/starlight/components';
+
+Este procedimiento describe cómo extraer el sistema de archivos completo de una distribución de WSL 2 para convertirlo en un artefacto portable `.tar`. 
+
+<Badge text="Protocolo: Caliente/Frío" variant="note" /> <Badge text="Entorno: PowerShell 7" variant="caution" />
+
+---
+
+## 🔄 Flujo de Generación Operativa
+
+A diferencia de un snapshot de VM tradicional, WSL requiere un volcado del sistema de archivos (*RootFS*). Este flujo garantiza la integridad de los punteros de archivos y sockets.
+
+```mermaid
+graph LR
+    A[Distro Active] -- "1. Shutdown" --> B[State: Stopped]
+    B -- "2. Export CLI" --> C[RootFS .tar]
+    C -- "3. Verify" --> D[Vault/Backup]
+    
+    style B fill:#f96,stroke:#333,stroke-width:2px
+    style C fill:#2c3e50,color:#fff
+```
+
+---
+
+## 🚀 Ejecución del Procedimiento
+
+Para evitar bloqueos de archivos por el kernel de Linux y garantizar la consistencia, siga estos pasos desde **PowerShell 7** con privilegios de usuario estándar.
+
+<Steps>
+
+1.  **Detención Total del Motor**
+    
+    Es imperativo cerrar todas las instancias para liberar el archivo `ext4.vhdx`.
+    ```powershell
+    wsl --shutdown
+    ```
+
+2.  **Validación de Estado de Instancia**
+    
+    Asegúrese de que la distribución objetivo (ej. `Ubuntu`) aparece como `Stopped`.
+    ```powershell
+    wsl --list --verbose
+    ```
+
+3.  **Exportación de Artefacto**
+    
+    Capturamos el estado exacto de la instancia (paquetes en `/usr`, configs en `/etc` y datos en `/home`).
+
+    ```powershell
+    # Definir variables de ruta
+    $storage = "D:\10_Hot-Tier_Caliente\WSL\backups"
+    $date = Get-Date -Format "yyyyMMdd"
+
+    # Exportar instancia
+    wsl --export Ubuntu "$storage\Ubuntu-$date.tar"
+    ```
+
+</Steps>
+
+---
+
+## 🔍 Diagnóstico y Puntos Críticos
+
+<Aside type="danger" title="Riesgo de Corrupción">
+**Nunca** ejecute un export sin haber realizado un `--shutdown` previo. Los archivos abiertos (especialmente bases de datos) pueden quedar en un estado inconsistente dentro del `.tar`.
+</Aside>
+
+<Aside type="tip" title="Gestión de Almacenamiento">
+El comando `wsl --export` no aplica compresión. Asegúrese de que el disco de destino tenga un espacio libre al menos **1.2x** superior al tamaño del disco virtual original.
+</Aside>
+
+### Notas de Implementación SysAdmin
+- **Permisos:** El comando captura los atributos de Linux (UID/GID) correctamente.
+- **Portabilidad:** El archivo resultante es agnóstico y puede ser importado en cualquier host Windows mediante `wsl --import`.
+
+---
+
+<LinkCard
+  title="Documentación de Referencia"
+  description="Gestión avanzada de WSL en Microsoft Learn."
+  href="https://learn.microsoft.com/en-us/windows/wsl/basic-commands"
+/>
+
+**Autor:** `dzamo-sysadmin` | **Versión:** 1.1 | **Status:** Validado

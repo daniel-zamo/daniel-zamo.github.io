@@ -1,9 +1,8 @@
 *.org
 *.v*
-archive-tier*
+archive_tier/
 .*.bkp
-/my-scripts
-/*site-spec.md
+/*daniel-zamo.github.io-report-spec.md
 *.sh
 2026*
 
