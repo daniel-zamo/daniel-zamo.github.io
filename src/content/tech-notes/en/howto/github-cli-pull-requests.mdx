@@ -1,0 +1,114 @@
+---
+
+### Versión en Inglés
+
+# BEGIN: `src/content/tech-notes/en/howto/github-cli-pull-requests.mdx`
+```mdx
+---
+title: "Managing Pull Requests via GitHub CLI (gh)"
+description: "Optimizing the Git workflow by removing browser dependency for creating and merging Pull Requests."
+date: 2026-01-31
+category: "howto"
+systems: ["linux", "windows", "macos"]
+difficulty: "intermediate"
+tags: ["git", "github", "automation", "devops"]
+author: "Daniel Zamo"
+lang: "en"
+sidebar:
+  label: "GitHub CLI (gh)"
+  badge:
+    text: "SOP"
+    variant: note
+---
+
+import { Steps, Aside, Badge, LinkCard } from '@astrojs/starlight/components';
+
+Using the **GitHub CLI (`gh`)** allows infrastructure engineers to manage the lifecycle of their changes without leaving the terminal, reducing context switching and facilitating process automation.
+
+<Badge text="Tool: gh" variant="note" /> <Badge text="Workflow: Terminal-Only" variant="success" />
+
+---
+
+## 🔄 Terminal-Based Workflow
+
+Unlike the traditional workflow that requires opening a browser, `gh` centralizes interaction with the GitHub API directly in the shell.
+
+```mermaid
+graph LR
+    A[Local Code] -- "git push" --> B[Remote Branch]
+    B -- "gh pr create" --> C[Pull Request]
+    C -- "gh pr status" --> D[Check CI/CD]
+    D -- "gh pr merge" --> E[Main Branch]
+    
+    style C fill:#2c3e50,color:#fff
+    style E fill:#27ae60,color:#fff
+```
+
+---
+
+## 🚀 Implementation and Setup
+
+Follow this procedure to standardize CLI usage in Linux or WSL environments.
+
+<Steps>
+
+1.  **Binary Installation**
+    
+    On Debian/Ubuntu-based systems:
+    ```bash
+    sudo apt update && sudo apt install gh -y
+    ```
+
+2.  **Session Authentication**
+    
+    Link your GitHub account using the secure protocol.
+    ```bash
+    gh auth login
+    ```
+    *Select `GitHub.com` > `HTTPS` > `Login with a web browser` and follow the prompt.*
+
+3.  **Pull Request Operational Cycle**
+    
+    Once commits are made in your feature branch (`feature/*`):
+
+    ```bash
+    # 1. Push branch to origin
+    git push -u origin feature/branch-name
+
+    # 2. Create the PR with metadata
+    gh pr create --title "feat: description" --body "Technical explanation"
+
+    # 3. Validate integration status (CI/CD)
+    gh pr status
+
+    # 4. Merge and clean up the branch
+    gh pr merge --merge --delete-branch
+    ```
+
+</Steps>
+
+---
+
+## 🔍 Operational Advantages
+
+<Aside type="tip" title="DevOps Context">
+By using the CLI, you can integrate these commands into your CI/CD scripts or create aliases for rapid deployments. Traceability is identical to the web interface.
+</Aside>
+
+| Action | CLI Command | Benefit |
+| :--- | :--- | :--- |
+| **Checkouts** | `gh pr checkout <id>` | Downloads a colleague's branch for instant local review. |
+| **Monitoring** | `gh run watch` | Monitors GitHub Actions progress in real-time. |
+| **Diff** | `gh pr diff` | Reviews changes line-by-line in the terminal. |
+
+---
+
+## 🔗 Related Articles
+
+<LinkCard 
+  title="Documentation Standards" 
+  description="How we classify these tasks as SOP or DR." 
+  href="/en/tech-notes/sop/documentation-standardization/" 
+/>
+
+**Author:** `dzamo-sysadmin` | **Status:** Validated on Ubuntu/WSL2

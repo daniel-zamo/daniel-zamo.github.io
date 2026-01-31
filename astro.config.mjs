@@ -56,12 +56,12 @@ export default defineConfig({
                     `,
         },
       ],
-
       sidebar: [
         {
           label: "Engineering Standards",
           translations: { es: "Estándares de Ingeniería" },
           autogenerate: { directory: "standards/" },
+          collapsed: true,
           badge: { text: "Core", variant: "success" },
         },
         {

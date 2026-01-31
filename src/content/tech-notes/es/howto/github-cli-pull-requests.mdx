@@ -1,0 +1,108 @@
+---
+title: "Gestión de Pull Requests mediante GitHub CLI (gh)"
+description: "Optimización del flujo de trabajo Git eliminando la dependencia del navegador para la creación y fusión de Pull Requests."
+date: 2026-01-31
+category: "howto"
+systems: ["linux", "windows", "macos"]
+difficulty: "intermediate"
+tags: ["git", "github", "automation", "devops"]
+author: "Daniel Zamo"
+lang: "es"
+sidebar:
+  label: "GitHub CLI (gh)"
+  badge:
+    text: "SOP"
+    variant: note
+---
+
+import { Steps, Aside, Badge, LinkCard } from '@astrojs/starlight/components';
+
+El uso de **GitHub CLI (`gh`)** permite a los ingenieros de infraestructura gestionar el ciclo de vida de sus cambios sin abandonar la terminal, reduciendo el cambio de contexto y facilitando la automatización de procesos.
+
+<Badge text="Herramienta: gh" variant="note" /> <Badge text="Flujo: Terminal-Only" variant="success" />
+
+---
+
+## 🔄 Flujo de Trabajo en Consola
+
+A diferencia del flujo tradicional que requiere abrir el navegador, `gh` centraliza la interacción con la API de GitHub directamente en el shell.
+
+```mermaid
+graph LR
+    A[Local Code] -- "git push" --> B[Remote Branch]
+    B -- "gh pr create" --> C[Pull Request]
+    C -- "gh pr status" --> D[Check CI/CD]
+    D -- "gh pr merge" --> E[Main Branch]
+    
+    style C fill:#2c3e50,color:#fff
+    style E fill:#27ae60,color:#fff
+```
+
+---
+
+## 🚀 Implementación y Configuración
+
+Siga este procedimiento para estandarizar el uso de la CLI en entornos Linux o WSL.
+
+<Steps>
+
+1.  **Instalación del Binario**
+    
+    En sistemas basados en Debian/Ubuntu:
+    ```bash
+    sudo apt update && sudo apt install gh -y
+    ```
+
+2.  **Autenticación de Sesión**
+    
+    Vincule su cuenta de GitHub mediante el protocolo seguro.
+    ```bash
+    gh auth login
+    ```
+    *Seleccione `GitHub.com` > `HTTPS` > `Login with a web browser` y siga el prompt.*
+
+3.  **Ciclo Operativo del Pull Request**
+    
+    Una vez realizados los commits en su rama de funcionalidad (`feature/*`):
+
+    ```bash
+    # 1. Subir la rama al origen
+    git push -u origin feature/nombre-rama
+
+    # 2. Crear el PR con metadatos
+    gh pr create --title "feat: descripcion" --body "Explicacion tecnica"
+
+    # 3. Validar estado de la integración (CI/CD)
+    gh pr status
+
+    # 4. Fusionar y limpiar la rama
+    gh pr merge --merge --delete-branch
+    ```
+
+</Steps>
+
+---
+
+## 🔍 Ventajas Operativas
+
+<Aside type="tip" title="Contexto DevOps">
+Al usar la CLI, puedes integrar estos comandos en tus scripts de CI/CD o crear alias para despliegues rápidos. La trazabilidad es idéntica a la de la interfaz web.
+</Aside>
+
+| Acción | Comando CLI | Beneficio |
+| :--- | :--- | :--- |
+| **Checkouts** | `gh pr checkout <id>` | Descarga la rama de un colega para revisión local instantánea. |
+| **Monitoreo** | `gh run watch` | Observa el progreso de los GitHub Actions en tiempo real. |
+| **Diff** | `gh pr diff` | Revisa cambios línea por línea en la terminal. |
+
+---
+
+## 🔗 Artículos Relacionados
+
+<LinkCard 
+  title="Estándares de Documentación" 
+  description="Cómo clasificamos estas tareas como SOP o DR." 
+  href="/es/tech-notes/sop/documentation-standardization/" 
+/>
+
+**Autor:** `dzamo-sysadmin` | **Status:** Validado en Ubuntu/WSL2
