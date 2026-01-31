@@ -59,7 +59,7 @@ export default defineConfig({
                     label: 'Tech Notes',
                     translations: { es: 'Notas Técnicas' },
                     autogenerate: { directory: 'notes' },
-                    collapsed: false,
+                    collapsed: true,
                 },
 
                 // --- SECCIÓN: OPERACIONES CLOUD AZURE ---
