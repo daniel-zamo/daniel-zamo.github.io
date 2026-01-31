@@ -1,0 +1,45 @@
+---
+title: Estándares de Git y Flujo de Trabajo
+description: Guía de uso de Conventional Commits y gestión de Pull Requests mediante GitHub CLI.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside, Badge } from '@astrojs/starlight/components';
+
+La trazabilidad del código es tan importante como el código mismo. Este proyecto sigue el estándar de **Conventional Commits** y utiliza **GitHub CLI** para la gestión de integraciones.
+
+## 📝 Semántica de Commits
+
+Seguimos el formato: `tipo(alcance): descripción`.
+
+*   `feat`: Nueva funcionalidad (o nueva nota técnica).
+*   `fix`: Corrección de errores en el código o documentación.
+*   `docs`: Cambios exclusivos en archivos de documentación.
+*   `chore`: Tareas de mantenimiento (actualización de dependencias).
+
+---
+
+## 🚀 Flujo de Integración (gh CLI)
+
+Para mantener la calidad de la rama `main`, prohibimos los pushes directos. Todo cambio debe seguir este ciclo:
+
+<Steps>
+
+1.  **Crear Rama:** `git checkout -b feature/nombre-corto`
+2.  **Commit Semántico:** `git commit -m "feat(scope): description"`
+3.  **Push Upstream:** `git push -u origin HEAD`
+4.  **Crear PR:** 
+    ```bash
+    gh pr create --title "..." --body "..."
+    ```
+5.  **Merge y Limpieza:**
+    ```bash
+    gh pr merge --merge --delete-branch
+    ```
+
+</Steps>
+
+<Aside type="caution">
+Siempre verifica el estado de las GitHub Actions con `gh pr status` antes de realizar el merge.
+</Aside>

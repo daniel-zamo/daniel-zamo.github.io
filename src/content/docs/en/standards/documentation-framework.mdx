@@ -1,0 +1,35 @@
+---
+title: Documentation Framework
+description: Governance standards for the classification of operational and technical procedures.
+sidebar:
+  order: 1
+---
+
+import { Badge, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+This document defines the official taxonomy for the knowledge base. Every technical entry on this site must be classified according to its operational impact.
+
+## 🏷️ Content Classification
+
+We classify information using semantic labels to facilitate decision-making during an incident.
+
+### 🔵 SOP (Standard Operating Procedure)
+Routine and preventive procedures. Their goal is **standardization**.
+*   *Example:* [WSL Instance Backup](/en/tech-notes/howto/wsl-export-guide/)
+
+### 🔴 DR (Disaster Recovery)
+Emergency protocols for service restoration. Their goal is **continuity**.
+*   *Example:* [WSL Environment Restoration](/en/tech-notes/howto/wsl-restoration-guide/)
+
+### 🟡 TRB (Troubleshooting)
+Root cause analysis and solutions to specific errors. Their goal is **resolution**.
+
+---
+
+## 🏗️ Technical Note Structure
+
+To ensure the content is useful during moments of technical stress, all notes must include:
+1.  **Context:** What problem are we solving?
+2.  **Visual Flow:** Mermaid diagram of the process.
+3.  **Atomic Steps:** Use of the `<Steps />` component.
+4.  **Validation:** How do we know it worked?

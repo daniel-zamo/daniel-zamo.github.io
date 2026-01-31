@@ -1,0 +1,45 @@
+---
+title: Git Standards and Workflow
+description: Guide to using Conventional Commits and managing Pull Requests via GitHub CLI.
+sidebar:
+  order: 2
+---
+
+import { Steps, Aside, Badge } from '@astrojs/starlight/components';
+
+Code traceability is as important as the code itself. This project follows the **Conventional Commits** standard and utilizes **GitHub CLI** for integration management.
+
+## 📝 Commit Semantics
+
+We follow the format: `type(scope): description`.
+
+*   `feat`: New functionality (or new technical note).
+*   `fix`: Bug fixes in code or documentation.
+*   `docs`: Documentation-only changes.
+*   `chore`: Maintenance tasks (dependency updates).
+
+---
+
+## 🚀 Integration Workflow (gh CLI)
+
+To maintain the quality of the `main` branch, direct pushes are prohibited. Every change must follow this cycle:
+
+<Steps>
+
+1.  **Create Branch:** `git checkout -b feature/short-name`
+2.  **Semantic Commit:** `git commit -m "feat(scope): description"`
+3.  **Push Upstream:** `git push -u origin HEAD`
+4.  **Create PR:** 
+    ```bash
+    gh pr create --title "..." --body "..."
+    ```
+5.  **Merge and Cleanup:**
+    ```bash
+    gh pr merge --merge --delete-branch
+    ```
+
+</Steps>
+
+<Aside type="caution">
+Always check the status of GitHub Actions with `gh pr status` before performing a merge.
+</Aside>

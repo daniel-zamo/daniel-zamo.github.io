@@ -1,0 +1,35 @@
+---
+title: Marco de Trabajo de Documentación
+description: Estándares de gobernanza para la clasificación de procedimientos operativos y técnicos.
+sidebar:
+  order: 1
+---
+
+import { Badge, CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Este documento define la taxonomía oficial de la base de conocimientos. Cada entrada técnica en este sitio debe clasificarse según su impacto operativo.
+
+## 🏷️ Clasificación de Contenidos
+
+Clasificamos la información mediante etiquetas semánticas para facilitar la toma de decisiones durante un incidente.
+
+### 🔵 SOP (Standard Operating Procedure)
+Procedimientos rutinarios y preventivos. Su objetivo es la **estandarización**.
+*   *Ejemplo:* [Backup de instancias WSL](/es/tech-notes/howto/wsl-export-guide/)
+
+### 🔴 DR (Disaster Recovery)
+Protocolos de emergencia para la restauración de servicios. Su objetivo es la **continuidad**.
+*   *Ejemplo:* [Restauración de entornos WSL](/es/tech-notes/howto/wsl-restoration-guide/)
+
+### 🟡 TRB (Troubleshooting)
+Análisis de causa raíz y soluciones a errores específicos. Su objetivo es la **resolución**.
+
+---
+
+## 🏗️ Estructura de las Notas Técnicas
+
+Para asegurar que el contenido sea útil en momentos de estrés técnico, todas las notas deben incluir:
+1.  **Contexto:** ¿Qué estamos resolviendo?
+2.  **Flujo Visual:** Diagrama Mermaid del proceso.
+3.  **Pasos Atómicos:** Uso de componente `<Steps />`.
+4.  **Validación:** ¿Cómo sabemos que funcionó?
