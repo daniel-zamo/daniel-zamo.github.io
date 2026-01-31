@@ -60,3 +60,38 @@ header starlight-lang-select select option {
 */
 
 /* src/styles/custom.css */
+
+/* 1. Limpiamos el margen y gap del contenedor principal */
+.site-title {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    /* Forzamos que los elementos internos no se separen */
+    gap: 0 !important; 
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* 2. Eliminamos el after anterior si existía en .site-title */
+.site-title::after {
+    display: none !important;
+}
+
+/* 3. Aplicamos el cursor directamente al SPAN para que sea parte del bloque de texto */
+.site-title span::after {
+    content: '_';
+    /* Ajuste fino de distancia: 0.1em es casi nada */
+    margin-left: -0.2em;
+    padding-left: 0em;
+    color: var(--sl-color-accent-high);
+    animation: terminal-cursor 1.5s step-end infinite;
+    /* Evita que el cursor herede comportamientos extraños */
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+@keyframes terminal-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+/* src/styles/custom.css */
