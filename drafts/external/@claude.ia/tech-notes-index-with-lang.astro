@@ -1,0 +1,295 @@
+---
+// src/pages/[lang]/tech-notes/index.astro
+// Esta es la versión correcta para manejar /es/tech-notes/ y /en/tech-notes/
+
+import { getCollection } from 'astro:content';
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+
+// Definir las rutas estáticas posibles
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'es' } },
+    { params: { lang: 'en' } }
+  ];
+}
+
+const { lang } = Astro.params;
+
+// Obtener todas las notas técnicas
+const allNotes = await getCollection('tech-notes', ({ data }) => {
+  // Filtrar borradores en producción
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+// Filtrar por idioma actual
+const notes = allNotes
+  .filter(note => note.data.lang === lang)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Traducciones
+const translations = {
+  es: {
+    pageTitle: 'Notas Técnicas',
+    pageDescription: 'Procedimientos operativos, SOPs y documentación de incidentes en SysAdmin & DevOps',
+    readMore: 'Leer más',
+    publishedOn: 'Publicado el',
+    updatedOn: 'Actualizado el',
+    tags: 'Etiquetas',
+    noNotes: 'No hay notas publicadas aún.',
+    category: 'Categoría',
+    difficulty: 'Nivel'
+  },
+  en: {
+    pageTitle: 'Technical Notes',
+    pageDescription: 'Operational procedures, SOPs and incident documentation in SysAdmin & DevOps',
+    readMore: 'Read more',
+    publishedOn: 'Published on',
+    updatedOn: 'Updated on',
+    tags: 'Tags',
+    noNotes: 'No published notes yet.',
+    category: 'Category',
+    difficulty: 'Level'
+  }
+};
+
+const t = translations[lang] || translations.es;
+
+// Función helper para formatear fechas
+function formatDate(date, locale) {
+  return date.toLocaleDateString(locale, {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  });
+}
+---
+
+<StarlightPage
+  frontmatter={{
+    title: t.pageTitle,
+    description: t.pageDescription,
+  }}
+>
+  <div class="tech-notes-index">
+    {notes.length === 0 ? (
+      <p class="no-notes">{t.noNotes}</p>
+    ) : (
+      <div class="notes-grid">
+        {notes.map((note) => {
+          const formattedDate = formatDate(note.data.date, lang);
+          const updatedDate = note.data.updated ? formatDate(note.data.updated, lang) : null;
+          
+          // Construir la URL correcta
+          const noteSlug = note.id.replace(/^(es|en)\//, '');
+          const noteUrl = `/${lang}/tech-notes/${noteSlug.replace(/\.mdx?$/, '')}`;
+
+          return (
+            <article class="note-card">
+              <div class="note-header">
+                <h2>
+                  <a href={noteUrl}>
+                    {note.data.title}
+                  </a>
+                </h2>
+                <div class="note-meta">
+                  <time datetime={note.data.date.toISOString()}>
+                    📅 {formattedDate}
+                  </time>
+                  {updatedDate && (
+                    <time datetime={note.data.updated?.toISOString()} class="updated">
+                      🔄 {t.updatedOn}: {updatedDate}
+                    </time>
+                  )}
+                </div>
+              </div>
+
+              <p class="note-description">{note.data.description}</p>
+
+              {note.data.tags && note.data.tags.length > 0 && (
+                <div class="note-tags">
+                  <span class="tags-label">{t.tags}:</span>
+                  {note.data.tags.map(tag => (
+                    <span class="tag">#{tag}</span>
+                  ))}
+                </div>
+              )}
+
+              <div class="note-footer">
+                <span class="category-badge" title={t.category}>
+                  {note.data.category}
+                </span>
+                <span class="difficulty-badge" title={t.difficulty}>
+                  {note.data.difficulty}
+                </span>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    )}
+  </div>
+</StarlightPage>
+
+<style>
+  .tech-notes-index {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .no-notes {
+    text-align: center;
+    color: var(--sl-color-gray-3);
+    font-size: 1.25rem;
+    padding: 4rem 2rem;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .note-card {
+    background: var(--sl-color-gray-6);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .note-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-color: var(--sl-color-accent);
+  }
+
+  .note-header h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .note-header h2 a {
+    color: var(--sl-color-white);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .note-header h2 a:hover {
+    color: var(--sl-color-accent);
+  }
+
+  .note-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    color: var(--sl-color-gray-3);
+    margin-bottom: 1rem;
+  }
+
+  .note-meta .updated {
+    font-style: italic;
+    font-size: 0.8rem;
+  }
+
+  .note-description {
+    color: var(--sl-color-gray-2);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .note-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    align-items: center;
+  }
+
+  .tags-label {
+    color: var(--sl-color-gray-3);
+    font-weight: 600;
+  }
+
+  .tag {
+    background: var(--sl-color-gray-5);
+    color: var(--sl-color-accent);
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+
+  .tag:hover {
+    background: var(--sl-color-gray-4);
+  }
+
+  .note-footer {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sl-color-gray-5);
+  }
+
+  .category-badge,
+  .difficulty-badge {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .category-badge {
+    background: var(--sl-color-accent);
+    color: var(--sl-color-black);
+  }
+
+  .difficulty-badge {
+    background: var(--sl-color-gray-5);
+    color: var(--sl-color-white);
+  }
+
+  @media (max-width: 768px) {
+    .notes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .note-card {
+      padding: 1.25rem;
+    }
+
+    .note-header h2 {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Modo claro */
+  [data-theme="light"] .note-card {
+    background: var(--sl-color-white);
+    border-color: var(--sl-color-gray-4);
+  }
+
+  [data-theme="light"] .note-card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="light"] .note-header h2 a {
+    color: var(--sl-color-gray-6);
+  }
+
+  [data-theme="light"] .note-description {
+    color: var(--sl-color-gray-5);
+  }
+</style>

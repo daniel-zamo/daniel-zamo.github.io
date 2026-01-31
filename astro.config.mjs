@@ -10,11 +10,10 @@ export default defineConfig({
     },
 
     integrations: [
-        // 1. Integración de Mermaid para diagramas (Cargada antes de Starlight)
         mermaid(),
         
         starlight({
-            title: 'DZ | SysAdmin & DevOps',
+            title: 'dz.log',
             favicon: '/favicon.png',
             social: [
                 { icon: 'github', label: 'GitHub', href: 'https://github.com/daniel-zamo/daniel-zamo.github.io' },
@@ -28,10 +27,7 @@ export default defineConfig({
                 en: { label: 'English', lang: 'en' },
                 es: { label: 'Español', lang: 'es' }
             },
-
-            // Script persistente para forzar el tema oscuro y Metadatos de RSS
             head: [
-                // Autodetección de RSS para navegadores
                 {
                     tag: 'link',
                     attrs: {
@@ -54,15 +50,14 @@ export default defineConfig({
             ],
 
             sidebar: [
-                // --- SECCIÓN: NOTAS TÉCNICAS (NATIVA Y ESTABLE) ---
                 {
                     label: 'Tech Notes',
                     translations: { es: 'Notas Técnicas' },
-                    autogenerate: { directory: 'notes' },
-                    collapsed: true,
+                    link: 'tech-notes/',
+                    badge: { text: 'Blog', variant: 'note' }
                 },
 
-                // --- SECCIÓN: OPERACIONES CLOUD AZURE ---
+                // Resto de secciones existentes...
                 {
                     label: 'Azure Cloud Ops.', 
                     translations: { es: 'Operaciones Cloud Azure' },
@@ -87,7 +82,6 @@ export default defineConfig({
                     ],
                 },
 
-                // --- SECCIÓN: PROYECTOS (PORTFOLIO) ---
                 {
                     label: 'Projects',
                     translations: { es: 'Proyectos' },

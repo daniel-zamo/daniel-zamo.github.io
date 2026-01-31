@@ -1,50 +1,34 @@
-// src/content.config.ts
 import { defineCollection, z } from 'astro:content';
-import { docsSchema, i18nSchema } from '@astrojs/starlight/schema';
-import { glob } from 'astro/loaders'; // <-- Importante para Astro 5
+import { docsSchema } from '@astrojs/starlight/schema';
+import { glob } from 'astro/loaders';
 
-// 1. Colección 'docs' (Documentación y Notas)
 const docs = defineCollection({
-  // En Astro 5 especificamos explícitamente dónde buscar y qué extensiones
   loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/docs' }),
   schema: docsSchema({
     extend: z.object({
       source: z.string().optional(),
-      domain: z.enum([
-        'compute', 'storage', 'networking', 'security', 
-        'virtualization', 'containers', 'automation', 
-        'monitoring', 'cloud'
-      ]).optional(),
-      type: z.enum([
-        'lab', 'theory', 'cheatsheet', 'scenario', 
-        'configuration', 'project'
-      ]).default('theory'),
+      type: z.enum(['lab', 'theory', 'cheatsheet', 'scenario', 'configuration', 'project']).default('theory'),
     }),
   }),
 });
 
-// 2. Colección 'questions' (Silenciamos el warning definiendo el loader correctamente)
-const questions = defineCollection({
-  // Si vas a usar JSON o YAML para los quizzes en el futuro
-  loader: glob({ pattern: '**/*.{json,yaml}', base: 'src/content/questions' }),
+const techNotes = defineCollection({
+  loader: glob({ pattern: '**/*.{md,mdx}', base: 'src/content/tech-notes' }),
   schema: z.object({
-    exam: z.string(),
-    topic: z.string(),
-    difficulty: z.enum(['easy', 'medium', 'hard']),
-    question: z.object({
-      scenario: z.string().optional(),
-      prompt: z.string(),
-    }),
-    options: z.array(z.object({ id: z.string(), text: z.string() })),
-    correctAnswerId: z.string(),
-    explanation: z.object({
-      summary: z.string(),
-      breakdown: z.array(z.object({ optionId: z.string(), reasoning: z.string() })),
-    }),
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    updated: z.coerce.date().optional(),
+    tags: z.array(z.string()).default([]),
+    category: z.enum(['sop', 'troubleshooting', 'howto', 'quickref', 'case-study', 'automation']).default('sop'),
+    systems: z.array(z.string()).optional(),
+    difficulty: z.enum(['beginner', 'intermediate', 'advanced']).default('intermediate'),
+    author: z.string().default('Daniel Zamo'),
+    draft: z.boolean().default(false),
+    lang: z.enum(['es', 'en']).default('es'),
+    // Agregamos un campo slug opcional por si quieres forzar una URL distinta en el futuro
+    slug: z.string().optional(), 
   }),
 });
 
-// Nota: No incluimos 'i18n' aquí a menos que tengas archivos en src/content/i18n/
-// Starlight lo gestiona internamente si no hay overrides.
-
-export const collections = { docs };
+export const collections = { docs, 'tech-notes': techNotes };

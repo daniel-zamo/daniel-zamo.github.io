@@ -1,0 +1,41 @@
+---
+// src/pages/[lang]/tech-notes/[...slug].astro
+import { getCollection, render } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import TechNoteLayout from "../../../layouts/TechNoteLayout.astro";
+
+export async function getStaticPaths() {
+  const notes = await getCollection("tech-notes");
+
+  return notes.map((note) => {
+    // note.id = "es/howto/wsl-export-guide.mdx"
+    const segments = note.id.split("/");
+    const lang = segments[0]; // "es" o "en"
+    const slug = segments
+      .slice(1)
+      .join("/")
+      .replace(/\.(md|mdx)$/, ""); // "howto/wsl-export-guide"
+
+    return {
+      params: { lang, slug },
+      props: { note },
+    };
+  });
+}
+
+const { note } = Astro.props;
+const { Content, headings } = await render(note);
+---
+
+<StarlightPage
+  frontmatter={{
+    title: note.data.title,
+    description: note.data.description,
+    template: "doc", // Esto habilita el comportamiento de documento de Starlight
+  }}
+  headings={headings}
+>
+  <TechNoteLayout entry={note}>
+    <Content />
+  </TechNoteLayout>
+</StarlightPage>
