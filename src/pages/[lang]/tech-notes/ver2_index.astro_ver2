@@ -73,11 +73,9 @@ const t = translations[lang] || translations.es;
                   </time>
                 </header>
                 <p>{note.data.description}</p>
-                <div class="tags-container">
+                <div class="tags">
                   {note.data.tags.map((tag) => (
-                    <a href={`/es/tags/${tag}`} class="tag-link">
-                      #{tag}
-                    </a>
+                    <span class="tag">#{tag}</span>
                   ))}
                 </div>
               </article>
@@ -140,15 +138,5 @@ const t = translations[lang] || translations.es;
   .tag {
     font-size: 0.75rem;
     color: var(--sl-color-accent);
-  }
-
-  .tag-link {
-    color: var(--sl-color-accent);
-    text-decoration: none;
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-  }
-  .tag-link:hover {
-    text-decoration: underline;
   }
 </style>

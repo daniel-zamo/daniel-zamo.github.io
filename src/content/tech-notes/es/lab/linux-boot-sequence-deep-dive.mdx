@@ -1,5 +1,5 @@
 ---
-title: "Deep Dive: Secuencia de Arranque en Linux (LFCS)"
+title: "Deep Dive: Secuencia de Arranque en Linux"
 description: "Análisis detallado del flujo de arranque desde el encendido del hardware hasta el prompt de login, cubriendo arquitecturas BIOS/MBR y UEFI/GPT."
 date: 2026-01-31
 category: "lab"
@@ -109,7 +109,7 @@ Como administrador, puedes auditar este proceso con las siguientes herramientas:
 | `systemd-analyze` | Medir cuánto tiempo tardó cada etapa del boot. |
 | `systemd-analyze blame` | Listar qué servicios tardaron más en cargar. |
 | `lsblk` | Verificar si el esquema es MBR (msdos) o GPT. |
-| `[ -d /sys/firmware/efi ] && echo UEFI || echo BIOS` | Detectar modo de arranque actual. |
+| `[ -d /sys/firmware/efi ] && echo UEFI \|\| echo BIOS` | Detectar modo de arranque actual. |
 
 ---
 

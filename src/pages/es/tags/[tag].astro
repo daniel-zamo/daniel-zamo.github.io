@@ -1,0 +1,41 @@
+---
+// src/pages/es/tags/[tag].astro
+import { getCollection } from "astro:content";
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+
+export async function getStaticPaths() {
+  const allNotes = await getCollection("docs", ({ id }) =>
+    id.startsWith("es/tech-notes/"),
+  );
+
+  // Extraemos todos los tags únicos de todos los artículos
+  const uniqueTags = [
+    ...new Set(allNotes.map((note) => note.data.tags || []).flat()),
+  ];
+
+  return uniqueTags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      notes: allNotes.filter((note) => note.data.tags?.includes(tag)),
+    },
+  }));
+}
+
+const { tag, notes } = Astro.props;
+---
+
+<StarlightPage
+  frontmatter={{ title: `Notas sobre: #${tag}`, template: "splash" }}
+>
+  <div class="card-grid">
+    {
+      notes.map((note) => (
+        <a href={`/${note.slug}`} class="note-card">
+          <h3>{note.data.title}</h3>
+          <p>{note.data.description}</p>
+        </a>
+      ))
+    }
+  </div>
+</StarlightPage>

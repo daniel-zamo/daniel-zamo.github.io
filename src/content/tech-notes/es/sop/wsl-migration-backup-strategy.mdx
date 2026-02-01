@@ -1,7 +1,7 @@
 ---
 title: "Estrategia de Backup WSL 2: Grandes Volúmenes (>2GB)"
 description: "Resolución de errores de exportación de instancias pesadas y corrección de sintaxis para 7-Zip en PowerShell."
-date: 2026-01-30
+date: 2026-01-30T10:00:00Z
 category: "sop"
 systems: ["windows", "linux"]
 difficulty: "intermediate"
@@ -10,6 +10,7 @@ author: "Daniel Zamo"
 lang: "es"
 sidebar:
   label: "WSL 2: Backup >2GB"
+  order: 10
   badge:
     text: "SOP"
     variant: caution
@@ -38,7 +39,7 @@ graph TD
     Size -- Sí --> Tool[7-Zip / ZIP64]
     Size -- No --> Native[Compress-Archive]
     Tool --> Syntax[Sintaxis: Separación por ESPACIOS]
-    Syntax --> Final[/ZIP/ tar.gz generado]
+    Syntax --> Final[/"ZIP/ tar.gz generado"/]
     Native --> Final
     
     style Tool fill:#f96,stroke:#333,color:#000
@@ -102,11 +103,6 @@ Al invocar binarios externos como `7z.exe`, PowerShell maneja los argumentos de 
     description="Requisitos para generar el archivo .tar inicial." 
     href="/es/tech-notes/howto/wsl-export-guide/" 
   />
-  <LinkCard 
-    title="Validación de Integridad" 
-    description="Script para verificar el tamaño final en GB." 
-    href="https://www.7-zip.org/" 
-  />
 </CardGrid>
 
 :::tip[Tip de Verificación]
@@ -115,4 +111,4 @@ Confirmar siempre el tamaño del bundle generado:
 :::
 
 ---
-**Generado por:** dzamo-sysadmin | **Versión:** 1.0 | **Sintaxis:** Verificada en PS7
+**Generado por:** dzamo-sysadmin | **Versión:** 1.1 | **Fix:** Mermaid Syntax
