@@ -1,0 +1,6 @@
+---
+- name: Preparar Nodos para Clúster Kubernetes
+  hosts: k8s_cluster
+  become: yes
+  roles:
+    - kubernetes_bootstrap

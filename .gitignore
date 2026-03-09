@@ -75,6 +75,7 @@ temp/
 **/+/
 **/_projects/external
 daniel-zamo.github.io_generate_report.sh
+**/*report-spec*.md
 
 # Scripts de automatización que no deben versionarse (según tu contexto)
 scripts/ops/.secrets
@@ -97,3 +98,17 @@ __pycache__/
 !**/_category_.json
 !**/_category_.yml
 !**/_category_.yaml
+
+# =========================================
+# 8. Ansible
+# =========================================
+*.retry
+*.log
+.ansible/
+# Si usas Vault con archivo de password
+.ansible_vault_pass
+# SSH sockets de ControlPersist
+ansible-ssh-*
+inventory
+hosts.ini
+inventory.ini

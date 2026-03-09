@@ -1,23 +1,25 @@
+// docusaurus.config.js
 const devServerPlugin = require("./src/plugins/devServer/index.js");
-
-const isProd = process.env.NODE_ENV === "production";
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: "dz.log",
   tagline: "Documentación técnica y notas de IT",
 
+  // 1. Configuración de Identidad y Rutas (GitHub)
   url: "https://daniel-zamo.github.io",
   baseUrl: "/kb/", 
   organizationName: "daniel-zamo",
   projectName: "daniel-zamo.github.io",
   trailingSlash: true, 
 
+  // 2. Idioma Único (Español)
   i18n: {
     defaultLocale: "es",
     locales: ["es"],
   },
 
+  // Estrictos con los links para asegurar calidad de portfolio
   onBrokenLinks: "throw", 
 
   themes: [ '@docusaurus/theme-mermaid' ],
@@ -29,30 +31,16 @@ module.exports = {
   favicon: 'img/favicon.ico',
   future: { v4: true },
 
-  headTags: [
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'icon',
-        type: 'image/png',
-        sizes: '32x32',
-        href: '/img/favicon-32x32.png',
-      },
-    },
-    {
-      tagName: 'link',
-      attributes: {
-        rel: 'apple-touch-icon',
-        sizes: '180x180',
-        href: '/img/apple-touch-icon.png',
-      },
-    },
-  ],
-
   themeConfig: {
+    colorMode: {
+      defaultMode: "dark",
+      respectPrefersColorScheme: false,
+      disableSwitch: false,
+    },
+
     announcementBar: {
       id: "announcement_it_v3",
-      content: "🚀 Bienvenido a mi nueva Base de Conocimientos sobre IT",
+      content: "🚀 Bienvenido a dz.log | Knowledge Engineering Hub",
       backgroundColor: "#4368E3",
       textColor: "#ffffff",
       isCloseable: true,
@@ -62,10 +50,6 @@ module.exports = {
         hideable: true,
         autoCollapseCategories: true,
       },
-    },
-    colorMode: {
-      defaultMode: "dark",
-      respectPrefersColorScheme: true,
     },
     navbar: {
       title: "dz.log", 
@@ -82,6 +66,7 @@ module.exports = {
           href: "https://github.com/daniel-zamo/daniel-zamo.github.io",
           label: "GitHub",
           position: "right",
+          className: "header-github-link",
         },
       ],
     },
@@ -97,7 +82,7 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          routeBasePath: "/",
+          routeBasePath: "/", 
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
         },
@@ -116,7 +101,7 @@ module.exports = {
       require.resolve("@easyops-cn/docusaurus-search-local"),
       ({
         hashed: true,
-        language: ["en", "es"],
+        language: ["es"],
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
@@ -126,7 +111,7 @@ module.exports = {
       }),
     ],
 
-    // --- PLUGIN PARA IMPORTAR ARCHIVOS EXTERNOS COMO TEXTO ---
+    // PLUGIN DE CARGA DE CÓDIGO FUENTE (SSOT)
     function rawLoaderPlugin(context, options) {
       return {
         name: 'raw-loader-plugin',
@@ -135,9 +120,8 @@ module.exports = {
             module: {
               rules: [
                 {
-                  // Detecta archivos de script, texto o configuración
-                  test: /\.(sh|ps1|txt|yml|yaml|cmd)$/,
-                  // Webpack 5 Asset Modules: importa el contenido como string
+                  // Ampliado para soportar toda la toolchain de Ansible y Scripts
+                  test: /\.(sh|ps1|txt|yml|yaml|cmd|ini|cfg)$/,
                   type: 'asset/source',
                 },
               ],

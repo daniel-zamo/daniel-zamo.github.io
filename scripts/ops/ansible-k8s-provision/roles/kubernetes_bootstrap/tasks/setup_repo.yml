@@ -1,0 +1,25 @@
+---
+- name: Crear directorio para keyrings con permisos correctos
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Descargar y desarmar llave GPG de Kubernetes v1.35
+  ansible.builtin.get_url:
+    url: "{{ k8s_repo_url }}/Release.key"
+    dest: /tmp/kubernetes-release.key
+    mode: '0644'
+
+- name: Convertir llave a formato de confianza (dearmor)
+  ansible.builtin.shell: |
+    cat /tmp/kubernetes-release.key | gpg --dearmor -o {{ k8s_gpg_keyring }}
+  args:
+    creates: "{{ k8s_gpg_keyring }}"
+
+- name: Configurar repositorio oficial de Kubernetes
+  ansible.builtin.apt_repository:
+    repo: "deb [signed-by={{ k8s_gpg_keyring }}] {{ k8s_repo_url }} /"
+    filename: kubernetes
+    state: present
+    update_cache: yes

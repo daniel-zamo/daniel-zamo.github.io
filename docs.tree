@@ -1,0 +1,62 @@
+docs/
+├── 00_Inbox.md
+├── data-engineering
+│   ├── _category_.json
+│   └── cloudera-administration
+│       ├── _category_.json
+│       ├── cdp-configuration-governance.mdx
+│       ├── cdp-logs-taxonomy-rca.md
+│       ├── cdp-tuning-operations-sop.mdx
+│       ├── hdfs-architecture-principles.mdx
+│       ├── hdfs-architecture-principles-part-ii.mdx
+│       ├── hdfs-commands-cheatsheet.mdx
+│       ├── hdfs-operations-guide.mdx
+│       ├── hdfs-operations-sop.mdx
+│       ├── hdfs-storage-defense-architecture.mdx
+│       ├── hdfs-storage-governance.mdx
+│       ├── hdfs-storage-management-sop.mdx
+│       └── index.mdx
+├── doc-home-page.mdx
+├── doc-home-page.mdx.v1.001
+├── engineering-standards
+│   ├── ai-protocols
+│   │   ├── ai-prompting-protocols.mdx
+│   │   ├── _category_.json
+│   │   └── document-ingestion-pipeline.mdx
+│   ├── overview.mdx
+│   └── version-control
+│       ├── _category_.json
+│       ├── docusaurus-visibility-lifecycle.mdx
+│       ├── git-branching-model.mdx
+│       ├── git-conventional-commits.mdx
+│       ├── gitlab-api-pipeline-cleanup.DRAFT.mdx
+│       └── gitlab-api-pipeline-cleanup.mdx
+├── homepage.css
+├── homePageData.js
+├── platform-engineering
+│   ├── _category_.json
+│   ├── certification-lab
+│   │   ├── _category_.json
+│   │   ├── cka-environment-bootstrap.mdx
+│   │   ├── cka-terminal-productivity.mdx
+│   │   ├── k8s-binaries-install.mdx
+│   │   ├── k8s-cluster-bootstrap-calico.mdx
+│   │   └── k8s-os-runtime-prep.mdx
+│   └── index.mdx
+└── sysadmin-linux
+    ├── _category_.json
+    ├── desktop
+    │   ├── _category_.json
+    │   ├── deb13-vscode-dev-setup.mdx
+    │   ├── dotfiles-management.mdx
+    │   └── ubuntu-vscode-dev-setup.mdx
+    ├── index.mdx
+    ├── runtimes
+    │   ├── _category_.json
+    │   └── node-runtime-setup.mdx
+    └── terminal-tools
+        ├── _category_.json
+        ├── dotfiles-management.mdx
+        └── vim-sovereignty.mdx
+
+12 directories, 48 files

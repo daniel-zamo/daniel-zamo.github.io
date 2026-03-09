@@ -1,0 +1,5 @@
+hostname,ram,vcpus,ip
+cluster1-master1,2048,2,172.17.17.200
+cluster1-worker1,2048,2,172.17.17.221
+cluster1-worker2,2048,2,172.17.17.222
+cluster1-worker3,2048,2,172.17.17.223

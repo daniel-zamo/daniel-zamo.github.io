@@ -15,6 +15,7 @@ import {
     setupCards,
     deployOptions,
     k8sLifecycleCards,
+    projectCards,
     sectionCards
 } from './homePageData';
 import Link from '@docusaurus/Link';
@@ -150,17 +151,20 @@ export const SectionContainer = ({ title, description, children }) => (
         </div>
 
         <div className="w-full p-10 space-y-12">
+            
+            {/* 1. SECCIÓN PRIORITARIA: IaC Projects (Ansible/KVM) */}
             <SectionContainer 
-                title={textLabels.setupDanielZamo.title}
-                description={textLabels.setupDanielZamo.description}
+                title={textLabels.iacProjects.title}
+                description={textLabels.iacProjects.description}
             >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {setupCards.map((card, index) => (
+                    {projectCards.map((card, index) => (
                         <IconCard key={index} {...card} />
                     ))}
                 </div>
             </SectionContainer>
 
+            {/* 2. Ciclo de Vida del Clúster */}
             <SectionContainer 
                 title={textLabels.k8sLifecycle.title}
                 description={textLabels.k8sLifecycle.description}
@@ -172,6 +176,19 @@ export const SectionContainer = ({ title, description, children }) => (
                 </div>
             </SectionContainer>
 
+            {/* 3. Kubernetes: Foundation & Productivity */}
+            <SectionContainer 
+                title={textLabels.setupDanielZamo.title}
+                description={textLabels.setupDanielZamo.description}
+            >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {setupCards.map((card, index) => (
+                        <IconCard key={index} {...card} />
+                    ))}
+                </div>
+            </SectionContainer>
+
+            {/* 4. Footer de SOPs Destacados */}
             <SectionContainer title={textLabels.deployOn.title}>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     {deployOptions.map((option, index) => (

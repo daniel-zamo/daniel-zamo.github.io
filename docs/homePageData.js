@@ -11,27 +11,15 @@ import {
   Server,
   Terminal,
   Edit,
-  Cpu,     // IMPORTANTE: Añadido
-  Network, // IMPORTANTE: Añadido
+  Cpu,
+  Network,
   ShieldCheck,
-  Layers,
-  FileSpreadsheet,
-  Folder,
-  Wand2,
-  Users,
-  UserCheck,
-  Lock,
-  UserPlus,
-  ScrollText,
-  Megaphone,
-  Gem,
-  Mail,
-  ShoppingBag,
-  Flag,
-  Container
+  Container,
+  Boxes,
+  Zap   
 } from "lucide-react";
 
-// Categorías Principales
+// 1. Categorías Principales (Grid Superior)
 export const featureCards = [
   {
     icon: Database,
@@ -70,25 +58,25 @@ export const featureCards = [
   },
 ];
 
-// Sección CKA: Entorno y Productividad
-export const setupCards = [
+// 2. SECCIÓN PRIORITARIA: Proyectos Destacados de IaC
+export const projectCards = [
   {
-    icon: Cog,
-    title: "Bootstrap del Entorno",
+    icon: Boxes,
+    title: "KVM/Cloud-Init Provisioner",
     color: "text-blue-500",
-    content: "Configuración de terminal de alto rendimiento: aliases críticos y optimización de variables de entorno.",
-    href: "/platform-engineering/certification-lab/cka-environment-bootstrap",
+    content: "Automatización de infraestructura inmutable. Provisión dinámica de nodos mediante discos diferenciales e inyección de Cloud-Init.",
+    href: "/platform-engineering/certification-lab/k8s-infrastructure-provisioning",
   },
   {
-    icon: Cpu,
-    title: "Productividad Operativa",
+    icon: Zap,
+    title: "Ansible K8s Orchestrator",
     color: "text-blue-500",
-    content: "Maximización del throughput de comandos y gestión de latencia humana en entornos de certificación.",
-    href: "/platform-engineering/certification-lab/cka-terminal-productivity",
+    content: "Orquestación idempotente para el ciclo de vida de Kubernetes v1.35. Gestión de roles, repositorios y version-pinning.",
+    href: "/platform-engineering/certification-lab/k8s-ansible-orchestration",
   },
 ];
 
-// NUEVA SECCIÓN: Lifecycle de Kubernetes
+// 3. Lifecycle de Kubernetes
 export const k8sLifecycleCards = [
   {
     icon: ShieldCheck,
@@ -113,6 +101,25 @@ export const k8sLifecycleCards = [
   },
 ];
 
+// 4. Sección CKA: Entorno y Productividad
+export const setupCards = [
+  {
+    icon: Cog,
+    title: "Bootstrap del Entorno",
+    color: "text-blue-500",
+    content: "Configuración de terminal de alto rendimiento: aliases críticos y optimización de variables de entorno.",
+    href: "/platform-engineering/certification-lab/cka-environment-bootstrap",
+  },
+  {
+    icon: Cpu,
+    title: "Productividad Operativa",
+    color: "text-blue-500",
+    content: "Maximización del throughput de comandos y gestión de latencia humana en entornos de certificación.",
+    href: "/platform-engineering/certification-lab/cka-terminal-productivity",
+  },
+];
+
+// 5. Procedimientos Destacados (Footer)
 export const deployOptions = [
   { icon: GitBranch, title: "Branching Models", href: "/engineering-standards/version-control/git-branching-model" },
   { icon: GitCommit, title: "Conventional Commits", href: "/engineering-standards/version-control/git-conventional-commits" },
@@ -129,13 +136,17 @@ export const textLabels = {
   subtitle:
     "Documentación Técnica de Grado Industrial: Estándares de Configuración, Procedimientos Operativos (SOP) y Estrategias de Platform Engineering.",
   
-  setupDanielZamo: {
-    title: "Kubernetes: Foundation & Productivity",
-    description: "Estándares de preparación para la certificación CKA y optimización de la terminal de administración.",
+  iacProjects: {
+    title: "Infrastructure-as-Code (IaC) Projects",
+    description: "Soluciones de automatización escalables aplicadas a entornos de infraestructura real.",
   },
   k8sLifecycle: {
     title: "Cluster Lifecycle Management",
     description: "Protocolos paso a paso para el despliegue de infraestructura de cómputo distribuido sobre Kubernetes v1.35.",
+  },
+  setupDanielZamo: {
+    title: "Kubernetes: Foundation & Productivity",
+    description: "Estándares de preparación para la certificación CKA y optimización de la terminal de administración.",
   },
   deployOn: {
     title: "Procedimientos Operativos Destacados (SOP)",
@@ -148,4 +159,14 @@ export const sectionCards = {
     description: "Acceso directo al framework de configuración de nodos y bootstrap de clústeres de prueba.",
     link: "/platform-engineering/certification-lab/k8s-os-runtime-prep",
   },
+};
+
+export const allCards = {
+  featureCards,
+  projectCards,
+  k8sLifecycleCards,
+  setupCards,
+  deployOptions,
+  textLabels,
+  sectionCards
 };

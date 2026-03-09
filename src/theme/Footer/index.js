@@ -27,9 +27,14 @@ function Footer() {
                   sources={{ light: logo.src, dark: logo.srcDark || logo.src }}
                   style={{ width: '160px', height: 'auto', boxShadow: 'none', borderRadius: '0' }}
                 />
-                <p className="footer__tagline" style={{ marginTop: '0.5rem' }}>AI-powered apps, built with AI</p>
+                {/* 1. PERSONALIZACIÓN DEL TAGLINE */}
+                <p className="footer__tagline" style={{ marginTop: '0.5rem' }}>
+                    Ingeniería de Plataforma & Notas Técnicas
+                </p>
+                
                 <div className="footer__socials" style={{ marginTop: '1rem', display: 'flex', gap: '1rem' }}>
-                  <a href="https://github.com/ToolJet" target="_blank" rel="noopener noreferrer">
+                  {/* 2. ENLACES SOCIALES PERSONALES */}
+                  <a href="https://github.com/daniel-zamo" target="_blank" rel="noopener noreferrer">
                     <ThemedImage
                       sources={{
                         light: '/img/github-icon.svg',
@@ -39,23 +44,13 @@ function Footer() {
                       style={{ width: '24px', height: '24px', objectFit: 'contain', boxShadow: 'none', borderRadius: '0' }}
                     />
                   </a>
-                  <a href="https://tooljet.ai/slack" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.linkedin.com/in/danielzamo/" target="_blank" rel="noopener noreferrer">
                     <ThemedImage
                       sources={{
-                        light: '/img/slack-icon.svg',
-                        dark: '/img/slack-icon.svg'
+                        light: '/img/linkedin-icon.svg', // Asegúrate de tener este icono o usa uno genérico
+                        dark: '/img/linkedin-icon.svg'
                       }}
-                      alt="Slack"
-                      style={{ width: '24px', height: '24px', objectFit: 'contain', boxShadow: 'none', borderRadius: '0' }}
-                    />
-                  </a>
-                  <a href="https://x.com/ToolJet" target="_blank" rel="noopener noreferrer">
-                    <ThemedImage
-                      sources={{
-                        light: '/img/x-icon.svg',
-                        dark: '/img/x-icon-white.svg'
-                      }}
-                      alt="X"
+                      alt="LinkedIn"
                       style={{ width: '24px', height: '24px', objectFit: 'contain', boxShadow: 'none', borderRadius: '0' }}
                     />
                   </a>
@@ -84,10 +79,28 @@ function Footer() {
               <FooterCopyright copyright={copyright} />
             )}
           </div>
-          <div className="footer__policies" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <Link to="https://www.tooljet.ai/privacy" style={{ color: '#606770' }}>Privacy policy</Link>
-            <span></span><span></span><span></span>
-            <Link to="https://www.tooljet.ai/terms" style={{ color: '#606770' }}>Terms of Service</Link>
+          
+          {/* 3. PERSONALIZACIÓN DE POLÍTICAS Y ENLACES LEGALES */}
+          <div className="footer__policies" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+            {/* Link a la Licencia que creamos en el README */}
+            <Link 
+                to="https://github.com/daniel-zamo/daniel-zamo.github.io/blob/main/LICENSE" 
+                style={{ color: '#606770', fontSize: '0.9rem' }}>
+                Licencia MIT
+            </Link>
+            
+            {/* Link a tu perfil profesional o una página de contacto/sobre mí */}
+            <Link 
+                to="/engineering-standards/overview" 
+                style={{ color: '#606770', fontSize: '0.9rem' }}>
+                Estándares
+            </Link>
+
+            <Link 
+                to="https://www.linkedin.com/in/danielzamo/" 
+                style={{ color: '#606770', fontSize: '0.9rem' }}>
+                Contacto
+            </Link>
           </div>
         </div>
       </div>

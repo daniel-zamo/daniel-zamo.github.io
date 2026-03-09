@@ -1,0 +1,75 @@
+---
+id: k8s-ansible-orchestration
+title: "Proyecto: Orquestación de Kubernetes con Ansible"
+sidebar_label: "Orquestación con Ansible"
+sidebar_position: 70
+#slug: /platform-engineering/k8s-ansible-orchestration
+description: "Arquitectura de despliegue automatizado de componentes core de Kubernetes v1.35 mediante roles de Ansible altamente desacoplados."
+tags: [Ansible, Automation, Kubernetes, DevOps]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+// Importaciones de código real
+import AnsibleCfg from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/ansible.cfg';
+import Inventory from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/inventory.ini';
+import MainTasks from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/roles/kubernetes_bootstrap/tasks/main.yml';
+import InstallTasks from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/roles/kubernetes_bootstrap/tasks/install.yml';
+
+# Orquestación de Kubernetes con Ansible
+
+Este proyecto demuestra la capacidad de gestionar configuraciones complejas de forma **idempotente** y **escalable**. Hemos diseñado un rol de Ansible (`kubernetes_bootstrap`) que automatiza el ciclo de vida de la instalación de binarios v1.35 en un entorno multi-nodo.
+
+## 1. Diseño de la Configuración (`ansible.cfg`)
+
+Hemos optimizado la comunicación SSH y la salida visual para mejorar la experiencia de depuración del ingeniero.
+
+<CodeBlock language="ini" title="ansible.cfg">
+  {AnsibleCfg}
+</CodeBlock>
+
+---
+
+## 2. Inventario Semántico
+
+El inventario separa las responsabilidades de red de la lógica de negocio, agrupando nodos por función (Masters vs Workers).
+
+<CodeBlock language="ini" title="inventory.ini">
+  {Inventory}
+</CodeBlock>
+
+---
+
+## 3. Implementación del Rol: `kubernetes_bootstrap`
+
+La arquitectura del rol sigue el principio de **Responsabilidad Única**, dividiendo las tareas en unidades lógicas.
+
+<Tabs>
+  <TabItem value="main" label="Task: main.yml" default>
+    Este es el orquestador del rol que detecta el sistema operativo y llama a las subtareas.
+    <CodeBlock language="yaml">{MainTasks}</CodeBlock>
+  </TabItem>
+  <TabItem value="install" label="Task: install.yml">
+    Gestión de paquetes y **Versioning Pinning** para evitar el drift de configuración.
+    <CodeBlock language="yaml">{InstallTasks}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+## 4. Análisis de Ingeniería (Interview Ready)
+
+Durante el desarrollo de este proyecto, se implementaron las siguientes mejores prácticas de DevOps:
+
+1.  **Idempotencia:** Los playbooks pueden ejecutarse múltiples veces sin alterar el estado final si el clúster ya está configurado correctamente.
+2.  **Mantenibilidad:** El uso de variables (`k8s_version`) permite actualizar la versión de todo el clúster cambiando un solo valor en `defaults/main.yml`.
+3.  **Handlers:** Solo reiniciamos el `kubelet` si ha habido un cambio real en los archivos de configuración o binarios, minimizando el downtime de los nodos.
+4.  **Seguridad:** El uso de `remote_user: candidate` con privilegios de sudo controlados garantiza el principio de mínimo privilegio.
+
+:::tip Puntos Clave para la Entrevista
+Si te preguntan por qué Ansible y no solo Bash: "Ansible nos permite garantizar el **Estado Deseado** y facilita la escalabilidad. Si mañana necesitamos 100 workers, solo hay que añadirlos al `inventory.ini` y ejecutar el playbook; con Bash, el manejo de errores sería inmanejable".
+:::
+
+---
+**Documentación Relacionada:**
+- [SOP: Despliegue de Binarios K8s (Manual)](./k8s-binaries-install.mdx)
+- [Estrategia de Ramas](../../engineering-standards/version-control/git-branching-model.mdx)
