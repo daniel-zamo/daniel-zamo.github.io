@@ -1,0 +1,109 @@
+---
+id: hdfs-storage-management-sop
+title: "HDFS: SOP de Gestión de Almacenamiento"
+sidebar_label: "SOP Gestión de HDFS"
+sidebar_position: 80
+description: "Procedimientos para snapshots, políticas de retención y recuperación forense de datos."
+tags: [Snapshots, SOP, Backup, HDFS, Recovery]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SOP: Gestión y Defensa de Almacenamiento HDFS
+
+Este Procedimiento Operativo Estándar (SOP) detalla las tareas de administración diaria para garantizar el aislamiento y la recuperabilidad en entornos CDP.
+
+## 1. Aprovisionamiento de Directorios de Usuario
+
+El aprovisionamiento debe realizarse mediante scripts de orquestación para asegurar los permisos adecuados.
+
+<step>
+1. **Ejecución del Script de Cuenta:**
+   ```bash
+   manage_hdfs_user.sh --add
+   ```
+2. **Validación de Estructura:**
+   ```bash
+   hdfs dfs -ls /user
+   ```
+</step>
+
+## 2. Implementación de Cuotas y Snapshots
+
+La defensa del almacenamiento se gestiona preferentemente desde Cloudera Manager para mantener la trazabilidad.
+
+<Tabs>
+  <TabItem value="cm" label="Cloudera Manager (UI)" default>
+
+1. **Cuotas:** HDFS > File Browser > Seleccionar Directorio > **Edit Quota**.
+   - Establecer *File Count Limit* y *Disk Space Limit*.
+2. **Snapshots:** Seleccionar directorio > **Enable Snapshots** > **Take Snapshot**.
+3. **Políticas:** Replication > Snapshot Policies para automatizar la retención (ej. mantener las últimas 3).
+
+![Snapshot Policy CM](/img/hdfs/snapshot_policy_ui.png)
+
+  </TabItem>
+  <TabItem value="cli" label="Administración vía CLI">
+
+Procedimiento manual para situaciones de emergencia o automatización:
+
+```bash
+# Habilitar snapshots en un path
+hdfs dfsadmin -allowSnapshot /user/bo_biz
+
+# Crear snapshot manual
+hdfs dfs -createSnapshot /user/bo_biz second_snap
+
+# Reporte de estado del cluster
+hdfs dfsadmin -report
+```
+
+  </TabItem>
+</Tabs>
+
+## 3. Protocolo de Recuperación de Archivos
+
+HDFS permite la recuperación forense mediante Snapshots o el sistema de Trash.
+
+:::danger Refactorizando danger con Claude AI
+Si un usuario elimina accidentalmente un archivo usando `-skipTrash`, la recuperación se realiza mediante un `cp` desde el directorio oculto:
+
+```bash
+hdfs dfs -cp /user/bo_biz/.snapshot/first_snap/latin.txt /user/bo_biz/
+```
+:::
+
+
+:::info Refactorizando info con Claude AI
+Si un usuario elimina accidentalmente un archivo usando `-skipTrash`, la recuperación se realiza mediante un `cp` desde el directorio oculto:
+
+```bash
+hdfs dfs -cp /user/bo_biz/.snapshot/first_snap/latin.txt /user/bo_biz/
+```
+:::
+
+## 4. Mantenimiento Preventivo: El "Trash Interval"
+
+Para evitar la pérdida accidental de datos, el administrador debe configurar el intervalo de persistencia en la papelera.
+
+1.  **Configuración:** HDFS > Configuration > Buscar `trash`.
+2.  **Parámetros:** 
+    - `fs.trash.interval`: Tiempo de vida de los archivos borrados (ej: 8 horas).
+    - `fs.trash.checkpoint.interval`: Frecuencia con la que el NameNode crea checkpoints de la papelera.
+
+:::caution Limpieza Definitiva
+El uso del comando `hdfs dfs -rm -skipTrash` elude este mecanismo y elimina los bloques de datos de forma inmediata y **no recuperable** (salvo existencia de Snapshot previo).
+:::
+
+## 5. Diagnóstico de Consistencia (`fsck`)
+
+Ante sospechas de corrupción de bloques, se debe ejecutar la herramienta de chequeo de consistencia:
+
+```bash
+hdfs fsck /user/allan_admin/data/ -files -blocks -locations
+```
+Este comando reportará el **Block ID**, su ubicación física en los DataNodes y el estado de replicación actual.
+
+---
+_Referencia: Laboratorios CDP 22-02, 22-03, 22-04_

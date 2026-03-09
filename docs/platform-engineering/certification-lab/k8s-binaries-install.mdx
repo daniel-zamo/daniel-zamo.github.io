@@ -1,0 +1,55 @@
+---
+id: k8s-binaries-install
+title: "SOP: Despliegue de la Toolchain de Kubernetes"
+sidebar_label: "Instalación de Binarios"
+sidebar_position: 40
+#slug: /platform-engineering/k8s-binaries-install
+description: "Protocolo de instalación de kubeadm, kubelet y kubectl utilizando el script de provisión centralizado."
+---
+
+import CodeBlock from '@theme/CodeBlock';
+import RepoScript from '!!raw-loader!@site/scripts/setup/k8s-repo-setup.sh';
+
+# Despliegue de la Toolchain de Kubernetes
+
+Este procedimiento describe la instalación de los binarios fundamentales en todos los nodos del clúster. Para garantizar la consistencia, utilizamos el script de provisión alojado en la raíz del repositorio.
+
+## 1. Sincronización de Repositorios Oficiales
+
+Utilizamos la arquitectura de **Single Source of Truth** importando el script de setup:
+
+<CodeBlock language="bash" title="scripts/setup/k8s-repo-setup.sh">
+  {RepoScript}
+</CodeBlock>
+
+---
+
+## 2. Provisión de Herramientas Core
+
+Instalamos los tres componentes base y aplicamos una política de **Versioning Pinning** para evitar actualizaciones no controladas que puedan comprometer la disponibilidad del clúster.
+
+```bash title="Instalación y Bloqueo de Versión"
+sudo apt install -y kubelet kubeadm kubectl
+
+# Prevención de actualizaciones accidentales vía apt upgrade
+sudo apt-mark hold kubelet kubeadm kubectl
+```
+
+---
+
+## 3. Matriz de Componentes
+
+| Herramienta | Función Arquitectónica | Modo de Operación |
+| :--- | :--- | :--- |
+| **kubeadm** | Orquestador de Bootstrap | CLI Temporal |
+| **kubelet** | Agente de Nodo (Cerebro local) | Daemon (Systemd) |
+| **kubectl** | Interfaz de API Management | Usuario Final / CI/CD |
+
+:::info Verificación de Salud
+Tras la instalación, valide que el servicio `kubelet` esté en estado `active (running)` o en bucle de reinicio (esperando el `kubeadm init`), pero nunca en estado `masked` o `disabled`.
+:::
+
+---
+**Documentación Relacionada:**
+- [SOP: Bootstrap del Clúster (Calico)](./k8s-cluster-bootstrap-calico.mdx)
+- [Estrategia de Ramas](../../engineering-standards/version-control/git-branching-model.mdx)

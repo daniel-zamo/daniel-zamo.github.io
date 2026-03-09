@@ -1,0 +1,9 @@
+{
+  "label": "Administración de Cloudera",
+  "position": 20,
+  "link": {
+    "type": "generated-index",
+    "slug": "cloudera-administration",
+    "description": "Procedimientos operativos estándar empresariales para clústeres CDP."
+  }
+}

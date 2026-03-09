@@ -1,35 +1,99 @@
-*.org
-*.v*
-archive_tier/
-.*.bkp
-/*daniel-zamo.github.io-report-spec.md
-*.sh
-2026*
-
-# build output
-dist/
-# generated types
-.astro/
-
-# dependencies
+# ==========================================
+# 1. Docusaurus & Node Core
+# ==========================================
 node_modules/
+.docusaurus/
+.cache-loader/
+build/
+dist/
+.temp/
+.cache/
 
-# logs
+# ==========================================
+# 2. Logs y Diagnósticos
+# ==========================================
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+*.log
+.eslintcache
 
-# environment variables
+# ==========================================
+# 3. Variables de Entorno y Secretos (Seguridad)
+# ==========================================
 .env
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 .env.production
 
-# macOS-specific files
+# Archivos de llaves o certificados
+*.pem
+*.key
+certs/
+secrets.yaml
+
+# ==========================================
+# 4. Metadatos del Sistema y Editores
+# ==========================================
 .DS_Store
+Thumbs.db
+desktop.ini
 
-# jetbrains setting folder
-.idea/
+# Editores (VSCode, JetBrains, etc)
 .vscode/
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
 
-**/zz_deprecated
+# ==========================================
+# 5. Reglas Personalizadas (Legacy & Workflow)
+# ==========================================
+# Basado en tus archivos anteriores (v*, bkp, etc)
+*.org
+*.v*
+*.bkp
+*~
+**/archive_tier/
+**/zz_*
+*Inbox/
+tmp/
+temp/
+*.tgz
+*.tar
+*.zip
+*.exe
+*.rar
+**/data/
+**/+/
+**/_projects/external
+daniel-zamo.github.io_generate_report.sh
 
+# Scripts de automatización que no deben versionarse (según tu contexto)
+scripts/ops/.secrets
+*.sh.bak
+
+# ==========================================
+# 6. Otros lenguajes (Python/Venv)
+# ==========================================
+# Por si acaso usas scripts de procesamiento de datos en Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# ==========================================
+# 7. Excepciones (Archivos que SÍ queremos)
+# ==========================================
+# Aunque ignoremos carpetas con guion bajo por estándar, 
+# Docusaurus necesita estos para la estructura:
+!**/_category_.json
+!**/_category_.yml
+!**/_category_.yaml

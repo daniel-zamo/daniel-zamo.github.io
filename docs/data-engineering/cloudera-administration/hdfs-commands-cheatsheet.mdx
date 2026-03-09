@@ -1,0 +1,50 @@
+---
+id: hdfs-commands-cheatsheet
+title: HDFS CLI Cheat Sheet
+sidebar_label: HDFS Comandos (Cheat Sheet)
+sidebar_position: 34
+description: "Comando HDFS - Hadoop Distributed File System)."
+tags: [HDFS, Architecture, Big Data, Storage]
+---
+
+# HDFS CLI Cheat Sheet
+
+Guía rápida de comandos para la shell de HDFS (`hdfs dfs`). Todos los comandos se invocan a través del script de shell de HDFS.
+
+## Sintaxis Básica
+```bash
+hdfs dfs <comando> [OPCIONES]
+```
+
+## Comandos de Sistema de Archivos (DFS)
+
+| Comando | Descripción | Ejemplo |
+| :--- | :--- | :--- |
+| **-ls** | Lista los archivos y directorios. | `hdfs dfs -ls /user/centos` |
+| **-mkdir** | Crea un nuevo directorio. | `hdfs dfs -mkdir /data` |
+| **-put** | Sube un archivo local a HDFS. | `hdfs dfs -put local.txt /data/` |
+| **-get** | Descarga un archivo de HDFS al sistema local. | `hdfs dfs -get /data/file.txt .` |
+| **-cat** | Muestra el contenido de un archivo. | `hdfs dfs -cat /data/log.txt` |
+| **-cp** | Copia archivos dentro de HDFS. | `hdfs dfs -cp /src /dest` |
+| **-mv** | Mueve o renombra archivos en HDFS. | `hdfs dfs -mv /old /new` |
+| **-rm** | Elimina un archivo o directorio. | `hdfs dfs -rm -r /tmp/data` |
+| **-chmod** | Cambia permisos de un archivo/directorio. | `hdfs dfs -chmod 755 /data` |
+
+## Otros Comandos Útiles de HDFS
+* `hdfs classpath`: Muestra el classpath necesario para ejecutar aplicaciones Hadoop.
+* `hdfs fsck`: Verifica la integridad del sistema de archivos (bloques corruptos o faltantes).
+* `hdfs dfadmin`: Ejecuta comandos de administración del clúster.
+* `hdfs balancer`: Ejecuta el balanceador de carga del clúster.
+
+## Atributos de Archivos en HDFS
+Al ejecutar `hdfs dfs -ls`, la salida muestra:
+1. **Permissions:** (ej. `drwxr-xr-x`) - `d` para directorio, `-` para archivo.
+2. **Replication Factor:** Número de copias (0 para directorios).
+3. **Owner & Group:** Propietario y grupo del archivo.
+4. **File Size:** Tamaño en bytes.
+5. **Modification Date:** Fecha y hora de la última modificación.
+6. **Name:** Ruta absoluta del archivo.
+
+:::tip Nota sobre Rutas
+HDFS utiliza rutas absolutas. No existe el comando `cd` en la shell de HDFS. Siempre debes referenciar la ruta completa o el sistema usará `/user/<username>` por defecto.
+:::

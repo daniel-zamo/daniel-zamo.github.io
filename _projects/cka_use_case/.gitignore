@@ -1,0 +1,46 @@
+**/+
+**/external
+**/zz_*
+**/*.tgz
+
+# ==========================================
+# Archivos de Sistema y Editores
+# ==========================================
+**/.DS_Store
+**/Thumbs.db
+**/.vscode/
+**/.idea/
+*.swp
+*~
+**/*tmp
+**/*.bkp
+
+# ==========================================
+# Seguridad y DevOps (Buenas prácticas para SysAdmins)
+# ==========================================
+
+# Variables de entorno (Nunca subir secretos)
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/venv
+**/user-data.yaml
+
+# Archivos de infraestructura/scripts que podrían contener datos sensibles
+**/*.pem
+**/*.key
+**/id_rsa*
+**/secrets.yaml
+
+# Si usas Terraform en subcarpetas para provisionar la infraestructura del sitio
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+
+# ==========================================
+# GitLab Específico
+# ==========================================
+# (Opcional) Si generas artefactos de CI/CD localmente
+**/artifacts/

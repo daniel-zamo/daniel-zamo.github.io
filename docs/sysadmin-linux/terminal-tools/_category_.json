@@ -1,0 +1,8 @@
+{
+  "label": "Terminales & Editores",
+  "position": 20,
+  "link": {
+    "type": "generated-index",
+    "description": "Protocolos de eficiencia para interfaces de línea de comandos y edición de flujos de texto."
+  }
+}

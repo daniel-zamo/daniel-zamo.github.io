@@ -1,0 +1,9 @@
+{
+  "label": "Ingeniería de Datos",
+  "position": 5,
+  "link": {
+    "type": "generated-index",
+    "slug": "data-engineering",
+    "description": "Repositorio de metodologías, administración de clústeres Big Data y arquitecturas de almacenamiento distribuido."
+  }
+}

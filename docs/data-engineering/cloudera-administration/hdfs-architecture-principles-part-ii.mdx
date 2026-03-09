@@ -1,0 +1,53 @@
+---
+id: hdfs-architecture-principles-part-ii
+title: "HDFS: Arquitectura y Principios de Diseño - Parte II"
+sidebar_label: "Teoría de HDFS"
+sidebar_position: 32
+description: "Principios de inmutabilidad, Data Locality y gestión de bloques en HDFS (Hadoop Distributed File System)."
+tags: [HDFS, Architecture, Big Data, Storage]
+---
+
+# Teoría de HDFS
+
+Este módulo cubre los principios de diseño, la arquitectura de HDFS  (Hadoop Distributed File System) y YARN, y la gestión de bloques de datos dentro de Cloudera Data Platform.
+
+## 1. Principios de Diseño de Hadoop
+El diseño original de Hadoop se basa en cinco pilares fundamentales:
+* **Smart software, utility hardware:** El software es inteligente para compensar hardware común y económico.
+* **Mover el procesamiento, no los datos:** Es más eficiente enviar el código donde están los datos que viceversa.
+* **Share nothing:** Los nodos no comparten memoria ni almacenamiento centralizado.
+* **Embrace failure:** El sistema asume que el hardware fallará y está diseñado para recuperarse automáticamente.
+* **Enfoque en aplicaciones:** La infraestructura debe ser transparente para el desarrollador.
+
+> **El Mantra de HDFS:** "HDFS es efectivo, pero no es eficiente" (está optimizado para grandes volúmenes, no para latencia mínima).
+
+## 2. Arquitectura: HDFS y YARN
+Hadoop combina almacenamiento y computación trabajando en conjunto:
+
+| Componente | Rol Principal | Responsabilidad |
+| :--- | :--- | :--- |
+| **HDFS** | Almacenamiento | Distribuir datos entre los workers y mantener la **Data Locality**. |
+| **YARN** | Computación | Negociar recursos y ejecutar trabajos de cómputo en paralelo. |
+
+### Roles de los Nodos
+- **NameNode (Maestro):** Mantiene las tablas de búsqueda en memoria (metadatos). Indica a los clientes dónde están los bloques.
+- **DataNode (Worker):** Almacena y escribe los bloques de datos en los discos locales.
+- **ResourceManager (YARN):** Gestiona el inventario de RAM y CPU en el clúster.
+- **NodeManager (YARN):** Gestiona los recursos locales de cada worker.
+
+## 3. Bloques de Datos (Data Blocks)
+* **Inmutables:** Una vez escritos, no se pueden modificar (solo eliminar o sobreescribir el archivo completo).
+* **Tamaño predeterminado:** Hasta **128 MB**.
+* **Factor de Replicación:** Por defecto es **3**.
+* **Validación:** Se validan mediante archivos de *checksum*.
+
+## 4. El Problema de los Archivos Pequeños (Small File Syndrome)
+Un problema crítico en HDFS es tener millones de archivos pequeños (ej. 1 MB).
+* **Impacto en el NameNode:** Cada archivo requiere una entrada en la RAM del NameNode.
+* **Ineficiencia:** Genera sobrecarga en las búsquedas y desperdicia recursos de red y CPU al iniciar contenedores YARN para procesar fragmentos diminutos.
+* **Solución:** Consolidar archivos pequeños en archivos más grandes antes o durante la ingesta.
+
+## 5. Métodos de Acceso
+1. **Cloudera Manager Web UI:** Interfaz de administración general.
+2. **NameNode UI:** Monitoreo del estado del sistema (Puerto por defecto: `9870` o `50070`).
+3. **HDFS CLI:** Línea de comandos para interactuar con el sistema de archivos.

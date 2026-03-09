@@ -1,0 +1,87 @@
+---
+id: hdfs-operations-guide
+title: "HDFS: Guía de Operaciones CLI"
+sidebar_label: "Operaciones HDFS (CLI)"
+sidebar_position: 60
+description: "Manual de comandos de usuario y administración para la gestión de archivos en HDFS."
+tags: [HDFS, CLI, Operations, SysAdmin]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# HDFS: Operaciones de CLI e Inspección Forense
+
+Esta guía establece los procedimientos estándar para la interacción con la capa de almacenamiento de CDP, contrastando el uso de la línea de comandos con la inspección visual de interfaces administrativas.
+
+## 1. Gestión de Privilegios y Acceso
+
+Para ejecutar operaciones de nivel administrativo (como `chown` o gestión de cuotas), el usuario debe estar integrado en el grupo LDAP **`supergroup`**. Esto otorga facultades de superusuario sobre el NameNode y YARN.
+
+## 2. Protocolos de Interacción
+
+<Tabs>
+  <TabItem value="cli" label="HDFS Shell (CLI)" default>
+
+El comando `hdfs dfs` emula la sintaxis de Linux pero opera sobre un sistema de archivos distribuido.
+
+| Comando | Función | Ejemplo de Uso |
+| :--- | :--- | :--- |
+| `put` | Ingesta de datos | `hdfs dfs -put data.csv /user/allan_admin/` |
+| `setrep` | Cambio de replicación | `hdfs dfs -setrep -R -w 2 /data/` |
+| `cat/head` | Inspección rápida | `hdfs dfs -head /data/file.txt` |
+| `get` | Extracción | `hdfs dfs -get /hdfs/path /local/tmp/` |
+
+:::tip User Variables
+HDFS interpreta rutas relativas basándose en el directorio del usuario en `/user/$USER/`. No es necesario usar rutas absolutas si se opera dentro del propio home del clúster.
+:::
+
+  </TabItem>
+  <TabItem value="webui" label="Web UI (Inspección)">
+
+La inspección visual es obligatoria para validar la salud de los volúmenes y el estado de replicación de los bloques.
+
+**Workflow de Acceso:**
+1. Cloudera Manager Home > **HDFS Service**.
+2. Diagnostics > **Web UI**.
+3. Seleccionar **NameNode Web UI (Active)**.
+
+![NameNode UI Overview](/img/hdfs/captura_namenode_ui.png)
+*Referencia: Dashboard de salud y capacidad del clúster.*
+
+  </TabItem>
+</Tabs>
+
+## 3. Procedimiento de Inspección de Bloques
+
+Ante una degradación de servicio o sospecha de corrupción, se debe ejecutar una inspección a nivel de bloque:
+
+1.  **Navegación:** Utilities > Browse the file system.
+2.  **Localización:** Ingrese a la ruta del archivo (ej: `/user/allan_admin/data/`).
+3.  **Análisis de Bloques:** Haga clic en el archivo para desplegar la metadata del bloque.
+
+![HDFS Block Detail](/img/hdfs/hdfs_block_detail.png)
+*Inspección forense de un bloque: Identificación de Block ID y DataNodes que alojan las réplicas.*
+
+## 4. Diagnóstico de Alta Disponibilidad (Active vs Standby)
+
+HDFS en CDP opera en modo de Alta Disponibilidad (HA). Solo un NameNode puede procesar peticiones de escritura/lectura.
+
+:::caution Comportamiento de Standby
+Si al intentar navegar por el sistema de archivos recibe el error:
+
+`Operation category READ is not supported in state standby`
+
+**Acción:** Cierre la pestaña y acceda a la UI del NameNode marcado como **Active** en Cloudera Manager.
+:::
+
+## 5. Mantenimiento del Sistema de Archivos
+
+*   **Papelera:** Los archivos borrados se mueven a `.Trash`. Use `-skipTrash` con precaución extrema.
+*   **Recuperación:** Los archivos pueden recuperarse de la papelera moviéndolos nuevamente al directorio de usuario:
+    ```bash
+    hdfs dfs -mv .Trash/Current/user/allan_admin/file.txt /user/allan_admin/
+    ```
+
+---
+_Referencia Técnica: CDP ADMIN-230 - Module 21-02 & 21-03_

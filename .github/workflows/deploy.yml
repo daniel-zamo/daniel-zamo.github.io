@@ -1,35 +1,71 @@
-name: Deploy to GitHub Pages
+name: Deploy Docusaurus to GitHub Pages
+
 on:
-  # Se ejecuta cada vez que haces push a la rama main
   push:
-    branches: [ main ]
-  # Permite ejecutarlo manualmente desde la pestaña Actions
-  workflow_dispatch:
+    branches:
+      - main  # Cambia a 'master' si es tu rama principal
+
 permissions:
   contents: read
   pages: write
   id-token: write
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Detecta si usas npm, pnpm o yarn
-      - name: Install, build, and upload your site
-        uses: withastro/action@v3
-        # with:
-          # path: . # Descomenta si tu proyecto no está en la raíz
-          # node-version: 20 # Opcional, usa la versión que prefieras
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Docusaurus
+        run: npm run build
+
+      - name: Setup Deployment Structure
+        run: |
+          # 1. Creamos una carpeta temporal para organizar el despliegue
+          mkdir _site_final
+          
+          # 2. Movemos el build de Docusaurus a la subcarpeta /kb/
+          # Docusaurus con baseUrl: '/kb/' genera los archivos listos para esa ruta
+          mv build _site_final/kb
+          
+          # 3. Creamos la redirección en la raíz (index.html)
+          cat <<EOF > _site_final/index.html
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="refresh" content="0; url='/kb/'">
+              <script type="text/javascript">
+                window.location.href = "/kb/"
+              </script>
+              <title>Redireccionando a dz.log</title>
+            </head>
+            <body>
+              Si no eres redireccionado, haz clic aquí: <a href="/kb/">/kb/</a>
+            </body>
+          </html>
+          EOF
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site_final
+
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

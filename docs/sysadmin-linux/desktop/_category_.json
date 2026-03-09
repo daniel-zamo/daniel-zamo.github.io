@@ -1,0 +1,9 @@
+{
+  "label": "Desktop & Workstation",
+  "position": 20,
+  "link": {
+    "type": "generated-index",
+    "slug": "sysadmin-linux/desktop",
+    "description": "Configuración y optimización del entorno gráfico, IDEs y herramientas de productividad local."
+  }
+}

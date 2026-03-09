@@ -1,0 +1,55 @@
+---
+id: git-conventional-commits
+sidebar_position: 20
+title: "Semántica de Commits: Conventional Commits."
+sidebar_label: "Mensajes de Commit"
+description: "Guía sobre el uso de Conventional Commits para una base de conocimiento técnica y profesional."
+---
+
+# Semántica de Commits
+
+En la filosofía DevOps, el historial de Git no es solo un backup, es **documentación cronológica**. Adoptar un estándar como _Conventional Commits_ facilita la trazabilidad y la automatización.
+
+## 1. Estructura del Mensaje
+
+Un commit profesional debe seguir esta estructura:
+`tipo(alcance): descripción breve en minúsculas`
+
+### Tipos principales (Types)
+
+| Tipo         | Cuándo usarlo                                                    | Ejemplo                                                   |
+| :----------- | :--------------------------------------------------------------- | :-------------------------------------------------------- |
+| **feat**     | Nueva funcionalidad o **nuevo artículo/nota**.                   | `feat(linux): add guide for cron scheduling`              |
+| **docs**     | Cambios exclusivos en documentación (corregir typos, gramática). | `docs(multimedia): fix typo in ImageMagick guide`         |
+| **fix**      | Corregir un error técnico (link roto, error de MDX).             | `fix(search): fix invalid css selector in modal`          |
+| **style**    | Cambios que no afectan la lógica (CSS, espacios, formato).       | `style(ui): update terminal cursor blink speed`           |
+| **chore**    | Tareas de mantenimiento (actualizar dependencias, .gitignore).   | `chore: update docusaurus to v3.2`                        |
+| **refactor** | Cambio de código que ni corrige error ni añade feature.          | `refactor(kb): restructure folders for better navigation` |
+
+## 2. Commits Simples vs. Multilínea
+
+### Commits Simples
+
+Para cambios atómicos y directos.
+
+```bash
+git commit -m "feat(linux): add stat command reference"
+```
+
+### Commits Multilínea
+
+Útiles cuando el cambio requiere una explicación del "por qué" o una lista de cambios realizados.
+
+```bash
+git commit -m "feat(ui): implement terminal identity" -m "- Add $ prompt via CSS
+- Implement blinking cursor animation
+- Force green color palette on search modal"
+```
+
+_Nota: Al usar múltiples `-m`, Git los interpreta como párrafos separados._
+
+:::tip La Regla de Oro
+El mensaje debe completar la frase: _"Si aplico este commit, yo estoy... [mensaje]"_.
+
+- Ejemplo: _Si aplico este commit, yo estoy... **actualizando el estilo del buscador**._
+  :::

@@ -1,0 +1,3 @@
+hostname,ram,vcpus,ip
+worker-14,4096,2,172.17.17.14
+worker-16,4096,2,172.17.17.16

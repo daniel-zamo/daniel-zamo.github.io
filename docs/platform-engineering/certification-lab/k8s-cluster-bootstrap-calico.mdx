@@ -1,0 +1,81 @@
+---
+id: k8s-cluster-bootstrap-calico
+title: "SOP: Orquestación de Clúster y Networking (Calico)"
+sidebar_label: "Bootstrap y CNI"
+sidebar_position: 50
+#slug: /platform-engineering/k8s-cluster-bootstrap-calico
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Orquestación de Clúster y Networking
+
+Este estándar detalla la inicialización del **Control Plane** y la implementación de **Calico** como solución de CNI (Container Network Interface) de grado empresarial para el cumplimiento de políticas de seguridad.
+
+## 1. Inicialización del Control Plane
+
+Utilizamos un CIDR específico para pods que evite solapamientos con la red física de la estación de trabajo (Victus).
+
+```bash title="Master-01: Bootstrap"
+# Inicialización con CIDR recomendado por Tigera/Calico
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --node-name master-01
+```
+
+### Configuración del Contexto Operativo (Kubeconfig)
+Protocolo para habilitar la administración remota sin privilegios de superusuario:
+
+```bash
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+
+---
+
+## 2. Implementación de Networking (Calico CNI)
+
+A diferencia de soluciones básicas como Flannel, implementamos Calico mediante el modelo de **Operadores**, lo que permite una gestión del ciclo de vida de la red mucho más robusta.
+
+```bash title="Instalación vía Tigera Operator"
+# 1. Despliegue del Operador
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/tigera-operator.yaml
+
+# 2. Aplicación de Custom Resources (Definición de Red)
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/custom-resources.yaml
+```
+
+---
+
+## 3. Protocolo de Unión de Nodos (Worker Join)
+
+<Tabs>
+  <TabItem value="join" label="Comando de Unión" default>
+
+Ejecute el token generado en cada nodo Worker. En caso de expiración del token (24h), genere uno nuevo:
+```bash
+kubeadm token create --print-join-command
+```
+
+  </TabItem>
+  <TabItem value="verify" label="Validación de Salud">
+
+```bash
+# Verificación de Nodos en estado Ready
+kubectl get nodes -o wide
+
+# Verificación de la malla de red
+kubectl get pods -n calico-system
+```
+
+  </TabItem>
+</Tabs>
+
+:::tip Senior Insights: ¿Por qué Calico?
+Implementamos Calico sobre Flannel porque en entornos de producción la seguridad es prioritaria. Calico permite el uso de **Network Policies**, habilitando el aislamiento de tráfico a nivel de L3/L4, requisito indispensable para cualquier arquitectura bajo cumplimiento (Compliance).
+:::
+
+---
+**Documentación Relacionada:**
+- [SOP: Ingeniería de la Productividad (Aliases)](./cka-terminal-productivity.mdx)
+- [SOP: Gestión Programática de Pipelines](../../engineering-standards/version-control/gitlab-api-pipeline-cleanup.mdx)

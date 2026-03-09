@@ -1,0 +1,61 @@
+---
+id: ubuntu-vscode-dev-setup
+title: "Estación de Trabajo: VS Code en Ubuntu / Linux Mint"
+sidebar_label: "VSCode (Ubuntu/Mint)"
+sidebar_position: 20
+description: "Directiva de aprovisionamiento para entornos basados en Ubuntu 24.04 LTS y Linux Mint 22.x."
+tags: [Ubuntu, Mint, VSCode, DevOps]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# VS Code en Ecosistemas Ubuntu/Mint
+
+Esta guía define el **SOE (Standard Operating Environment)** para estaciones de trabajo basadas en Ubuntu 24.04 LTS. A diferencia de las versiones Debian puras, aquí mantenemos el uso de herramientas de transición como `software-properties-common` si fuera necesario, aunque priorizamos la limpieza del `keyring`.
+
+:::danger Restricción de Aislamiento
+**No instalar vía Flatpak o Snap.** El sandbox impide que VS Code detecte correctamente los binarios de `nvm`, `kubectl` y el agente `ssh-agent` del host, críticos para el workflow de ingeniería.
+:::
+
+## 1. Aprovisionamiento del Repositorio
+
+```bash title="Terminal"
+# 1. Dependencias de infraestructura de paquetes
+sudo apt update && sudo apt install software-properties-common apt-transport-https wget gpg -y
+
+# 2. Gestión de confianza (GPG Key)
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo install -D -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft.gpg
+
+# 3. Registro del repositorio (Formato One-Line)
+sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+
+# 4. Despliegue
+sudo apt update && sudo apt install code -y
+```
+
+## 2. Stack DevOps y CKA Training
+Se instalan las extensiones críticas para el pipeline de Docusaurus y laboratorios K8s:
+
+| Categoría | Extensión | Utilidad | Extensión |
+| :--- | :--- | :--- | :--- |
+| **Infraestructura** | `ms-kubernetes-tools.vscode-kubernetes-tools` | Visualización de clústeres, logs y cambio de contexto. | Kubernetes |
+| **Lenguaje** | `redhat.vscode-yaml` | Validación de esquemas de Kubernetes (indispensable). | YAML/K8s |
+| **Contenedores** | `ms-azuretools.vscode-docker` | Gestión de imágenes, volúmenes y Dockerfiles localmente. | Docker/Podman |
+| **Entorno CKA** | `vscodevim.vim` | **Crítico:** Mantiene la memoria muscular para el examen CKA. | Vim |
+| **Documentación** | `unifiedjs.vscode-mdx` | Soporte para el contenido MDX de Docusaurus. | MDX |
+
+---
+
+:::info ¿Migrando a Debian 13?
+Si estás operando en un entorno **Debian 13 (Trixie)**, *(o derivado como Q4OS, Linux MX, Linux Mint LDME 7, etc)*, el paquete `software-properties-common` no está disponible. Consulta la [guía específica para Debian 13](./deb13-vscode-dev-setup.mdx).
+:::
+
+:::tip Entrenamiento CKA
+Instalar la extensión **Vim** en VS Code no es opcional. Durante el examen CKA no tendrás un IDE; dominar los comandos de movimiento y edición de Vim en tu día a día te dará una ventaja de velocidad decisiva.
+:::
+
+**Documentación Relacionada:**
+- [Gestión del Runtime: Node.js](../runtimes/node-runtime-setup.mdx)
+- [Workflow: Git Conventional Commits](../../engineering-standards/version-control/git-conventional-commits.mdx)

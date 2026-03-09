@@ -1,0 +1,77 @@
+---
+id: cdp-tuning-operations-sop
+title: "SOP: Optimización de Recursos y Gestión de Cambios"
+sidebar_label: "Optimización y Tuning"
+sidebar_position: 50
+description: "Ajuste de parámetros en HDFS/YARN y uso de Safety Valves para tuning avanzado."
+tags: [Tuning, Performance, YARN, HDFS, SOP]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# SOP: Optimización de Recursos y Gestión de Cambios
+
+Este procedimiento detalla la ejecución técnica de ajustes de rendimiento y la resolución de configuraciones caducas en entornos de producción.
+
+## 1. Identificación y Resolución de Configuraciones Caducas (Stale)
+
+Cuando el **Modelo** y el **Runtime** no coinciden, Cloudera Manager marca el servicio con un icono de "reinicio necesario".
+
+<step>
+1. **Validación de Diferencias:** Utilice la vista "Review Changes" para contrastar el valor actual (Rojo) frente al valor propuesto (Verde).
+2. **Estrategia de Despliegue:**
+   - **Refresh:** Para cambios que no requieren reinicio del proceso (ej: Client Configs).
+   - **Restart:** Obligatorio para cambios en variables de entorno o parámetros del core (ej: Heap Size).
+3. **Rolling Restart:** En entornos de Alta Disponibilidad, ejecute reinicios secuenciales para mantener el servicio activo.
+</step>
+
+## 2. Protocolos de Optimización (Tuning)
+
+El ajuste de parámetros debe realizarse basándose en la capacidad del hardware y la carga de trabajo (*workload*).
+
+<Tabs>
+  <TabItem value="hdfs" label="Tuning HDFS" default>
+
+| Propiedad | Impacto | Recomendación Senior |
+| :--- | :--- | :--- |
+| `dfs.blocksize` | Rendimiento de E/S | Mínimo 16MB. Default 128MB. Valores mayores reducen presión en el NameNode. |
+| `dfs.replication` | Resiliencia | Default 3. Reducir a 2 solo en entornos de desarrollo para ahorrar storage. |
+| `dfs.datanode.scan.period.hours` | Salud de Datos | Frecuencia de escaneo de bloques corruptos. Ajustar según el MTBF del hardware. |
+
+  </TabItem>
+  <TabItem value="yarn" label="Tuning YARN">
+
+La optimización de YARN se centra en prevenir el **Overcommitting** de memoria en los NodeManagers.
+
+*   **`yarn.nodemanager.resource.memory-mb`**: Límite total de RAM que YARN puede usar en un nodo. Debe dejar margen para el OS y los agentes.
+*   **`yarn.scheduler.maximum-allocated-mb`**: Tamaño máximo de un contenedor individual. Si una App pide más, será rechazada.
+*   **VCORES**: Ajuste de núcleos virtuales para maximizar el paralelismo sin saturar la CPU física.
+
+  </TabItem>
+</Tabs>
+
+## 3. Implementación de Propiedades No Expuestas (Safety Valves)
+
+Existen parámetros avanzados que no aparecen en la búsqueda global de CM. Para estos, se utiliza el **Advanced Configuration Snippet** o "Válvula de Seguridad".
+
+:::tip Validación Forense de Snippets
+El uso de Safety Valves inyecta código directamente en los archivos XML de destino (`hdfs-site.xml`, `yarn-site.xml`). Un error de sintaxis aquí puede impedir el arranque de todo el clúster.
+:::
+
+**Procedimiento de Inyección:**
+1. Navegue a la configuración del servicio (HDFS/YARN).
+2. Busque el término "Advanced Configuration Snippet".
+3. Identifique el archivo destino correcto (ej: `HDFS Service Advanced Configuration Snippet (Safety Valve) for hdfs-site.xml`).
+4. Inyecte la propiedad en formato llave-valor.
+
+![Safety Valve UI](/img/hdfs/safety_valve_example.png)
+
+## 4. Despliegue de Client Configurations
+
+Tras modificar un servicio, es imperativo redistribuir los archivos de configuración a los nodos Gateway (Edge Nodes). 
+*   **Ruta local:** `/etc/hadoop/conf/`
+*   **Acción:** Seleccione "Deploy Client Configuration" en las acciones del servicio para asegurar que los usuarios finales (vía CLI) utilicen los nuevos parámetros (ej: nuevo `dfs.blocksize`).
+
+---
+_Enlace Interno Recomendado:_ [Guía Core de HDFS](./hdfs-operations-guide.mdx) para entender el impacto del blocksize en la arquitectura.

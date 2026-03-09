@@ -1,0 +1,24 @@
+#cloud-config
+users:
+  - name: <usuario_en_host_target>
+    groups: sudo
+    shell: /bin/bash
+    lock_passwd: false
+    passwd: "hash_del_password"
+    ssh_authorized_keys:
+      - ssh-rsa ...clave_pública
+      - ssh-rsa ...clave_pública
+sudo: ['ALL=(ALL) NOPASSWD:ALL']
+shell: /bin/bash
+package_update: true
+# Paquetes base necesarios para poder trabajar y descargar repositorios
+package_update: true
+packages:
+  - curl
+  - gnupg
+  - software-properties-common
+  - apt-transport-https
+  - ca-certificates
+  - vim
+  - iproute2
+

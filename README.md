@@ -1,94 +1,84 @@
-# D@cz Tech Docs | Portfolio de Ingeniería
+# dz.log | Knowledge Engineering Hub 🚀
 
-![Estado de Compilación](https://img.shields.io/github/actions/workflow/status/daniel-zamo/daniel-zamo.github.io/deploy.yml?branch=main&style=for-the-badge&logo=github&label=BUILD)
+[![Deploy to GitHub Pages](https://github.com/daniel-zamo/daniel-zamo.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/daniel-zamo/daniel-zamo.github.io/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Docusaurus](https://img.shields.io/badge/Docusaurus-v3.9.2-blue?logo=docusaurus)](https://docusaurus.io/)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-18.x-339933?logo=node.js)](https://nodejs.org/)
+[![CKA Ready](https://img.shields.io/badge/Kubernetes-CKA--Ready-326CE5?logo=kubernetes)](https://kubernetes.io/)
 
-![Licencia](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
+> **Documentación Técnica de Grado Industrial**: Estándares de Configuración, Procedimientos Operativos (SOP) y Estrategias de Platform Engineering.
 
-![Certificado LFCS](https://img.shields.io/badge/CERTIFIED-LFCS-003B57?style=for-the-badge&logo=linux&logoColor=white)
-
-<p align="center">
-  <strong>Documentación técnica, laboratorios de infraestructura y escenarios de administración de sistemas.</strong>
-  <br>
-  Construido pensando en el rendimiento y la escalabilidad.
-</p>
-
-<p align="center">
-  <a href="https://daniel-zamo.github.io"><strong>🌐 Visitar Sitio en Vivo</strong></a>
-</p>
+Este repositorio contiene el código fuente y los activos de conocimiento de **dz.log**, una base de conocimientos técnica construida con **Docusaurus v3** y desplegada automáticamente en GitHub Pages. El sitio está diseñado bajo una arquitectura de "Single Source of Truth" (SSOT), integrando scripts operativos directamente en la documentación.
 
 ---
 
-## 🚀 Resumen del Proyecto
+## 🏛️ Estructura del Conocimiento
 
-Este repositorio aloja mi **Base de Conocimientos y Portfolio de Ingeniería** personal. Sirve como un centro unificado para escenarios técnicos validados, centrándose en sistemas Linux, Virtualización e Infraestructura Cloud.
+El sitio organiza el conocimiento técnico en cuatro pilares fundamentales, visibles a través de una interfaz inspirada en *ToolJet*:
 
-El contenido está estructurado para demostrar competencias en los dominios de la certificación **LFCS (Linux Foundation Certified SysAdmin)** y prácticas DevOps del mundo real.
-
-### 🛠️ Stack Tecnológico
-
-Este sitio está construido utilizando un enfoque moderno de **Docs-as-Code** (Documentación como Código):
-
-![Astro](https://img.shields.io/badge/astro-%232C2052.svg?style=for-the-badge&logo=astro&logoColor=white)
-
-![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
-
-![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
-
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-
-*   **Motor:** [Astro Starlight](https://starlight.astro.build) (SSG) para alto rendimiento y accesibilidad.
-
-*   **Contenido:** Escrito en **MDX** (Markdown + Componentes), migrado y curado desde una bóveda privada de Obsidian PKM.
-
-*   **Despliegue:** Construcciones automatizadas vía **GitHub Actions** hacia GitHub Pages.
-
-*   **Estilos:** Variables CSS personalizadas que se adaptan a los esquemas de color del sistema (modo Claro/Oscuro).
+*   **Platform Engineering**: Foco en la certificación **CKA**, hardening de clústeres Kubernetes y automatización de infraestructura.
+*   **Data Engineering**: Administración avanzada de **Cloudera Data Platform (CDP)**, gobernanza de HDFS y tuning de servicios.
+*   **SysAdmin & Linux**: Estándares de configuración de estaciones de trabajo (Debian/Ubuntu), gestión de dotfiles y runtimes.
+*   **Engineering Standards**: Protocolos de IA, semántica de Git (Conventional Commits) y taxonomía de documentación.
 
 ---
 
-## 📚 Áreas Temáticas Principales
+## 🛠️ Stack Tecnológico
 
-La documentación se organiza en verticales de ingeniería:
-
-*   **🐧 Certificación LFCS:** Talleres validados que cubren las competencias oficiales del examen (Almacenamiento, Redes, Gestión de Servicios).
-*   **☁️ Virtualización:** Gestión de hipervisores KVM/Libvirt, aprovisionamiento de VMs y aislamiento de recursos.
-*   **🐳 Contenedores:** Escenarios de orquestación con Docker y Podman.
-*   **🔧 Automatización:** Scripting en Shell y gestión de configuración de infraestructura.
-
----
-
-## ⚡ Desarrollo Local
-
-Para ejecutar este proyecto localmente:
-
-1.  **Clonar el repositorio:**
-    
-    ```bash
-    git clone https://github.com/daniel-zamo/daniel-zamo.github.io.git
-    cd daniel-zamo.github.io
-    ```
-
-2.  **Instalar dependencias:**
-
-    ```bash
-    npm install
-    ```
-
-3.  **Iniciar el servidor de desarrollo:**
-
-    ```bash
-    npm run dev
-    ```
-    
-    Accede al sitio en `http://localhost:4321`.
+| Componente | Tecnología | Propósito |
+| :--- | :--- | :--- |
+| **SSG** | [Docusaurus v3](https://docusaurus.io/) | Motor de sitio estático optimizado para docs. |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | Utilidades CSS para componentes UI personalizados. |
+| **Icons** | [Lucide React](https://lucide.dev/) | Set de iconos vectoriales para navegación visual. |
+| **Diagrams** | [Mermaid.js](https://mermaid.js.org/) | Generación de diagramas de secuencia y flujos vía código. |
+| **Search** | [Local Search](https://github.com/cmfcmf/docusaurus-search-local) | Indexación offline para búsqueda instantánea. |
+| **Automation** | [GitHub Actions](https://github.com/features/actions) | Pipeline de CI/CD para despliegue automatizado. |
 
 ---
 
-## 📄 Licencia
+## 🚀 Guía de Inicio Rápido
 
-Este proyecto es de código abierto y está disponible bajo la [Licencia MIT](LICENSE).
+Para levantar el entorno de desarrollo localmente y colaborar con el contenido:
 
-<p align="right">
-  <em>Autor: Daniel Oscar Zamo | Certificado LFCS</em>
-</p>
+### Prerrequisitos
+*   **Node.js**: v18.18.2 (Gestionado vía [NVM](./docs/sysadmin-linux/runtimes/node-runtime-setup.mdx))
+*   **NPM**: v9.8.1
 
+### Instalación
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/daniel-zamo/daniel-zamo.github.io.git
+cd daniel-zamo.github.io
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Iniciar servidor de desarrollo
+npm start
+```
+
+El sitio estará disponible en `http://localhost:3000/kb/`.
+
+---
+
+## 📜 Gobernanza y Commits
+
+Este proyecto sigue estrictamente el estándar de **Conventional Commits**. No se aceptan Pull Requests que no cumplan con la semántica:
+
+- `feat(scope):` para nuevos artículos o funcionalidades.
+- `docs(scope):` para correcciones en el contenido.
+- `fix(scope):` para errores técnicos en el sitio.
+
+Para más detalles, consulte el [Manual de Semántica de Commits](./docs/engineering-standards/version-control/git-conventional-commits.mdx).
+
+---
+
+## ⚖️ Licencia
+
+Este proyecto está bajo la **Licencia MIT**. Siéntete libre de utilizar los estándares y configuraciones aquí descritos siempre que se mantenga la atribución original.
+
+Copyright © 2024-2026 **Daniel Zamo**.
+
+---
+*Referencia Técnica: dz.log SOP-01 - Repository Infrastructure*

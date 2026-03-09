@@ -1,0 +1,8 @@
+{
+  "label": "Protocolos de IA",
+  "position": 40,
+  "link": {
+    "type": "generated-index",
+    "description": "Directivas y metodologías para la integración de modelos de lenguaje (LLMs) en el flujo de trabajo de ingeniería."
+  }
+}

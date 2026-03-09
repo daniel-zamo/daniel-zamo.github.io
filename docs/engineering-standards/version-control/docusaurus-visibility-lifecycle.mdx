@@ -1,0 +1,101 @@
+---
+id: docusaurus-visibility-lifecycle
+title: "Gestión de Visibilidad: Drafts, Unlisted e Ignored"
+sidebar_label: "Visibilidad de Contenidos"
+sidebar_position: 15
+description: "Estándar operativo para la gestión del ciclo de vida del contenido y estados de visibilidad."
+tags: [Documentation, Docusaurus, Standards]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Gestión de Visibilidad y Ciclo de Vida del Contenido
+
+Este estándar define los tres mecanismos para controlar qué contenido es procesado por el motor de Docusaurus y qué contenido es visible para el público.
+
+## 1. El Pipeline de Publicación
+
+<div style={{
+  backgroundColor: 'rgba(0,0,0,0.05)', 
+  padding: '24px', 
+  borderRadius: '12px', 
+  border: '1px solid var(--ifm-color-emphasis-200)',
+  marginBottom: '30px'
+}}>
+  <div style={{
+    display: 'flex', 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'space-between',
+    gap: '10px',
+    flexWrap: 'wrap'
+  }}>
+    <div style={{flex: 1, minWidth: '140px', textAlign: 'center'}}>
+      <div style={{backgroundColor: '#6c757d', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: 'bold', fontSize: '11px', marginBottom: '8px', border: '1px solid #495057'}}>IGNORADO</div>
+      <code style={{fontSize: '10px'}}>_archivo.md</code>
+    </div>
+    <div style={{color: 'var(--ifm-color-emphasis-400)', fontWeight: 'bold'}}>→</div>
+    <div style={{flex: 1, minWidth: '140px', textAlign: 'center'}}>
+      <div style={{backgroundColor: '#d29922', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: 'bold', fontSize: '11px', marginBottom: '8px', border: '1px solid #b0801a'}}>DRAFT</div>
+      <code style={{fontSize: '10px'}}>draft: true</code>
+    </div>
+    <div style={{color: 'var(--ifm-color-emphasis-400)', fontWeight: 'bold'}}>→</div>
+    <div style={{flex: 1, minWidth: '140px', textAlign: 'center'}}>
+      <div style={{backgroundColor: '#3182ce', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: 'bold', fontSize: '11px', marginBottom: '8px', border: '1px solid #2b6cb0'}}>UNLISTED</div>
+      <code style={{fontSize: '10px'}}>unlisted: true</code>
+    </div>
+    <div style={{color: 'var(--ifm-color-emphasis-400)', fontWeight: 'bold'}}>→</div>
+    <div style={{flex: 1, minWidth: '140px', textAlign: 'center'}}>
+      <div style={{backgroundColor: '#28a745', color: 'white', padding: '12px', borderRadius: '6px', fontWeight: 'bold', fontSize: '11px', marginBottom: '8px', border: '1px solid #1e7e34'}}>PUBLISHED</div>
+      <code style={{fontSize: '10px'}}>Publicado</code>
+    </div>
+  </div>
+</div>
+
+---
+
+## 2. Métricas por Entorno
+
+| Atributo | Local (Dev) | Build (Prod) | URL Directa |
+| :--- | :---: | :---: | :---: |
+| `draft: true` | ✅ | ❌ | ❌ |
+| `unlisted: true` | ✅ (Oculto) | ✅ (Oculto) | ✅ |
+| `_folder/` | ❌ | ❌ | ❌ |
+
+---
+
+## 3. Implementación a Nivel de Directorio (Bulk Hiding)
+
+Si desea ocultar una carpeta completa (por ejemplo, una certificación en progreso como CKA), no es necesario editar cada archivo. Se utiliza la configuración de categoría.
+
+<div style={{backgroundColor: 'var(--ifm-color-emphasis-100)', padding: '20px', borderRadius: '8px', border: '1px solid var(--ifm-color-emphasis-300)', marginBottom: '20px'}}>
+  <div style={{fontSize: '14px', fontWeight: 'bold', marginBottom: '10px', color: 'var(--ifm-color-primary)'}}>📁 Configuración de Carpeta Oculta</div>
+  <div style={{fontSize: '13px', color: 'var(--ifm-color-emphasis-800)'}}>
+    Cree un archivo <code>\_category\_.json</code> dentro del directorio objetivo:
+  </div>
+  <pre style={{marginTop: '10px', fontSize: '12px', backgroundColor: '#1e1e1e', color: '#d4d4d4'}}>
+{`{
+  "label": "Laboratorio Oculto",
+  "unlisted": true
+}`}
+  </pre>
+  <div style={{fontSize: '12px', fontStyle: 'italic', color: 'var(--ifm-color-emphasis-600)'}}>
+    Resultado: Toda la carpeta desaparece del sidebar y buscador, pero las URLs siguen vivas para consulta privada.
+  </div>
+</div>
+
+---
+
+## 4. El "Guion Bajo" (Ignorado Absoluto)
+
+Cualquier archivo o carpeta que comience con `_` es **ignorado por el motor de Docusaurus**. No se procesa, no se genera URL y no consume tiempo de build.
+
+:::tip Caso de Uso
+Ideal para la carpeta `docs/cka/_assets/` o `_research/` donde guardas capturas de pantalla crudas o PDFs de referencia que no quieres que el SSG intente compilar.
+:::
+
+---
+:::info Nota Final
+Este sistema permite que este sitio actúe simultáneamente como tu **Libreta de Estudio (Privada)** y tu **Portfolio de Ingeniería (Público)**.
+:::

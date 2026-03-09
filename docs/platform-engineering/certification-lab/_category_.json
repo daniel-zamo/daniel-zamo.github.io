@@ -1,0 +1,9 @@
+{
+  "label": "Certificación CKA",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "slug": "cka-certification",
+    "description": "Laboratorios prácticos y guías de optimización para la certificación Certified Kubernetes Administrator."
+  }
+}

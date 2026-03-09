@@ -1,0 +1,9 @@
+{
+  "label": "Ingeniería de Plataforma",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "slug": "platform-engineering", 
+    "description": "Diseño, implementación y administración de infraestructuras orquestadas y sistemas distribuidos."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "label": "SysAdmin & Linux",
+  "position": 50,
+  "link": {
+    "type": "doc",
+    "id": "sysadmin-linux/index"
+  }
+}

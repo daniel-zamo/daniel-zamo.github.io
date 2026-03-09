@@ -1,19 +1,61 @@
 {
-  "name": "daniel-zamo.github.io",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "npm install && docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@astrojs/rss": "^4.0.15",
-    "@astrojs/starlight": "^0.37.5",
-    "astro": "^5.17.1",
-    "astro-mermaid": "^1.1.0",
-    "sharp": "^0.34.2"
+    "@docusaurus/core": "^3.9.2",
+    "@docusaurus/plugin-client-redirects": "^3.9.2",
+    "@docusaurus/plugin-google-gtag": "^3.9.2",
+    "@docusaurus/plugin-sitemap": "^3.9.2",
+    "@docusaurus/preset-classic": "^3.9.2",
+    "@docusaurus/theme-mermaid": "^3.9.2",
+    "@easyops-cn/docusaurus-search-local": "^0.26.1",
+    "@mdx-js/react": "^3.0.1",
+    "autoprefixer": "^10.4.20",
+    "clsx": "^2.0.0",
+    "lucide-react": "^0.436.0",
+    "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
+    "postcss": "^8.4.41",
+    "prism-react-renderer": "^2.1.0",
+    "raw-loader": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "redocusaurus": "^2.0.0",
+    "tailwindcss": "^3.4.12"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "^3.9.2",
+    "@docusaurus/types": "^3.9.2"
+  },
+  "overrides": {
+    "got": "^12.1.0",
+    "trim": "^0.0.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "18.18.2",
+    "npm": "9.8.1"
   }
 }
