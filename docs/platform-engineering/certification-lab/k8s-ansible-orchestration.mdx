@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 // Importaciones de código real
 import AnsibleCfg from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/ansible.cfg';
-import Inventory from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/inventory.ini';
+import Inventory from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/inventory.ini.example';
 import MainTasks from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/roles/kubernetes_bootstrap/tasks/main.yml';
 import InstallTasks from '!!raw-loader!@site/scripts/ops/ansible-k8s-provision/roles/kubernetes_bootstrap/tasks/install.yml';
 
@@ -35,7 +35,7 @@ Hemos optimizado la comunicación SSH y la salida visual para mejorar la experie
 
 El inventario separa las responsabilidades de red de la lógica de negocio, agrupando nodos por función (Masters vs Workers).
 
-<CodeBlock language="ini" title="inventory.ini">
+<CodeBlock language="ini" title="inventory.ini.example">
   {Inventory}
 </CodeBlock>
 
