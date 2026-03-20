@@ -74,6 +74,7 @@ temp/
 **/data/
 **/+/
 **/_projects/external
+**/_projects/my_library
 daniel-zamo.github.io_generate_report.sh
 **/*report-spec*.md
 
