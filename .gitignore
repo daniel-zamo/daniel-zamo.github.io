@@ -61,9 +61,7 @@ desktop.ini
 *.v*
 *.bkp
 *~
-**/archive_tier/
-**/zz_*
-*Inbox/
+**/zz_archives
 tmp/
 temp/
 *.tgz
@@ -73,7 +71,7 @@ temp/
 *.rar
 **/data/
 **/+/
-**/_projects/external
+**/external-resources
 **/_projects/my_library
 daniel-zamo.github.io_generate_report.sh
 **/*report-spec*.md

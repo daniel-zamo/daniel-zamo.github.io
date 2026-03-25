@@ -1,0 +1,95 @@
+# --- Obsidian Core & System ---
+#>.obsidian/workspace.json
+#>.obsidian/workspace-mobile.json
+#>.obsidian/cache/
+#>.obsidian/indexedDB/
+#>
+#>.obsidian/plugins/obsidian-git/
+#>.obsidian/todoist-*
+#>.trash
+
+# --- Privacy Layer (Excluded from Git) ---
+# Estos directorios se sincronizan SOLO vía Syncthing
+#People/
+#MOC/
+#Journal/
+#Attachments/
+#Atlas/
+#*Library/
+
+**/@by_profe_Charly/attachments
+**/instructions/pdf/*.pdf
+!labs/instructions/ICM8_U1_LAB-MANUAL_v09-2023_Help-IT.pdf
+
+**/*.bkp
+**/*.dtmp
+**/*.beta*
+
+**/*.bundle
+**/*.zip
+**/*.iso
+**/*.tgz
+**/*.ova
+**/*.vmdk
+**/*.vdi
+**/*.csv
+**/nodes.csv
+**/*.mp4
+**/*.avi
+**/*.m4a
+
+
+# --- Syncthing & OS Trash ---
+.stfolder/
+.stversions/
+.sync/
+*.sync-conflict-*
+.DS_Store
+Thumbs.db
+*.tmp
+
+# --- Debug & Logs ---
+*.log
+
+# ==========================================
+# Archivos de Sistema y Editores
+# ==========================================
+**/.DS_Store
+**/Thumbs.db
+**/.vscode/
+**/.idea/
+*.swp
+*~
+**/*tmp
+**/*.bkp
+
+# ==========================================
+# Seguridad y DevOps (Buenas prácticas para SysAdmins)
+# ==========================================
+
+# Variables de entorno (Nunca subir secretos)
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/venv
+**/user-data.yaml
+
+# Archivos de infraestructura/scripts que podrían contener datos sensibles
+**/*.pem
+**/*.key
+**/id_rsa*
+**/secrets.yaml
+
+# Si usas Terraform en subcarpetas para provisionar la infraestructura del sitio
+**/.terraform/
+**/*.tfstate
+**/*.tfstate.backup
+
+# ==========================================
+# GitLab Específico
+# ==========================================
+# (Opcional) Si generas artefactos de CI/CD localmente
+**/artifacts/
+#// END: ------------ Importado para carpetas tipo 'My Library/CKA' -------------------#
