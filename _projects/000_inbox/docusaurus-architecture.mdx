@@ -1,0 +1,64 @@
+---
+id: docusaurus-architecture
+sidebar_position: 5
+title: "Arquitectura y Personalización del Portal"
+sidebar_label: "Estándares del Sitio"
+slug: /kb-management/docusaurus-architecture
+description: "Documentación de la identidad visual 'Terminal-Style' y la estructura de metadatos de Docusaurus."
+---
+
+# Arquitectura y Personalización del Portal
+
+Este portal utiliza **Docusaurus v3** como motor de generación de sitios estáticos (SSG). La arquitectura ha sido modificada para servir como una Base de Conocimiento (KB) técnica con una estética de terminal de ingeniería.
+
+## 1. Identidad Visual: $ dz.log\_
+
+La identidad del sitio se gestiona mediante la inyección de estilos CSS personalizados en `src/css/custom.css`.
+
+### Elementos de Marca (Brand Identity)
+
+- **Símbolo de Prompt (`$`):** Implementado mediante el pseudo-elemento `::before` con contraste inteligente (`var(--ifm-font-color-base)`).
+- **Cursor de Terminal (`_`):** Animación tipo _blink_ configurada a 1.2s para simular una terminal activa.
+- **Tipografía:** Se priorizan fuentes monoespaciadas (`Fira Code`, `JetBrains Mono`) para reforzar el contexto técnico.
+
+## 2. Motor de Búsqueda Local
+
+Se ha implementado el plugin `@cmfcmf/docusaurus-search-local` para garantizar la indexación de contenido sin dependencias externas.
+
+### Configuración Crítica
+
+- **Indexación:** Realizada en tiempo de _build_ para optimizar el rendimiento.
+- **Colorimetría:** Se ha erradicado la paleta azul por defecto, forzando variables de Algolia a la paleta verde esmeralda (`#25c2a0`) del sitio.
+
+```css
+/* Ejemplo de anulación de color en el buscador */
+--aa-primary-color: #25c2a0 !important;
+--aa-background-color: var(--aa-search-background) !important;
+```
+
+## 3. Estructura de Contenidos
+
+El sistema utiliza archivos `_category_.json` para gestionar la jerarquía del sidebar. Cada nuevo dominio tecnológico debe seguir esta estructura:
+
+1.  **Directorio:** `docs/[tecnologia]/`
+2.  **Metadatos:** Un archivo `_category_.json` definiendo posición y descripción.
+3.  **Contenido:** Archivos `.mdx` con metadatos (Frontmatter) completos para optimizar el SEO interno.
+
+:::tip Recomendación de Despliegue
+Antes de cada publicación en producción, se recomienda ejecutar `npm run clear` seguido de `npm run build` para validar que el índice de búsqueda y los estilos CSS se generen sin errores.
+:::
+
+---
+
+## Escenario de Validación Técnica
+
+**Requerimiento:** Es necesario cambiar el color global de "Verde Esmeralda" a "Azul Cyan" para una nueva sección del sitio. ¿Dónde se debe realizar el cambio de forma centralizada?
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+El cambio debe realizarse en las variables `:root` y `[data-theme='dark']` del archivo `src/css/custom.css`. Al modificar la variable `--ifm-color-primary`, Docusaurus propagará el color a todos los botones, enlaces y resaltados del sitio automáticamente.
+
+</div>
+</details>

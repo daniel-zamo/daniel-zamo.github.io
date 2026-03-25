@@ -1,0 +1,167 @@
+---
+id: linux-permissions-basics
+sidebar_position: 90
+title: "Gestión de Permisos: La Matriz de Acceso"
+sidebar_label: "Matriz de Permisos"
+slug: /05-technical-notes/permissions-basics
+description: "Análisis de la matriz rwx, tipos de objetos y la estructura de propiedad en sistemas Linux."
+---
+
+# Gestión de Permisos: La Matriz de Acceso
+
+En Linux, la seguridad del sistema de archivos se gestiona mediante una **Matriz de Permisos**. Esta estructura define qué acciones puede realizar cada categoría de usuario sobre un objeto.
+
+## 1. Contexto Operativo
+
+Antes de desglosar la matriz, observemos cómo se presenta esta información en una terminal real mediante el comando `ls -l`:
+
+{/* Terminal Mockup */}
+
+<div style={{
+  backgroundColor: '#0d1117', 
+  borderRadius: '8px', 
+  border: '1px solid #30363d', 
+  padding: '15px', 
+  fontFamily: 'monospace', 
+  fontSize: '13px', 
+  color: '#e6edf3',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.5)',
+  marginBottom: '30px'
+}}>
+  <div style={{display: 'flex', gap: '6px', marginBottom: '10px'}}>
+    <div style={{width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ff5f56'}}></div>
+    <div style={{width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#ffbd2e'}}></div>
+    <div style={{width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#27c93f'}}></div>
+  </div>
+  <div>
+    <span style={{color: '#7ee787'}}>dzamo@aspire-a315-59</span>:<span style={{color: '#79c0ff'}}>~</span>$ ls -l<br/>
+    total 28<br/>
+    <b style={{color: '#d29922'}}>drwxr-xr-x</b>  5 dzamo dzamo 4096 dic  3 06:26 ansible-venv<br/>
+    <b style={{color: '#d29922'}}>-rw-r--r--</b>  1 dzamo dzamo  183 nov 19 16:09 exam-chat.md<br/>
+    <b style={{color: '#d29922'}}>-rw-r--r--</b>  1 dzamo dzamo  119 ene 19 13:56 msg<br/>
+    <b style={{color: '#d29922'}}>drwxr-xr-x</b> 14 dzamo dzamo 4096 ene 21 23:08 my-workspace<br/>
+    <b style={{color: '#d29922'}}>lrwxrwxrwx</b>  1 dzamo dzamo   48 dic  8 23:42 ops-standards-library -> my-workspace/...<br/>
+    <b style={{color: '#d29922'}}>-rw-r--r--</b>  1 dzamo dzamo 4831 ene 11 08:53 respuesta.txt<br/>
+    <b style={{color: '#d29922'}}>-rw-r--r--</b>  1 dzamo dzamo  281 dic  7 00:11 test.yml<br/>
+    <b style={{color: '#d29922'}}>lrwxrwxrwx</b>  1 dzamo dzamo   18 nov 17 11:57 win-home -> /mnt/c/Users/dzamo<br/>
+  </div>
+</div>
+
+## 2. Desglose de la Cadena de Permisos
+
+La columna resaltada en amarillo en la terminal anterior representa la matriz de 10 bits. A continuación, se presenta su anatomía técnica:
+
+{/* Diagrama de Ingeniería */}
+
+<div style={{backgroundColor: '#1e1e1e', padding: '20px', borderRadius: '8px', border: '1px solid #333', marginBottom: '20px'}}>
+  
+  <div style={{fontFamily: 'monospace', fontSize: '28px', color: '#fff', textAlign: 'center', letterSpacing: '8px', marginBottom: '20px'}}>
+    -rwxrwxrwx
+  </div>
+
+<div
+  style={{
+    display: "flex",
+    fontFamily: "monospace",
+    textAlign: "center",
+    fontWeight: "bold",
+    gap: "8px",
+    marginBottom: "10px",
+  }}
+>
+  <div
+    style={{
+      flex: "1",
+      backgroundColor: "#f5f5f5",
+      border: "2px solid #666",
+      padding: "10px",
+      color: "#333",
+      borderRadius: "4px",
+    }}
+  >
+    &#8209; <br />
+    <small style={{ fontSize: "10px" }}>TIPO</small>
+  </div>
+  <div
+    style={{
+      flex: "3",
+      backgroundColor: "#d5e8d4",
+      border: "2px solid #82b366",
+      padding: "10px",
+      color: "#000",
+      borderRadius: "4px",
+    }}
+  >
+    rwx <br />
+    <small style={{ fontSize: "10px" }}>DUEÑO (u)</small>
+  </div>
+  <div
+    style={{
+      flex: "3",
+      backgroundColor: "#e1d5e7",
+      border: "2px solid #9673a6",
+      padding: "10px",
+      color: "#000",
+      borderRadius: "4px",
+    }}
+  >
+    rwx <br />
+    <small style={{ fontSize: "10px" }}>GRUPO (g)</small>
+  </div>
+  <div
+    style={{
+      flex: "3",
+      backgroundColor: "#f8cecc",
+      border: "2px solid #b85450",
+      padding: "10px",
+      color: "#000",
+      borderRadius: "4px",
+    }}
+  >
+    rwx <br />
+    <small style={{ fontSize: "10px" }}>OTROS (o)</small>
+  </div>
+</div>
+
+  <div style={{display: 'flex', fontFamily: 'monospace', textAlign: 'center', fontSize: '11px', color: '#aaa', gap: '8px'}}>
+    <div style={{flex: '1'}}>Bit 1</div>
+    <div style={{flex: '3'}}>Bits 2-4</div>
+    <div style={{flex: '3'}}>Bits 5-7</div>
+    <div style={{flex: '3'}}>Bits 8-10</div>
+  </div>
+</div>
+
+### A. Tipo de Objeto (Bit 1)
+
+Identifica la naturaleza del recurso. Determina cómo el núcleo (kernel) interactuará con el objeto:
+
+| Carácter  | Tipo de Objeto                                          |
+| :-------- | :------------------------------------------------------ |
+| **-**     | **Archivo regular:** Documentos, binarios, scripts.     |
+| **d**     | **Directorio:** Contenedor de otros objetos.            |
+| **l**     | **Enlace simbólico:** Referencia (puntero) a otra ruta. |
+| **b / c** | **Dispositivos:** Hardware de Bloque o Caracteres.      |
+
+### B. Categorías de Usuario (Segmentos de 3 bits)
+
+La matriz se repite tres veces (`rwx`), una para cada nivel de autoridad:
+
+1.  **Dueño (u):** El usuario propietario del objeto.
+2.  **Grupo (g):** Usuarios miembros del grupo asignado.
+3.  **Otros (o):** Resto de cuentas del sistema.
+
+---
+
+## 3. Significado Operativo de r, w, x
+
+| Acción          | Valor | En Archivos                  | En Directorios                      |
+| :-------------- | :---- | :--------------------------- | :---------------------------------- |
+| **r** (Read)    | 4     | Leer contenido del archivo.  | Listar nombres de archivos (`ls`).  |
+| **w** (Write)   | 2     | Modificar/Borrar el archivo. | Crear, borrar o renombrar archivos. |
+| **x** (Execute) | 1     | Ejecutarlo como proceso.     | **Atravesar el directorio (`cd`)**. |
+
+:::caution Nota Crítica: El bit de ejecución en directorios
+Sin el permiso **`x`** en una carpeta, un usuario no puede realizar ninguna operación sobre los archivos internos, incluso si tiene permisos de lectura sobre ellos. El bit `x` es la "llave" de acceso a los metadatos de la carpeta.
+:::
+
+[Siguiente: Modificación de Permisos (chmod/chown) ->](./linux-permissions-advanced.mdx)

@@ -1,0 +1,99 @@
+---
+id: productivity-sync-syncthing
+sidebar_position: 19
+title: "Sincronización de Activos: Syncthing en Docker"
+sidebar_label: "Syncthing Setup"
+slug: /05-technical-notes/productivity-sync-syncthing
+description: "Despliegue de Syncthing para sincronización de carpetas de estudio, gestionando volúmenes, permisos y Healthchecks."
+---
+
+# Syncthing: Gestión de Activos
+
+Utilizamos **Syncthing** para mantener sincronizada la carpeta de entrada de documentos (`Share`) entre la Acer Aspire y el resto de nodos de laboratorio.
+
+## 1. Estrategia de Persistencia y Volúmenes
+
+Para una gestión escalable, evitamos mapear directorios a la raíz del contenedor. En su lugar, utilizamos subdirectorios dentro de `/var/syncthing/` para permitir el crecimiento futuro.
+
+### Mapeo de Directorios (Host vs Contenedor)
+*   **Configuración:** `/home/dzamo/.config/syncthing` $\rightarrow$ Almacena la identidad (ID) y base de datos del dispositivo.
+*   **Datos:** `/home/dzamo/Share` $\rightarrow$ Carpeta específica de sincronización.
+
+## 2. Despliegue con Docker Compose
+
+```yaml title="~/01_Hot_Tier/docker-compose/syncthing/docker-compose.yml"
+services:
+  syncthing:
+    image: syncthing/syncthing:latest
+    container_name: syncthing
+    hostname: acer-aspire
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      # CONFIGURACIÓN (El cerebro)
+      - /home/dzamo/.config/syncthing:/var/syncthing/config
+      
+      # DATOS (Carpetas sincronizadas)
+      # Formato: <RUTA_HOST>:<RUTA_CONTENEDOR>
+      - /home/dzamo/Share:/var/syncthing/Share
+    
+      # Otro directorio
+      # - /home/dzamo/Other:/var/syncthing/Other
+
+    ports:
+      - 8384:8384 # Web GUI
+      - 22000:22000/tcp # Data sync
+      - 22000:22000/udp # Data sync
+      - 21027:21027/udp # Discovery
+    restart: unless-stopped
+    # Nota: He quitado el healthcheck temporalmente para que no te 
+    # marque error mientras terminas de configurar la GUI.
+    #healthcheck:
+    #  test: ["CMD", "curl", "-fk", "http://localhost:8384/rest/system/ping"]
+    #  interval: 1m
+    #  timeout: 10s
+    #  retries: 3
+
+```
+
+## 3. Gestión de Firewall (UFW)
+
+Para que Syncthing funcione correctamente en la red local de estudio, debemos habilitar los puertos en el firewall de Mint:
+
+```bash title="Comandos UFW"
+sudo ufw allow 8384/tcp    # GUI
+sudo ufw allow 22000/tcp   # Sync TCP
+sudo ufw allow 22000/udp   # Sync UDP
+sudo ufw allow 21027/udp   # Local Discovery
+```
+
+## 4. Conceptos de Observabilidad: Healthchecks
+
+El parámetro `healthcheck` en el archivo anterior es el "termómetro" del contenedor.
+
+*   **Estado `starting`:** El contenedor ha arrancado pero Syncthing está generando certificados o inicializando la DB.
+*   **Estado `healthy`:** La API responde correctamente en el puerto 8384.
+
+:::info Analogía CKA
+En el examen CKA, este concepto se traslada a las **Liveness** y **Readiness Probes**. La diferencia es que Kubernetes usará estos estados para decidir si debe reiniciar un Pod o si debe enviarle tráfico de red.
+:::
+
+## 5. Protocolo de Inicialización
+
+Antes de ejecutar `docker compose up -d`, es imperativo asegurar que los permisos del host sean correctos para evitar errores de `Permission Denied` en los logs:
+
+```bash
+# Crear directorios si no existen
+mkdir -p /home/dzamo/Share /home/dzamo/.config/syncthing
+
+# Asegurar propiedad al usuario dzamo (UID 1000)
+sudo chown -R $USER:$USER /home/dzamo/Share
+sudo chown -R $USER:$USER /home/dzamo/.config/syncthing
+```
+
+---
+**Documentación Relacionada:**
+- [Runtime de Contenedores (Docker)](./container-runtime-setup)
+- [Estructura de Manifiestos K8s](./k8s-basics)
+---

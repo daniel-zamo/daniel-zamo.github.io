@@ -1,0 +1,53 @@
+---
+id: fs-identification
+sidebar_position: 70
+title: "Identificación de Objetos: El comando file"
+sidebar_label: "Identificación de Objetos"
+slug: /05-technical-notes/fs-identification
+description: "Determinación de la naturaleza de archivos basada en contenido, cabeceras y números mágicos."
+---
+
+# Identificación de Objetos (`file`)
+
+En Linux, la extensión de un archivo (ej. `.sh`, `.txt`, `.conf`) es meramente informativa para el usuario y no determina cómo el sistema procesa el objeto. El comando `file` permite identificar la naturaleza real de un archivo analizando su contenido, cabeceras y "números mágicos".
+
+## 1. Determinación por Contenido vs. Extensión
+
+El comando `file` inspecciona la estructura interna de los archivos. Es una herramienta esencial para identificar binarios desconocidos o scripts sin extensión.
+
+### Ejemplos de Identificación:
+
+- **Archivos vacíos:** Reportados como `empty`.
+- **Texto plano:** Identificados como `ASCII text`.
+- **Directorios:** Identificados explícitamente como `directory`.
+
+### El rol del Shebang (`#!`)
+
+Cuando un archivo contiene un _shebang_ en la primera línea (ej. `#!/bin/bash` o `#!/usr/bin/python3`), `file` lo identifica como un **ejecutable de script**, independientemente de si tiene permisos de ejecución (`+x`) asignados en el sistema de archivos.
+
+```bash
+file my_script.sh
+# Salida: Bourne-Again shell script, ASCII text executable
+```
+
+## 2. Análisis de Binarios y Dispositivos
+
+Para archivos complejos y nodos de dispositivo, `file` proporciona información de bajo nivel:
+
+- **Binarios (ELF):** Detalla la arquitectura (64-bit), si es de enlace dinámico y el ID de compilación.
+- **Archivos Comprimidos:** Identifica el algoritmo de compresión (Zip, Tar, Gzip).
+- **Dispositivos (`/dev`):** Identifica si son dispositivos de bloque (`block special`) o de caracteres.
+
+## 3. Argumentos de Uso Profesional
+
+| Argumento | Función Técnica                                                                               |
+| :-------- | :-------------------------------------------------------------------------------------------- |
+| `-i`      | Muestra el tipo **MIME** (ideal para procesamiento automático en scripts).                    |
+| `-b`      | Modo breve (omite el nombre del archivo en la salida).                                        |
+| `-s`      | Lee archivos de dispositivo especial (útil para inspeccionar sistemas de archivos en discos). |
+
+:::info Dato de Ingeniería
+El comando `file` es fundamental en análisis forense y seguridad para detectar archivos maliciosos que intentan camuflarse cambiando su extensión (ej. un binario ELF nombrado como `image.jpg`).
+:::
+
+[Siguiente: Análisis Profundo con stat ->](./metadata-analysis.mdx)

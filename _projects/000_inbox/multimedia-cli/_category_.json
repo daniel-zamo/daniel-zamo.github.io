@@ -1,0 +1,8 @@
+{
+  "label": "Multimedia y Activos CLI",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Documentación técnica para el procesamiento, optimización y manipulación de activos multimedia mediante la interfaz de línea de comandos."
+  }
+}

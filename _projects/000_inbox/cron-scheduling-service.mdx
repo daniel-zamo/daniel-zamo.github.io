@@ -1,0 +1,54 @@
+---
+id: cron-scheduling-service
+sidebar_position: 40
+title: "Planificación de Tareas: Arquitectura de Cron"
+sidebar_label: "Servicio Cron y Demonios"
+slug: /05-technical-notes/cron-architecture
+description: "Análisis del demonio cron, jerarquía de archivos de configuración y estados del servicio."
+---
+
+# Planificación de Tareas: Arquitectura de Cron
+
+La automatización en entornos Linux se fundamenta en el uso de planificadores. El componente central es **cron**, un demonio (servicio de fondo) que gestiona la ejecución de scripts y comandos en intervalos predefinidos.
+
+## 1. El Demonio Cron
+
+El servicio se inicia durante el arranque del sistema y permanece activo de forma persistente.
+
+### Verificación del Estado del Servicio
+
+En sistemas modernos con `systemd`, la validación de integridad se realiza mediante:
+
+```bash
+systemctl status cron.service
+```
+
+Debe confirmarse el estado `Active: active (running)`. Alternativamente, se puede verificar la existencia del proceso en memoria:
+
+```bash
+ps aux | grep cron
+```
+
+## 2. Jerarquía de Archivos y Directorios
+
+A diferencia de otros servicios, cron distribuye su configuración en múltiples ubicaciones dependiendo del alcance de la tarea:
+
+### A. Tareas a nivel de Sistema (`/etc/crontab`)
+
+Es el archivo principal de configuración para el administrador. Define tareas globales del sistema.
+
+- **Directorio asociado:** `/etc/cron.d/` (contiene fragmentos de configuración adicionales).
+
+### B. Directorios de Intervalo Fijo
+
+El sistema organiza ejecuciones automáticas sin necesidad de editar archivos crontab mediante directorios específicos:
+
+- `/etc/cron.hourly/` (Cada hora)
+- `/etc/cron.daily/` (Diario)
+- `/etc/cron.weekly/` (Semanal)
+- `/etc/cron.monthly/` (Mensual)
+
+:::info Diferencia con Anacron
+En estaciones de trabajo o servidores que no operan 24/7, se utiliza **anacron**. A diferencia de cron, anacron garantiza la ejecución de una tarea pendiente si el sistema estuvo apagado durante el horario programado.
+:::
+

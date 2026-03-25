@@ -1,0 +1,73 @@
+---
+id: technical-validation
+sidebar_position: 30
+title: "Escenarios de Validación Técnica"
+sidebar_label: "Laboratorio de Validación"
+slug: /05-technical-notes/technical-validation
+description: "Simulación de casos prácticos de administración de sistemas y preparación para certificación."
+---
+
+# Laboratorio de Validación Técnica 🛡️
+
+Los siguientes escenarios simulan retos operativos de administración de sistemas. Utilice estas guías para validar su capacidad de respuesta en entornos de producción.
+
+### Escenario 1: Auditoría de Modificaciones de Sistema
+
+**Requerimiento:** Identificar qué archivos dentro de un directorio de configuración han sufrido cambios en sus **permisos o propietario** en los últimos minutos.
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+El comando debe priorizar el `ctime` (change time) sobre el `mtime`:
+
+```bash
+ls -ltc
+```
+
+</div>
+</details>
+
+### Escenario 2: Análisis de Desbordamiento de Logs
+
+**Requerimiento:** El sistema reporta un volumen de almacenamiento crítico. Identifique el archivo más pesado de un directorio con un formato legible para el reporte.
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+```bash
+ls -lSh
+```
+
+- `-S`: Ordena por tamaño.
+- `-h`: Facilita la lectura de magnitudes (GB/MB).
+
+</div>
+</details>
+
+### Escenario 3: Verificación de Propietarios sin Servicios de Red
+
+**Requerimiento:** En un entorno con el servicio LDAP caído, verifique el ID numérico real de los archivos de un usuario para asegurar la compatibilidad con un nuevo contenedor.
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+```bash
+ls -n
+```
+
+Este comando evita la traducción a nombres de usuario y muestra los **UID/GID** reales del sistema de archivos.
+
+</div>
+</details>
+
+---
+
+## Competencias Técnicas Finales
+
+- [ ] Diferenciación entre timestamps (`atime`, `mtime`, `ctime`).
+- [ ] Uso de identificadores numéricos (`-n`) para Troubleshooting.
+- [ ] Implementación de formatos de salida para automatización (`-1`, `-m`).
+- [ ] Auditoría de archivos ocultos y metadatos de tamaño.

@@ -1,0 +1,65 @@
+---
+id: imagemagick-convert
+sidebar_position: 1
+title: "Procesamiento de Imágenes con convert"
+sidebar_label: "ImageMagick: convert"
+slug: /multimedia-cli/imagemagick-convert
+description: "Guía técnica para la manipulación de imágenes y gestión de activos en entornos ImageMagick v6."
+---
+
+# Manipulación de Imágenes con `convert`
+
+ImageMagick es la herramienta estándar en sistemas POSIX para el procesamiento de activos multimedia. En versiones v6, el comando `convert` utiliza operadores específicos para la manipulación de color y geometría.
+
+## 1. Transformación de Tono con `-modulate`
+
+Para cambiar el color de un objeto manteniendo sus sombras y volúmenes, se utiliza el operador `-modulate`. Este acepta tres parámetros: `Brillo, Saturación, Tono`.
+
+```bash
+# Cambiar el color (Hue) de Azul a Verde
+# 100 (Brillo original), 100 (Saturación original), 33 (Rotación a Verde)
+convert input.png -modulate 100,100,33 output_verde.png
+```
+
+| Valor Tono | Efecto Visual (Aprox)  |
+| :--------- | :--------------------- |
+| **0**      | Rotación de -180°      |
+| **33**     | De Azul a Verde        |
+| **100**    | Sin cambios (Original) |
+| **166**    | De Azul a Rojo         |
+| **200**    | Rotación de +180°      |
+
+## 2. Generación de Activos para el Sitio
+
+Para la identidad visual de `dz.log`, utilizamos flujos de trabajo que optimizan el tamaño y el formato:
+
+```bash
+# Redimensión para Logo de Navbar
+convert cubes_verde.png -resize 128x128 static/img/logo.png
+
+# Generación de Favicon multi-resolución
+convert cubes_verde.png -define icon:auto-resize=64,48,32,16 static/img/favicon.ico
+```
+
+---
+
+## Escenario de Validación Técnica
+
+**Requerimiento:** El equipo de marketing solicita que los iconos verdes tengan un color más vibrante (mayor saturación) y un poco más de brillo para el modo oscuro.
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+Ajustamos los dos primeros parámetros de `-modulate`:
+
+- Aumentamos el brillo al 120%.
+- Aumentamos la saturación al 150%.
+- Mantenemos el tono verde en 33.
+
+```bash
+convert cubes_verde.png -modulate 120,150,100 cubes_vibrante.png
+```
+
+</div>
+</details>

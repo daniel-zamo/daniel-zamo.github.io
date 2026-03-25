@@ -1,0 +1,80 @@
+---
+id: metadata-analysis
+sidebar_position: 80
+title: "Análisis de Metadatos y Estructura: stat"
+sidebar_label: "Análisis con stat"
+slug: /05-technical-notes/metadata-analysis
+description: "Uso del comando stat para la introspección de Inodos, bloques de I/O y marcas de tiempo POSIX."
+---
+
+# Análisis de Metadatos con `stat`
+
+Mientras que `file` describe la naturaleza del contenido, `stat` proporciona una visión orientada al sistema sobre el estado del objeto en el sistema de archivos, exponiendo datos del **Inodo** y la estructura de bloques.
+
+## 1. Desglose de la Salida de `stat`
+
+Al ejecutar `stat [archivo]`, obtenemos una radiografía completa del objeto:
+
+- **Size / Blocks:** Tamaño en bytes y bloques físicos asignados.
+- **IO Block:** Tamaño óptimo de transferencia para operaciones de entrada/salida.
+- **Device / Inode:** Identificador único del dispositivo y del Inodo. La combinación de ambos identifica unívocamente a un objeto en el sistema.
+- **Links:** Contador de enlaces duros (_hard links_).
+  - _Nota:_ En directorios, este número suele representar la cantidad de subdirectorios (incluyendo `.` y `..`).
+- **Access / Uid / Gid:** Matriz de permisos en formato octal/simbólico y propietarios.
+- **Timestamps:**
+  - **Access:** Último acceso (sujeto a optimizaciones de montado como `noatime`).
+  - **Modify:** Último cambio en el contenido.
+  - **Change:** Último cambio en atributos o metadatos.
+
+## 2. Introspección del Sistema de Archivos (`-f`)
+
+El argumento `-f` cambia el enfoque del archivo hacia el **FileSystem** donde reside:
+
+```bash
+stat -f /
+```
+
+Proporciona datos críticos para la gestión de capacidad:
+
+- **ID del Sistema de Archivos.**
+- **Namelen:** Longitud máxima permitida para nombres de archivos.
+- **Block size:** Tamaño de bloque fundamental.
+- **Blocks/Inodes (Total/Free/Available):** Estado de agotamiento de recursos del FS.
+
+## 3. Automatización y Formato Personalizado
+
+Para la integración en tuberías de monitoreo o scripts, `stat` permite salidas condensadas o formateadas:
+
+- `stat -t`: Formato tabular (terse), ideal para parsing rápido.
+- `stat --printf`: Permite extraer campos específicos.
+
+```bash
+# Ejemplo: Extraer solo el nombre y los permisos octales
+stat --printf="Archivo: %n | Permisos: %a\n" config.yaml
+```
+
+---
+
+## 🛡️ Escenario de Validación Técnica
+
+**Caso:** Un servicio reporta error "No space left on device", pero `df -h` muestra espacio disponible en GB. ¿Cómo verificaría si el problema es el agotamiento de Inodos?
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+El agotamiento de Inodos ocurre cuando se crean millones de archivos pequeños. Para verificarlo, use el comando `stat` sobre el sistema de archivos afectado:
+
+`stat -f /mount/punto_afectado`
+
+Revise la sección **Inodes: Free**. Si el valor es `0`, el sistema no puede crear más archivos aunque haya espacio en disco disponible.
+
+</div>
+</details>
+
+## Checklist de Competencias
+
+- [ ] Diferencia entre identificación por contenido (`file`) y por metadatos (`stat`).
+- [ ] Interpretación de la relación entre Inodos y dispositivos.
+- [ ] Capacidad de auditar límites del sistema de archivos (`Namelen`, `Inodes free`).
+- [ ] Uso de `shebang` para identificación de intérpretes.

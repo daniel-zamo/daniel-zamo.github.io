@@ -1,0 +1,47 @@
+---
+id: crontab-syntax-management
+sidebar_position: 50
+title: "Gestión de Tareas: Crontab y Sintaxis"
+sidebar_label: "Sintaxis y Crontab"
+slug: /05-technical-notes/crontab-management
+description: "Definición de cronjobs, sintaxis de temporización y gestión de tablas de usuario."
+---
+
+# Gestión de Tareas: Crontab
+
+Un **crontab** (cron table) es un archivo de texto que contiene la lista de comandos destinados a ser ejecutados por el demonio cron.
+
+## 1. Definición de Tiempos (Sintaxis)
+
+La estructura de una entrada en crontab se divide en 5 campos temporales seguidos del comando:
+
+| Campo             | Rango  | Descripción                   |
+| :---------------- | :----- | :---------------------------- |
+| **Minuto**        | 0 - 59 | Minuto de la ejecución.       |
+| **Hora**          | 0 - 23 | Formato de 24 horas.          |
+| **Día del Mes**   | 1 - 31 | Día calendario.               |
+| **Mes**           | 1 - 12 | O nombres (jan, feb...).      |
+| **Día de Semana** | 0 - 7  | 0 o 7 representan el Domingo. |
+
+### El Comodín Asterisco (`*`)
+
+El uso de `*` representa "todos los valores posibles". Por ejemplo, un `*` en el campo de minutos significa "ejecutar cada minuto".
+
+## 2. Gestión de la Tabla de Tareas
+
+Para administrar los jobs del usuario actual, se utilizan los siguientes comandos:
+
+- `crontab -l`: Lista las tareas programadas activas.
+- `crontab -e`: Abre el editor (usualmente `vim` o `nano`) para modificar la tabla.
+- `crontab -r`: Elimina la tabla de tareas actual.
+
+:::tip Buenas Prácticas de Ingeniería
+
+1. **Rutas Absolutas:** Siempre utilice rutas completas para binarios (ej. `/usr/bin/ls`) ya que el entorno de ejecución de cron puede no heredar el `$PATH` completo del usuario.
+2. **Redirección de Salida:** Evite la saturación de logs internos redirigiendo la salida estándar y errores:
+   ```bash
+   * * * * * /path/to/script.sh > /dev/null 2>&1
+   ```
+   :::
+
+[Siguiente: Monitoreo y Validación de Jobs ->](./cron-validation-monitoring.mdx)

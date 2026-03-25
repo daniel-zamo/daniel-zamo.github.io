@@ -1,0 +1,112 @@
+---
+id: linux-permissions-advanced
+sidebar_position: 100
+title: "Modificación de Permisos y Propiedad"
+sidebar_label: "chmod, chown y chgrp"
+slug: /05-technical-notes/permissions-advanced
+description: "Uso de modos absolutos y simbólicos para la gestión de seguridad y propiedad de archivos."
+---
+
+# Modificación de Permisos y Propiedad
+
+Para gestionar la matriz de acceso, Linux proporciona herramientas para cambiar tanto las acciones permitidas (`chmod`) como los dueños del objeto (`chown`, `chgrp`).
+
+## 1. Cambio de Permisos
+
+Existen dos métodos para definir la matriz:
+
+### A. Modo Absoluto (Numérico)
+
+Utiliza dígitos del 0 al 7 representados por la suma de valores:
+
+- **4**: Read (r)
+- **2**: Write (w)
+- **1**: Execute (x)
+
+**Ejemplo:** `chmod 755 archivo`
+
+- Propietario: 4+2+1 = **7** (rwx)
+- Grupo: 4+0+1 = **5** (r-x)
+- Otros: 4+0+1 = **5** (r-x)
+
+### B. Modo Simbólico
+
+Utiliza operadores y denotaciones de usuario (`u`, `g`, `o`, `a`):
+
+- `+`: Añadir permiso.
+- `-`: Quitar permiso.
+- `=`: Establecer exactamente.
+
+```bash
+chmod u+x script.sh      # Añade ejecución al dueño
+chmod a-w config.conf    # Quita escritura a todos
+chmod o=rx data.bin      # Otros solo pueden leer y entrar
+```
+
+## 2. Cambio de Propiedad
+
+- **`chown`**: Cambia el usuario propietario y/o el grupo.
+- **`chgrp`**: Cambia exclusivamente el grupo.
+
+```bash
+chown user2:group3 file.txt   # Cambia dueño y grupo
+chown :student2 file.txt      # Cambia solo el grupo (igual que chgrp)
+chown -R student1:staff /dir  # Cambio recursivo (-R)
+```
+
+:::tip Tip de Certificación
+En exámenes como CKA, es común tener que cambiar permisos de forma recursiva en carpetas de configuración. Recuerda siempre el flag `-R`.
+:::
+
+---
+
+## 🛡️ Escenarios de Validación (Quiz)
+
+**Q1: ¿Cómo añado permiso de escritura al grupo en un archivo existente?**
+
+<details>
+  <summary>Ver respuesta</summary>
+  <div>
+    <code>chmod g+w archivo</code>
+  </div>
+</details>
+
+**Q2: ¿Qué permisos representa el número 752?**
+
+<details>
+  <summary>Ver respuesta</summary>
+  <div>
+    <code>rwxr-x-w-</code> (Owner: Full, Group: Read/Exec, Others: Write only).
+  </div>
+</details>
+
+**Q3: Si un directorio tiene permisos `drwxr-xr--`, ¿puede un usuario de "Others" hacer `cd` dentro de él?**
+
+<details>
+  <summary>Ver respuesta</summary>
+  <div>
+    **No.** El bloque de "Others" es <code>r--</code>. Le falta el permiso{" "}
+    <code>x</code> (eXecute) necesario para entrar o atravesar el directorio.
+  </div>
+</details>
+
+**Q4: ¿Cuál es el comando para cambiar recursivamente el dueño a 'student2' y el grupo a 'student3' del directorio '/data'?**
+
+<details>
+  <summary>Ver respuesta</summary>
+  <div>
+    <code>chown -R student2:student3 /data</code>
+  </div>
+</details>
+
+---
+
+## Checklist de Competencias
+
+- [ ] Identificación de tipos de objeto por el primer carácter.
+- [ ] Cálculo de permisos en formato octal (0-7).
+- [ ] Aplicación de cambios simbólicos (`u+x`, `a-w`).
+- [ ] Uso de recursividad en `chown` y `chmod`.
+- [ ] Comprensión del permiso `x` en directorios.
+
+[Volver a Anatomía de Permisos](./linux-permissions-basics.mdx)

@@ -1,0 +1,64 @@
+---
+id: logo-transparency-refinement
+sidebar_position: 15
+title: "Logo Refinement: Transparency & Anti-Aliasing"
+sidebar_label: "Logo: Transparencia Pro"
+slug: /multimedia-cli/logo-transparency-refinement
+description: "Técnicas avanzadas para eliminar fondos y optimizar logos para compatibilidad con Dark Mode."
+---
+
+# Refinamiento de Logos y Transparencia
+
+La transición entre el modo claro y oscuro en Docusaurus requiere activos con transparencias perfectas. Los restos de píxeles blancos ("halos") degradan la calidad visual de la interfaz.
+
+## 1. Remoción de Fondo con `-fuzz` (CLI)
+
+Cuando trabajamos con imágenes que tienen suavizado de bordes (anti-aliasing), un borrado de color directo es insuficiente. El operador `-fuzz` permite definir una tolerancia cromática.
+
+:::danger[Advertencia de Calidad]
+Un valor de `-fuzz` superior al 30% puede comenzar a erosionar detalles internos del logo si este contiene tonos claros.
+:::
+
+```bash
+# Eliminar blanco con 25% de tolerancia
+convert logo_source.png -fuzz 25% -transparent white static/img/logo.png
+```
+
+## 2. El Problema del "Halo" en Modo Oscuro
+
+Los píxeles semitransparentes en los bordes suelen conservar información del color de fondo original. 
+
+| Técnica | Resultado en Fondo Oscuro |
+| :--- | :--- |
+| **Borrado Simple** | Bordes dentados y restos blancos. |
+| **Fuzz 20-30%** | Aceptable, pero puede perder definición. |
+| **Color a Alfa** | **Óptimo:** Mantiene suavidad sin residuos. |
+
+---
+
+## Escenario de Refinamiento Crítico
+
+**Requerimiento:** El logo de la navbar presenta bordes blanquecinos al activar el modo oscuro (Forest/Dark). Se requiere una limpieza quirúrgica.
+
+<details>
+<summary>Resolución Técnica vía GIMP (Desktop)</summary>
+<div>
+
+Para activos de alta visibilidad como el logo principal, el procesamiento por CLI puede no ser suficiente. Recomendamos el algoritmo de **Color a Alfa**:
+
+1. Abrir el activo en **GIMP**.
+2. Seleccionar `Colores` > `Color a alfa...`.
+3. Seleccionar el color blanco (`#FFFFFF`).
+4. El algoritmo recalculará la opacidad de los píxeles periféricos, permitiendo que el logo se funda perfectamente sobre cualquier color de fondo de Docusaurus.
+
+</div>
+</details>
+
+## 3. Post-Procesamiento
+
+Tras manipular la transparencia, es imperativo re-optimizar el canal alfa:
+
+```bash
+# Reducción de peso manteniendo la transparencia perfecta
+optipng -o7 static/img/logo.png
+```

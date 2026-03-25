@@ -1,0 +1,69 @@
+---
+id: cron-validation-monitoring
+sidebar_position: 60
+title: "Auditoría y Monitoreo de Jobs"
+sidebar_label: "Validación y Logs"
+slug: /05-technical-notes/cron-monitoring
+description: "Procedimientos para la validación de ejecuciones y auditoría de logs del servicio cron."
+---
+
+# Auditoría y Monitoreo de Jobs 🛡️
+
+La validación de que un cronjob se ha ejecutado correctamente es vital en la administración de infraestructura para asegurar la consistencia de respaldos y scripts de mantenimiento.
+
+## 1. Persistencia en el Sistema de Archivos
+
+Los archivos de configuración generados por los usuarios no deben editarse manualmente, pero pueden consultarse en:
+
+- `/var/spool/cron/crontabs/[usuario]`
+
+Este archivo refleja el contenido exacto definido mediante `crontab -e`.
+
+## 2. Auditoría de Ejecución (Logs)
+
+Dependiendo de la distribución (Ubuntu/Debian), existen dos métodos principales para auditar las ejecuciones de cron:
+
+### A. Consulta de Syslog
+
+Cron registra cada inicio de tarea en el log del sistema:
+
+```bash
+cat /var/log/syslog | grep -i cron
+```
+
+### B. Uso de Journalctl (Recomendado)
+
+Para visualizar los logs en sistemas con `systemd`, filtrando específicamente por la unidad del servicio:
+
+```bash
+journalctl -u cron
+```
+
+## 3. Escenario de Validación Técnica
+
+**Requerimiento:** Crear un job que liste el contenido de `/var/log` cada minuto y lo guarde en un archivo de auditoría local para confirmar que el demonio está procesando la tabla.
+
+<details>
+<summary>Resolución Técnica</summary>
+<div>
+
+1. Ejecutar `crontab -e`.
+2. Insertar la siguiente línea:
+
+`* * * * * /usr/bin/ls -al /var/log > /home/user/audit.log 2>&1`
+
+3. Guardar y verificar con `crontab -l`.
+4. Monitorear el archivo resultante: `tail -f /home/user/audit.log`.
+
+</div>
+</details>
+
+---
+
+## Checklist de Administración de Cron
+
+- [ ] Servicio cron verificado como `running`.
+- [ ] Uso de rutas absolutas en todos los cronjobs.
+- [ ] Implementación de redirección de errores (`2>&1`).
+- [ ] Capacidad de auditar logs mediante `journalctl`.
+- [ ] Comprensión de la diferencia operativa entre Cron y Anacron.
