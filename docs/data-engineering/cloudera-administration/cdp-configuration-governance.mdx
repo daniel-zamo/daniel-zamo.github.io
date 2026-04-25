@@ -7,6 +7,8 @@ description: "Análisis de la arquitectura de estados de Cloudera Manager y el c
 tags: [CDP, Governance, Cloudera Manager, Architecture]
 ---
 
+import Admonition from '@theme/Admonition';
+
 # Gobernanza de Configuraciones y Ciclo de Vida del Cambio
 
 En Cloudera Data Platform (CDP), la gestión de configuraciones no es una edición directa de archivos en disco. Se basa en una arquitectura de **Estados de Verdad** coordinada por Cloudera Manager (CM).
@@ -43,7 +45,7 @@ El sistema de archivos de configuración sigue una jerarquía de herencia estric
 | **Entorno** | `*-env.sh` | Bash Script | Configuraciones de JVM, Heap Memory y variables de entorno. |
 | **Logging** | `log4j.properties` | Java Properties | Control de granularidad y retención de registros. |
 
-:::info Regla de Precedencia
+:::info[Regla de Precedencia]
 Una configuración definida a nivel de **Job (Cliente)** tiene prioridad sobre la del **Cluster**, la cual a su vez sobresale de los **Defaults**. Esto permite tunear aplicaciones específicas sin afectar la estabilidad global.
 :::
 
@@ -54,9 +56,10 @@ Protocolo crítico para operaciones programadas. Al activar el Modo de Mantenimi
 2.  Se evita que el planificador de YARN asigne nuevas tareas a los nodos afectados.
 3.  Permite realizar cambios de software o hardware bajo una ventana de riesgo controlada.
 
-:::danger Riesgo de Cambio
+:::danger[Riesgo de Cambio]
 Cualquier cambio fuera de una **Ventana de Mantenimiento (Outage Window)** debe ser evaluado mediante una matriz de impacto (Severidad vs. Probabilidad).
 :::
 
 ---
-_Enlace Interno Recomendado:_ [Consulte el SOP de Inspección de Logs](./cdp-logs-taxonomy-rca.md) para validar errores tras un cambio de configuración.
+
+_Enlace Interno Recomendado:_ [Consulte el SOP de Inspección de Logs](./cdp-logs-taxonomy-rca.mdx) para validar errores tras un cambio de configuración.

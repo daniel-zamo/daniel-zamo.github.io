@@ -7,6 +7,8 @@ description: "Principios de inmutabilidad, Data Locality y gestión de bloques e
 tags: [HDFS, Architecture, Big Data, Storage]
 ---
 
+import Admonition from '@theme/Admonition';
+
 # HDFS: Arquitectura y Principios de Diseño Enterprise
 
 En el ecosistema Cloudera Data Platform (CDP), el **Hadoop Distributed File System (HDFS)** no es simplemente un sistema de archivos, sino una capa de persistencia distribuida diseñada para el procesamiento masivo de datos bajo el paradigma de "Data Locality".
@@ -15,7 +17,7 @@ En el ecosistema Cloudera Data Platform (CDP), el **Hadoop Distributed File Syst
 
 La arquitectura de HDFS se basa en premisas de ingeniería que priorizan la disponibilidad y el rendimiento secuencial sobre la latencia de acceso aleatorio.
 
-:::info Principios de Ingeniería (Mantra)
+:::info[Principios de Ingeniería (Mantra)]
 *   **Smart Software, Utility Hardware:** La inteligencia reside en la capa de software, permitiendo el despliegue sobre hardware comercial (*commodity*).
 *   **Data Locality:** Es más eficiente mover el código (procesamiento) hacia los datos que viceversa.
 *   **Write-Once, Read-Many:** Optimizado para flujos de trabajo de análisis de datos persistentes.

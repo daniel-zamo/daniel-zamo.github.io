@@ -7,6 +7,8 @@ description: "Análisis profundo sobre el ciclo de vida de metadatos, umbrales d
 tags: [HDFS, Metadata, Governance, Architecture, CDP]
 ---
 
+import Admonition from '@theme/Admonition';
+
 # Gobernanza de Almacenamiento y Resiliencia de Metadatos
 
 En infraestructuras CDP de misión crítica, la gestión de HDFS trasciende el simple almacenamiento de archivos. Requiere una estrategia proactiva para mantener la integridad de los metadatos y la distribución equilibrada de los bloques de datos.
@@ -30,11 +32,11 @@ sequenceDiagram
     Note over NN: Trunca Edit Logs antiguos
 ```
 
-:::info Impacto Administrativo
+:::info[Impacto Administrativo]
 Un NameNode con Edit Logs masivos no consolidados resultará en tiempos de arranque (*Startup*) prohibitivos, afectando los acuerdos de nivel de servicio (SLA).
 :::
 
-:::warning Alerta de Operación
+:::warning[Alerta de Operación]
 Si el proceso de consolidación falla, Cloudera Manager reportará un estado de **Concerning** o **Bad** en el health check: *"The aging of the last checkpoint is... hours"*.
 :::
 
@@ -49,7 +51,7 @@ Como administradores, operamos bajo el concepto de **Capacity "Ungood"** para pr
 | 🔴 **Bad** (Crítico)| **Urgent Action:** Eliminación de datos | > 80% | Crítico |
 | 🛑 **Critical** (Fallo Inminente) | **Crisis Action:** El sistema puede entrar en modo Read-only | > 90% | Fallo Inminente |
 
-:::danger Relación 1:4
+:::danger[Relación 1:4]
 Recuerde que en producción, **1 TB de datos netos requiere 4 TB de almacenamiento bruto** (Replicación x3 + 25% overhead para logs y archivos temporales de YARN).
 :::
 

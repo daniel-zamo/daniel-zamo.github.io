@@ -5,39 +5,26 @@ const devServerPlugin = require("./src/plugins/devServer/index.js");
 module.exports = {
   title: "dz.log",
   tagline: "Documentación técnica y notas de IT",
-
-  // 1. Configuración de Identidad y Rutas (GitHub)
   url: "https://daniel-zamo.github.io",
   baseUrl: "/kb/", 
   organizationName: "daniel-zamo",
   projectName: "daniel-zamo.github.io",
   trailingSlash: true, 
-
-  // 2. Idioma Único (Español)
-  i18n: {
-    defaultLocale: "es",
-    locales: ["es"],
-  },
-
-  // Estrictos con los links para asegurar calidad de portfolio
+  i18n: { defaultLocale: "es", locales: ["es"] },
   onBrokenLinks: "throw", 
 
-  themes: [ '@docusaurus/theme-mermaid' ],
+  // Configuración de Markdown (Docusaurus 3.10)
   markdown: {
-    format: "detect",
+    format: "detect", // Detecta .md vs .mdx
     mermaid: true,
   },
 
+  themes: ['@docusaurus/theme-mermaid'],
   favicon: 'img/favicon.ico',
   future: { v4: true },
 
   themeConfig: {
-    colorMode: {
-      defaultMode: "dark",
-      respectPrefersColorScheme: false,
-      disableSwitch: false,
-    },
-
+    colorMode: { defaultMode: "dark", respectPrefersColorScheme: false, disableSwitch: false },
     announcementBar: {
       id: "announcement_it_v3",
       content: "🚀 Bienvenido a dz.log | Knowledge Engineering Hub",
@@ -45,12 +32,7 @@ module.exports = {
       textColor: "#ffffff",
       isCloseable: true,
     },
-    docs: {
-      sidebar: {
-        hideable: true,
-        autoCollapseCategories: true,
-      },
-    },
+    docs: { sidebar: { hideable: true, autoCollapseCategories: true } },
     navbar: {
       title: "dz.log", 
       logo: {
@@ -85,6 +67,10 @@ module.exports = {
           routeBasePath: "/", 
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
+          // highlight-start
+          // En Docusaurus 3.10, Admonitions se activa aquí:
+          admonitions: true, 
+          // highlight-end
         },
         blog: false,
         theme: {
@@ -110,8 +96,6 @@ module.exports = {
         explicitSearchResultPath: true,
       }),
     ],
-
-    // PLUGIN DE CARGA DE CÓDIGO FUENTE (SSOT)
     function rawLoaderPlugin(context, options) {
       return {
         name: 'raw-loader-plugin',
@@ -119,11 +103,7 @@ module.exports = {
           return {
             module: {
               rules: [
-                {
-                  // Ampliado para soportar toda la toolchain de Ansible y Scripts
-                  test: /\.(sh|ps1|txt|yml|yaml|cmd|ini|cfg)$/,
-                  type: 'asset/source',
-                },
+                { test: /\.(sh|ps1|txt|yml|yaml|cmd|ini|cfg)$/, type: 'asset/source' },
               ],
             },
           };

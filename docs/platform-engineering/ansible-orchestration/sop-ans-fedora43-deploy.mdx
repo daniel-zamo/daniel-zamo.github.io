@@ -1,0 +1,48 @@
+---
+id: sop-ans-fedora43-deploy
+title: "SOP: Despliegue de Ansible en Fedora 43"
+sidebar_label: "Instalación en Fedora 43"
+sidebar_position: 10
+description: "Guía paso a paso para la instalación de Ansible Core 2.18+ en Fedora 43 siguiendo los estándares de arquitectura."
+tags: [Ansible, Fedora, SOP, Instalación]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Despliegue del Orquestador en Fedora 43
+
+Este procedimiento describe la implementación práctica del [Estándar de Arquitectura de Nodo de Control](./std-ans-controller-arquitecture) sobre un sistema operativo Fedora 43.
+
+## 1. Instalación Base
+
+Actualizamos el sistema e instalamos el motor de orquestación:
+
+```bash
+sudo dnf update -y
+sudo dnf install -y ansible-core openssh-clients
+```
+
+## 2. Configuración de Salida (Callbacks)
+
+Para mantener la legibilidad, configuramos el formato de salida nativo en YAML dentro del archivo `ansible.cfg`:
+
+```ini
+[defaults]
+stdout_callback = default
+result_format = yaml
+interpreter_python = auto_silent
+```
+
+## 3. Validación de Conectividad
+
+Antes de operar, verifique que la identidad SSH esté configurada según el estándar definido en la [sección de seguridad de la arquitectura](./std-ans-controller-arquitecture#3-requisitos-de-infraestructura).
+
+```bash
+ansible all -m ping
+```
+
+---
+**Documentación relacionada:**  
+- [Fundamentos de la Arquitectura de Orquestación](./std-ans-controller-arquitecture.mdx)
+- [Gestión de Ciclo de Vida y Versionado](../../engineering-standards/version-control/docusaurus-visibility-lifecycle.mdx)

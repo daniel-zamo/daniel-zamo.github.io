@@ -7,6 +7,7 @@ description: "Ajuste de parámetros en HDFS/YARN y uso de Safety Valves para tun
 tags: [Tuning, Performance, YARN, HDFS, SOP]
 ---
 
+import Admonition from '@theme/Admonition';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -55,7 +56,7 @@ La optimización de YARN se centra en prevenir el **Overcommitting** de memoria 
 
 Existen parámetros avanzados que no aparecen en la búsqueda global de CM. Para estos, se utiliza el **Advanced Configuration Snippet** o "Válvula de Seguridad".
 
-:::tip Validación Forense de Snippets
+:::tip[Validación Forense de Snippets]
 El uso de Safety Valves inyecta código directamente en los archivos XML de destino (`hdfs-site.xml`, `yarn-site.xml`). Un error de sintaxis aquí puede impedir el arranque de todo el clúster.
 :::
 

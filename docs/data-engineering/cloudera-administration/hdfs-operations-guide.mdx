@@ -32,7 +32,7 @@ El comando `hdfs dfs` emula la sintaxis de Linux pero opera sobre un sistema de 
 | `cat/head` | Inspección rápida | `hdfs dfs -head /data/file.txt` |
 | `get` | Extracción | `hdfs dfs -get /hdfs/path /local/tmp/` |
 
-:::tip User Variables
+:::tip[User Variables]
 HDFS interpreta rutas relativas basándose en el directorio del usuario en `/user/$USER/`. No es necesario usar rutas absolutas si se opera dentro del propio home del clúster.
 :::
 
@@ -67,7 +67,7 @@ Ante una degradación de servicio o sospecha de corrupción, se debe ejecutar un
 
 HDFS en CDP opera en modo de Alta Disponibilidad (HA). Solo un NameNode puede procesar peticiones de escritura/lectura.
 
-:::caution Comportamiento de Standby
+:::caution[Comportamiento de Standby]
 Si al intentar navegar por el sistema de archivos recibe el error:
 
 `Operation category READ is not supported in state standby`

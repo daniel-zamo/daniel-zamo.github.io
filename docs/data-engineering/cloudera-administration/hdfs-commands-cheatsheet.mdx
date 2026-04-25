@@ -7,6 +7,8 @@ description: "Comando HDFS - Hadoop Distributed File System)."
 tags: [HDFS, Architecture, Big Data, Storage]
 ---
 
+import Admonition from '@theme/Admonition';
+
 # HDFS CLI Cheat Sheet
 
 Guía rápida de comandos para la shell de HDFS (`hdfs dfs`). Todos los comandos se invocan a través del script de shell de HDFS.
@@ -45,6 +47,6 @@ Al ejecutar `hdfs dfs -ls`, la salida muestra:
 5. **Modification Date:** Fecha y hora de la última modificación.
 6. **Name:** Ruta absoluta del archivo.
 
-:::tip Nota sobre Rutas
+:::tip[Nota sobre Rutas]
 HDFS utiliza rutas absolutas. No existe el comando `cd` en la shell de HDFS. Siempre debes referenciar la ruta completa o el sistema usará `/user/<username>` por defecto.
 :::

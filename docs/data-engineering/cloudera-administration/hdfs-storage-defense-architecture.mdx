@@ -28,7 +28,7 @@ sequenceDiagram
     SNN->>NN: Envía nuevo fsimage consolidado
 ```
 
-:::caution Importancia del RollEdits
+:::caution[Importancia del RollEdits]
 Si los Edit Logs crecen indefinidamente sin consolidarse en un `fsimage`, el tiempo de arranque del NameNode tras un fallo será prohibitivo. En CDP, el **Reports Manager** automatiza este proceso cada hora (por defecto).
 :::
 
@@ -41,7 +41,7 @@ Existen dos vectores de restricción de recursos para prevenir que un usuario o 
 | **Name Quota** | Límite de número de archivos y directorios. | `NSQuotaExceededException` |
 | **Space Quota** | Límite de bytes físicos consumidos (considerando réplicas). | `DSQuotaExceededException` |
 
-:::danger Regla de Cálculo de Espacio
+:::danger[Regla de Cálculo de Espacio]
 Si un archivo de 1GB tiene un factor de replicación de 3, la **Space Quota** debe permitir al menos 3GB de consumo. No monitorizar esto causa fallos en pipelines de ingesta.
 :::
 

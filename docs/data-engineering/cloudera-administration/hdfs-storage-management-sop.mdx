@@ -7,6 +7,7 @@ description: "Procedimientos para snapshots, políticas de retención y recupera
 tags: [Snapshots, SOP, Backup, HDFS, Recovery]
 ---
 
+import Admonition from '@theme/Admonition';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -66,7 +67,7 @@ hdfs dfsadmin -report
 
 HDFS permite la recuperación forense mediante Snapshots o el sistema de Trash.
 
-:::danger Refactorizando danger con Claude AI
+:::danger[Refactorizando danger con Claude AI]
 Si un usuario elimina accidentalmente un archivo usando `-skipTrash`, la recuperación se realiza mediante un `cp` desde el directorio oculto:
 
 ```bash
@@ -75,7 +76,7 @@ hdfs dfs -cp /user/bo_biz/.snapshot/first_snap/latin.txt /user/bo_biz/
 :::
 
 
-:::info Refactorizando info con Claude AI
+:::info[Refactorizando info con Claude AI]
 Si un usuario elimina accidentalmente un archivo usando `-skipTrash`, la recuperación se realiza mediante un `cp` desde el directorio oculto:
 
 ```bash
@@ -92,7 +93,7 @@ Para evitar la pérdida accidental de datos, el administrador debe configurar el
     - `fs.trash.interval`: Tiempo de vida de los archivos borrados (ej: 8 horas).
     - `fs.trash.checkpoint.interval`: Frecuencia con la que el NameNode crea checkpoints de la papelera.
 
-:::caution Limpieza Definitiva
+:::caution[Limpieza Definitiva]
 El uso del comando `hdfs dfs -rm -skipTrash` elude este mecanismo y elimina los bloques de datos de forma inmediata y **no recuperable** (salvo existencia de Snapshot previo).
 :::
 

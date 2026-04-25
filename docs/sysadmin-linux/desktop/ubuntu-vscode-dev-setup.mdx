@@ -9,12 +9,13 @@ tags: [Ubuntu, Mint, VSCode, DevOps]
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Admonition from '@theme/Admonition';
 
 # VS Code en Ecosistemas Ubuntu/Mint
 
 Esta guía define el **SOE (Standard Operating Environment)** para estaciones de trabajo basadas en Ubuntu 24.04 LTS. A diferencia de las versiones Debian puras, aquí mantenemos el uso de herramientas de transición como `software-properties-common` si fuera necesario, aunque priorizamos la limpieza del `keyring`.
 
-:::danger Restricción de Aislamiento
+:::danger[Restricción de Aislamiento]
 **No instalar vía Flatpak o Snap.** El sandbox impide que VS Code detecte correctamente los binarios de `nvm`, `kubectl` y el agente `ssh-agent` del host, críticos para el workflow de ingeniería.
 :::
 

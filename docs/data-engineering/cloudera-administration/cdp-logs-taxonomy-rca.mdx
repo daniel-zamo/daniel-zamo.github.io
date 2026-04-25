@@ -7,11 +7,13 @@ description: "Gestión forense de registros y metodologías de troubleshooting e
 tags: [Troubleshooting, Logs, RCA, CDP]
 ---
 
+import Admonition from '@theme/Admonition';
+
 # Taxonomía y Metodologías de Inspección de Logs en Cloudera Data Platform (CDP)
 
 En la arquitectura de **Cloudera Data Platform (CDP)**, la gestión y el análisis de registros (logs) constituyen la infraestructura crítica para la observabilidad. El presente reporte establece el marco teórico y procedimental para la inspección forense de logs.
 
-:::info Fuente Técnica
+:::info[Fuente Técnica]
 Contenido educido del módulo **ADMIN-230: Administrating Cloudera Data Platform**, orientado a la certificación de administrador.
 :::
 
@@ -29,7 +31,7 @@ La telemetría en CDP se organiza en categorías fundamentales, cada una cumplie
 | **Service Daemons** | Roles críticos | Visibilidad interna de NameNode, ResourceManager, etc. |
 | **Application Logs** | Capa de Usuario | Logs activos en Web UI e históricos persistidos en HDFS. |
 
-:::tip Diferencia Crítica: .log vs .out
+:::tip[Diferencia Crítica: .log vs .out]
 Los archivos **.out** capturan la salida estándar durante el arranque y son truncados. Si un servicio falla al iniciar y no llega a escribir en el `.log`, el archivo `.out` es su única fuente de verdad.
 :::
 
