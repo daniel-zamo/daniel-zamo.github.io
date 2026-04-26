@@ -3,8 +3,8 @@ id: sop-ans-fedora43-deploy
 title: "SOP: Despliegue de Ansible en Fedora 43"
 sidebar_label: "Instalación en Fedora 43"
 sidebar_position: 10
-description: "Guía paso a paso para la instalación de Ansible Core 2.18+ en Fedora 43 siguiendo los estándares de arquitectura."
-tags: [Ansible, Fedora, SOP, Instalación]
+description: "Guía paso a paso para la instalación de Ansible Core 2.18+ en Fedora 43 siguiendo los estándares de arquitectura, incluyendo gestión de nodos híbridos."
+tags: [Ansible, Fedora, SOP, Instalación, Troubleshooting]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,29 +12,86 @@ import TabItem from '@theme/TabItem';
 
 # Despliegue del Orquestador en Fedora 43
 
-Este procedimiento describe la implementación práctica del [Estándar de Arquitectura de Nodo de Control](./std-ans-controller-arquitecture.mdx) sobre un sistema operativo Fedora 43.
+Este procedimiento describe la implementación práctica del [Estándar de Arquitectura de Nodo de Control](./std-ans-controller-arquitecture.mdx) sobre un sistema operativo Fedora 43, incorporando las mejores prácticas para la gestión de infraestructuras híbridas (nodos modernos y legados).
 
 ## 1. Instalación Base
 
-Actualizamos el sistema e instalamos el motor de orquestación:
+En Fedora 43, el gestor de paquetes por defecto es DNF5. Podemos optar por una instalación minimalista (`ansible-core`) o la suite completa con colecciones comunitarias incluidas.
 
-```bash
-sudo dnf update -y
-sudo dnf install -y ansible-core openssh-clients
-```
+<Tabs>
+  <TabItem value="core" label="Ansible Core (Recomendado para CI/CD)">
+    Instala solo el motor de ejecución básico. Ideal para entornos controlados donde las dependencias se gestionan por proyecto.
 
-## 2. Configuración de Salida (Callbacks)
+    ```bash
+    sudo dnf update -y
+    sudo dnf install -y ansible-core openssh-clients
+    ```
+  </TabItem>
+  <TabItem value="full" label="Ansible Full (Recomendado para SysAdmins)">
+    Instala el motor y un set masivo de colecciones soportadas por la comunidad (incluye callbacks avanzados como `yaml`).
 
-Para mantener la legibilidad, configuramos el formato de salida nativo en YAML dentro del archivo `ansible.cfg`:
+    ```bash
+    sudo dnf update -y
+    sudo dnf install -y ansible openssh-clients
+    ```
+  </TabItem>
+</Tabs>
 
-```ini
+## 2. Configuración de la Salida y Optimización
+
+Para mantener la legibilidad de las ejecuciones y evitar fallos de interpretación de datos en infraestructuras mixtas, configure el archivo `ansible.cfg` en la raíz de su proyecto:
+
+```ini title="ansible.cfg"
 [defaults]
-stdout_callback = default
+# Configuración de salida limpia en formato YAML
+stdout_callback     = default
+interpreter_python  = auto_silent
+host_key_checking   = False
+
+[callback_default]
 result_format = yaml
-interpreter_python = auto_silent
+
+[ssh_connection]
+# CRÍTICO: Evita que scripts interactivos de login (.bashrc) ensucien el retorno JSON
+pipelining = True
+ssh_args = -o ControlMaster=auto -o ControlPersist=60s -o LogLevel=ERROR
 ```
 
-## 3. Validación de Conectividad
+## 3. Gestión de Entornos Híbridos (Legados)
+
+Uno de los mayores desafíos al usar Fedora 43 (con Python 3.12+) como nodo de control es la gestión de sistemas operativos antiguos como RHEL/CentOS 7 u 8 (que dependen de Python 3.6 o 3.9).
+
+Para evitar errores de sintaxis (`SyntaxError: future feature annotations is not defined`) o fallos en el módulo `dnf`, siga estas directrices en su inventario:
+
+```ini title="inventory/hosts.ini"
+[nodos_modernos]
+srv-prod-01 ansible_host=10.0.0.10
+
+# Para nodos Legacy que no soportan la sintaxis nativa de Ansible moderno en Python 3.6
+[nodos_legacy]
+srv-old-01 ansible_host=10.0.0.20 ansible_python_interpreter=/usr/bin/python3.9
+```
+
+:::warning Bypass para DNF en Sistemas EOL
+Si gestiona sistemas RHEL/CentOS 8 con Python 3.9, el módulo nativo `dnf` de Ansible fallará al no encontrar las librerías de sistema. En estos casos se estandariza el uso del módulo `shell` apuntando al binario nativo:
+```yaml
+- name: Instalar paquetes en nodo legado (Bypass)
+  shell: "dnf install -y nginx"
+  become: yes
+```
+:::
+
+## 4. Resolución de Problemas Frecuentes
+
+### Error: `Module invocation had junk after the JSON data`
+* **Causa:** El nodo remoto tiene un prompt de colores o un mensaje de MOTD que escribe en la sesión SSH antes de que Ansible ejecute el módulo.
+* **Solución:** Asegúrese de tener activado `pipelining = True` en la sección `[ssh_connection]` de su `ansible.cfg`.
+
+### Error: `Invalid callback for stdout specified: yaml`
+* **Causa:** Está utilizando `ansible-core` y el plugin `yaml` no está instalado en las colecciones del sistema.
+* **Solución:** Cambie `stdout_callback = default` y utilice la sección `[callback_default]` con `result_format = yaml` como se describe en la Sección 2.
+
+## 5. Validación de Conectividad
 
 Antes de operar, verifique que la identidad SSH esté configurada según el estándar definido en la [sección de seguridad de la arquitectura](./std-ans-controller-arquitecture.mdx#3-requisitos-de-infraestructura).
 
